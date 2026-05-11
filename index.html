@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart Things PT — Catálogo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      :root {
+        --bg: #0a0a0a;
+        --bg2: #111111;
+        --bg3: #1a1a1a;
+        --border: rgba(255, 255, 255, 0.08);
+        --border-hover: rgba(255, 255, 255, 0.18);
+        --text: #f0f0f0;
+        --text2: #888;
+        --text3: #555;
+        --accent: #e8ff47;
+        --accent2: #c8e820;
+        --accent-dark: #1a1f00;
+        --radius: 16px;
+        --radius-sm: 8px;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background: var(--bg);
+        color: var(--text);
+        font-family: "DM Sans", sans-serif;
+        font-size: 16px;
+        line-height: 1.6;
+        min-height: 100vh;
+      }
+
+      /* NAV */
+      nav {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: rgba(10, 10, 10, 0.85);
+        backdrop-filter: blur(16px);
+        border-bottom: 1px solid var(--border);
+        padding: 0 max(24px, 5vw);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 64px;
+      }
+      .logo {
+        font-family: "Syne", sans-serif;
+        font-weight: 800;
+        font-size: 20px;
+        color: var(--text);
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .logo span {
+        color: var(--accent);
+      }
+      .nav-contact {
+        background: var(--accent);
+        color: #0a0a0a;
+        border: none;
+        border-radius: 100px;
+        padding: 10px 22px;
+        font-family: "DM Sans", sans-serif;
+        font-size: 14px;
+        font-weight: 500;
+        cursor: pointer;
+        text-decoration: none;
+        transition:
+          background 0.2s,
+          transform 0.15s;
+        white-space: nowrap;
+      }
+      .nav-contact:hover {
+        background: var(--accent2);
+        transform: scale(1.03);
+      }
+
+      /* HERO */
+      .hero {
+        padding: max(60px, 8vh) max(24px, 5vw) 48px;
+        max-width: 960px;
+        margin: 0 auto;
+      }
+      .hero-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: var(--bg3);
+        border: 1px solid var(--border);
+        border-radius: 100px;
+        padding: 6px 14px;
+        font-size: 13px;
+        color: var(--text2);
+        margin-bottom: 28px;
+      }
+      .hero-tag span {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--accent);
+        display: inline-block;
+        animation: pulse 2s infinite;
+      }
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.3;
+        }
+      }
+      .hero h1 {
+        font-family: "Syne", sans-serif;
+        font-weight: 800;
+        font-size: clamp(36px, 6vw, 72px);
+        line-height: 1.05;
+        letter-spacing: -0.03em;
+        margin-bottom: 20px;
+      }
+      .hero h1 em {
+        color: var(--accent);
+        font-style: normal;
+      }
+      .hero p {
+        font-size: 18px;
+        color: var(--text2);
+        max-width: 480px;
+        line-height: 1.6;
+        margin-bottom: 32px;
+      }
+      .hero-actions {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+      .btn-primary {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: var(--accent);
+        color: #0a0a0a;
+        border: none;
+        border-radius: 100px;
+        padding: 14px 28px;
+        font-family: "DM Sans", sans-serif;
+        font-size: 15px;
+        font-weight: 500;
+        cursor: pointer;
+        text-decoration: none;
+        transition:
+          background 0.2s,
+          transform 0.15s;
+      }
+      .btn-primary:hover {
+        background: var(--accent2);
+        transform: scale(1.03);
+      }
+      .btn-secondary {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: transparent;
+        color: var(--text);
+        border: 1px solid var(--border);
+        border-radius: 100px;
+        padding: 14px 28px;
+        font-family: "DM Sans", sans-serif;
+        font-size: 15px;
+        font-weight: 400;
+        cursor: pointer;
+        text-decoration: none;
+        transition:
+          border-color 0.2s,
+          background 0.2s;
+      }
+      .btn-secondary:hover {
+        border-color: var(--border-hover);
+        background: var(--bg3);
+      }
+
+      /* STATS */
+      .stats {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 0 max(24px, 5vw) 64px;
+        display: flex;
+        gap: 0;
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        overflow: hidden;
+        background: var(--bg2);
+      }
+      .stat {
+        flex: 1;
+        padding: 28px 32px;
+        border-right: 1px solid var(--border);
+      }
+      .stat:last-child {
+        border-right: none;
+      }
+      .stat-num {
+        font-family: "Syne", sans-serif;
+        font-weight: 800;
+        font-size: 32px;
+        color: var(--accent);
+        line-height: 1;
+        margin-bottom: 4px;
+      }
+      .stat-label {
+        font-size: 13px;
+        color: var(--text3);
+      }
+
+      /* FILTER */
+      .section-header {
+        max-width: 960px;
+        margin: 64px auto 0;
+        padding: 0 max(24px, 5vw) 24px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 16px;
+      }
+      .section-title {
+        font-family: "Syne", sans-serif;
+        font-weight: 700;
+        font-size: 24px;
+      }
+      .filters {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+      .filter-btn {
+        background: var(--bg3);
+        border: 1px solid var(--border);
+        color: var(--text2);
+        border-radius: 100px;
+        padding: 8px 18px;
+        font-family: "DM Sans", sans-serif;
+        font-size: 13px;
+        cursor: pointer;
+        transition: all 0.15s;
+      }
+      .filter-btn:hover,
+      .filter-btn.active {
+        background: var(--accent);
+        color: #0a0a0a;
+        border-color: var(--accent);
+      }
+
+      /* GRID */
+      .products-grid {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 0 max(24px, 5vw) 80px;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+        gap: 16px;
+      }
+
+      .card {
+        background: var(--bg2);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        overflow: hidden;
+        transition:
+          border-color 0.2s,
+          transform 0.2s;
+        cursor: default;
+        display: flex;
+        flex-direction: column;
+      }
+      .card:hover {
+        border-color: var(--border-hover);
+        transform: translateY(-2px);
+      }
+      .card-img {
+        aspect-ratio: 4/3;
+        background: var(--bg3);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 64px;
+        position: relative;
+        overflow: hidden;
+      }
+      .card-badge {
+        position: absolute;
+        top: 12px;
+        left: 12px;
+        background: var(--accent);
+        color: #0a0a0a;
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: 0.04em;
+        border-radius: 100px;
+        padding: 4px 10px;
+        text-transform: uppercase;
+      }
+      .card-badge.sold {
+        background: var(--bg3);
+        color: var(--text3);
+        border: 1px solid var(--border);
+      }
+      .card-body {
+        padding: 20px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+      .card-cat {
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--text3);
+        margin-bottom: 6px;
+      }
+      .card-name {
+        font-family: "Syne", sans-serif;
+        font-weight: 600;
+        font-size: 17px;
+        line-height: 1.3;
+        margin-bottom: 8px;
+        color: var(--text);
+      }
+      .card-desc {
+        font-size: 13px;
+        color: var(--text2);
+        line-height: 1.5;
+        margin-bottom: 16px;
+        flex: 1;
+      }
+      .card-footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-top: 1px solid var(--border);
+        padding-top: 16px;
+        margin-top: auto;
+      }
+      .card-price {
+        font-family: "Syne", sans-serif;
+        font-weight: 700;
+        font-size: 20px;
+        color: var(--text);
+      }
+      .card-price .old {
+        font-size: 13px;
+        color: var(--text3);
+        text-decoration: line-through;
+        font-weight: 400;
+        margin-right: 4px;
+      }
+      .card-btn {
+        background: var(--accent);
+        color: #0a0a0a;
+        border: none;
+        border-radius: 100px;
+        padding: 9px 18px;
+        font-family: "DM Sans", sans-serif;
+        font-size: 13px;
+        font-weight: 500;
+        cursor: pointer;
+        text-decoration: none;
+        transition:
+          background 0.15s,
+          transform 0.1s;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .card-btn:hover {
+        background: var(--accent2);
+        transform: scale(1.04);
+      }
+      .card-btn.sold-btn {
+        background: var(--bg3);
+        color: var(--text3);
+        cursor: default;
+        pointer-events: none;
+      }
+
+      /* CTA BANNER */
+      .cta-banner {
+        max-width: 960px;
+        margin: 0 auto 80px;
+        padding: 0 max(24px, 5vw);
+      }
+      .cta-inner {
+        background: var(--accent);
+        border-radius: 24px;
+        padding: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        flex-wrap: wrap;
+      }
+      .cta-inner h2 {
+        font-family: "Syne", sans-serif;
+        font-weight: 800;
+        font-size: clamp(22px, 4vw, 36px);
+        color: #0a0a0a;
+        line-height: 1.15;
+        max-width: 400px;
+      }
+      .cta-inner h2 small {
+        display: block;
+        font-weight: 400;
+        font-size: 0.55em;
+        color: #444;
+        margin-top: 6px;
+        font-family: "DM Sans", sans-serif;
+      }
+      .cta-btns {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+      .cta-wa {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: #0a0a0a;
+        color: #f0f0f0;
+        border-radius: 100px;
+        padding: 14px 28px;
+        font-family: "DM Sans", sans-serif;
+        font-size: 15px;
+        font-weight: 500;
+        text-decoration: none;
+        transition:
+          background 0.2s,
+          transform 0.15s;
+      }
+      .cta-wa:hover {
+        background: #1a1a1a;
+        transform: scale(1.03);
+      }
+      .cta-email {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(0, 0, 0, 0.12);
+        color: #0a0a0a;
+        border-radius: 100px;
+        padding: 14px 28px;
+        font-family: "DM Sans", sans-serif;
+        font-size: 15px;
+        font-weight: 500;
+        text-decoration: none;
+        transition: background 0.2s;
+      }
+      .cta-email:hover {
+        background: rgba(0, 0, 0, 0.2);
+      }
+
+      /* FOOTER */
+      footer {
+        border-top: 1px solid var(--border);
+        padding: 32px max(24px, 5vw);
+        max-width: 960px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+      footer .logo {
+        font-size: 16px;
+      }
+      footer p {
+        font-size: 13px;
+        color: var(--text3);
+      }
+
+      /* RESPONSIVE */
+      @media (max-width: 600px) {
+        .stats {
+          flex-direction: column;
+        }
+        .stat {
+          border-right: none;
+          border-bottom: 1px solid var(--border);
+        }
+        .stat:last-child {
+          border-bottom: none;
+        }
+        .cta-inner {
+          padding: 32px 24px;
+        }
+        footer {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      }
+
+      /* HIDDEN */
+      .card[data-hidden="true"] {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a href="#" class="logo">Smart <span>Things</span> PT</a>
+      <a href="#contacto" class="nav-contact">Entrar em contacto</a>
+    </nav>
+
+    <section class="hero">
+      <div class="hero-tag"><span></span> Catálogo atualizado</div>
+      <h1>Produtos a preços<br /><em>imbatíveis.</em></h1>
+      <p>
+        Tecnologia, acessórios e muito mais. Produtos selecionados, enviados
+        para todo o país.
+      </p>
+      <div class="hero-actions">
+        <a href="#produtos" class="btn-primary">Ver catálogo ↓</a>
+        <a
+          href="https://wa.me/351927515217?text=Olá!%20Vi%20o%20catálogo%20e%20tenho%20interesse."
+          target="_blank"
+          class="btn-secondary"
+          >💬 WhatsApp</a
+        >
+      </div>
+    </section>
+
+    <div class="stats">
+      <div class="stat">
+        <div class="stat-num">50+</div>
+        <div class="stat-label">Produtos disponíveis</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">48h</div>
+        <div class="stat-label">Envio rápido</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">5★</div>
+        <div class="stat-label">Avaliação dos clientes</div>
+      </div>
+    </div>
+
+    <div class="section-header" id="produtos">
+      <span class="section-title">Catálogo</span>
+      <div class="filters">
+        <button class="filter-btn active" onclick="filter('todos', this)">
+          Todos
+        </button>
+        <button class="filter-btn" onclick="filter('tecnologia', this)">
+          Tecnologia
+        </button>
+        <button class="filter-btn" onclick="filter('casa', this)">Casa</button>
+        <button class="filter-btn" onclick="filter('acessorios', this)">
+          Acessórios
+        </button>
+        <button class="filter-btn" onclick="filter('gaming', this)">
+          Gaming
+        </button>
+      </div>
+    </div>
+
+    <div class="products-grid" id="grid">
+      <!-- PRODUTO 1 -->
+      <div class="card" data-cat="tecnologia">
+        <div class="card-img">
+          📱
+          <span class="card-badge">Novo</span>
+        </div>
+        <div class="card-body">
+          <div class="card-cat">Tecnologia</div>
+          <div class="card-name">Smartphone Reacondicionado</div>
+          <div class="card-desc">
+            Excelente estado. Bateria >85%. Inclui carregador e caixa original.
+          </div>
+          <div class="card-footer">
+            <div class="card-price"><span class="old">250€</span> 189€</div>
+            <a
+              href="https://wa.me/351XXXXXXXXX?text=Olá!%20Tenho%20interesse%20no%20Smartphone%20Reacondicionado."
+              target="_blank"
+              class="card-btn"
+              >Quero este →</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- PRODUTO 2 -->
+      <div class="card" data-cat="tecnologia">
+        <div class="card-img">
+          💻
+          <span class="card-badge">Destaque</span>
+        </div>
+        <div class="card-body">
+          <div class="card-cat">Tecnologia</div>
+          <div class="card-name">Tablet 10" Android</div>
+          <div class="card-desc">
+            128GB armazenamento, Wi-Fi 6, ecrã Full HD. Ideal para trabalho e
+            lazer.
+          </div>
+          <div class="card-footer">
+            <div class="card-price">149€</div>
+            <a
+              href="https://wa.me/351XXXXXXXXX?text=Olá!%20Tenho%20interesse%20no%20Tablet%2010%22%20Android."
+              target="_blank"
+              class="card-btn"
+              >Quero este →</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- PRODUTO 3 -->
+      <div class="card" data-cat="acessorios">
+        <div class="card-img">🎧</div>
+        <div class="card-body">
+          <div class="card-cat">Acessórios</div>
+          <div class="card-name">Auriculares Bluetooth</div>
+          <div class="card-desc">
+            Cancelamento de ruído ativo, 30h bateria, qualidade de som premium.
+          </div>
+          <div class="card-footer">
+            <div class="card-price"><span class="old">79€</span> 49€</div>
+            <a
+              href="https://wa.me/351XXXXXXXXX?text=Olá!%20Tenho%20interesse%20nos%20Auriculares%20Bluetooth."
+              target="_blank"
+              class="card-btn"
+              >Quero este →</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- PRODUTO 4 -->
+      <div class="card" data-cat="casa">
+        <div class="card-img">
+          💡
+          <span class="card-badge">Popular</span>
+        </div>
+        <div class="card-body">
+          <div class="card-cat">Casa</div>
+          <div class="card-name">Kit Lâmpadas Smart RGB</div>
+          <div class="card-desc">
+            Controlo por app ou voz. Pack de 4 lâmpadas E27, compatível com
+            Alexa e Google Home.
+          </div>
+          <div class="card-footer">
+            <div class="card-price">34€</div>
+            <a
+              href="https://wa.me/351XXXXXXXXX?text=Olá!%20Tenho%20interesse%20no%20Kit%20L%C3%A2mpadas%20Smart%20RGB."
+              target="_blank"
+              class="card-btn"
+              >Quero este →</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- PRODUTO 5 -->
+      <div class="card" data-cat="gaming">
+        <div class="card-img">🎮</div>
+        <div class="card-body">
+          <div class="card-cat">Gaming</div>
+          <div class="card-name">Comando Wireless Pro</div>
+          <div class="card-desc">
+            Compatível com PC e consolas. Vibração háptica, 20h bateria, cabo
+            USB-C incluído.
+          </div>
+          <div class="card-footer">
+            <div class="card-price">45€</div>
+            <a
+              href="https://wa.me/351XXXXXXXXX?text=Olá!%20Tenho%20interesse%20no%20Comando%20Wireless%20Pro."
+              target="_blank"
+              class="card-btn"
+              >Quero este →</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- PRODUTO 6 -->
+      <div class="card" data-cat="acessorios">
+        <div class="card-img">⌚</div>
+        <div class="card-body">
+          <div class="card-cat">Acessórios</div>
+          <div class="card-name">Smartwatch Sport</div>
+          <div class="card-desc">
+            GPS integrado, monitor cardíaco, resistente a água 50m. Bateria 7
+            dias.
+          </div>
+          <div class="card-footer">
+            <div class="card-price"><span class="old">120€</span> 85€</div>
+            <a
+              href="https://wa.me/351XXXXXXXXX?text=Olá!%20Tenho%20interesse%20no%20Smartwatch%20Sport."
+              target="_blank"
+              class="card-btn"
+              >Quero este →</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- PRODUTO 7 (Vendido) -->
+      <div class="card" data-cat="casa">
+        <div class="card-img" style="opacity: 0.5">
+          🔒
+          <span class="card-badge sold">Vendido</span>
+        </div>
+        <div class="card-body">
+          <div class="card-cat">Casa</div>
+          <div class="card-name">Fechadura Inteligente</div>
+          <div class="card-desc">
+            Abertura por app, digital ou chave. Registo de acessos em tempo
+            real.
+          </div>
+          <div class="card-footer">
+            <div class="card-price" style="color: var(--text3)">89€</div>
+            <span class="card-btn sold-btn">Esgotado</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- PRODUTO 8 -->
+      <div class="card" data-cat="tecnologia">
+        <div class="card-img">
+          🔋
+          <span class="card-badge">Novo</span>
+        </div>
+        <div class="card-body">
+          <div class="card-cat">Tecnologia</div>
+          <div class="card-name">Power Bank 20000mAh</div>
+          <div class="card-desc">
+            Carga rápida 65W, 3 portas USB-C + USB-A. Carrega portátil e
+            telemóvel em simultâneo.
+          </div>
+          <div class="card-footer">
+            <div class="card-price">38€</div>
+            <a
+              href="https://wa.me/351927515217text=Olá!%20Tenho%20interesse%20no%20Power%20Bank%2020000mAh."
+              target="_blank"
+              class="card-btn"
+              >Quero este →</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cta-banner" id="contacto">
+      <div class="cta-inner">
+        <h2>
+          Não encontraste o que procuras?
+          <small>Fala connosco — temos muito mais stock disponível.</small>
+        </h2>
+        <div class="cta-btns">
+          <a
+            href="https://wa.me/351927515217?text=Olá!%20Gostava%20de%20saber%20mais%20sobre%20os%20vossos%20produtos."
+            target="_blank"
+            class="cta-wa"
+            >💬 WhatsApp</a
+          >
+          <a href="smartthingspt@gmail.com" class="cta-email">✉ Email</a>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <a href="#" class="logo">Smart <span>Things</span> PT</a>
+      <p>© 2025 Smart Things PT · Feito com ♥ em Portugal</p>
+    </footer>
+
+    <script>
+      function filter(cat, btn) {
+        document
+          .querySelectorAll(".filter-btn")
+          .forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
+        document.querySelectorAll(".card").forEach((card) => {
+          if (cat === "todos" || card.dataset.cat === cat) {
+            card.removeAttribute("data-hidden");
+          } else {
+            card.setAttribute("data-hidden", "true");
+          }
+        });
+      }
+    </script>
+  </body>
+</html>
