@@ -91,7 +91,6 @@
         display: none;
       }
 
-      /* GRID E CARTÕES */
       .products-grid {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -108,10 +107,9 @@
         height: 100%;
       }
 
-      /* AQUI ESTÁ O SEGREDO DO TAMANHO DAS FOTOS */
       .card-img {
         width: 100%;
-        height: 280px; /* Altura fixa para todos os produtos */
+        height: 280px;
         background: #fff;
         display: flex;
         align-items: center;
@@ -121,8 +119,8 @@
       .card-img img {
         width: 100%;
         height: 100%;
-        object-fit: contain; /* 'contain' para não cortar o ténis, 'cover' se quiseres que preencha tudo */
-        padding: 10px; /* Margem de segurança para o ténis não tocar nas bordas */
+        object-fit: contain;
+        padding: 10px;
       }
 
       .card-body {
@@ -214,19 +212,42 @@
       const produtos = {
         Eletrónicos: [
           {
-            nome: "Coluna Marshal",
-            preco: "50€",
-            desc: "Ótima qualidade",
-            img: "imagens/eletronicos/colunas/marshal/Modelo1.jpg",
-            img: "imagens/eletronicos/colunas/marshal/Modelo2.jpg",
+            nome: "Power Bank 20000mAh",
+            preco: "25€",
+            desc: "Carga rápida USB-C",
+            img: "todas/photo_91_2026-05-17_19-17-10.jpg",
           },
         ],
         Roupas: [
           {
+            nome: "Meias Ralph Lauren (6 Pack)",
+            preco: "20€",
+            desc: "Algodão macio, pack com 6 pares",
+            img: "todas/photo_94_2026-05-17_19-17-10.jpg",
+          },
+          {
+            nome: "Short de Banho Ralph Lauren",
+            preco: "15€",
+            desc: "Secagem rápida com logo bordado",
+            img: "todas/photo_93_2026-05-17_19-17-10.jpg",
+          },
+          {
+            nome: "Conjunto Alo Yoga Luxury",
+            preco: "18€",
+            desc: "Conforto premium para treino ou lazer",
+            img: "todas/photo_95_2026-05-17_19-17-10.jpg",
+          },
+          {
+            nome: "Conjunto Fato de Treino Premium",
+            preco: "35€",
+            desc: "Casaco com capuz e calças completas",
+            img: "todas/photo_96_2026-05-17_19-17-10.jpg",
+          },
+          {
             nome: "T-Shirt Oversized Black",
             preco: "20€",
             desc: "100% Algodão Premium",
-            img: "imagens/tshirt.jpg",
+            img: "todas/tshirt.jpg",
           },
         ],
         Sneakers: {
@@ -236,67 +257,378 @@
               variacoes: [
                 {
                   id: "Modelo 1",
-                  img: "imagens/shoes/adidas/spezial/Modelo1.jpg",
+                  img: "todas/photo_81_2026-05-17_19-17-10.jpg",
                 },
                 {
                   id: "Modelo 2",
-                  img: "imagens/shoes/adidas/spezial/Modelo2.jpg",
+                  img: "todas/photo_82_2026-05-17_19-17-10.jpg",
                 },
                 {
                   id: "Modelo 3",
-                  img: "imagens/shoes/adidas/spezial/Modelo3.jpg",
+                  img: "todas/photo_83_2026-05-17_19-17-10.jpg",
                 },
                 {
                   id: "Modelo 4",
-                  img: "imagens/shoes/adidas/spezial/Modelo4.jpg",
+                  img: "todas/photo_84_2026-05-17_19-17-10.jpg",
                 },
                 {
                   id: "Modelo 5",
-                  img: "imagens/shoes/adidas/spezial/Modelo5.jpg",
+                  img: "todas/photo_85_2026-05-17_19-17-10.jpg",
                 },
                 {
                   id: "Modelo 6",
-                  img: "imagens/shoes/adidas/spezial/Modelo6.jpg",
+                  img: "todas/photo_75_2026-05-17_19-17-10.jpg",
+                },
+                {
+                  id: "Modelo 7",
+                  img: "todas/photo_76_2026-05-17_19-17-10.jpg",
+                },
+                {
+                  id: "Modelo 8",
+                  img: "todas/photo_66_2026-05-17_19-17-10.jpg",
+                },
+                {
+                  id: "Modelo 9",
+                  img: "todas/photo_45_2026-05-17_19-17-10.jpg",
                 },
               ],
             },
-            forum: {
+            Campus: {
               tamanhos: ["36", "37", "38", "39", "40", "41", "42", "43", "44"],
               variacoes: [
                 {
                   id: "Modelo 1",
-                  img: "imagens/shoes/adidas/forumm/Modelo1.jpg",
+                  img: "todas/photo_86_2026-05-17_19-17-10.jpg",
                 },
                 {
                   id: "Modelo 2",
-                  img: "imagens/shoes/adidas/forumm/Modelo2.jpg",
+                  img: "todas/photo_87_2026-05-17_19-17-10.jpg",
                 },
                 {
                   id: "Modelo 3",
-                  img: "imagens/shoes/adidas/forumm/Modelo3.jpg",
+                  img: "todas/photo_88_2026-05-17_19-17-10.jpg",
                 },
                 {
                   id: "Modelo 4",
-                  img: "imagens/shoes/adidas/forumm/Modelo4.jpg",
+                  img: "todas/photo_74_2026-05-17_19-17-10.jpg",
                 },
                 {
                   id: "Modelo 5",
-                  img: "imagens/shoes/adidas/forumm/Modelo5.jpg",
+                  img: "todas/photo_65_2026-05-17_19-17-10.jpg",
                 },
                 {
                   id: "Modelo 6",
-                  img: "imagens/shoes/adidas/forumm/Modelo6.jpg",
+                  img: "todas/photo_52_2026-05-17_19-17-10.jpg",
+                },
+                {
+                  id: "Modelo 7",
+                  img: "todas/photo_53_2026-05-17_19-17-10.jpg",
+                },
+                {
+                  id: "Modelo 8",
+                  img: "todas/photo_44_2026-05-17_19-17-10.jpg",
+                },
+                {
+                  id: "Modelo 9",
+                  img: "todas/photo_31_2026-05-17_19-17-10.jpg",
+                },
+              ],
+            },
+            Samba: {
+              tamanhos: ["36", "37", "38", "39", "40", "41", "42", "43", "44"],
+              variacoes: [
+                {
+                  id: "Modelo 1",
+                  img: "todas/photo_71_2026-05-17_19-17-10.jpg",
+                },
+                {
+                  id: "Modelo 2",
+                  img: "todas/photo_72_2026-05-17_19-17-10.jpg",
+                },
+                {
+                  id: "Modelo 3",
+                  img: "todas/photo_73_2026-05-17_19-17-10.jpg",
+                },
+                {
+                  id: "Modelo 4",
+                  img: "todas/photo_67_2026-05-17_19-17-10.jpg",
+                },
+                {
+                  id: "Modelo 5",
+                  img: "todas/photo_51_2026-05-17_19-17-10.jpg",
+                },
+                {
+                  id: "Modelo 6",
+                  img: "todas/photo_30_2026-05-17_19-17-10.jpg",
+                },
+              ],
+            },
+            "Yeezy Slide": {
+              tamanhos: [
+                "36",
+                "37",
+                "38",
+                "39",
+                "40",
+                "41",
+                "42",
+                "43",
+                "44",
+                "45",
+                "46",
+              ],
+              variacoes: [
+                {
+                  id: "Modelo 1",
+                  img: "todas/photo_59_2026-05-17_19-17-10.jpg",
+                },
+                {
+                  id: "Modelo 2",
+                  img: "todas/photo_60_2026-05-17_19-17-10.jpg",
                 },
               ],
             },
           },
           Nike: {
-            "Air Force 1 x Supreme": {
-              tamanhos: ["36", "38", "40", "42", "44"],
+            "Air Force 1": {
+              tamanhos: ["36", "37", "38", "39", "40", "41", "42", "43", "44"],
               variacoes: [
                 {
                   id: "Modelo 1",
-                  img: "imagens/nike/airforce1/AirForce1xSupreme.jpg",
+                  img: "todas/photo_79_2026-05-17_19-17-10.jpg",
+                },
+                {
+                  id: "Modelo 2",
+                  img: "todas/photo_80_2026-05-17_19-17-10.jpg",
+                },
+                {
+                  id: "Modelo 3",
+                  img: "todas/photo_63_2026-05-17_19-17-10.jpg",
+                },
+                {
+                  id: "Modelo 4",
+                  img: "todas/photo_49_2026-05-17_19-17-10.jpg",
+                },
+                {
+                  id: "Modelo 5",
+                  img: "todas/photo_50_2026-05-17_19-17-10.jpg",
+                },
+                {
+                  id: "Modelo 6",
+                  img: "todas/photo_54_2026-05-17_19-17-10.jpg",
+                },
+                {
+                  id: "Modelo 7",
+                  img: "todas/photo_55_2026-05-17_19-17-10.jpg",
+                },
+                {
+                  id: "Modelo 8",
+                  img: "todas/photo_56_2026-05-17_19-17-10.jpg",
+                },
+                {
+                  id: "Modelo 9",
+                  img: "todas/photo_57_2026-05-17_19-17-10.jpg",
+                },
+                {
+                  id: "Modelo 10",
+                  img: "todas/photo_43_2026-05-17_19-17-10.jpg",
+                },
+                {
+                  id: "Modelo 11",
+                  img: "todas/photo_32_2026-05-17_19-17-10.jpg",
+                },
+                {
+                  id: "Modelo 12",
+                  img: "todas/photo_33_2026-05-17_19-17-10.jpg",
+                },
+              ],
+            },
+            "Dunk Low": {
+              tamanhos: [
+                "36",
+                "37",
+                "38",
+                "39",
+                "40",
+                "41",
+                "42",
+                "43",
+                "44",
+                "45",
+              ],
+              variacoes: [
+                {
+                  id: "Modelo 1",
+                  img: "todas/photo_39_2026-05-17_19-17-10.jpg",
+                },
+                {
+                  id: "Modelo 2",
+                  img: "todas/photo_40_2026-05-17_19-17-10.jpg",
+                },
+                {
+                  id: "Modelo 3",
+                  img: "todas/photo_41_2026-05-17_19-17-10.jpg",
+                },
+                {
+                  id: "Modelo 4",
+                  img: "todas/photo_42_2026-05-17_19-17-10.jpg",
+                },
+              ],
+            },
+            "Dunk Low Disrupt": {
+              tamanhos: ["36", "37", "38", "39", "40", "41", "42"],
+              variacoes: [
+                {
+                  id: "Modelo 1",
+                  img: "todas/photo_34_2026-05-17_19-17-10.jpg",
+                },
+                {
+                  id: "Modelo 2",
+                  img: "todas/photo_35_2026-05-17_19-17-10.jpg",
+                },
+              ],
+            },
+            "Mind New Line": {
+              tamanhos: ["36", "37", "38", "39", "40", "41", "42", "43", "44"],
+              variacoes: [
+                {
+                  id: "Modelo 1",
+                  img: "todas/photo_89_2026-05-17_19-17-10.jpg",
+                },
+                {
+                  id: "Modelo 2",
+                  img: "todas/photo_90_2026-05-17_19-17-10.jpg",
+                },
+              ],
+            },
+            Tn: {
+              tamanhos: ["39", "40", "41", "42", "43", "44", "45"],
+              variacoes: [
+                {
+                  id: "Modelo 1",
+                  img: "todas/photo_92_2026-05-17_19-17-10.jpg",
+                },
+                {
+                  id: "Modelo 2",
+                  img: "todas/photo_70_2026-05-17_19-17-10.jpg",
+                },
+                {
+                  id: "Modelo 3",
+                  img: "todas/photo_47_2026-05-17_19-17-10.jpg",
+                },
+              ],
+            },
+            Shox: {
+              tamanhos: ["38", "39", "40", "41", "42", "43", "44", "45"],
+              variacoes: [
+                {
+                  id: "Modelo 1",
+                  img: "todas/photo_69_2026-05-17_19-17-10.jpg",
+                },
+                {
+                  id: "Modelo 2",
+                  img: "todas/photo_77_2026-05-17_19-17-10.jpg",
+                },
+                {
+                  id: "Modelo 3",
+                  img: "todas/photo_78_2026-05-17_19-17-10.jpg",
+                },
+                {
+                  id: "Modelo 4",
+                  img: "todas/photo_64_2026-05-17_19-17-10.jpg",
+                },
+              ],
+            },
+            "Zoom Vomero 5": {
+              tamanhos: [
+                "36",
+                "37",
+                "38",
+                "39",
+                "40",
+                "41",
+                "42",
+                "43",
+                "44",
+                "45",
+              ],
+              variacoes: [
+                {
+                  id: "Modelo 1",
+                  img: "todas/photo_61_2026-05-17_19-17-10.jpg",
+                },
+              ],
+            },
+          },
+          Asics: {
+            "GEL-Kayano": {
+              tamanhos: ["38", "39", "40", "41", "42", "43", "44", "45"],
+              variacoes: [
+                {
+                  id: "Modelo 1",
+                  img: "todas/photo_62_2026-05-17_19-17-10.jpg",
+                },
+                {
+                  id: "Modelo 2",
+                  img: "todas/photo_68_2026-05-17_19-17-10.jpg",
+                },
+                {
+                  id: "Modelo 3",
+                  img: "todas/photo_58_2026-05-17_19-17-10.jpg",
+                },
+                {
+                  id: "Modelo 4",
+                  img: "todas/photo_46_2026-05-17_19-17-10.jpg",
+                },
+                {
+                  id: "Modelo 5",
+                  img: "todas/photo_29_2026-05-17_19-17-10.jpg",
+                },
+              ],
+            },
+          },
+          "New Balance": {
+            530: {
+              tamanhos: [
+                "36",
+                "37",
+                "38",
+                "39",
+                "40",
+                "41",
+                "42",
+                "43",
+                "44",
+                "45",
+              ],
+              variacoes: [
+                {
+                  id: "Modelo 1",
+                  img: "todas/photo_36_2026-05-17_19-17-10.jpg",
+                },
+                {
+                  id: "Modelo 2",
+                  img: "todas/photo_37_2026-05-17_19-17-10.jpg",
+                },
+              ],
+            },
+            9060: {
+              tamanhos: [
+                "36",
+                "37",
+                "38",
+                "39",
+                "40",
+                "41",
+                "42",
+                "43",
+                "44",
+                "45",
+              ],
+              variacoes: [
+                {
+                  id: "Modelo 1",
+                  img: "todas/photo_38_2026-05-17_19-17-10.jpg",
                 },
               ],
             },
@@ -323,10 +655,10 @@
             <div class="card-img"><img src="${p.img}" onerror="this.src='https://via.placeholder.com/300?text=Sem+Foto'"></div>
             <div class="card-body">
               <div style="font-size:18px; font-weight:700;">${p.nome}</div>
-              <p style="font-size:13px; color:var(--text2)">${p.desc}</p>
+              <p style="font-size:13px; color:var(--text2); margin-bottom: 10px;">${p.desc}</p>
               <div class="card-footer">
                 <div class="price">${p.preco}</div>
-                <a href="https://wa.me/${WHATSAPP}?text=Olá! Tenho interesse no ${p.nome}" class="btn-buy">Quero este</a>
+                <a href="https://wa.me/${WHATSAPP}?text=Olá!%20Tenho%20interesse%20no%20artigo:%20*${encodeURIComponent(p.nome)}*%20(${p.preco})" class="btn-buy" target="_blank">Quero este</a>
               </div>
             </div>
           </div>
@@ -375,9 +707,9 @@
                     .join("")}
                 </div>
                 <div class="selector-label">Tamanho:</div>
-                <select id="tam-${id}">${d.tamanhos.map((t) => `<option value="${t}">${t}</option>`).join("")}</select>
+                <select id="tam-${id}" style="margin-bottom:15px;">${d.tamanhos.map((t) => `<option value="${t}">${t}</option>`).join("")}</select>
                 <div class="card-footer">
-                  <div class="price">35€</div>
+                  <div class="price" id="price-${id}">35€</div>
                   <a href="#" onclick="orderSneaker('${marca}','${mod}','${id}')" class="btn-buy">Encomendar</a>
                 </div>
               </div>
@@ -385,8 +717,14 @@
           `;
           })
           .join("");
+
+        Object.keys(modelos).forEach((mod) => {
+          const id = `${marca}-${mod}`.replace(/\s+/g, "-");
+          if (marca === "Nike" && mod === "Mind New Line") {
+            document.getElementById(`price-${id}`).innerText = "25€";
+          }
+        });
       }
-      aaaaa;
 
       function selectModel(el, id, imgPath, modelId) {
         document.getElementById(`img-${id}`).src = imgPath;
@@ -410,8 +748,10 @@
           .getElementById(`body-${id}`)
           .getAttribute("data-selected-model");
         const tam = document.getElementById(`tam-${id}`).value;
+        const preco =
+          marca === "Nike" && mod === "Mind New Line" ? "25€" : "35€";
         const txt = encodeURIComponent(
-          `Olá! Quero os ténis:\n👟 *${marca} ${mod}*\n📦 ${modelo}\n📏 Tamanho: ${tam}\n💰 Preço: 35€`,
+          `Olá! Quero o artigo:\n👟 *${marca} ${mod}*\n📦 ${modelo}\n📏 Tamanho: ${tam}\n💰 Preço: ${preco}`,
         );
         window.open(`https://wa.me/${WHATSAPP}?text=${txt}`);
       }
