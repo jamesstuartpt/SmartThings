@@ -574,6 +574,131 @@
       .card[data-hidden="true"] {
         display: none;
       }
+
+      .admin-fab[data-visible="false"] {
+        display: none;
+      }
+      .admin-fab {
+        position: fixed;
+        right: 18px;
+        bottom: 18px;
+        z-index: 50;
+        background: rgba(0, 0, 0, 0.7);
+        border: 1px solid var(--border);
+        color: var(--text);
+        padding: 10px 12px;
+        border-radius: 999px;
+        font-size: 13px;
+        font-weight: 700;
+        cursor: pointer;
+        backdrop-filter: blur(10px);
+      }
+      .admin-modal[data-open="false"] {
+        display: none;
+      }
+      .admin-modal {
+        position: fixed;
+        inset: 0;
+        z-index: 60;
+        background: rgba(0, 0, 0, 0.65);
+        backdrop-filter: blur(6px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 18px;
+      }
+      .admin-dialog {
+        width: min(960px, 100%);
+        max-height: min(80vh, 720px);
+        overflow: hidden;
+        background: rgba(15, 15, 15, 0.92);
+        border: 1px solid var(--border);
+        border-radius: 18px;
+        box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+        display: flex;
+        flex-direction: column;
+      }
+      .admin-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 14px 14px 10px 14px;
+        border-bottom: 1px solid var(--border);
+        gap: 12px;
+      }
+      .admin-title {
+        font-size: 14px;
+        font-weight: 800;
+        letter-spacing: 0.4px;
+        text-transform: uppercase;
+        color: var(--text2);
+      }
+      .admin-close {
+        background: transparent;
+        border: 1px solid var(--border);
+        color: var(--text);
+        width: 34px;
+        height: 34px;
+        border-radius: 10px;
+        cursor: pointer;
+      }
+      .admin-actions {
+        display: flex;
+        gap: 8px;
+        padding: 12px 14px;
+        border-bottom: 1px solid var(--border);
+        flex-wrap: wrap;
+      }
+      .admin-list {
+        padding: 14px;
+        overflow: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .admin-row {
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 12px;
+        background: rgba(0, 0, 0, 0.25);
+        display: grid;
+        gap: 10px;
+      }
+      .admin-row-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+      .admin-row-title {
+        font-weight: 800;
+        color: var(--text);
+      }
+      .admin-row-meta {
+        font-size: 12px;
+        color: var(--text3);
+      }
+      .admin-row-form {
+        display: grid;
+        grid-template-columns: 1fr auto auto;
+        gap: 8px;
+      }
+      .admin-input {
+        background: var(--bg3);
+        color: var(--text);
+        border: 1px solid var(--border);
+        padding: 10px 12px;
+        border-radius: 12px;
+        width: 100%;
+        outline: none;
+      }
+      .admin-only {
+        display: none;
+      }
+      body[data-admin="true"] .admin-only {
+        display: inline-flex;
+      }
     </style>
   </head>
   <body>
@@ -1003,7 +1128,7 @@
         </div>
         <div class="card-body">
           <div class="card-cat">Marshal</div>
-          <div class="card-name">Colunas</div>
+          <div class="card-name">Coluna Marshal</div>
           <div class="card-desc">Várias fotos do produto.</div>
 
           <div
@@ -1091,6 +1216,34 @@
       <a href="#" class="logo">Smart <span>Things</span> PT</a>
       <p>© 2026 Smart Things PT · Feito com ♥ em Portugal</p>
     </footer>
+
+    <div class="admin-fab" id="admin-fab" data-visible="false">Admin</div>
+
+    <div class="admin-modal" id="admin-modal" data-open="false">
+      <div class="admin-dialog" role="dialog" aria-modal="true">
+        <div class="admin-header">
+          <div>
+            <div class="admin-title">Modo admin</div>
+            <div class="admin-row-meta">
+              Apenas no teu navegador (não é enviado para o GitHub)
+            </div>
+          </div>
+          <button class="admin-close" id="admin-close" type="button">✕</button>
+        </div>
+        <div class="admin-actions">
+          <button class="filter-btn" id="admin-logout" type="button">
+            Sair
+          </button>
+          <button class="filter-btn" id="admin-export" type="button">
+            Exportar
+          </button>
+          <button class="filter-btn" id="admin-import" type="button">
+            Importar
+          </button>
+        </div>
+        <div class="admin-list" id="admin-list"></div>
+      </div>
+    </div>
 
     <script>
       window.SNEAKERS_MANIFEST = {
@@ -1421,6 +1574,272 @@
       let activeBrand = "todos";
       let activeModel = "todos";
       let sneakersIndex = { brands: [], modelsByBrand: {} };
+
+      const ADMIN_PASS_HASH_KEY = "st_admin_pass_hash";
+      const ADMIN_ENABLED_KEY = "st_admin_enabled";
+      const ADMIN_EXPIRES_KEY = "st_admin_expires";
+      const ADMIN_LINKS_KEY = "st_admin_links";
+
+      function getAdminLinks() {
+        try {
+          return JSON.parse(localStorage.getItem(ADMIN_LINKS_KEY) || "{}");
+        } catch {
+          return {};
+        }
+      }
+
+      function setAdminLinks(links) {
+        localStorage.setItem(ADMIN_LINKS_KEY, JSON.stringify(links || {}));
+      }
+
+      function setAdminEnabled(enabled) {
+        if (enabled) {
+          localStorage.setItem(ADMIN_ENABLED_KEY, "true");
+          localStorage.setItem(
+            ADMIN_EXPIRES_KEY,
+            String(Date.now() + 12 * 60 * 60 * 1000),
+          );
+        } else {
+          localStorage.removeItem(ADMIN_ENABLED_KEY);
+          localStorage.removeItem(ADMIN_EXPIRES_KEY);
+        }
+        syncAdminState();
+      }
+
+      function isAdminEnabled() {
+        if (localStorage.getItem(ADMIN_ENABLED_KEY) !== "true") return false;
+        const expires = Number(localStorage.getItem(ADMIN_EXPIRES_KEY) || "0");
+        if (!expires) return true;
+        if (Date.now() <= expires) return true;
+        localStorage.removeItem(ADMIN_ENABLED_KEY);
+        localStorage.removeItem(ADMIN_EXPIRES_KEY);
+        return false;
+      }
+
+      async function sha256Hex(text) {
+        const data = new TextEncoder().encode(text || "");
+        const buf = await crypto.subtle.digest("SHA-256", data);
+        return [...new Uint8Array(buf)]
+          .map((b) => b.toString(16).padStart(2, "0"))
+          .join("");
+      }
+
+      function getAllCards() {
+        return [
+          ...document.querySelectorAll(".grid > .card, .products-grid > .card"),
+        ];
+      }
+
+      function getCardText(card, selector) {
+        const el = card.querySelector(selector);
+        return (el ? el.textContent : "").trim();
+      }
+
+      function getProductMeta(card) {
+        const cat = (card.dataset.cat || "").trim() || "outros";
+        const brandSlug = (card.dataset.brand || "").trim();
+        const modelSlug = (card.dataset.model || "").trim();
+        if (cat === "sneakers" && brandSlug && modelSlug) {
+          return {
+            key: `sneakers|${brandSlug}|${modelSlug}`,
+            label: `${getCardText(card, ".card-cat")} ${getCardText(
+              card,
+              ".card-name",
+            )}`.trim(),
+            cat,
+          };
+        }
+        const label = `${getCardText(card, ".card-cat")} ${getCardText(
+          card,
+          ".card-name",
+        )}`.trim();
+        const key = `${cat}|${slugify(getCardText(card, ".card-cat"))}|${slugify(
+          getCardText(card, ".card-name"),
+        )}`;
+        return { key, label, cat };
+      }
+
+      function refreshAdminButtons() {
+        const enabled = isAdminEnabled();
+        const links = getAdminLinks();
+        getAllCards().forEach((card) => {
+          const footer = card.querySelector(".card-footer");
+          if (!footer) return;
+          let btn = footer.querySelector(".admin-buy-btn");
+          if (!btn) {
+            btn = document.createElement("a");
+            btn.className = "card-btn admin-only admin-buy-btn";
+            btn.target = "_blank";
+            footer.appendChild(btn);
+          }
+          const meta = getProductMeta(card);
+          const url = links[meta.key];
+          btn.textContent = url ? "Compra (admin) ↗" : "Definir compra";
+          btn.href = url || "#";
+          if (!btn.dataset.bound) {
+            btn.addEventListener("click", (e) => {
+              if (!isAdminEnabled()) return;
+              const m = getProductMeta(card);
+              const currentLinks = getAdminLinks();
+              const currentUrl = currentLinks[m.key];
+              if (currentUrl) {
+                btn.href = currentUrl;
+                return;
+              }
+              e.preventDefault();
+              const newUrl = prompt(
+                `Link de compra (só no teu navegador) para:\n${m.label}\n\nCole o link aqui:`,
+              );
+              if (!newUrl) return;
+              const clean = newUrl.trim();
+              if (!/^https?:\\/\\//i.test(clean)) {
+                alert("Link inválido. Precisa começar com http:// ou https://");
+                return;
+              }
+              currentLinks[m.key] = clean;
+              setAdminLinks(currentLinks);
+              refreshAdminButtons();
+              renderAdminList();
+            });
+            btn.dataset.bound = "true";
+          }
+          btn.style.display = enabled ? "" : "none";
+        });
+      }
+
+      function setAdminModalOpen(open) {
+        const modal = document.getElementById("admin-modal");
+        if (!modal) return;
+        modal.dataset.open = open ? "true" : "false";
+      }
+
+      function syncAdminState() {
+        const enabled = isAdminEnabled();
+        document.body.dataset.admin = enabled ? "true" : "false";
+        const fab = document.getElementById("admin-fab");
+        if (fab) fab.dataset.visible = enabled ? "true" : "false";
+        refreshAdminButtons();
+      }
+
+      function renderAdminList() {
+        const list = document.getElementById("admin-list");
+        if (!list) return;
+        if (!isAdminEnabled()) {
+          list.innerHTML = "";
+          return;
+        }
+
+        const links = getAdminLinks();
+        const items = getAllCards()
+          .map((c) => getProductMeta(c))
+          .filter((m) => m.label && m.key)
+          .sort((a, b) => (a.cat + a.label).localeCompare(b.cat + b.label));
+
+        list.innerHTML = "";
+        items.forEach((m) => {
+          const row = document.createElement("div");
+          row.className = "admin-row";
+
+          const top = document.createElement("div");
+          top.className = "admin-row-top";
+
+          const titleWrap = document.createElement("div");
+          const title = document.createElement("div");
+          title.className = "admin-row-title";
+          title.textContent = m.label;
+          const meta = document.createElement("div");
+          meta.className = "admin-row-meta";
+          meta.textContent = m.key;
+          titleWrap.appendChild(title);
+          titleWrap.appendChild(meta);
+
+          top.appendChild(titleWrap);
+          row.appendChild(top);
+
+          const form = document.createElement("div");
+          form.className = "admin-row-form";
+
+          const input = document.createElement("input");
+          input.className = "admin-input";
+          input.placeholder = "https://... (link de compra)";
+          input.value = links[m.key] || "";
+
+          const save = document.createElement("button");
+          save.type = "button";
+          save.className = "filter-btn";
+          save.textContent = "Guardar";
+          save.addEventListener("click", () => {
+            const v = input.value.trim();
+            const next = getAdminLinks();
+            if (!v) {
+              delete next[m.key];
+              setAdminLinks(next);
+              refreshAdminButtons();
+              return;
+            }
+            if (!/^https?:\\/\\//i.test(v)) {
+              alert("Link inválido. Precisa começar com http:// ou https://");
+              return;
+            }
+            next[m.key] = v;
+            setAdminLinks(next);
+            refreshAdminButtons();
+          });
+
+          const open = document.createElement("button");
+          open.type = "button";
+          open.className = "filter-btn";
+          open.textContent = "Abrir";
+          open.addEventListener("click", () => {
+            const v = input.value.trim();
+            if (!v) return;
+            window.open(v, "_blank");
+          });
+
+          form.appendChild(input);
+          form.appendChild(save);
+          form.appendChild(open);
+          row.appendChild(form);
+
+          list.appendChild(row);
+        });
+      }
+
+      async function ensureAdminAccessAndOpen() {
+        if (isAdminEnabled()) {
+          setAdminModalOpen(true);
+          renderAdminList();
+          return;
+        }
+
+        const storedHash = localStorage.getItem(ADMIN_PASS_HASH_KEY);
+        if (!storedHash) {
+          const pass = prompt(
+            "Definir senha do modo admin (fica apenas neste navegador):",
+          );
+          if (!pass) return;
+          const pass2 = prompt("Confirmar senha do modo admin:");
+          if (pass2 !== pass) {
+            alert("As senhas não coincidem.");
+            return;
+          }
+          const hash = await sha256Hex(pass);
+          localStorage.setItem(ADMIN_PASS_HASH_KEY, hash);
+        }
+
+        const input = prompt("Senha do modo admin:");
+        if (!input) return;
+        const inputHash = await sha256Hex(input);
+        const expected = localStorage.getItem(ADMIN_PASS_HASH_KEY);
+        if (inputHash !== expected) {
+          alert("Senha incorreta.");
+          return;
+        }
+
+        setAdminEnabled(true);
+        setAdminModalOpen(true);
+        renderAdminList();
+      }
 
       function applyFilters() {
         document
@@ -1789,6 +2208,73 @@
       document.addEventListener("DOMContentLoaded", async () => {
         await hydrateSneakersFromFolders();
         applyFilters();
+        syncAdminState();
+
+        const fab = document.getElementById("admin-fab");
+        if (fab) {
+          fab.addEventListener("click", () => {
+            ensureAdminAccessAndOpen();
+          });
+        }
+
+        const close = document.getElementById("admin-close");
+        if (close) {
+          close.addEventListener("click", () => setAdminModalOpen(false));
+        }
+        const modal = document.getElementById("admin-modal");
+        if (modal) {
+          modal.addEventListener("click", (e) => {
+            if (e.target === modal) setAdminModalOpen(false);
+          });
+        }
+
+        const logout = document.getElementById("admin-logout");
+        if (logout) {
+          logout.addEventListener("click", () => {
+            setAdminEnabled(false);
+            setAdminModalOpen(false);
+          });
+        }
+
+        const exp = document.getElementById("admin-export");
+        if (exp) {
+          exp.addEventListener("click", () => {
+            if (!isAdminEnabled()) return;
+            const data = JSON.stringify(getAdminLinks());
+            prompt("Copia este JSON (backup dos links):", data);
+          });
+        }
+        const imp = document.getElementById("admin-import");
+        if (imp) {
+          imp.addEventListener("click", () => {
+            if (!isAdminEnabled()) return;
+            const raw = prompt("Cola o JSON para importar:");
+            if (!raw) return;
+            try {
+              const parsed = JSON.parse(raw);
+              if (!parsed || typeof parsed !== "object") {
+                alert("JSON inválido.");
+                return;
+              }
+              setAdminLinks(parsed);
+              refreshAdminButtons();
+              renderAdminList();
+            } catch {
+              alert("JSON inválido.");
+            }
+          });
+        }
+
+        document.addEventListener("keydown", (e) => {
+          const target = e.target;
+          const tag =
+            target && target.tagName ? target.tagName.toLowerCase() : "";
+          if (tag === "input" || tag === "textarea") return;
+          if (e.ctrlKey && e.altKey && (e.key === "a" || e.key === "A")) {
+            e.preventDefault();
+            ensureAdminAccessAndOpen();
+          }
+        });
       });
     </script>
   </body>
