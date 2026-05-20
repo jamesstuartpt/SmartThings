@@ -537,6 +537,44 @@
         background: rgba(0, 0, 0, 0.2);
       }
 
+      .faq {
+        max-width: 960px;
+        margin: 0 auto 40px;
+        padding: 0 max(24px, 5vw);
+      }
+      .faq-inner {
+        background: var(--bg2);
+        border: 1px solid var(--border);
+        border-radius: 24px;
+        padding: 28px;
+      }
+      .faq-title {
+        font-family: "Syne", sans-serif;
+        font-weight: 800;
+        font-size: 22px;
+        margin-bottom: 14px;
+      }
+      details.faq-item {
+        border-top: 1px solid var(--border);
+        padding: 14px 0;
+      }
+      details.faq-item:first-of-type {
+        border-top: none;
+        padding-top: 0;
+      }
+      details.faq-item summary {
+        cursor: pointer;
+        list-style: none;
+        font-weight: 700;
+      }
+      details.faq-item summary::-webkit-details-marker {
+        display: none;
+      }
+      .faq-answer {
+        margin-top: 10px;
+        color: var(--text2);
+      }
+
       /* FOOTER */
       footer {
         border-top: 1px solid var(--border);
@@ -1438,6 +1476,32 @@
         </div>
       </div>
     </div>
+
+    <section class="faq" id="faq">
+      <div class="faq-inner">
+        <div class="faq-title">Como funciona?</div>
+        <details class="faq-item">
+          <summary>É seguro comprar?</summary>
+          <div class="faq-answer">
+            Sim! Trabalhamos com pagamentos por MB Way e acompanhamos cada
+            encomenda até chegar à tua mão.
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Qual o prazo de entrega?</summary>
+          <div class="faq-answer">
+            Devido à nossa curadoria de alta qualidade, os produtos demoram
+            entre 10 a 15 dias a chegar à tua morada.
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Como acompanho o pedido?</summary>
+          <div class="faq-answer">
+            Enviamos atualizações diretas pelo WhatsApp.
+          </div>
+        </details>
+      </div>
+    </section>
 
     <footer>
       <a href="#" class="logo">Smart <span>Things</span> PT</a>
