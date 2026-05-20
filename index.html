@@ -277,6 +277,17 @@
       .model-filters[data-visible="false"] {
         display: none;
       }
+      .model-select {
+        background: var(--bg3);
+        color: var(--text);
+        border: 1px solid var(--border);
+        padding: 8px 12px;
+        border-radius: 100px;
+        font-family: inherit;
+        font-size: 13px;
+        outline: none;
+        min-width: 220px;
+      }
 
       /* SNEAKER CONTROLS OVERLAYS */
       .angle-container {
@@ -797,12 +808,9 @@
         id="model-filters"
         data-visible="false"
       >
-        <button
-          class="filter-btn model-filter active"
-          onclick="filterModel('todos', this)"
-        >
-          Todos os modelos
-        </button>
+        <select class="model-select" id="model-select">
+          <option value="todos">Todos os modelos</option>
+        </select>
       </div>
     </div>
 
@@ -871,7 +879,7 @@
           </div>
 
           <div class="card-footer">
-            <div class="card-price">Sob consulta</div>
+            <div class="card-price">35€</div>
             <a
               href="https://wa.me/351927515217?text=Olá!%20Tenho%20interesse%20no%20New%20Balance%20Abzorb%202000.%20Está%20disponível%3F"
               target="_blank"
@@ -980,7 +988,7 @@
           </div>
 
           <div class="card-footer">
-            <div class="card-price">Sob consulta</div>
+            <div class="card-price">35€</div>
             <a
               href="https://wa.me/351927515217?text=Olá!%20Tenho%20interesse%20no%20Adidas%20Spezial.%20Está%20disponível%3F"
               target="_blank"
@@ -1089,7 +1097,7 @@
           </div>
 
           <div class="card-footer">
-            <div class="card-price">Sob consulta</div>
+            <div class="card-price">35€</div>
             <a
               href="https://wa.me/351927515217?text=Olá!%20Tenho%20interesse%20no%20Adidas%20Forum.%20Está%20disponível%3F"
               target="_blank"
@@ -1113,7 +1121,7 @@
           <div class="card-name">Air Force 1 x Supreme</div>
           <div class="card-desc">Edição especial.</div>
           <div class="card-footer">
-            <div class="card-price">Sob consulta</div>
+            <div class="card-price">35€</div>
             <a
               href="https://wa.me/351927515217?text=Olá!%20Tenho%20interesse%20no%20Nike%20Air%20Force%201%20x%20Supreme.%20Está%20disponível%3F"
               target="_blank"
@@ -1698,7 +1706,7 @@
               );
               if (!newUrl) return;
               const clean = newUrl.trim();
-              if (!/^https?:\\/\\//i.test(clean)) {
+              if (!/^https?:\\\\/ / i.test(clean)) {
                 alert("Link inválido. Precisa começar com http:// ou https://");
                 return;
               }
@@ -1783,7 +1791,7 @@
               refreshAdminButtons();
               return;
             }
-            if (!/^https?:\\/\\//i.test(v)) {
+            if (!/^https?:\\\\/ / i.test(v)) {
               alert("Link inválido. Precisa começar com http:// ou https://");
               return;
             }
@@ -1895,11 +1903,13 @@
         const brandDefault = document.querySelector(".brand-filter");
         if (brandDefault) brandDefault.classList.add("active");
 
-        document
-          .querySelectorAll(".model-filter")
-          .forEach((b) => b.classList.remove("active"));
-        const modelDefault = document.querySelector(".model-filter");
-        if (modelDefault) modelDefault.classList.add("active");
+        const modelSelect = document.getElementById("model-select");
+        if (modelSelect) {
+          modelSelect.value = "todos";
+          while (modelSelect.options.length > 1) {
+            modelSelect.remove(1);
+          }
+        }
 
         applyFilters();
       }
@@ -1926,7 +1936,8 @@
           for (const p of products) {
             const name = (p && p.name) || "";
             const images = (p && p.images) || [];
-            if (!name || !Array.isArray(images) || images.length === 0) continue;
+            if (!name || !Array.isArray(images) || images.length === 0)
+              continue;
             const card = buildTelegramCard({ name, images });
             if (anchor) grid.insertBefore(card, anchor);
             else grid.appendChild(card);
@@ -1951,41 +1962,43 @@
           return;
         }
 
-        modelFilters.querySelectorAll(".model-filter").forEach((b) => {
-          if (b.textContent !== "Todos os modelos") b.remove();
-        });
+        const modelSelect = document.getElementById("model-select");
+        if (modelSelect) {
+          modelSelect.value = "todos";
+          while (modelSelect.options.length > 1) {
+            modelSelect.remove(1);
+          }
+        }
 
         const models = sneakersIndex.modelsByBrand[brand] || [];
         if (brand === "todos" || models.length === 0) {
           modelFilters.dataset.visible = "false";
         } else {
           modelFilters.dataset.visible = "true";
-          for (const m of models) {
-            const b = document.createElement("button");
-            b.className = "filter-btn model-filter";
-            b.textContent = m.label;
-            b.addEventListener("click", function () {
-              filterModel(m.slug, this);
-            });
-            modelFilters.appendChild(b);
+          if (modelSelect) {
+            for (const m of models) {
+              const opt = document.createElement("option");
+              opt.value = m.slug;
+              opt.textContent = m.label;
+              modelSelect.appendChild(opt);
+            }
           }
         }
-
-        document
-          .querySelectorAll(".model-filter")
-          .forEach((b) => b.classList.remove("active"));
-        const modelDefault = document.querySelector(".model-filter");
-        if (modelDefault) modelDefault.classList.add("active");
 
         applyFilters();
       }
 
       function filterModel(model, btn) {
         activeModel = model;
-        document
-          .querySelectorAll(".model-filter")
-          .forEach((b) => b.classList.remove("active"));
-        btn.classList.add("active");
+        const modelSelect = document.getElementById("model-select");
+        if (modelSelect && modelSelect.value !== model)
+          modelSelect.value = model;
+        if (btn) {
+          document
+            .querySelectorAll(".model-filter")
+            .forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
+        }
         applyFilters();
       }
 
@@ -2118,7 +2131,7 @@
 
         const price = document.createElement("div");
         price.className = "card-price";
-        price.textContent = "Sob consulta";
+        price.textContent = "35€";
 
         const btn = document.createElement("a");
         btn.className = "card-btn";
@@ -2323,6 +2336,14 @@
         await hydrateTelegramProducts();
         applyFilters();
         syncAdminState();
+
+        const modelSelect = document.getElementById("model-select");
+        if (modelSelect) {
+          modelSelect.addEventListener("change", function () {
+            if (activeCategory !== "sneakers") return;
+            filterModel(this.value);
+          });
+        }
 
         const fab = document.getElementById("admin-fab");
         if (fab) {
