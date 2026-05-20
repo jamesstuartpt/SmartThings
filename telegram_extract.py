@@ -227,6 +227,8 @@ def _write_site_manifest_from_export(
         raise ValueError("result.json inesperado: 'messages' não é lista")
 
     by_name: dict[str, list[dict[str, Any]]] = {}
+    last_name = ""
+    last_ts = 0
     for msg in messages:
         if not isinstance(msg, dict):
             continue
@@ -234,9 +236,20 @@ def _write_site_manifest_from_export(
         if not rel:
             continue
         caption, _ = _flatten_caption_and_link(msg)
-        name = _clean_product_name(caption)
-        if not name:
-            name = "Sem descrição"
+        cleaned = _clean_product_name(caption)
+        try:
+            ts = int(msg.get("date_unixtime") or 0)
+        except Exception:
+            ts = 0
+        if cleaned:
+            last_name = cleaned
+            last_ts = ts
+            name = cleaned
+        else:
+            if last_name and ts and last_ts and abs(ts - last_ts) <= 300:
+                name = last_name
+            else:
+                name = "Sem descrição"
         by_name.setdefault(name, []).append(msg)
 
     def msg_time(m: dict[str, Any]) -> int:
