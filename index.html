@@ -1604,6 +1604,49 @@
       let activeModel = "todos";
       let sneakersIndex = { brands: [], modelsByBrand: {} };
 
+      function ensureSneakerIndexEntry(
+        brandSlug,
+        brandLabel,
+        modelSlug,
+        modelLabel,
+      ) {
+        if (!brandSlug || !modelSlug) return;
+        if (!sneakersIndex.modelsByBrand[brandSlug]) {
+          sneakersIndex.modelsByBrand[brandSlug] = [];
+        }
+        if (
+          !sneakersIndex.brands.some((b) => b.slug === brandSlug) &&
+          brandLabel
+        ) {
+          sneakersIndex.brands.push({ slug: brandSlug, label: brandLabel });
+        }
+        const models = sneakersIndex.modelsByBrand[brandSlug];
+        if (!models.some((m) => m.slug === modelSlug)) {
+          models.push({ slug: modelSlug, label: modelLabel || modelSlug });
+        }
+      }
+
+      function renderSneakerBrandFilters() {
+        const brandFilters = document.getElementById("brand-filters");
+        if (!brandFilters) return;
+
+        brandFilters.querySelectorAll(".brand-filter").forEach((b) => {
+          if (b.textContent !== "Todas as marcas") b.remove();
+        });
+
+        sneakersIndex.brands.sort((a, b) => a.label.localeCompare(b.label));
+        for (const b of sneakersIndex.brands) {
+          if (!b || !b.slug || !b.label) continue;
+          const btn = document.createElement("button");
+          btn.className = "filter-btn brand-filter";
+          btn.textContent = b.label;
+          btn.addEventListener("click", function () {
+            filterBrand(b.slug, this);
+          });
+          brandFilters.appendChild(btn);
+        }
+      }
+
       const ADMIN_PASS_HASH_KEY = "st_admin_pass_hash";
       const ADMIN_ENABLED_KEY = "st_admin_enabled";
       const ADMIN_EXPIRES_KEY = "st_admin_expires";
@@ -1954,10 +1997,36 @@
             const category = (p && p.category) || "telegram";
             if (!name || !Array.isArray(images) || images.length === 0)
               continue;
-            const card = buildTelegramCard({ name, images, category });
+            let card = null;
+            if (
+              category === "sneakers" &&
+              p &&
+              p.brandSlug &&
+              p.brandLabel &&
+              p.modelSlug &&
+              p.modelLabel
+            ) {
+              ensureSneakerIndexEntry(
+                p.brandSlug,
+                p.brandLabel,
+                p.modelSlug,
+                p.modelLabel,
+              );
+              card = buildSneakerCard({
+                brandLabel: p.brandLabel,
+                brandSlug: p.brandSlug,
+                modelSlug: p.modelSlug,
+                modelLabel: p.modelLabel,
+                images,
+              });
+              card.dataset.source = "telegram";
+            } else {
+              card = buildTelegramCard({ name, images, category });
+            }
             if (anchor) grid.insertBefore(card, anchor);
             else grid.appendChild(card);
           }
+          renderSneakerBrandFilters();
         } catch {
           return;
         }

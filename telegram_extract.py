@@ -5,7 +5,7 @@ import json
 import re
 import shutil
 from pathlib import Path
-from typing import Any
+from typing import Any, Optional
 
 
 def _flatten_caption_and_link(message: dict[str, Any]) -> tuple[str, str]:
@@ -118,9 +118,6 @@ def _infer_category(name: str) -> str:
     def has(*needles: str) -> bool:
         return any(x in n for x in needles)
 
-    if "vans" in n:
-        return "telegram"
-
     if has(
         "bolsa",
         "bag",
@@ -166,6 +163,54 @@ def _infer_category(name: str) -> str:
     return "telegram"
 
 
+def _slug_dash(text: str, max_len: int = 60) -> str:
+    return _safe_slug(text, max_len=max_len).lower().replace("_", "-")
+
+
+def _infer_sneaker_fields(name: str) -> Optional[dict[str, str]]:
+    s = (name or "").strip()
+    if not s:
+        return None
+
+    n = s.lower()
+
+    brand_slug = ""
+    brand_label = ""
+    if "adidas" in n:
+        brand_slug, brand_label = "adidas", "Adidas"
+    elif "nike" in n:
+        brand_slug, brand_label = "nike", "Nike"
+    elif "new balance" in n or "newbalance" in n:
+        brand_slug, brand_label = "newbalance", "New Balance"
+    elif "asics" in n:
+        brand_slug, brand_label = "asics", "ASICS"
+    elif "vans" in n:
+        brand_slug, brand_label = "vans", "Vans"
+    elif "converse" in n:
+        brand_slug, brand_label = "converse", "Converse"
+    else:
+        return None
+
+    model = s
+    if brand_slug == "newbalance":
+        model = re.sub(r"(?i)\bnew\s*balance\b", "", model).strip()
+    else:
+        model = re.sub(rf"(?i)\b{re.escape(brand_label)}\b", "", model).strip()
+        model = re.sub(rf"(?i)\b{re.escape(brand_slug)}\b", "", model).strip()
+
+    model = re.sub(r"\s+", " ", model).strip(" -–—")
+    if not model:
+        return None
+
+    return {
+        "category": "sneakers",
+        "brandSlug": brand_slug,
+        "brandLabel": brand_label,
+        "modelSlug": _slug_dash(model),
+        "modelLabel": model,
+    }
+
+
 def _write_site_manifest_from_export(
     export_dir: Path,
     out_images_dir: Path,
@@ -191,7 +236,7 @@ def _write_site_manifest_from_export(
         caption, _ = _flatten_caption_and_link(msg)
         name = _clean_product_name(caption)
         if not name:
-            continue
+            name = "Sem descrição"
         by_name.setdefault(name, []).append(msg)
 
     def msg_time(m: dict[str, Any]) -> int:
@@ -210,7 +255,6 @@ def _write_site_manifest_from_export(
     out_images_dir.mkdir(parents=True, exist_ok=True)
 
     used_slugs: dict[str, int] = {}
-    used_image_hashes: set[str] = set()
     products: list[dict[str, Any]] = []
 
     for name in names_sorted:
@@ -244,7 +288,7 @@ def _write_site_manifest_from_export(
                 for chunk in iter(lambda: f.read(1024 * 1024), b""):
                     h.update(chunk)
             digest = h.hexdigest()
-            if digest in used_image_hashes or digest in seen_in_product:
+            if digest in seen_in_product:
                 continue
             ext = src.suffix.lower() or ".jpg"
             dst = dest_dir / f"{slug}_{count + 1:02d}{ext}"
@@ -253,18 +297,22 @@ def _write_site_manifest_from_export(
             images.append(
                 str(Path("imagens") / "telegram" / slug / dst.name).replace("\\", "/")
             )
-            used_image_hashes.add(digest)
             seen_in_product.add(digest)
             count += 1
 
         if images:
+            category = _infer_category(name)
+            product: dict[str, Any] = {"slug": slug, "name": name, "images": images}
+            if category != "telegram":
+                product["category"] = category
+            else:
+                sneaker = _infer_sneaker_fields(name)
+                if sneaker:
+                    product.update(sneaker)
+                else:
+                    product["category"] = "telegram"
             products.append(
-                {
-                    "slug": slug,
-                    "name": name,
-                    "category": _infer_category(name),
-                    "images": images,
-                }
+                product
             )
 
     return {"products": products}
