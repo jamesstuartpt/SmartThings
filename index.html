@@ -1959,14 +1959,15 @@
             const images = (p && p.images) || [];
             const category = (p && p.category) || "telegram";
             if (!name || !Array.isArray(images) || images.length === 0)
+              continue;
             const card = buildTelegramCard({ name, images, category });
-            const card = buildTelegramCard({ name, images });
             if (anchor) grid.insertBefore(card, anchor);
             else grid.appendChild(card);
           }
         } catch {
           return;
         }
+      }
 
       function filterBrand(brand, btn) {
         activeBrand = brand;
