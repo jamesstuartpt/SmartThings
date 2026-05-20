@@ -805,12 +805,6 @@
         >
           Tecnologia
         </button>
-        <button class="filter-btn cat-filter" onclick="filter('casa', this)">
-          Casa
-        </button>
-        <button class="filter-btn cat-filter" onclick="filter('gaming', this)">
-          Gaming
-        </button>
       </div>
       <div
         class="filters brand-filters"
@@ -1998,11 +1992,48 @@
         } else {
           modelFilters.dataset.visible = "true";
           if (modelSelect) {
+            function getGroupLabel(brandSlug, modelLabel) {
+              const words = String(modelLabel || "")
+                .trim()
+                .split(/\s+/)
+                .filter(Boolean);
+              if (words.length === 0) return "Outros";
+              if (brandSlug === "nike" && words[0].toLowerCase() === "air") {
+                return words.slice(0, 2).join(" ");
+              }
+              if (
+                brandSlug === "adidas" &&
+                words[0].toLowerCase() === "samba"
+              ) {
+                return "Samba";
+              }
+              return words[0];
+            }
+
+            const grouped = new Map();
             for (const m of models) {
-              const opt = document.createElement("option");
-              opt.value = m.slug;
-              opt.textContent = m.label;
-              modelSelect.appendChild(opt);
+              const group = getGroupLabel(brand, m.label);
+              const arr = grouped.get(group) || [];
+              arr.push(m);
+              grouped.set(group, arr);
+            }
+
+            const groupsSorted = [...grouped.keys()].sort((a, b) =>
+              String(a).localeCompare(String(b)),
+            );
+
+            for (const g of groupsSorted) {
+              const optgroup = document.createElement("optgroup");
+              optgroup.label = g;
+              const arr = grouped.get(g) || [];
+              arr.sort((a, b) => a.label.localeCompare(b.label));
+              for (const m of arr) {
+                const opt = document.createElement("option");
+                opt.value = m.slug;
+                opt.textContent = m.label;
+                optgroup.appendChild(opt);
+              }
+              modelSelect.appendChild(optgroup);
             }
           }
         }

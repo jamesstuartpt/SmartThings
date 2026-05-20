@@ -1,5 +1,6 @@
 import argparse
 import csv
+import hashlib
 import json
 import re
 import shutil
@@ -117,6 +118,9 @@ def _infer_category(name: str) -> str:
     def has(*needles: str) -> bool:
         return any(x in n for x in needles)
 
+    if "vans" in n:
+        return "telegram"
+
     if has(
         "bolsa",
         "bag",
@@ -150,7 +154,7 @@ def _infer_category(name: str) -> str:
         "beats",
     ):
         return "fones"
-    if has("bone", "boné", "cap", "new era", "newera"):
+    if has("bone", "boné", "new era", "newera") or re.search(r"\bcap\b", n):
         return "bones"
     if has("relogio", "relógio", "watch"):
         return "relogios"
@@ -206,6 +210,7 @@ def _write_site_manifest_from_export(
     out_images_dir.mkdir(parents=True, exist_ok=True)
 
     used_slugs: dict[str, int] = {}
+    used_image_hashes: set[str] = set()
     products: list[dict[str, Any]] = []
 
     for name in names_sorted:
@@ -223,6 +228,7 @@ def _write_site_manifest_from_export(
         dest_dir.mkdir(parents=True, exist_ok=True)
 
         images: list[str] = []
+        seen_in_product: set[str] = set()
         count = 0
         for msg in msgs:
             if max_images_per_product > 0 and count >= max_images_per_product:
@@ -233,6 +239,13 @@ def _write_site_manifest_from_export(
             src = export_dir / rel
             if not src.exists():
                 continue
+            h = hashlib.sha1()
+            with src.open("rb") as f:
+                for chunk in iter(lambda: f.read(1024 * 1024), b""):
+                    h.update(chunk)
+            digest = h.hexdigest()
+            if digest in used_image_hashes or digest in seen_in_product:
+                continue
             ext = src.suffix.lower() or ".jpg"
             dst = dest_dir / f"{slug}_{count + 1:02d}{ext}"
             if not dst.exists():
@@ -240,6 +253,8 @@ def _write_site_manifest_from_export(
             images.append(
                 str(Path("imagens") / "telegram" / slug / dst.name).replace("\\", "/")
             )
+            used_image_hashes.add(digest)
+            seen_in_product.add(digest)
             count += 1
 
         if images:
