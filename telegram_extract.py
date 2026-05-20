@@ -68,7 +68,13 @@ def _safe_slug(text: str, max_len: int = 80) -> str:
 
 
 _PRICE_RE = re.compile(
-    r"(?:(?:—->|->|—>|=>)\s*)?(?:\d+[\.,]?\d*)\s*€(?:\s*\d+[\.,]?\d*\s*€)*",
+    r"(?:(?:—->|->|—>|=>)\s*)?"
+    r"(?:"
+    r"(?:\d+[\.,]?\d*\s*(?:€|eur|euro|euros)\b)"
+    r"|(?:€\s*\d+[\.,]?\d*)"
+    r"|(?:(?:eur|euro|euros)\s*\d+[\.,]?\d*)"
+    r")"
+    r"(?:\s*(?:-|/|a)\s*(?:€\s*)?\d+[\.,]?\d*\s*(?:€|eur|euro|euros)\b)?",
     re.IGNORECASE,
 )
 

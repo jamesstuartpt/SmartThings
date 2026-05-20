@@ -2168,13 +2168,8 @@
         title.className = "card-name";
         title.textContent = name;
 
-        const desc = document.createElement("div");
-        desc.className = "card-desc";
-        desc.textContent = "Produto do canal Telegram.";
-
         body.appendChild(cat);
         body.appendChild(title);
-        body.appendChild(desc);
 
         const angleLabel = document.createElement("div");
         angleLabel.style.fontSize = "11px";
@@ -2199,10 +2194,6 @@
         const footer = document.createElement("div");
         footer.className = "card-footer";
 
-        const price = document.createElement("div");
-        price.className = "card-price";
-        price.textContent = "Sob consulta";
-
         const btn = document.createElement("a");
         btn.className = "card-btn";
         btn.target = "_blank";
@@ -2211,7 +2202,6 @@
         )}`;
         btn.textContent = "Quero este →";
 
-        footer.appendChild(price);
         footer.appendChild(btn);
         body.appendChild(footer);
 
