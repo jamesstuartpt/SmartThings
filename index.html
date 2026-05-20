@@ -6,10 +6,11 @@
     <title>Smart Things PT — Catálogo</title>
     <script>
       (() => {
-        const build = "ae714a2";
+        const build = "dcd0f48";
         try {
           const url = new URL(window.location.href);
-          if (!url.searchParams.get("v")) {
+          const v = url.searchParams.get("v");
+          if (v !== build) {
             url.searchParams.set("v", build);
             window.location.replace(url.toString());
           }
