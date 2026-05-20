@@ -6,7 +6,7 @@
     <title>Smart Things PT — Catálogo</title>
     <script>
       (() => {
-        const build = "b15db2e";
+        const build = "ae714a2";
         try {
           const url = new URL(window.location.href);
           if (!url.searchParams.get("v")) {
@@ -109,7 +109,7 @@
 
       /* HERO */
       .hero {
-        padding: max(60px, 8vh) max(24px, 5vw) 48px;
+        padding: max(44px, 6vh) max(24px, 5vw) 22px;
         max-width: 960px;
         margin: 0 auto;
       }
@@ -123,7 +123,7 @@
         padding: 6px 14px;
         font-size: 13px;
         color: var(--text2);
-        margin-bottom: 28px;
+        margin-bottom: 18px;
       }
       .hero-tag span {
         width: 6px;
@@ -248,7 +248,7 @@
       /* FILTER */
       .section-header {
         max-width: 960px;
-        margin: 64px auto 0;
+        margin: 26px auto 0;
         padding: 0 max(24px, 5vw) 24px;
         display: flex;
         align-items: center;
@@ -347,6 +347,117 @@
         gap: 16px;
       }
 
+      .home-section {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 0 max(24px, 5vw) 22px;
+      }
+      .home-head {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 12px;
+        margin: 10px 0 12px;
+      }
+      .home-title {
+        font-family: "Syne", sans-serif;
+        font-weight: 800;
+        font-size: 18px;
+      }
+      .home-sub {
+        font-size: 13px;
+        color: var(--text3);
+      }
+      .home-strip {
+        display: flex;
+        gap: 12px;
+        overflow-x: auto;
+        overscroll-behavior-x: contain;
+        padding-bottom: 6px;
+      }
+      .home-strip::-webkit-scrollbar {
+        height: 8px;
+      }
+      .home-strip::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 999px;
+      }
+      .home-tile {
+        flex: 0 0 240px;
+        background: var(--bg2);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        overflow: hidden;
+        cursor: pointer;
+        transition:
+          border-color 0.2s,
+          transform 0.2s;
+      }
+      .home-tile:hover {
+        border-color: var(--border-hover);
+        transform: translateY(-2px);
+      }
+      .home-tile .tile-img {
+        aspect-ratio: 4/3;
+        background: #fff;
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .home-tile .tile-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        padding: 10px;
+      }
+      .home-tile .tile-body {
+        padding: 14px 14px 16px 14px;
+      }
+      .home-tile .tile-name {
+        font-family: "Syne", sans-serif;
+        font-weight: 700;
+        font-size: 15px;
+        line-height: 1.2;
+      }
+      .home-tile .tile-meta {
+        margin-top: 6px;
+        font-size: 12px;
+        color: var(--text3);
+      }
+
+      .catalog-divider {
+        max-width: 960px;
+        margin: 12px auto 0;
+        padding: 0 max(24px, 5vw);
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
+      .catalog-divider .line {
+        height: 1px;
+        background: var(--border);
+        flex: 1;
+      }
+      .catalog-divider .label {
+        font-size: 12px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--text3);
+      }
+
+      .catalog-more {
+        max-width: 960px;
+        margin: 0 auto 28px;
+        padding: 0 max(24px, 5vw);
+        display: flex;
+        justify-content: center;
+      }
+      .catalog-more[data-visible="false"] {
+        display: none;
+      }
+
       .card {
         background: var(--bg2);
         border: 1px solid var(--border);
@@ -385,11 +496,15 @@
         background: var(--accent);
         color: #0a0a0a;
         font-size: 11px;
-        font-weight: 500;
+        font-weight: 800;
         letter-spacing: 0.04em;
         border-radius: 100px;
-        padding: 4px 10px;
+        padding: 6px 12px;
         text-transform: uppercase;
+        box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+      }
+      .card-badge.popular {
+        background: var(--accent2);
       }
       .card-badge.sold {
         background: var(--bg3);
@@ -549,6 +664,44 @@
         background: rgba(0, 0, 0, 0.2);
       }
 
+      .faq {
+        max-width: 960px;
+        margin: 0 auto 40px;
+        padding: 0 max(24px, 5vw);
+      }
+      .faq-inner {
+        background: var(--bg2);
+        border: 1px solid var(--border);
+        border-radius: 24px;
+        padding: 28px;
+      }
+      .faq-title {
+        font-family: "Syne", sans-serif;
+        font-weight: 800;
+        font-size: 22px;
+        margin-bottom: 14px;
+      }
+      details.faq-item {
+        border-top: 1px solid var(--border);
+        padding: 14px 0;
+      }
+      details.faq-item:first-of-type {
+        border-top: none;
+        padding-top: 0;
+      }
+      details.faq-item summary {
+        cursor: pointer;
+        list-style: none;
+        font-weight: 700;
+      }
+      details.faq-item summary::-webkit-details-marker {
+        display: none;
+      }
+      .faq-answer {
+        margin-top: 10px;
+        color: var(--text2);
+      }
+
       /* FOOTER */
       footer {
         border-top: 1px solid var(--border);
@@ -571,6 +724,16 @@
 
       /* RESPONSIVE */
       @media (max-width: 600px) {
+        .products-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 12px;
+        }
+        .card-body {
+          padding: 14px;
+        }
+        .home-tile {
+          flex-basis: 210px;
+        }
         .stats {
           flex-direction: column;
           gap: 16px;
@@ -734,11 +897,10 @@
       <div class="hero-tag"><span></span> Catálogo atualizado</div>
       <h1>Produtos a preços<br /><em>imbatíveis.</em></h1>
       <p>
-        Tecnologia, acessórios e muito mais. Produtos selecionados, enviados
-        para todo o país.
+        Escolhe um dos destaques ou vê as novidades desta semana. Produtos
+        selecionados e enviados para todo o país.
       </p>
       <div class="hero-actions">
-        <a href="#produtos" class="btn-primary">Ver catálogo ↓</a>
         <a
           href="https://wa.me/351927515217?text=Olá!%20Vi%20o%20catálogo%20e%20tenho%20interesse."
           target="_blank"
@@ -748,19 +910,26 @@
       </div>
     </section>
 
-    <div class="stats">
-      <div class="stat">
-        <div class="stat-num">40+</div>
-        <div class="stat-label">Produtos disponíveis</div>
+    <section class="home-section" id="destaques">
+      <div class="home-head">
+        <div class="home-title">Destaques</div>
+        <div class="home-sub">Os mais populares</div>
       </div>
-      <div class="stat">
-        <div class="stat-num">10-15d</div>
-        <div class="stat-label">tempo de entrega</div>
+      <div class="home-strip" id="spotlight-strip"></div>
+    </section>
+
+    <section class="home-section" id="novidades">
+      <div class="home-head">
+        <div class="home-title">🔥 Novidades desta semana</div>
+        <div class="home-sub">Chegaram agora</div>
       </div>
-      <div class="stat">
-        <div class="stat-num">5★</div>
-        <div class="stat-label">Avaliação dos clientes</div>
-      </div>
+      <div class="home-strip" id="new-strip"></div>
+    </section>
+
+    <div class="catalog-divider">
+      <div class="line"></div>
+      <div class="label">Catálogo completo</div>
+      <div class="line"></div>
     </div>
 
     <div class="section-header" id="produtos">
@@ -768,53 +937,86 @@
       <div class="filters">
         <button
           class="filter-btn cat-filter active"
+          data-cat="todos"
           onclick="filter('todos', this)"
         >
           Todos
         </button>
         <button
           class="filter-btn cat-filter"
+          data-cat="sneakers"
           onclick="filter('sneakers', this)"
         >
           Sneakers
         </button>
-        <button class="filter-btn cat-filter" onclick="filter('outros', this)">
+        <button
+          class="filter-btn cat-filter"
+          data-cat="outros"
+          onclick="filter('outros', this)"
+        >
           Outros
         </button>
-        <button class="filter-btn cat-filter" onclick="filter('bolsas', this)">
+        <button
+          class="filter-btn cat-filter"
+          data-cat="bolsas"
+          onclick="filter('bolsas', this)"
+        >
           Bolsas
         </button>
-        <button class="filter-btn cat-filter" onclick="filter('oculos', this)">
+        <button
+          class="filter-btn cat-filter"
+          data-cat="oculos"
+          onclick="filter('oculos', this)"
+        >
           Óculos
         </button>
-        <button class="filter-btn cat-filter" onclick="filter('fones', this)">
+        <button
+          class="filter-btn cat-filter"
+          data-cat="fones"
+          onclick="filter('fones', this)"
+        >
           Fones
         </button>
-        <button class="filter-btn cat-filter" onclick="filter('bones', this)">
+        <button
+          class="filter-btn cat-filter"
+          data-cat="bones"
+          onclick="filter('bones', this)"
+        >
           Bonés
         </button>
         <button
           class="filter-btn cat-filter"
+          data-cat="relogios"
           onclick="filter('relogios', this)"
         >
           Relógios
         </button>
-        <button class="filter-btn cat-filter" onclick="filter('capas', this)">
+        <button
+          class="filter-btn cat-filter"
+          data-cat="capas"
+          onclick="filter('capas', this)"
+        >
           Capas
         </button>
         <button
           class="filter-btn cat-filter"
+          data-cat="chinelos"
           onclick="filter('chinelos', this)"
         >
           Chinelos
         </button>
         <button
           class="filter-btn cat-filter"
+          data-cat="tecnologia"
           onclick="filter('tecnologia', this)"
         >
           Tecnologia
         </button>
-        <button class="filter-btn cat-filter" onclick="filter('roupas', this)">
+        <button
+          class="filter-btn cat-filter"
+          data-cat="roupas"
+          onclick="filter('roupas', this)"
+        >
           Roupas
         </button>
       </div>
@@ -825,6 +1027,7 @@
       >
         <button
           class="filter-btn brand-filter active"
+          data-brand="todos"
           onclick="filterBrand('todos', this)"
         >
           Todas as marcas
@@ -1159,13 +1362,13 @@
         </div>
       </div>
 
-      <div class="card" data-cat="tecnologia">
+      <div class="card" data-cat="tecnologia" id="product-marshall-kilburn-ii">
         <div class="card-img">
           <img
             src="imagens/eletronicos/colunas/marshal/Screenshot_2026_05_20_13_04_55_29_d796fc7b307ec46f8485bc0feee8542c.jpg"
             id="img-marshal-kilburn2"
           />
-          <span class="card-badge">Tech</span>
+          <span class="card-badge">Novo</span>
         </div>
         <div class="card-body">
           <div class="card-cat">Marshall</div>
@@ -1431,6 +1634,27 @@
       </div>
     </div>
 
+    <div class="catalog-more" id="catalog-more" data-visible="false">
+      <button type="button" class="btn-primary" id="catalog-more-btn">
+        Ver mais produtos
+      </button>
+    </div>
+
+    <div class="stats">
+      <div class="stat">
+        <div class="stat-num">40+</div>
+        <div class="stat-label">Produtos disponíveis</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">10-15d</div>
+        <div class="stat-label">tempo de entrega</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">5★</div>
+        <div class="stat-label">Avaliação dos clientes</div>
+      </div>
+    </div>
+
     <div class="cta-banner" id="contacto">
       <div class="cta-inner">
         <h2>
@@ -1450,6 +1674,32 @@
         </div>
       </div>
     </div>
+
+    <section class="faq" id="faq">
+      <div class="faq-inner">
+        <div class="faq-title">Como funciona?</div>
+        <details class="faq-item">
+          <summary>É seguro comprar?</summary>
+          <div class="faq-answer">
+            Sim! Trabalhamos com pagamentos por MB Way e acompanhamos cada
+            encomenda até chegar à tua mão.
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Qual o prazo de entrega?</summary>
+          <div class="faq-answer">
+            Devido à nossa curadoria de alta qualidade, os produtos demoram
+            entre 10 a 15 dias a chegar à tua morada.
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Como acompanho o pedido?</summary>
+          <div class="faq-answer">
+            Enviamos atualizações diretas pelo WhatsApp.
+          </div>
+        </details>
+      </div>
+    </section>
 
     <footer>
       <a href="#" class="logo">Smart <span>Things</span> PT</a>
@@ -1813,6 +2063,20 @@
       let activeBrand = "todos";
       let activeModel = "todos";
       let sneakersIndex = { brands: [], modelsByBrand: {} };
+      let catalogVisibleLimit = 18;
+      const catalogLimitStep = 18;
+
+      const POPULAR_SNEAKERS = [
+        { brand: "adidas", contains: ["samba"] },
+        { brand: "asics", contains: ["gel nyc"] },
+        { brand: "adidas", contains: ["spezial"] },
+        { brand: "nike", contains: ["mind 001"] },
+      ];
+      const NEW_SNEAKERS = [
+        { brand: "newbalance", contains: ["509"] },
+        { brand: "newbalance", contains: ["miu miu"] },
+        { brand: "nike", contains: ["jordan 1", "travis"] },
+      ];
 
       function ensureSneakerIndexEntry(
         brandSlug,
@@ -1850,11 +2114,30 @@
           const btn = document.createElement("button");
           btn.className = "filter-btn brand-filter";
           btn.textContent = b.label;
+          btn.dataset.brand = b.slug;
           btn.addEventListener("click", function () {
             filterBrand(b.slug, this);
           });
           brandFilters.appendChild(btn);
         }
+      }
+
+      function normalizeText(value) {
+        return String(value || "")
+          .toLowerCase()
+          .normalize("NFD")
+          .replace(/[\u0300-\u036f]/g, "")
+          .replace(/[^a-z0-9]+/g, " ")
+          .replace(/\s+/g, " ")
+          .trim();
+      }
+
+      function matchesRule({ brand, modelLabel }, rule) {
+        if (!rule) return false;
+        if (rule.brand && brand !== rule.brand) return false;
+        const n = normalizeText(modelLabel);
+        const parts = Array.isArray(rule.contains) ? rule.contains : [];
+        return parts.every((p) => n.includes(normalizeText(p)));
       }
 
       const ADMIN_PASS_HASH_KEY = "st_admin_pass_hash";
@@ -1974,7 +2257,7 @@
               );
               if (!newUrl) return;
               const clean = newUrl.trim();
-              if (!/^https?:\\\\/ / i.test(clean)) {
+              if (!/^https?:\\/\\//i.test(clean)) {
                 alert("Link inválido. Precisa começar com http:// ou https://");
                 return;
               }
@@ -2059,7 +2342,7 @@
               refreshAdminButtons();
               return;
             }
-            if (!/^https?:\\\\/ / i.test(v)) {
+            if (!/^https?:\\/\\//i.test(v)) {
               alert("Link inválido. Precisa começar com http:// ou https://");
               return;
             }
@@ -2124,37 +2407,70 @@
       }
 
       function applyFilters() {
-        document
-          .querySelectorAll(".grid > .card, .products-grid > .card")
-          .forEach((card) => {
-            const catOk =
-              activeCategory === "todos" || card.dataset.cat === activeCategory;
-            const brandOk =
-              activeCategory !== "sneakers" ||
-              activeBrand === "todos" ||
-              card.dataset.brand === activeBrand;
-            const modelOk =
-              activeCategory !== "sneakers" ||
-              activeModel === "todos" ||
-              card.dataset.model === activeModel;
+        const cards = Array.from(
+          document.querySelectorAll(".grid > .card, .products-grid > .card"),
+        );
+        const matches = [];
+        cards.forEach((card) => {
+          const catOk =
+            activeCategory === "todos" || card.dataset.cat === activeCategory;
+          const brandOk =
+            activeCategory !== "sneakers" ||
+            activeBrand === "todos" ||
+            card.dataset.brand === activeBrand;
+          const modelOk =
+            activeCategory !== "sneakers" ||
+            activeModel === "todos" ||
+            card.dataset.model === activeModel;
 
-            if (catOk && brandOk && modelOk) {
-              card.removeAttribute("data-hidden");
-            } else {
-              card.setAttribute("data-hidden", "true");
-            }
+          if (catOk && brandOk && modelOk) matches.push(card);
+          else card.setAttribute("data-hidden", "true");
+        });
+
+        const limitCatalog =
+          activeCategory === "todos" &&
+          activeBrand === "todos" &&
+          activeModel === "todos";
+        if (limitCatalog) {
+          matches.forEach((card, idx) => {
+            if (idx < catalogVisibleLimit) card.removeAttribute("data-hidden");
+            else card.setAttribute("data-hidden", "true");
           });
+        } else {
+          matches.forEach((card) => card.removeAttribute("data-hidden"));
+        }
+
+        const more = document.getElementById("catalog-more");
+        const moreBtn = document.getElementById("catalog-more-btn");
+        if (more && moreBtn) {
+          if (!limitCatalog || matches.length <= catalogVisibleLimit) {
+            more.dataset.visible = "false";
+          } else {
+            more.dataset.visible = "true";
+            const remaining = matches.length - catalogVisibleLimit;
+            moreBtn.textContent =
+              remaining > 0
+                ? `Ver mais produtos (+${Math.min(
+                    remaining,
+                    catalogLimitStep,
+                  )})`
+                : "Ver mais produtos";
+          }
+        }
       }
 
       function filter(cat, btn) {
+        catalogVisibleLimit = catalogLimitStep;
         activeCategory = cat;
         activeBrand = "todos";
         activeModel = "todos";
 
+        const btnEl =
+          btn || document.querySelector(`.cat-filter[data-cat="${cat}"]`);
         document
           .querySelectorAll(".cat-filter")
           .forEach((b) => b.classList.remove("active"));
-        btn.classList.add("active");
+        if (btnEl) btnEl.classList.add("active");
 
         const brandFilters = document.getElementById("brand-filters");
         if (brandFilters) {
@@ -2246,10 +2562,12 @@
         activeBrand = brand;
         activeModel = "todos";
 
+        const btnEl =
+          btn || document.querySelector(`.brand-filter[data-brand="${brand}"]`);
         document
           .querySelectorAll(".brand-filter")
           .forEach((b) => b.classList.remove("active"));
-        btn.classList.add("active");
+        if (btnEl) btnEl.classList.add("active");
 
         const modelFilters = document.getElementById("model-filters");
         if (!modelFilters) {
@@ -2334,6 +2652,157 @@
         applyFilters();
       }
 
+      function refreshSneakerBadges() {
+        document
+          .querySelectorAll('.card[data-cat="sneakers"]')
+          .forEach((card) => {
+            const badge = card.querySelector(".card-badge");
+            if (!badge) return;
+            const meta = {
+              brand: card.dataset.brand || "",
+              modelLabel: getCardText(card, ".card-name"),
+            };
+            const isPopular = POPULAR_SNEAKERS.some((r) =>
+              matchesRule(meta, r),
+            );
+            const isNew = NEW_SNEAKERS.some((r) => matchesRule(meta, r));
+            badge.classList.toggle("popular", isPopular);
+            badge.textContent = isPopular
+              ? "🔥 Popular"
+              : isNew
+                ? "Novo"
+                : "Sneaker";
+          });
+      }
+
+      function buildHomeTile({ title, meta, imageSrc, badgeText, badgeClass }) {
+        const tile = document.createElement("div");
+        tile.className = "home-tile";
+
+        const imgWrap = document.createElement("div");
+        imgWrap.className = "tile-img";
+        const img = document.createElement("img");
+        img.src = imageSrc;
+        imgWrap.appendChild(img);
+
+        const badge = document.createElement("span");
+        badge.className = `card-badge${badgeClass ? ` ${badgeClass}` : ""}`;
+        badge.textContent = badgeText || "";
+        imgWrap.appendChild(badge);
+
+        const body = document.createElement("div");
+        body.className = "tile-body";
+        const name = document.createElement("div");
+        name.className = "tile-name";
+        name.textContent = title;
+        const sub = document.createElement("div");
+        sub.className = "tile-meta";
+        sub.textContent = meta || "";
+        body.appendChild(name);
+        body.appendChild(sub);
+
+        tile.appendChild(imgWrap);
+        tile.appendChild(body);
+        return tile;
+      }
+
+      function findSneakerCard(rule) {
+        const cards = Array.from(
+          document.querySelectorAll(
+            '.products-grid > .card[data-cat="sneakers"]',
+          ),
+        );
+        for (const c of cards) {
+          const meta = {
+            brand: c.dataset.brand || "",
+            modelLabel: getCardText(c, ".card-name"),
+          };
+          if (matchesRule(meta, rule)) return c;
+        }
+        return null;
+      }
+
+      function focusCard(card) {
+        if (!card) return;
+        card.scrollIntoView({ behavior: "smooth", block: "start" });
+        const prev = card.style.outline;
+        card.style.outline = "2px solid var(--accent)";
+        setTimeout(() => {
+          card.style.outline = prev || "";
+        }, 1200);
+      }
+
+      function initHomeShowcase() {
+        const spotlight = document.getElementById("spotlight-strip");
+        const news = document.getElementById("new-strip");
+        if (!spotlight || !news) return;
+        spotlight.innerHTML = "";
+        news.innerHTML = "";
+
+        for (const rule of POPULAR_SNEAKERS) {
+          const card = findSneakerCard(rule);
+          if (!card) continue;
+          const brandLabel = getCardText(card, ".card-cat");
+          const modelLabel = getCardText(card, ".card-name");
+          const img = card.querySelector("img");
+          const tile = buildHomeTile({
+            title: `${brandLabel} ${modelLabel}`.trim(),
+            meta: "Sneakers",
+            imageSrc: img ? img.src : "",
+            badgeText: "🔥 Popular",
+            badgeClass: "popular",
+          });
+          tile.addEventListener("click", () => {
+            filter("sneakers");
+            filterBrand(card.dataset.brand || "todos");
+            filterModel(card.dataset.model || "todos");
+            focusCard(card);
+          });
+          spotlight.appendChild(tile);
+        }
+
+        for (const rule of NEW_SNEAKERS) {
+          const card = findSneakerCard(rule);
+          if (!card) continue;
+          const brandLabel = getCardText(card, ".card-cat");
+          const modelLabel = getCardText(card, ".card-name");
+          const img = card.querySelector("img");
+          const tile = buildHomeTile({
+            title: `${brandLabel} ${modelLabel}`.trim(),
+            meta: "Novidade",
+            imageSrc: img ? img.src : "",
+            badgeText: "Novo",
+          });
+          tile.addEventListener("click", () => {
+            filter("sneakers");
+            filterBrand(card.dataset.brand || "todos");
+            filterModel(card.dataset.model || "todos");
+            focusCard(card);
+          });
+          news.appendChild(tile);
+        }
+
+        const kilburn = document.getElementById("product-marshall-kilburn-ii");
+        if (kilburn) {
+          const title = `${getCardText(kilburn, ".card-cat")} ${getCardText(
+            kilburn,
+            ".card-name",
+          )}`.trim();
+          const img = kilburn.querySelector("img");
+          const tile = buildHomeTile({
+            title,
+            meta: "Tecnologia",
+            imageSrc: img ? img.src : "",
+            badgeText: "Novo",
+          });
+          tile.addEventListener("click", () => {
+            filter("tecnologia");
+            focusCard(kilburn);
+          });
+          news.appendChild(tile);
+        }
+      }
+
       // Trocar de ângulo mantendo a borda amarela/branca ativa
       function changeAngle(btn, imgId, newSrc) {
         document.getElementById(imgId).src = newSrc;
@@ -2414,7 +2883,19 @@
 
         const badge = document.createElement("span");
         badge.className = "card-badge";
-        badge.textContent = "Sneaker";
+        const badgeMeta = { brand: brandSlug, modelLabel };
+        const isPopular = POPULAR_SNEAKERS.some((r) =>
+          matchesRule(badgeMeta, r),
+        );
+        const isNew = NEW_SNEAKERS.some((r) => matchesRule(badgeMeta, r));
+        if (isPopular) {
+          badge.classList.add("popular");
+          badge.textContent = "🔥 Popular";
+        } else if (isNew) {
+          badge.textContent = "Novo";
+        } else {
+          badge.textContent = "Sneaker";
+        }
         imgWrap.appendChild(badge);
 
         const body = document.createElement("div");
@@ -2663,24 +3144,27 @@
         }
 
         sneakersIndex.brands.sort((a, b) => a.label.localeCompare(b.label));
-        if (brandFilters) {
-          for (const b of sneakersIndex.brands) {
-            const btn = document.createElement("button");
-            btn.className = "filter-btn brand-filter";
-            btn.textContent = b.label;
-            btn.addEventListener("click", function () {
-              filterBrand(b.slug, this);
-            });
-            brandFilters.appendChild(btn);
-          }
-        }
+        renderSneakerBrandFilters();
       }
 
       document.addEventListener("DOMContentLoaded", async () => {
         await hydrateSneakersFromFolders();
         await hydrateTelegramProducts();
+        refreshSneakerBadges();
+        initHomeShowcase();
         applyFilters();
         syncAdminState();
+
+        const moreBtn = document.getElementById("catalog-more-btn");
+        if (moreBtn) {
+          moreBtn.addEventListener("click", () => {
+            catalogVisibleLimit += catalogLimitStep;
+            applyFilters();
+            const grid = document.getElementById("grid");
+            if (grid)
+              grid.scrollIntoView({ behavior: "smooth", block: "start" });
+          });
+        }
 
         const modelSelect = document.getElementById("model-select");
         if (modelSelect) {
