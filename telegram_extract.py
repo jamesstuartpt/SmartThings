@@ -113,7 +113,7 @@ def _clean_product_name(caption: str) -> str:
 def _infer_category(name: str) -> str:
     n = (name or "").strip().lower()
     if not n:
-        return "telegram"
+        return "outros"
 
     def has(*needles: str) -> bool:
         return any(x in n for x in needles)
@@ -160,7 +160,52 @@ def _infer_category(name: str) -> str:
     if has("chinelo", "slide", "sliders"):
         return "chinelos"
 
-    return "telegram"
+    if has(
+        "camiseta",
+        "tshirt",
+        "t-shirt",
+        "hoodie",
+        "shorts",
+        "pantal",
+        "pantalón",
+        "chaqueta",
+        "chandal",
+        "chándal",
+        "conjunto",
+        "sudadera",
+        "jacket",
+        "coat",
+        "polo",
+        "detroit",
+        "stone island",
+        "stussy",
+        "carhartt",
+        "moncler",
+        "essentials",
+        "sp5der",
+        "corteiz",
+        "palace",
+        "fear of god",
+    ):
+        return "roupas"
+
+    if has(
+        "airpods",
+        "iphone",
+        "magsafe",
+        "watch",
+        "apple",
+        "jbl",
+        "marshall",
+        "dyson",
+        "proyector",
+        "android",
+        "4k",
+        "wifi",
+    ):
+        return "tecnologia"
+
+    return "outros"
 
 
 def _slug_dash(text: str, max_len: int = 60) -> str:
@@ -314,16 +359,12 @@ def _write_site_manifest_from_export(
             count += 1
 
         if images:
-            category = _infer_category(name)
             product: dict[str, Any] = {"slug": slug, "name": name, "images": images}
-            if category != "telegram":
-                product["category"] = category
+            sneaker = _infer_sneaker_fields(name)
+            if sneaker:
+                product.update(sneaker)
             else:
-                sneaker = _infer_sneaker_fields(name)
-                if sneaker:
-                    product.update(sneaker)
-                else:
-                    product["category"] = "telegram"
+                product["category"] = _infer_category(name)
             products.append(
                 product
             )

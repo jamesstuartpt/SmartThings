@@ -56,7 +56,7 @@
         "imagens/telegram/supreme/supreme_04.jpg",
         "imagens/telegram/supreme/supreme_05.jpg"
       ],
-      "category": "telegram"
+      "category": "outros"
     },
     {
       "slug": "ganni",
@@ -64,7 +64,7 @@
       "images": [
         "imagens/telegram/ganni/ganni_01.jpg"
       ],
-      "category": "telegram"
+      "category": "outros"
     },
     {
       "slug": "adidas",
@@ -77,7 +77,7 @@
         "imagens/telegram/adidas/adidas_05.jpg",
         "imagens/telegram/adidas/adidas_06.jpg"
       ],
-      "category": "telegram"
+      "category": "outros"
     },
     {
       "slug": "guess",
@@ -90,7 +90,7 @@
         "imagens/telegram/guess/guess_05.jpg",
         "imagens/telegram/guess/guess_06.jpg"
       ],
-      "category": "telegram"
+      "category": "outros"
     },
     {
       "slug": "adidas_x_españa_bordado",
@@ -165,7 +165,7 @@
         "imagens/telegram/golden_goose/golden_goose_05.jpg",
         "imagens/telegram/golden_goose/golden_goose_06.jpg"
       ],
-      "category": "telegram"
+      "category": "outros"
     },
     {
       "slug": "amiri",
@@ -178,7 +178,7 @@
         "imagens/telegram/amiri/amiri_05.jpg",
         "imagens/telegram/amiri/amiri_06.jpg"
       ],
-      "category": "telegram"
+      "category": "outros"
     },
     {
       "slug": "carhartt",
@@ -191,7 +191,7 @@
         "imagens/telegram/carhartt/carhartt_05.jpg",
         "imagens/telegram/carhartt/carhartt_06.jpg"
       ],
-      "category": "telegram"
+      "category": "roupas"
     },
     {
       "slug": "beats_studio_pro",
@@ -215,7 +215,7 @@
         "imagens/telegram/numeris/numeris_05.jpg",
         "imagens/telegram/numeris/numeris_06.jpg"
       ],
-      "category": "telegram"
+      "category": "outros"
     },
     {
       "slug": "on_conjunto",
@@ -225,7 +225,7 @@
         "imagens/telegram/on_conjunto/on_conjunto_02.jpg",
         "imagens/telegram/on_conjunto/on_conjunto_03.jpg"
       ],
-      "category": "telegram"
+      "category": "roupas"
     },
     {
       "slug": "polo_ralph_lauren",
@@ -238,7 +238,7 @@
         "imagens/telegram/polo_ralph_lauren/polo_ralph_lauren_05.jpg",
         "imagens/telegram/polo_ralph_lauren/polo_ralph_lauren_06.jpg"
       ],
-      "category": "telegram"
+      "category": "roupas"
     },
     {
       "slug": "adidas_sl72_x_kith",
@@ -280,7 +280,7 @@
         "imagens/telegram/alo_runner/alo_runner_05.jpg",
         "imagens/telegram/alo_runner/alo_runner_06.jpg"
       ],
-      "category": "telegram"
+      "category": "outros"
     },
     {
       "slug": "onitsuka_tiger_tokuten",
@@ -293,7 +293,7 @@
         "imagens/telegram/onitsuka_tiger_tokuten/onitsuka_tiger_tokuten_05.jpg",
         "imagens/telegram/onitsuka_tiger_tokuten/onitsuka_tiger_tokuten_06.jpg"
       ],
-      "category": "telegram"
+      "category": "outros"
     },
     {
       "slug": "adidas_sl72_rs",
@@ -323,7 +323,7 @@
         "imagens/telegram/under_armour/under_armour_05.jpg",
         "imagens/telegram/under_armour/under_armour_06.jpg"
       ],
-      "category": "telegram"
+      "category": "outros"
     },
     {
       "slug": "new_era",
@@ -362,7 +362,7 @@
         "imagens/telegram/blue_banana/blue_banana_05.jpg",
         "imagens/telegram/blue_banana/blue_banana_06.jpg"
       ],
-      "category": "telegram"
+      "category": "outros"
     },
     {
       "slug": "dsquared2",
@@ -375,7 +375,7 @@
         "imagens/telegram/dsquared2/dsquared2_05.jpg",
         "imagens/telegram/dsquared2/dsquared2_06.jpg"
       ],
-      "category": "telegram"
+      "category": "outros"
     },
     {
       "slug": "on_cloud",
@@ -384,7 +384,7 @@
         "imagens/telegram/on_cloud/on_cloud_01.jpg",
         "imagens/telegram/on_cloud/on_cloud_02.jpg"
       ],
-      "category": "telegram"
+      "category": "outros"
     },
     {
       "slug": "gafas_con_ia_audio_y_cámara_estilo_rayban_meta",
@@ -407,7 +407,7 @@
         "imagens/telegram/apple_funda_magsafe/apple_funda_magsafe_05.jpg",
         "imagens/telegram/apple_funda_magsafe/apple_funda_magsafe_06.jpg"
       ],
-      "category": "telegram"
+      "category": "tecnologia"
     },
     {
       "slug": "adidas_forum_x_el_grinch",
@@ -432,7 +432,7 @@
       "images": [
         "imagens/telegram/aimana_royal_oak/aimana_royal_oak_01.jpg"
       ],
-      "category": "telegram"
+      "category": "outros"
     },
     {
       "slug": "converse_piel",
@@ -461,7 +461,7 @@
         "imagens/telegram/birkenstock/birkenstock_05.jpg",
         "imagens/telegram/birkenstock/birkenstock_06.jpg"
       ],
-      "category": "telegram"
+      "category": "outros"
     },
     {
       "slug": "adidas_chándal_completo",
@@ -491,7 +491,7 @@
         "imagens/telegram/tom_ford/tom_ford_05.jpg",
         "imagens/telegram/tom_ford/tom_ford_06.jpg"
       ],
-      "category": "telegram"
+      "category": "outros"
     },
     {
       "slug": "vans_x_dior",
@@ -561,7 +561,7 @@
         "imagens/telegram/marshall_minor_3/marshall_minor_3_04.jpg",
         "imagens/telegram/marshall_minor_3/marshall_minor_3_05.jpg"
       ],
-      "category": "telegram"
+      "category": "tecnologia"
     },
     {
       "slug": "reebok_premier_road",
@@ -574,7 +574,7 @@
         "imagens/telegram/reebok_premier_road/reebok_premier_road_05.jpg",
         "imagens/telegram/reebok_premier_road/reebok_premier_road_06.jpg"
       ],
-      "category": "telegram"
+      "category": "outros"
     },
     {
       "slug": "corteiz_bañador",
@@ -587,7 +587,7 @@
         "imagens/telegram/corteiz_bañador/corteiz_bañador_05.jpg",
         "imagens/telegram/corteiz_bañador/corteiz_bañador_06.jpg"
       ],
-      "category": "telegram"
+      "category": "roupas"
     },
     {
       "slug": "corteiz",
@@ -600,7 +600,7 @@
         "imagens/telegram/corteiz/corteiz_05.jpg",
         "imagens/telegram/corteiz/corteiz_06.jpg"
       ],
-      "category": "telegram"
+      "category": "roupas"
     },
     {
       "slug": "nike_moon_x_jacquemus",
@@ -613,7 +613,11 @@
         "imagens/telegram/nike_moon_x_jacquemus/nike_moon_x_jacquemus_05.jpg",
         "imagens/telegram/nike_moon_x_jacquemus/nike_moon_x_jacquemus_06.jpg"
       ],
-      "category": "bolsas"
+      "category": "sneakers",
+      "brandSlug": "nike",
+      "brandLabel": "Nike",
+      "modelSlug": "moon-x-jacquemus",
+      "modelLabel": "Moon x JACQUEMUS"
     },
     {
       "slug": "moncler",
@@ -626,7 +630,7 @@
         "imagens/telegram/moncler/moncler_05.jpg",
         "imagens/telegram/moncler/moncler_06.jpg"
       ],
-      "category": "telegram"
+      "category": "roupas"
     },
     {
       "slug": "alo",
@@ -639,7 +643,7 @@
         "imagens/telegram/alo/alo_05.jpg",
         "imagens/telegram/alo/alo_06.jpg"
       ],
-      "category": "telegram"
+      "category": "outros"
     },
     {
       "slug": "carhartt_bordado",
@@ -652,7 +656,7 @@
         "imagens/telegram/carhartt_bordado/carhartt_bordado_05.jpg",
         "imagens/telegram/carhartt_bordado/carhartt_bordado_06.jpg"
       ],
-      "category": "telegram"
+      "category": "roupas"
     },
     {
       "slug": "isabel_marant",
@@ -663,7 +667,7 @@
         "imagens/telegram/isabel_marant/isabel_marant_03.jpg",
         "imagens/telegram/isabel_marant/isabel_marant_04.jpg"
       ],
-      "category": "telegram"
+      "category": "outros"
     },
     {
       "slug": "carolina_herrera",
@@ -676,7 +680,7 @@
         "imagens/telegram/carolina_herrera/carolina_herrera_05.jpg",
         "imagens/telegram/carolina_herrera/carolina_herrera_06.jpg"
       ],
-      "category": "telegram"
+      "category": "outros"
     },
     {
       "slug": "asics_novablast_5",
@@ -716,7 +720,7 @@
         "imagens/telegram/patagonia/patagonia_05.jpg",
         "imagens/telegram/patagonia/patagonia_06.jpg"
       ],
-      "category": "telegram"
+      "category": "outros"
     },
     {
       "slug": "adidas_españa_mundial_2026",
@@ -753,7 +757,11 @@
       "images": [
         "imagens/telegram/vans_bones/vans_bones_01.jpg"
       ],
-      "category": "bones"
+      "category": "sneakers",
+      "brandSlug": "vans",
+      "brandLabel": "Vans",
+      "modelSlug": "bones",
+      "modelLabel": "\"bones\""
     },
     {
       "slug": "converse",
@@ -766,7 +774,7 @@
         "imagens/telegram/converse/converse_05.jpg",
         "imagens/telegram/converse/converse_06.jpg"
       ],
-      "category": "telegram"
+      "category": "outros"
     },
     {
       "slug": "new_balance_9060",
@@ -796,7 +804,7 @@
         "imagens/telegram/diesel/diesel_05.jpg",
         "imagens/telegram/diesel/diesel_06.jpg"
       ],
-      "category": "telegram"
+      "category": "outros"
     },
     {
       "slug": "adidas_gazelle_ice_cream",
@@ -831,7 +839,7 @@
         "imagens/telegram/syna_conjunto/syna_conjunto_01.jpg",
         "imagens/telegram/syna_conjunto/syna_conjunto_02.jpg"
       ],
-      "category": "telegram"
+      "category": "roupas"
     },
     {
       "slug": "the_north_face",
@@ -844,7 +852,7 @@
         "imagens/telegram/the_north_face/the_north_face_05.jpg",
         "imagens/telegram/the_north_face/the_north_face_06.jpg"
       ],
-      "category": "telegram"
+      "category": "outros"
     },
     {
       "slug": "polo_ralph_lauren_bañador",
@@ -857,7 +865,7 @@
         "imagens/telegram/polo_ralph_lauren_bañador/polo_ralph_lauren_bañador_05.jpg",
         "imagens/telegram/polo_ralph_lauren_bañador/polo_ralph_lauren_bañador_06.jpg"
       ],
-      "category": "telegram"
+      "category": "roupas"
     },
     {
       "slug": "adidas_x_argentina_1996",
@@ -894,7 +902,7 @@
       "images": [
         "imagens/telegram/gymshark_conjunto/gymshark_conjunto_01.jpg"
       ],
-      "category": "telegram"
+      "category": "roupas"
     },
     {
       "slug": "adidas_predator_freestyle",
@@ -936,7 +944,7 @@
         "imagens/telegram/alexander_mcqueen/alexander_mcqueen_05.jpg",
         "imagens/telegram/alexander_mcqueen/alexander_mcqueen_06.jpg"
       ],
-      "category": "telegram"
+      "category": "outros"
     },
     {
       "slug": "palm_angels",
@@ -949,7 +957,7 @@
         "imagens/telegram/palm_angels/palm_angels_05.jpg",
         "imagens/telegram/palm_angels/palm_angels_06.jpg"
       ],
-      "category": "telegram"
+      "category": "outros"
     },
     {
       "slug": "asics_gel_nyc",
@@ -996,7 +1004,7 @@
         "imagens/telegram/saucony_progrid_omni_9/saucony_progrid_omni_9_05.jpg",
         "imagens/telegram/saucony_progrid_omni_9/saucony_progrid_omni_9_06.jpg"
       ],
-      "category": "telegram"
+      "category": "outros"
     },
     {
       "slug": "asics_gel_kahana_8",
@@ -1052,7 +1060,7 @@
         "imagens/telegram/coach/coach_05.jpg",
         "imagens/telegram/coach/coach_06.jpg"
       ],
-      "category": "telegram"
+      "category": "outros"
     },
     {
       "slug": "stussy_bañador",
@@ -1061,7 +1069,7 @@
         "imagens/telegram/stussy_bañador/stussy_bañador_01.jpg",
         "imagens/telegram/stussy_bañador/stussy_bañador_02.jpg"
       ],
-      "category": "telegram"
+      "category": "roupas"
     },
     {
       "slug": "stussy",
@@ -1074,7 +1082,7 @@
         "imagens/telegram/stussy/stussy_05.jpg",
         "imagens/telegram/stussy/stussy_06.jpg"
       ],
-      "category": "telegram"
+      "category": "roupas"
     },
     {
       "slug": "carhartt_detroit",
@@ -1087,7 +1095,7 @@
         "imagens/telegram/carhartt_detroit/carhartt_detroit_05.jpg",
         "imagens/telegram/carhartt_detroit/carhartt_detroit_06.jpg"
       ],
-      "category": "telegram"
+      "category": "roupas"
     },
     {
       "slug": "chrome_hearts",
@@ -1096,7 +1104,7 @@
         "imagens/telegram/chrome_hearts/chrome_hearts_01.jpg",
         "imagens/telegram/chrome_hearts/chrome_hearts_02.jpg"
       ],
-      "category": "telegram"
+      "category": "outros"
     },
     {
       "slug": "the_north_face_pack_3",
@@ -1104,7 +1112,7 @@
       "images": [
         "imagens/telegram/the_north_face_pack_3/the_north_face_pack_3_01.jpg"
       ],
-      "category": "telegram"
+      "category": "outros"
     },
     {
       "slug": "nike_nocta_x_drake",
@@ -1180,7 +1188,7 @@
       "images": [
         "imagens/telegram/gymshark_mallas_hombre/gymshark_mallas_hombre_01.jpg"
       ],
-      "category": "telegram"
+      "category": "outros"
     },
     {
       "slug": "nike_air_jordan_3",
@@ -1206,7 +1214,7 @@
         "imagens/telegram/scuffers/scuffers_05.jpg",
         "imagens/telegram/scuffers/scuffers_06.jpg"
       ],
-      "category": "telegram"
+      "category": "outros"
     },
     {
       "slug": "adidas_samba_lt",
@@ -1236,7 +1244,7 @@
         "imagens/telegram/essentials_x_fear_of_god_chándal_completo/essentials_x_fear_of_god_chándal_completo_05.jpg",
         "imagens/telegram/essentials_x_fear_of_god_chándal_completo/essentials_x_fear_of_god_chándal_completo_06.jpg"
       ],
-      "category": "telegram"
+      "category": "roupas"
     },
     {
       "slug": "adidas_retropy_e5",
@@ -1266,7 +1274,7 @@
         "imagens/telegram/polo_ralph_lauren_conjunto/polo_ralph_lauren_conjunto_05.jpg",
         "imagens/telegram/polo_ralph_lauren_conjunto/polo_ralph_lauren_conjunto_06.jpg"
       ],
-      "category": "telegram"
+      "category": "roupas"
     },
     {
       "slug": "ami_paris_bordado",
@@ -1279,7 +1287,7 @@
         "imagens/telegram/ami_paris_bordado/ami_paris_bordado_05.jpg",
         "imagens/telegram/ami_paris_bordado/ami_paris_bordado_06.jpg"
       ],
-      "category": "telegram"
+      "category": "outros"
     },
     {
       "slug": "stone_island",
@@ -1292,7 +1300,7 @@
         "imagens/telegram/stone_island/stone_island_05.jpg",
         "imagens/telegram/stone_island/stone_island_06.jpg"
       ],
-      "category": "telegram"
+      "category": "roupas"
     },
     {
       "slug": "fred_perry_conjunto",
@@ -1302,7 +1310,7 @@
         "imagens/telegram/fred_perry_conjunto/fred_perry_conjunto_02.jpg",
         "imagens/telegram/fred_perry_conjunto/fred_perry_conjunto_03.jpg"
       ],
-      "category": "telegram"
+      "category": "roupas"
     },
     {
       "slug": "adidas_ajax_x_stone_island",
@@ -1327,7 +1335,7 @@
         "imagens/telegram/veja/veja_05.jpg",
         "imagens/telegram/veja/veja_06.jpg"
       ],
-      "category": "telegram"
+      "category": "outros"
     },
     {
       "slug": "adidas_loafer",
@@ -1368,7 +1376,7 @@
       "images": [
         "imagens/telegram/polo_ralph_lauren_pack_6/polo_ralph_lauren_pack_6_01.jpg"
       ],
-      "category": "telegram"
+      "category": "roupas"
     },
     {
       "slug": "alo_conjunto",
@@ -1381,7 +1389,7 @@
         "imagens/telegram/alo_conjunto/alo_conjunto_05.jpg",
         "imagens/telegram/alo_conjunto/alo_conjunto_06.jpg"
       ],
-      "category": "telegram"
+      "category": "roupas"
     },
     {
       "slug": "on_cloud_zone",
@@ -1394,7 +1402,7 @@
         "imagens/telegram/on_cloud_zone/on_cloud_zone_05.jpg",
         "imagens/telegram/on_cloud_zone/on_cloud_zone_06.jpg"
       ],
-      "category": "telegram"
+      "category": "outros"
     },
     {
       "slug": "nike_fc_barcelona_x_kobe_chándal_completo",
@@ -1419,7 +1427,7 @@
         "imagens/telegram/gallery_dept/gallery_dept_05.jpg",
         "imagens/telegram/gallery_dept/gallery_dept_06.jpg"
       ],
-      "category": "telegram"
+      "category": "outros"
     },
     {
       "slug": "new_balance_abzorb_2000",
@@ -1483,7 +1491,7 @@
         "imagens/telegram/vans/vans_05.jpg",
         "imagens/telegram/vans/vans_06.jpg"
       ],
-      "category": "telegram"
+      "category": "outros"
     },
     {
       "slug": "adidas_superstar",
@@ -1508,7 +1516,7 @@
       "images": [
         "imagens/telegram/nba_camiseta_pantalón/nba_camiseta_pantalón_01.jpg"
       ],
-      "category": "telegram"
+      "category": "roupas"
     },
     {
       "slug": "miu_miu",
@@ -1521,7 +1529,7 @@
         "imagens/telegram/miu_miu/miu_miu_05.jpg",
         "imagens/telegram/miu_miu/miu_miu_06.jpg"
       ],
-      "category": "telegram"
+      "category": "outros"
     },
     {
       "slug": "adidas_tokyo",
@@ -1551,7 +1559,7 @@
         "imagens/telegram/hunter/hunter_05.jpg",
         "imagens/telegram/hunter/hunter_06.jpg"
       ],
-      "category": "telegram"
+      "category": "outros"
     },
     {
       "slug": "adidas_samba_san_valentín",
@@ -1581,7 +1589,7 @@
         "imagens/telegram/stussy_conjunto/stussy_conjunto_05.jpg",
         "imagens/telegram/stussy_conjunto/stussy_conjunto_06.jpg"
       ],
-      "category": "telegram"
+      "category": "roupas"
     },
     {
       "slug": "corteiz_conjunto",
@@ -1594,7 +1602,7 @@
         "imagens/telegram/corteiz_conjunto/corteiz_conjunto_05.jpg",
         "imagens/telegram/corteiz_conjunto/corteiz_conjunto_06.jpg"
       ],
-      "category": "telegram"
+      "category": "roupas"
     },
     {
       "slug": "adidas_gazelle_indoor",
@@ -1663,7 +1671,7 @@
         "imagens/telegram/gap/gap_02.jpg",
         "imagens/telegram/gap/gap_03.jpg"
       ],
-      "category": "telegram"
+      "category": "outros"
     },
     {
       "slug": "ugg",
@@ -1676,7 +1684,7 @@
         "imagens/telegram/ugg/ugg_05.jpg",
         "imagens/telegram/ugg/ugg_06.jpg"
       ],
-      "category": "telegram"
+      "category": "outros"
     },
     {
       "slug": "adidas_sl72_zebra",
@@ -1713,7 +1721,7 @@
         "imagens/telegram/stanley/stanley_03.jpg",
         "imagens/telegram/stanley/stanley_04.jpg"
       ],
-      "category": "telegram"
+      "category": "outros"
     },
     {
       "slug": "adidas_adizero_sl2",
@@ -1791,7 +1799,7 @@
       "images": [
         "imagens/telegram/cp_company_x_palace_conjunto/cp_company_x_palace_conjunto_01.jpg"
       ],
-      "category": "telegram"
+      "category": "roupas"
     },
     {
       "slug": "adidas_campus",
@@ -1816,7 +1824,7 @@
       "images": [
         "imagens/telegram/hellstar_bañador/hellstar_bañador_01.jpg"
       ],
-      "category": "telegram"
+      "category": "outros"
     },
     {
       "slug": "hellstar",
@@ -1829,7 +1837,7 @@
         "imagens/telegram/hellstar/hellstar_05.jpg",
         "imagens/telegram/hellstar/hellstar_06.jpg"
       ],
-      "category": "telegram"
+      "category": "outros"
     },
     {
       "slug": "adidas_adizero_evo_sl",
@@ -1855,7 +1863,7 @@
         "imagens/telegram/camisetas_futbol/camisetas_futbol_04.jpg",
         "imagens/telegram/camisetas_futbol/camisetas_futbol_05.jpg"
       ],
-      "category": "telegram"
+      "category": "roupas"
     },
     {
       "slug": "nike_metcon_10",
@@ -1915,7 +1923,7 @@
         "imagens/telegram/levis_x_denim_tears/levis_x_denim_tears_05.jpg",
         "imagens/telegram/levis_x_denim_tears/levis_x_denim_tears_06.jpg"
       ],
-      "category": "telegram"
+      "category": "outros"
     },
     {
       "slug": "autry_medalist",
@@ -1928,7 +1936,7 @@
         "imagens/telegram/autry_medalist/autry_medalist_05.jpg",
         "imagens/telegram/autry_medalist/autry_medalist_06.jpg"
       ],
-      "category": "telegram"
+      "category": "outros"
     },
     {
       "slug": "polo_ralph_lauren_pack_3",
@@ -1941,7 +1949,7 @@
         "imagens/telegram/polo_ralph_lauren_pack_3/polo_ralph_lauren_pack_3_05.jpg",
         "imagens/telegram/polo_ralph_lauren_pack_3/polo_ralph_lauren_pack_3_06.jpg"
       ],
-      "category": "telegram"
+      "category": "roupas"
     },
     {
       "slug": "hoka_bondi_9",
@@ -1954,7 +1962,7 @@
         "imagens/telegram/hoka_bondi_9/hoka_bondi_9_05.jpg",
         "imagens/telegram/hoka_bondi_9/hoka_bondi_9_06.jpg"
       ],
-      "category": "telegram"
+      "category": "outros"
     },
     {
       "slug": "beats_x_kim_kardashian",
@@ -1986,7 +1994,7 @@
         "imagens/telegram/gymshark/gymshark_02.jpg",
         "imagens/telegram/gymshark/gymshark_03.jpg"
       ],
-      "category": "telegram"
+      "category": "outros"
     },
     {
       "slug": "asics_gel_121_x_kith_x_marvel",
@@ -2028,7 +2036,7 @@
         "imagens/telegram/under_armour_conjunto/under_armour_conjunto_03.jpg",
         "imagens/telegram/under_armour_conjunto/under_armour_conjunto_04.jpg"
       ],
-      "category": "telegram"
+      "category": "roupas"
     },
     {
       "slug": "nike_tech_fleece",
@@ -2081,7 +2089,7 @@
       "images": [
         "imagens/telegram/sp5der_x_travis_scott/sp5der_x_travis_scott_01.jpg"
       ],
-      "category": "telegram"
+      "category": "roupas"
     },
     {
       "slug": "sp5der",
@@ -2094,7 +2102,7 @@
         "imagens/telegram/sp5der/sp5der_05.jpg",
         "imagens/telegram/sp5der/sp5der_06.jpg"
       ],
-      "category": "telegram"
+      "category": "roupas"
     },
     {
       "slug": "adidas_forum",
@@ -2166,7 +2174,7 @@
         "imagens/telegram/off_white/off_white_05.jpg",
         "imagens/telegram/off_white/off_white_06.jpg"
       ],
-      "category": "telegram"
+      "category": "outros"
     },
     {
       "slug": "bape_sta",
@@ -2179,7 +2187,7 @@
         "imagens/telegram/bape_sta/bape_sta_05.jpg",
         "imagens/telegram/bape_sta/bape_sta_06.jpg"
       ],
-      "category": "telegram"
+      "category": "outros"
     },
     {
       "slug": "on_cloud_x_loewe",
@@ -2192,7 +2200,7 @@
         "imagens/telegram/on_cloud_x_loewe/on_cloud_x_loewe_05.jpg",
         "imagens/telegram/on_cloud_x_loewe/on_cloud_x_loewe_06.jpg"
       ],
-      "category": "telegram"
+      "category": "outros"
     },
     {
       "slug": "longchamp_minibag",
@@ -2208,7 +2216,7 @@
       "images": [
         "imagens/telegram/zadig_voltaire_grande/zadig_voltaire_grande_01.jpg"
       ],
-      "category": "telegram"
+      "category": "outros"
     },
     {
       "slug": "onitsuka_tiger_mexico",
@@ -2221,7 +2229,7 @@
         "imagens/telegram/onitsuka_tiger_mexico/onitsuka_tiger_mexico_05.jpg",
         "imagens/telegram/onitsuka_tiger_mexico/onitsuka_tiger_mexico_06.jpg"
       ],
-      "category": "telegram"
+      "category": "outros"
     },
     {
       "slug": "zadig_voltaire",
@@ -2232,7 +2240,7 @@
         "imagens/telegram/zadig_voltaire/zadig_voltaire_03.jpg",
         "imagens/telegram/zadig_voltaire/zadig_voltaire_04.jpg"
       ],
-      "category": "telegram"
+      "category": "outros"
     },
     {
       "slug": "hummel_malaga_2026",
@@ -2242,7 +2250,7 @@
         "imagens/telegram/hummel_malaga_2026/hummel_malaga_2026_02.jpg",
         "imagens/telegram/hummel_malaga_2026/hummel_malaga_2026_03.jpg"
       ],
-      "category": "telegram"
+      "category": "outros"
     },
     {
       "slug": "dr_martens",
@@ -2255,7 +2263,7 @@
         "imagens/telegram/dr_martens/dr_martens_05.jpg",
         "imagens/telegram/dr_martens/dr_martens_06.jpg"
       ],
-      "category": "telegram"
+      "category": "outros"
     },
     {
       "slug": "nike_shox_z",
@@ -2302,7 +2310,7 @@
         "imagens/telegram/aime_leon_dore/aime_leon_dore_05.jpg",
         "imagens/telegram/aime_leon_dore/aime_leon_dore_06.jpg"
       ],
-      "category": "telegram"
+      "category": "outros"
     },
     {
       "slug": "adidas_argentina_entrenamiento_2026",
@@ -2338,7 +2346,7 @@
         "imagens/telegram/carhartt_conjunto_bordado/carhartt_conjunto_bordado_03.jpg",
         "imagens/telegram/carhartt_conjunto_bordado/carhartt_conjunto_bordado_04.jpg"
       ],
-      "category": "telegram"
+      "category": "roupas"
     },
     {
       "slug": "carhartt_conjunto",
@@ -2351,7 +2359,7 @@
         "imagens/telegram/carhartt_conjunto/carhartt_conjunto_05.jpg",
         "imagens/telegram/carhartt_conjunto/carhartt_conjunto_06.jpg"
       ],
-      "category": "telegram"
+      "category": "roupas"
     },
     {
       "slug": "proyector_android_4k_wifi",
@@ -2361,7 +2369,7 @@
         "imagens/telegram/proyector_android_4k_wifi/proyector_android_4k_wifi_02.jpg",
         "imagens/telegram/proyector_android_4k_wifi/proyector_android_4k_wifi_03.jpg"
       ],
-      "category": "telegram"
+      "category": "tecnologia"
     },
     {
       "slug": "on_cloud_flow_5",
@@ -2369,7 +2377,7 @@
       "images": [
         "imagens/telegram/on_cloud_flow_5/on_cloud_flow_5_01.jpg"
       ],
-      "category": "telegram"
+      "category": "outros"
     },
     {
       "slug": "sol_de_janeiro",
@@ -2377,7 +2385,7 @@
       "images": [
         "imagens/telegram/sol_de_janeiro/sol_de_janeiro_01.jpg"
       ],
-      "category": "telegram"
+      "category": "outros"
     },
     {
       "slug": "essentials_x_fear_of_god_bañador",
@@ -2390,7 +2398,7 @@
         "imagens/telegram/essentials_x_fear_of_god_bañador/essentials_x_fear_of_god_bañador_05.jpg",
         "imagens/telegram/essentials_x_fear_of_god_bañador/essentials_x_fear_of_god_bañador_06.jpg"
       ],
-      "category": "telegram"
+      "category": "roupas"
     },
     {
       "slug": "adidas_chándal_completo_unisex",
@@ -2415,7 +2423,7 @@
         "imagens/telegram/bape/bape_05.jpg",
         "imagens/telegram/bape/bape_06.jpg"
       ],
-      "category": "telegram"
+      "category": "outros"
     },
     {
       "slug": "essentials",
@@ -2428,7 +2436,7 @@
         "imagens/telegram/essentials/essentials_05.jpg",
         "imagens/telegram/essentials/essentials_06.jpg"
       ],
-      "category": "telegram"
+      "category": "roupas"
     },
     {
       "slug": "adidas_animal_print",
@@ -2500,7 +2508,7 @@
         "imagens/telegram/on_cloud_x_fka/on_cloud_x_fka_04.jpg",
         "imagens/telegram/on_cloud_x_fka/on_cloud_x_fka_05.jpg"
       ],
-      "category": "telegram"
+      "category": "outros"
     },
     {
       "slug": "mertra",
@@ -2513,7 +2521,7 @@
         "imagens/telegram/mertra/mertra_05.jpg",
         "imagens/telegram/mertra/mertra_06.jpg"
       ],
-      "category": "telegram"
+      "category": "outros"
     },
     {
       "slug": "supreme_x_ducati",
@@ -2523,7 +2531,7 @@
         "imagens/telegram/supreme_x_ducati/supreme_x_ducati_02.jpg",
         "imagens/telegram/supreme_x_ducati/supreme_x_ducati_03.jpg"
       ],
-      "category": "telegram"
+      "category": "outros"
     },
     {
       "slug": "adidas_sl72_x_bad_bunny",
@@ -2601,7 +2609,7 @@
       "images": [
         "imagens/telegram/alo_unisex/alo_unisex_01.jpg"
       ],
-      "category": "telegram"
+      "category": "outros"
     },
     {
       "slug": "stussy_bordado",
@@ -2614,7 +2622,7 @@
         "imagens/telegram/stussy_bordado/stussy_bordado_05.jpg",
         "imagens/telegram/stussy_bordado/stussy_bordado_06.jpg"
       ],
-      "category": "telegram"
+      "category": "roupas"
     },
     {
       "slug": "adidas_terrex_freehiker_sl_x_gore_tex",
@@ -2634,7 +2642,7 @@
       "images": [
         "imagens/telegram/the_north_face_summit_vectiv_pro_3/the_north_face_summit_vectiv_pro_3_01.jpg"
       ],
-      "category": "telegram"
+      "category": "outros"
     },
     {
       "slug": "asics_gel_nyc_20",
@@ -2661,7 +2669,7 @@
         "imagens/telegram/syna/syna_05.jpg",
         "imagens/telegram/syna/syna_06.jpg"
       ],
-      "category": "telegram"
+      "category": "outros"
     },
     {
       "slug": "adidas_hyperboost_edge",
@@ -2745,7 +2753,7 @@
         "imagens/telegram/prada/prada_05.jpg",
         "imagens/telegram/prada/prada_06.jpg"
       ],
-      "category": "telegram"
+      "category": "outros"
     },
     {
       "slug": "patagonia_bañadorpantalon",
@@ -2753,7 +2761,7 @@
       "images": [
         "imagens/telegram/patagonia_bañadorpantalon/patagonia_bañadorpantalon_01.jpg"
       ],
-      "category": "telegram"
+      "category": "roupas"
     },
     {
       "slug": "patagonia_chaqueta_fina",
@@ -2761,7 +2769,7 @@
       "images": [
         "imagens/telegram/patagonia_chaqueta_fina/patagonia_chaqueta_fina_01.jpg"
       ],
-      "category": "telegram"
+      "category": "roupas"
     },
     {
       "slug": "adidas_adizero_adios_pro_4",
@@ -2786,7 +2794,7 @@
         "imagens/telegram/loro_piana/loro_piana_05.jpg",
         "imagens/telegram/loro_piana/loro_piana_06.jpg"
       ],
-      "category": "telegram"
+      "category": "outros"
     },
     {
       "slug": "adidas_gazelle_sala",
@@ -2845,7 +2853,7 @@
         "imagens/telegram/jbl_flip_6/jbl_flip_6_05.jpg",
         "imagens/telegram/jbl_flip_6/jbl_flip_6_06.jpg"
       ],
-      "category": "telegram"
+      "category": "tecnologia"
     },
     {
       "slug": "dr_martens_unisex",
@@ -2853,7 +2861,7 @@
       "images": [
         "imagens/telegram/dr_martens_unisex/dr_martens_unisex_01.jpg"
       ],
-      "category": "telegram"
+      "category": "outros"
     },
     {
       "slug": "adidas_samba_og_legacy",
@@ -2878,7 +2886,7 @@
         "imagens/telegram/fred_perry/fred_perry_05.jpg",
         "imagens/telegram/fred_perry/fred_perry_06.jpg"
       ],
-      "category": "telegram"
+      "category": "outros"
     }
   ]
 }

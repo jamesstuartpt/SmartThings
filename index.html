@@ -766,11 +766,8 @@
         >
           Sneakers
         </button>
-        <button
-          class="filter-btn cat-filter"
-          onclick="filter('telegram', this)"
-        >
-          Telegram
+        <button class="filter-btn cat-filter" onclick="filter('outros', this)">
+          Outros
         </button>
         <button class="filter-btn cat-filter" onclick="filter('bolsas', this)">
           Bolsas
@@ -804,6 +801,9 @@
           onclick="filter('tecnologia', this)"
         >
           Tecnologia
+        </button>
+        <button class="filter-btn cat-filter" onclick="filter('roupas', this)">
+          Roupas
         </button>
       </div>
       <div
@@ -2275,7 +2275,7 @@
         const card = document.createElement("div");
         card.className = "card";
         card.dataset.source = "telegram";
-        card.dataset.cat = category || "telegram";
+        card.dataset.cat = category || "outros";
 
         const imgWrap = document.createElement("div");
         imgWrap.className = "card-img";
@@ -2299,7 +2299,6 @@
         const cat = document.createElement("div");
         cat.className = "card-cat";
         const categoryLabelMap = {
-          telegram: "Telegram",
           bolsas: "Bolsas",
           oculos: "Óculos",
           fones: "Fones",
@@ -2307,8 +2306,11 @@
           relogios: "Relógios",
           capas: "Capas",
           chinelos: "Chinelos",
+          roupas: "Roupas",
+          tecnologia: "Tecnologia",
+          outros: "Outros",
         };
-        cat.textContent = categoryLabelMap[card.dataset.cat] || "Telegram";
+        cat.textContent = categoryLabelMap[card.dataset.cat] || "Outros";
 
         const title = document.createElement("div");
         title.className = "card-name";
