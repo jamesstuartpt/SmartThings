@@ -757,6 +757,12 @@
         </button>
         <button
           class="filter-btn cat-filter"
+          onclick="filter('telegram', this)"
+        >
+          Telegram
+        </button>
+        <button
+          class="filter-btn cat-filter"
           onclick="filter('tecnologia', this)"
         >
           Tecnologia
@@ -1898,6 +1904,38 @@
         applyFilters();
       }
 
+      async function hydrateTelegramProducts() {
+        const grid = document.getElementById("grid");
+        if (!grid) return;
+
+        try {
+          const res = await fetch("imagens/telegram_manifest.json", {
+            cache: "no-store",
+          });
+          if (!res.ok) return;
+          const manifest = await res.json();
+          const products = Array.isArray(manifest.products)
+            ? manifest.products
+            : [];
+
+          grid
+            .querySelectorAll('.card[data-cat="telegram"]')
+            .forEach((el) => el.remove());
+
+          const anchor = grid.querySelector(".card");
+          for (const p of products) {
+            const name = (p && p.name) || "";
+            const images = (p && p.images) || [];
+            if (!name || !Array.isArray(images) || images.length === 0) continue;
+            const card = buildTelegramCard({ name, images });
+            if (anchor) grid.insertBefore(card, anchor);
+            else grid.appendChild(card);
+          }
+        } catch {
+          return;
+        }
+      }
+
       function filterBrand(brand, btn) {
         activeBrand = brand;
         activeModel = "todos";
@@ -2098,6 +2136,91 @@
         return card;
       }
 
+      function buildTelegramCard({ name, images }) {
+        const card = document.createElement("div");
+        card.className = "card";
+        card.dataset.cat = "telegram";
+
+        const imgWrap = document.createElement("div");
+        imgWrap.className = "card-img";
+
+        const imgId = `img-telegram-${slugify(name)}-${Math.random()
+          .toString(16)
+          .slice(2)}`;
+        const img = document.createElement("img");
+        img.id = imgId;
+        img.src = images[0];
+        imgWrap.appendChild(img);
+
+        const badge = document.createElement("span");
+        badge.className = "card-badge";
+        badge.textContent = "Novo";
+        imgWrap.appendChild(badge);
+
+        const body = document.createElement("div");
+        body.className = "card-body";
+
+        const cat = document.createElement("div");
+        cat.className = "card-cat";
+        cat.textContent = "Telegram";
+
+        const title = document.createElement("div");
+        title.className = "card-name";
+        title.textContent = name;
+
+        const desc = document.createElement("div");
+        desc.className = "card-desc";
+        desc.textContent = "Produto do canal Telegram.";
+
+        body.appendChild(cat);
+        body.appendChild(title);
+        body.appendChild(desc);
+
+        const angleLabel = document.createElement("div");
+        angleLabel.style.fontSize = "11px";
+        angleLabel.style.textTransform = "uppercase";
+        angleLabel.style.color = "var(--text3)";
+        angleLabel.textContent = "Ver ângulo:";
+        body.appendChild(angleLabel);
+
+        const angles = document.createElement("div");
+        angles.className = "angle-container";
+        images.slice(0, 12).forEach((src, index) => {
+          const btn = document.createElement("button");
+          btn.className = `angle-dot${index === 0 ? " active" : ""}`;
+          btn.textContent = String(index + 1);
+          btn.addEventListener("click", function () {
+            changeAngle(this, imgId, src);
+          });
+          angles.appendChild(btn);
+        });
+        body.appendChild(angles);
+
+        const footer = document.createElement("div");
+        footer.className = "card-footer";
+
+        const price = document.createElement("div");
+        price.className = "card-price";
+        price.textContent = "Sob consulta";
+
+        const btn = document.createElement("a");
+        btn.className = "card-btn";
+        btn.target = "_blank";
+        btn.href = `https://wa.me/${WHATSAPP_NUM}?text=${encodeURIComponent(
+          `Olá! Tenho interesse no ${name}. Está disponível?`,
+        )}`;
+        btn.textContent = "Quero este →";
+
+        footer.appendChild(price);
+        footer.appendChild(btn);
+        body.appendChild(footer);
+
+        card.appendChild(imgWrap);
+        card.appendChild(body);
+
+        return card;
+      }
+
       async function hydrateSneakersFromFolders() {
         const grid = document.getElementById("grid");
         if (!grid) return;
@@ -2207,6 +2330,7 @@
 
       document.addEventListener("DOMContentLoaded", async () => {
         await hydrateSneakersFromFolders();
+        await hydrateTelegramProducts();
         applyFilters();
         syncAdminState();
 
