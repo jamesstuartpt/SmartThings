@@ -109,6 +109,32 @@ def _clean_product_name(caption: str) -> str:
     return s
 
 
+def _infer_category(name: str) -> str:
+    n = (name or "").strip().lower()
+    if not n:
+        return "telegram"
+
+    def has(*needles: str) -> bool:
+        return any(x in n for x in needles)
+
+    if has("bolsa", "bag", "purse", "mochila", "backpack"):
+        return "bolsas"
+    if has("oculos", "óculos", "rayban", "ray-ban", "ray ban"):
+        return "oculos"
+    if has("fone", "headphone", "headphones", "airpods", "earpods", "earbuds"):
+        return "fones"
+    if has("bone", "boné", "cap", "new era", "newera"):
+        return "bones"
+    if has("relogio", "relógio", "watch"):
+        return "relogios"
+    if has("capa", "case"):
+        return "capas"
+    if has("chinelo", "slide", "sliders"):
+        return "chinelos"
+
+    return "telegram"
+
+
 def _write_site_manifest_from_export(
     export_dir: Path,
     out_images_dir: Path,
@@ -190,7 +216,14 @@ def _write_site_manifest_from_export(
             count += 1
 
         if images:
-            products.append({"slug": slug, "name": name, "images": images})
+            products.append(
+                {
+                    "slug": slug,
+                    "name": name,
+                    "category": _infer_category(name),
+                    "images": images,
+                }
+            )
 
     return {"products": products}
 

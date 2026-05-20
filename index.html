@@ -772,6 +772,33 @@
         >
           Telegram
         </button>
+        <button class="filter-btn cat-filter" onclick="filter('bolsas', this)">
+          Bolsas
+        </button>
+        <button class="filter-btn cat-filter" onclick="filter('oculos', this)">
+          Óculos
+        </button>
+        <button class="filter-btn cat-filter" onclick="filter('fones', this)">
+          Fones
+        </button>
+        <button class="filter-btn cat-filter" onclick="filter('bones', this)">
+          Bonés
+        </button>
+        <button
+          class="filter-btn cat-filter"
+          onclick="filter('relogios', this)"
+        >
+          Relógios
+        </button>
+        <button class="filter-btn cat-filter" onclick="filter('capas', this)">
+          Capas
+        </button>
+        <button
+          class="filter-btn cat-filter"
+          onclick="filter('chinelos', this)"
+        >
+          Chinelos
+        </button>
         <button
           class="filter-btn cat-filter"
           onclick="filter('tecnologia', this)"
@@ -780,12 +807,6 @@
         </button>
         <button class="filter-btn cat-filter" onclick="filter('casa', this)">
           Casa
-        </button>
-        <button
-          class="filter-btn cat-filter"
-          onclick="filter('acessorios', this)"
-        >
-          Acessórios
         </button>
         <button class="filter-btn cat-filter" onclick="filter('gaming', this)">
           Gaming
@@ -1929,15 +1950,16 @@
             : [];
 
           grid
-            .querySelectorAll('.card[data-cat="telegram"]')
+            .querySelectorAll('.card[data-source="telegram"]')
             .forEach((el) => el.remove());
 
           const anchor = grid.querySelector(".card");
           for (const p of products) {
             const name = (p && p.name) || "";
             const images = (p && p.images) || [];
+            const category = (p && p.category) || "telegram";
             if (!name || !Array.isArray(images) || images.length === 0)
-              continue;
+            const card = buildTelegramCard({ name, images, category });
             const card = buildTelegramCard({ name, images });
             if (anchor) grid.insertBefore(card, anchor);
             else grid.appendChild(card);
@@ -1945,7 +1967,6 @@
         } catch {
           return;
         }
-      }
 
       function filterBrand(brand, btn) {
         activeBrand = brand;
@@ -2149,10 +2170,11 @@
         return card;
       }
 
-      function buildTelegramCard({ name, images }) {
+      function buildTelegramCard({ name, images, category }) {
         const card = document.createElement("div");
         card.className = "card";
-        card.dataset.cat = "telegram";
+        card.dataset.source = "telegram";
+        card.dataset.cat = category || "telegram";
 
         const imgWrap = document.createElement("div");
         imgWrap.className = "card-img";
@@ -2175,7 +2197,17 @@
 
         const cat = document.createElement("div");
         cat.className = "card-cat";
-        cat.textContent = "Telegram";
+        const categoryLabelMap = {
+          telegram: "Telegram",
+          bolsas: "Bolsas",
+          oculos: "Óculos",
+          fones: "Fones",
+          bones: "Bonés",
+          relogios: "Relógios",
+          capas: "Capas",
+          chinelos: "Chinelos",
+        };
+        cat.textContent = categoryLabelMap[card.dataset.cat] || "Telegram";
 
         const title = document.createElement("div");
         title.className = "card-name";
