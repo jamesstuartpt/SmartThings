@@ -156,7 +156,7 @@
     {
       "slug": "beats_studio_pro",
       "name": "BEATS Studio Pro",
-      "category": "telegram",
+      "category": "fones",
       "images": [
         "imagens/telegram/beats_studio_pro/beats_studio_pro_01.jpg",
         "imagens/telegram/beats_studio_pro/beats_studio_pro_02.jpg"
@@ -492,7 +492,7 @@
     {
       "slug": "nike_moon_x_jacquemus",
       "name": "NIKE Moon x JACQUEMUS",
-      "category": "telegram",
+      "category": "bolsas",
       "images": [
         "imagens/telegram/nike_moon_x_jacquemus/nike_moon_x_jacquemus_01.jpg",
         "imagens/telegram/nike_moon_x_jacquemus/nike_moon_x_jacquemus_02.jpg",
@@ -842,7 +842,7 @@
     {
       "slug": "kanken",
       "name": "KANKEN",
-      "category": "telegram",
+      "category": "bolsas",
       "images": [
         "imagens/telegram/kanken/kanken_01.jpg",
         "imagens/telegram/kanken/kanken_02.jpg",
@@ -855,7 +855,7 @@
     {
       "slug": "longchamp",
       "name": "LONGCHAMP",
-      "category": "telegram",
+      "category": "bolsas",
       "images": [
         "imagens/telegram/longchamp/longchamp_01.jpg",
         "imagens/telegram/longchamp/longchamp_02.jpg",
@@ -1325,7 +1325,7 @@
     {
       "slug": "supreme_bandolera",
       "name": "SUPREME (bandolera)",
-      "category": "telegram",
+      "category": "bolsas",
       "images": [
         "imagens/telegram/supreme_bandolera/supreme_bandolera_01.jpg"
       ]
@@ -1570,7 +1570,7 @@
     {
       "slug": "beats_x_kim_kardashian",
       "name": "BEATS x KIM KARDASHIAN",
-      "category": "telegram",
+      "category": "fones",
       "images": [
         "imagens/telegram/beats_x_kim_kardashian/beats_x_kim_kardashian_01.jpg"
       ]
@@ -1686,7 +1686,7 @@
     {
       "slug": "jacquemus",
       "name": "JACQUEMUS",
-      "category": "telegram",
+      "category": "bolsas",
       "images": [
         "imagens/telegram/jacquemus/jacquemus_01.jpg",
         "imagens/telegram/jacquemus/jacquemus_02.jpg",

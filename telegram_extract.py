@@ -117,11 +117,38 @@ def _infer_category(name: str) -> str:
     def has(*needles: str) -> bool:
         return any(x in n for x in needles)
 
-    if has("bolsa", "bag", "purse", "mochila", "backpack"):
+    if has(
+        "bolsa",
+        "bag",
+        "purse",
+        "mochila",
+        "backpack",
+        "minibag",
+        "mini bag",
+        "bandolera",
+        "pochete",
+        "crossbody",
+        "tote",
+        "handbag",
+        "sling",
+        "kanken",
+        "longchamp",
+        "polene",
+        "goyard",
+        "jacquemus",
+    ):
         return "bolsas"
     if has("oculos", "óculos", "rayban", "ray-ban", "ray ban"):
         return "oculos"
-    if has("fone", "headphone", "headphones", "airpods", "earpods", "earbuds"):
+    if has(
+        "fone",
+        "headphone",
+        "headphones",
+        "airpods",
+        "earpods",
+        "earbuds",
+        "beats",
+    ):
         return "fones"
     if has("bone", "boné", "cap", "new era", "newera"):
         return "bones"
