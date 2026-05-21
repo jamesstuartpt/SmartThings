@@ -6,7 +6,7 @@
     <title>Smart Things PT — Catálogo</title>
     <script>
       (() => {
-        const build = "photosfix-20260520";
+        const build = "brandui-20260521";
         try {
           const url = new URL(window.location.href);
           const v = url.searchParams.get("v");
@@ -283,6 +283,43 @@
         background: var(--accent);
         color: #0a0a0a;
         border-color: var(--accent);
+      }
+      .brand-filters {
+        width: 100%;
+        padding: 10px 12px;
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        background: rgba(17, 17, 17, 0.55);
+        gap: 10px;
+      }
+      .brand-filters .brand-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        border-radius: 12px;
+        padding: 10px 12px;
+        font-weight: 800;
+        font-size: 12px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        background: rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        color: rgba(255, 255, 255, 0.75);
+      }
+      .brand-filters .brand-chip::before {
+        content: "";
+        width: 10px;
+        height: 10px;
+        border-radius: 999px;
+        background: var(--brand-color, var(--accent));
+        box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.06);
+        flex: 0 0 10px;
+      }
+      .brand-filters .brand-chip:hover,
+      .brand-filters .brand-chip.active {
+        background: rgba(0, 0, 0, 0.2);
+        border-color: rgba(255, 255, 255, 0.22);
+        color: var(--text);
       }
       .brand-filters[data-visible="false"] {
         display: none;
@@ -1027,7 +1064,7 @@
         data-visible="false"
       >
         <button
-          class="filter-btn brand-filter active"
+          class="filter-btn brand-filter brand-chip active"
           data-brand="todos"
           onclick="filterBrand('todos', this)"
         >
@@ -2036,12 +2073,26 @@
         });
 
         sneakersIndex.brands.sort((a, b) => a.label.localeCompare(b.label));
+        const brandColorMap = {
+          adidas: "#2b7cff",
+          asics: "#ff4d4d",
+          converse: "#ffffff",
+          goldengoose: "#f3c969",
+          nike: "#ff7a00",
+          newbalance: "#b7c0c7",
+          ralphlauren: "#2ad18b",
+          vans: "#e31b23",
+        };
         for (const b of sneakersIndex.brands) {
           if (!b || !b.slug || !b.label) continue;
           const btn = document.createElement("button");
-          btn.className = "filter-btn brand-filter";
+          btn.className = "filter-btn brand-filter brand-chip";
           btn.textContent = b.label;
           btn.dataset.brand = b.slug;
+          btn.style.setProperty(
+            "--brand-color",
+            brandColorMap[b.slug] || "var(--accent)",
+          );
           btn.addEventListener("click", function () {
             filterBrand(b.slug, this);
           });
