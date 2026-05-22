@@ -1,9 +1,12 @@
 import argparse
 import csv
 import hashlib
+import html as html_module
 import json
 import re
 import shutil
+from datetime import datetime, timedelta, timezone
+from html.parser import HTMLParser
 from pathlib import Path
 from typing import Any, Optional
 
@@ -180,12 +183,15 @@ def _infer_category(name: str) -> str:
         "stone island",
         "stussy",
         "carhartt",
+        "ralph lauren",
         "moncler",
         "essentials",
         "sp5der",
         "corteiz",
         "palace",
         "fear of god",
+        "the north face",
+        "north face",
     ):
         return "roupas"
 
@@ -256,6 +262,126 @@ def _infer_sneaker_fields(name: str) -> Optional[dict[str, str]]:
     }
 
 
+class _TelegramHTMLExportParser(HTMLParser):
+    def __init__(self) -> None:
+        super().__init__()
+        self.messages: list[dict[str, Any]] = []
+        self._in_message = False
+        self._div_depth = 0
+        self._in_text = False
+        self._current: dict[str, Any] = {}
+
+    def handle_starttag(
+        self, tag: str, attrs: list[tuple[str, Optional[str]]]
+    ) -> None:
+        attrs_map = {k: (v or "") for k, v in attrs}
+        if tag == "div":
+            cls = attrs_map.get("class", "")
+            if not self._in_message and "message" in cls and "default" in cls and "clearfix" in cls:
+                mid = attrs_map.get("id", "")
+                m = re.match(r"message(\d+)", mid)
+                self._in_message = True
+                self._div_depth = 1
+                self._in_text = False
+                self._current = {
+                    "id": int(m.group(1)) if m else None,
+                    "photo": "",
+                    "date_unixtime": 0,
+                    "text_parts": [],
+                }
+                return
+
+            if self._in_message:
+                self._div_depth += 1
+                if cls.strip() == "text":
+                    self._in_text = True
+                    return
+                if "date" in cls and "details" in cls:
+                    title = attrs_map.get("title", "")
+                    if title:
+                        ts = _parse_html_export_timestamp(title)
+                        if ts:
+                            self._current["date_unixtime"] = ts
+
+        if self._in_message and tag == "a":
+            cls = attrs_map.get("class", "")
+            if "photo_wrap" in cls:
+                href = attrs_map.get("href", "")
+                if href:
+                    self._current["photo"] = href
+
+        if self._in_message and self._in_text and tag == "br":
+            self._current["text_parts"].append("\n")
+
+    def handle_endtag(self, tag: str) -> None:
+        if not self._in_message:
+            return
+        if tag == "div":
+            if self._in_text:
+                self._in_text = False
+            self._div_depth -= 1
+            if self._div_depth <= 0:
+                photo = str(self._current.get("photo") or "")
+                text = "".join(self._current.get("text_parts") or []).strip()
+                if photo:
+                    self.messages.append(
+                        {
+                            "id": self._current.get("id"),
+                            "photo": photo,
+                            "date_unixtime": int(self._current.get("date_unixtime") or 0),
+                            "text": text,
+                        }
+                    )
+                self._in_message = False
+                self._div_depth = 0
+                self._in_text = False
+                self._current = {}
+
+    def handle_data(self, data: str) -> None:
+        if self._in_message and self._in_text and data:
+            self._current["text_parts"].append(data)
+
+
+def _parse_html_export_timestamp(title: str) -> int:
+    s = (title or "").strip()
+    m = re.match(
+        r"^(?P<date>\d{2}\.\d{2}\.\d{4})\s+(?P<time>\d{2}:\d{2}:\d{2})\s+UTC(?P<off>[+-]\d{2}:\d{2})$",
+        s,
+    )
+    if not m:
+        return 0
+    dt = datetime.strptime(f"{m.group('date')} {m.group('time')}", "%d.%m.%Y %H:%M:%S")
+    off = m.group("off")
+    sign = 1 if off.startswith("+") else -1
+    hh, mm = off[1:].split(":")
+    tz = timezone(sign * timedelta(hours=int(hh), minutes=int(mm)))
+    return int(dt.replace(tzinfo=tz).timestamp())
+
+
+def _load_export_messages(export_dir: Path) -> list[dict[str, Any]]:
+    json_path = export_dir / "result.json"
+    if json_path.exists():
+        with json_path.open("r", encoding="utf-8") as f:
+            data = json.load(f)
+        messages = data.get("messages", [])
+        if not isinstance(messages, list):
+            raise ValueError("result.json inesperado: 'messages' não é lista")
+        return messages
+
+    html_path = export_dir / "messages.html"
+    if html_path.exists():
+        raw = html_path.read_text(encoding="utf-8", errors="ignore")
+        raw = html_module.unescape(raw)
+        parser = _TelegramHTMLExportParser()
+        parser.feed(raw)
+        return parser.messages
+
+    raise FileNotFoundError(
+        f"Não encontrei export válido em {export_dir} (preciso de result.json ou messages.html)"
+    )
+
+
+
 def _write_site_manifest_from_export(
     export_dir: Path,
     out_images_dir: Path,
@@ -263,13 +389,7 @@ def _write_site_manifest_from_export(
     max_products: int,
     max_images_per_product: int,
 ) -> dict[str, Any]:
-    json_path = export_dir / "result.json"
-    with json_path.open("r", encoding="utf-8") as f:
-        data = json.load(f)
-
-    messages = data.get("messages", [])
-    if not isinstance(messages, list):
-        raise ValueError("result.json inesperado: 'messages' não é lista")
+    messages = _load_export_messages(export_dir)
 
     by_name: dict[str, list[dict[str, Any]]] = {}
     last_name = ""
@@ -409,9 +529,8 @@ def main() -> int:
     args = parser.parse_args()
 
     export_dir = Path(args.export_dir)
-    json_path = export_dir / "result.json"
-    if not json_path.exists():
-        raise FileNotFoundError(f"Não encontrei: {json_path}")
+    if not export_dir.exists():
+        raise FileNotFoundError(f"Não encontrei: {export_dir}")
 
     out_root = Path(args.out_dir)
     out_photos = out_root / "photos"
@@ -419,12 +538,7 @@ def main() -> int:
     if args.copy:
         out_photos.mkdir(parents=True, exist_ok=True)
 
-    with json_path.open("r", encoding="utf-8") as f:
-        data = json.load(f)
-
-    messages = data.get("messages", [])
-    if not isinstance(messages, list):
-        raise ValueError("result.json inesperado: 'messages' não é lista")
+    messages = _load_export_messages(export_dir)
 
     rows: list[dict[str, Any]] = []
     photo_count = 0
@@ -487,7 +601,7 @@ def main() -> int:
         w.writeheader()
         w.writerows(rows)
 
-    site_manifest: dict[str, Any] | None = None
+    site_manifest: Optional[dict[str, Any]] = None
     if args.sync_site:
         site_images_dir = Path(r"C:\SmartThings\imagens\telegram")
         site_manifest = _write_site_manifest_from_export(

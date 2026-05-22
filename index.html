@@ -6,7 +6,7 @@
     <title>Smart Things PT — Catálogo</title>
     <script>
       (() => {
-        const build = "brandui-20260521";
+        const build = "zoom-telegram-20260522";
         try {
           const url = new URL(window.location.href);
           const v = url.searchParams.get("v");
@@ -923,6 +923,119 @@
       body[data-admin="true"] .admin-only {
         display: inline-flex;
       }
+      .lightbox[data-open="false"] {
+        display: none;
+      }
+      .lightbox {
+        position: fixed;
+        inset: 0;
+        z-index: 200;
+        display: grid;
+        place-items: center;
+        padding: 18px;
+      }
+      .lightbox-backdrop {
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.78);
+        backdrop-filter: blur(6px);
+      }
+      .lightbox-panel {
+        position: relative;
+        width: min(1040px, 100%);
+        max-height: min(86vh, 780px);
+        border-radius: 18px;
+        border: 1px solid var(--border);
+        background: rgba(10, 10, 10, 0.92);
+        box-shadow: 0 30px 80px rgba(0, 0, 0, 0.7);
+        overflow: hidden;
+        display: grid;
+        grid-template-rows: 1fr auto;
+      }
+      .lightbox-img-wrap {
+        position: relative;
+        background: #0c0c0c;
+        display: grid;
+        place-items: center;
+        overflow: hidden;
+      }
+      .lightbox-img {
+        width: 100%;
+        height: 100%;
+        max-height: min(78vh, 700px);
+        object-fit: contain;
+        padding: 16px;
+        cursor: zoom-in;
+        transform-origin: center center;
+        transition: transform 0.18s ease;
+      }
+      .lightbox-img.zoom {
+        transform: scale(1.8);
+        cursor: zoom-out;
+      }
+      .lightbox-meta {
+        padding: 12px 14px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        border-top: 1px solid var(--border);
+        color: rgba(255, 255, 255, 0.75);
+        font-size: 13px;
+      }
+      .lightbox-meta .title {
+        font-weight: 800;
+        color: var(--text);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      .lightbox-meta .count {
+        color: var(--text3);
+        font-weight: 700;
+        white-space: nowrap;
+      }
+      .lightbox-close {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        width: 40px;
+        height: 40px;
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        background: rgba(0, 0, 0, 0.35);
+        color: var(--text);
+        cursor: pointer;
+        z-index: 2;
+      }
+      .lightbox-nav {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 42px;
+        height: 42px;
+        border-radius: 14px;
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        background: rgba(0, 0, 0, 0.35);
+        color: var(--text);
+        cursor: pointer;
+        z-index: 2;
+        font-size: 22px;
+        line-height: 1;
+        display: grid;
+        place-items: center;
+      }
+      .lightbox-nav[disabled] {
+        opacity: 0.35;
+        cursor: default;
+        pointer-events: none;
+      }
+      .lightbox-nav.prev {
+        left: 12px;
+      }
+      .lightbox-nav.next {
+        right: 12px;
+      }
     </style>
   </head>
   <body>
@@ -1695,6 +1808,28 @@
           </button>
         </div>
         <div class="admin-list" id="admin-list"></div>
+      </div>
+    </div>
+
+    <div class="lightbox" id="lightbox" data-open="false">
+      <div class="lightbox-backdrop" data-action="close"></div>
+      <div class="lightbox-panel" role="dialog" aria-modal="true">
+        <button class="lightbox-close" type="button" data-action="close">
+          ✕
+        </button>
+        <button class="lightbox-nav prev" type="button" data-action="prev">
+          ‹
+        </button>
+        <button class="lightbox-nav next" type="button" data-action="next">
+          ›
+        </button>
+        <div class="lightbox-img-wrap">
+          <img class="lightbox-img" id="lightbox-img" alt="" />
+        </div>
+        <div class="lightbox-meta">
+          <div class="title" id="lightbox-title"></div>
+          <div class="count" id="lightbox-count"></div>
+        </div>
       </div>
     </div>
 
@@ -2790,6 +2925,178 @@
         btn.classList.add("active");
       }
 
+      const lightboxState = {
+        images: [],
+        index: 0,
+        title: "",
+      };
+
+      function toRelativeImagePath(src) {
+        try {
+          const u = new URL(src, window.location.href);
+          const p = u.pathname || "";
+          const i = p.indexOf("/imagens/");
+          if (i >= 0) return p.slice(i + 1);
+          return p.replace(/^\/+/, "");
+        } catch {
+          const s = String(src || "");
+          const j = s.indexOf("imagens/");
+          if (j >= 0) return s.slice(j);
+          return s;
+        }
+      }
+
+      function collectCardImages(card, imgEl) {
+        if (!card) return [];
+        const fromData = card.dataset.images;
+        if (fromData) {
+          try {
+            const parsed = JSON.parse(fromData);
+            if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+          } catch {}
+        }
+
+        const found = [];
+        card.querySelectorAll(".angle-dot[onclick]").forEach((b) => {
+          const raw = b.getAttribute("onclick") || "";
+          const parts = [...raw.matchAll(/'([^']+)'/g)].map((m) => m[1]);
+          const last = parts.length ? parts[parts.length - 1] : "";
+          if (last) found.push(last);
+        });
+        const current = imgEl ? imgEl.getAttribute("src") || imgEl.src : "";
+        if (current) found.unshift(current);
+        const uniq = [];
+        const seen = new Set();
+        for (const s of found) {
+          const rel = toRelativeImagePath(s);
+          if (!rel) continue;
+          if (seen.has(rel)) continue;
+          seen.add(rel);
+          uniq.push(rel);
+        }
+        return uniq;
+      }
+
+      function setLightboxOpen(open) {
+        const box = document.getElementById("lightbox");
+        if (!box) return;
+        box.dataset.open = open ? "true" : "false";
+        document.body.style.overflow = open ? "hidden" : "";
+        const img = document.getElementById("lightbox-img");
+        if (img) img.classList.remove("zoom");
+      }
+
+      function renderLightbox() {
+        const img = document.getElementById("lightbox-img");
+        const title = document.getElementById("lightbox-title");
+        const count = document.getElementById("lightbox-count");
+        const prev = document.querySelector('#lightbox [data-action="prev"]');
+        const next = document.querySelector('#lightbox [data-action="next"]');
+
+        const images = Array.isArray(lightboxState.images)
+          ? lightboxState.images
+          : [];
+        const total = images.length;
+        const idx = Math.max(0, Math.min(lightboxState.index || 0, total - 1));
+        lightboxState.index = idx;
+
+        if (img) img.src = total ? images[idx] : "";
+        if (title) title.textContent = lightboxState.title || "";
+        if (count) count.textContent = total ? `${idx + 1}/${total}` : "";
+        if (prev) prev.disabled = !(total > 1 && idx > 0);
+        if (next) next.disabled = !(total > 1 && idx < total - 1);
+      }
+
+      function openLightbox(images, index, title) {
+        lightboxState.images = Array.isArray(images) ? images : [];
+        lightboxState.index = Number.isFinite(index) ? index : 0;
+        lightboxState.title = title || "";
+        setLightboxOpen(true);
+        renderLightbox();
+      }
+
+      function closeLightbox() {
+        setLightboxOpen(false);
+      }
+
+      function stepLightbox(delta) {
+        const total = Array.isArray(lightboxState.images)
+          ? lightboxState.images.length
+          : 0;
+        if (total <= 1) return;
+        const next = Math.max(
+          0,
+          Math.min((lightboxState.index || 0) + delta, total - 1),
+        );
+        if (next === lightboxState.index) return;
+        lightboxState.index = next;
+        const img = document.getElementById("lightbox-img");
+        if (img) img.classList.remove("zoom");
+        renderLightbox();
+      }
+
+      document.addEventListener("click", (e) => {
+        const t = e.target;
+        if (!(t instanceof Element)) return;
+
+        const action = t.getAttribute("data-action");
+        if (action === "close") {
+          closeLightbox();
+          return;
+        }
+        if (action === "prev") {
+          stepLightbox(-1);
+          return;
+        }
+        if (action === "next") {
+          stepLightbox(1);
+          return;
+        }
+
+        if (t.id === "lightbox-img") {
+          t.classList.toggle("zoom");
+          return;
+        }
+
+        if (!t.matches(".card-img img")) return;
+        const card = t.closest(".card");
+        const images = collectCardImages(card, t);
+        const current = toRelativeImagePath(t.getAttribute("src") || t.src);
+        const idx = Math.max(
+          0,
+          images.findIndex((s) => toRelativeImagePath(s) === current),
+        );
+        const title =
+          (card &&
+          getCardText(card, ".card-cat") &&
+          getCardText(card, ".card-name")
+            ? `${getCardText(card, ".card-cat")} ${getCardText(card, ".card-name")}`
+            : card && getCardText(card, ".card-name")
+              ? getCardText(card, ".card-name")
+              : "") || "";
+        openLightbox(images, idx, title.trim());
+      });
+
+      document.addEventListener("keydown", (e) => {
+        const box = document.getElementById("lightbox");
+        if (!box || box.dataset.open !== "true") return;
+        if (e.key === "Escape") {
+          e.preventDefault();
+          closeLightbox();
+          return;
+        }
+        if (e.key === "ArrowLeft") {
+          e.preventDefault();
+          stepLightbox(-1);
+          return;
+        }
+        if (e.key === "ArrowRight") {
+          e.preventDefault();
+          stepLightbox(1);
+          return;
+        }
+      });
+
       // Enviar mensagem personalizada para o WhatsApp
       function orderSneaker(modelName, sizeSelectId) {
         const size = document.getElementById(sizeSelectId).value;
@@ -2847,6 +3154,9 @@
         card.dataset.cat = "sneakers";
         card.dataset.brand = brandSlug;
         card.dataset.model = modelSlug;
+        try {
+          card.dataset.images = JSON.stringify(images || []);
+        } catch {}
 
         const imgWrap = document.createElement("div");
         imgWrap.className = "card-img";
@@ -2945,6 +3255,9 @@
         card.className = "card";
         card.dataset.source = "telegram";
         card.dataset.cat = category || "outros";
+        try {
+          card.dataset.images = JSON.stringify(images || []);
+        } catch {}
 
         const imgWrap = document.createElement("div");
         imgWrap.className = "card-img";
