@@ -6,11 +6,10 @@
     <title>Smart Things PT — Catálogo</title>
     <script>
       (() => {
-        const build = "zoom-telegram-20260522";
+        const build = "32162d6";
         try {
           const url = new URL(window.location.href);
-          const v = url.searchParams.get("v");
-          if (v !== build) {
+          if (!url.searchParams.get("v")) {
             url.searchParams.set("v", build);
             window.location.replace(url.toString());
           }
