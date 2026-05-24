@@ -167,6 +167,7 @@ def _infer_category(name: str) -> str:
         "camiseta",
         "tshirt",
         "t-shirt",
+        "jersey",
         "hoodie",
         "shorts",
         "pantal",
@@ -174,6 +175,7 @@ def _infer_category(name: str) -> str:
         "chaqueta",
         "chandal",
         "chándal",
+        "mundial",
         "conjunto",
         "sudadera",
         "jacket",
@@ -224,6 +226,26 @@ def _infer_sneaker_fields(name: str) -> Optional[dict[str, str]]:
         return None
 
     n = s.lower()
+    if any(
+        k in n
+        for k in (
+            "chandal",
+            "chándal",
+            "conjunto",
+            "hoodie",
+            "camiseta",
+            "tshirt",
+            "t-shirt",
+            "jersey",
+            "jaqueta",
+            "chaqueta",
+            "jacket",
+            "polo",
+            "sudadera",
+            "mundial",
+        )
+    ):
+        return None
 
     brand_slug = ""
     brand_label = ""

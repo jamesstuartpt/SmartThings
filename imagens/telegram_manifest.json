@@ -278,11 +278,7 @@
       "images": [
         "imagens/telegram/adidas_españa_mundial_2026_chándal_completo/adidas_españa_mundial_2026_chándal_completo_01.jpg"
       ],
-      "category": "sneakers",
-      "brandSlug": "adidas",
-      "brandLabel": "Adidas",
-      "modelSlug": "españa-mundial-2026-chándal-completo",
-      "modelLabel": "España Mundial 2026 (chándal completo)"
+      "category": "roupas"
     },
     {
       "slug": "adidas_sambarose",
@@ -306,11 +302,7 @@
         "imagens/telegram/adidas_bélgica_mundial_2026/adidas_bélgica_mundial_2026_02.jpg",
         "imagens/telegram/adidas_bélgica_mundial_2026/adidas_bélgica_mundial_2026_03.jpg"
       ],
-      "category": "sneakers",
-      "brandSlug": "adidas",
-      "brandLabel": "Adidas",
-      "modelSlug": "bélgica-mundial-2026",
-      "modelLabel": "Bélgica Mundial 2026"
+      "category": "roupas"
     },
     {
       "slug": "nike_jordan_brasil_2627",
