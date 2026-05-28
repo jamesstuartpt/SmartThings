@@ -2369,7 +2369,7 @@
               );
               if (!newUrl) return;
               const clean = newUrl.trim();
-              if (!/^https?:\\\\/ / i.test(clean)) {
+              if (!/^https?:\\/\\//i.test(clean)) {
                 alert("Link inválido. Precisa começar com http:// ou https://");
                 return;
               }
@@ -2454,7 +2454,7 @@
               refreshAdminButtons();
               return;
             }
-            if (!/^https?:\\\\/ / i.test(v)) {
+            if (!/^https?:\\/\\//i.test(v)) {
               alert("Link inválido. Precisa começar com http:// ou https://");
               return;
             }
@@ -3448,11 +3448,17 @@
         const moreBtn = document.getElementById("catalog-more-btn");
         if (moreBtn) {
           moreBtn.addEventListener("click", () => {
+            const prev = catalogVisibleLimit;
             catalogVisibleLimit += catalogLimitStep;
             applyFilters();
-            const grid = document.getElementById("grid");
-            if (grid)
-              grid.scrollIntoView({ behavior: "smooth", block: "start" });
+            const cards = Array.from(
+              document.querySelectorAll(".products-grid > .card"),
+            );
+            const visible = cards.filter((c) => c.getAttribute("data-hidden") !== "true");
+            const target = visible[Math.min(prev, Math.max(0, visible.length - 1))];
+            if (target) {
+              target.scrollIntoView({ behavior: "smooth", block: "center" });
+            }
           });
         }
 
