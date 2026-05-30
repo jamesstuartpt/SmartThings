@@ -2370,7 +2370,7 @@
               );
               if (!newUrl) return;
               const clean = newUrl.trim();
-              if (!/^https?:\\/\\//i.test(clean)) {
+              if (!/^https?:\/\//i.test(clean)) {
                 alert("Link inválido. Precisa começar com http:// ou https://");
                 return;
               }
@@ -2455,7 +2455,7 @@
               refreshAdminButtons();
               return;
             }
-            if (!/^https?:\\/\\//i.test(v)) {
+            if (!/^https?:\/\//i.test(v)) {
               alert("Link inválido. Precisa começar com http:// ou https://");
               return;
             }
@@ -2862,9 +2862,12 @@
           const title = `${brandLabel} ${modelLabel}`.trim();
           const img = card.querySelector("img");
           const badgeEl = card.querySelector(".card-badge");
-          const badgeText = badgeEl ? String(badgeEl.textContent || "").trim() : "";
-          const badgeClass =
-            badgeText.toLowerCase().includes("popular") ? "popular" : "";
+          const badgeText = badgeEl
+            ? String(badgeEl.textContent || "").trim()
+            : "";
+          const badgeClass = badgeText.toLowerCase().includes("popular")
+            ? "popular"
+            : "";
 
           const tile = buildHomeTile({
             title: title || modelLabel || brandLabel || "",
@@ -2909,12 +2912,18 @@
         }
 
         if (news.childElementCount === 0) {
-          const cards = Array.from(document.querySelectorAll(".products-grid > .card"));
+          const cards = Array.from(
+            document.querySelectorAll(".products-grid > .card"),
+          );
           const nov = [];
           for (const c of cards) {
             if (picked.has(c)) continue;
             const badge = c.querySelector(".card-badge");
-            const txt = badge ? String(badge.textContent || "").trim().toLowerCase() : "";
+            const txt = badge
+              ? String(badge.textContent || "")
+                  .trim()
+                  .toLowerCase()
+              : "";
             if (txt === "novo") nov.push(c);
             if (nov.length >= 4) break;
           }
@@ -3475,8 +3484,11 @@
             const cards = Array.from(
               document.querySelectorAll(".products-grid > .card"),
             );
-            const visible = cards.filter((c) => c.getAttribute("data-hidden") !== "true");
-            const target = visible[Math.min(prev, Math.max(0, visible.length - 1))];
+            const visible = cards.filter(
+              (c) => c.getAttribute("data-hidden") !== "true",
+            );
+            const target =
+              visible[Math.min(prev, Math.max(0, visible.length - 1))];
             if (target) {
               target.scrollIntoView({ behavior: "smooth", block: "center" });
             }
