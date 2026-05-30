@@ -6,7 +6,7 @@
     <title>Smart Things PT — Catálogo</title>
     <script>
       (() => {
-        const build = "321fc99";
+        const build = "mobileimg-20260530";
         try {
           const url = new URL(window.location.href);
           const v = url.searchParams.get("v");
@@ -765,6 +765,20 @@
         .products-grid {
           grid-template-columns: repeat(2, minmax(0, 1fr));
           gap: 12px;
+        }
+        .card-img {
+          aspect-ratio: 1/1;
+        }
+        .card-img img {
+          object-fit: cover;
+          padding: 0;
+        }
+        .home-tile .tile-img {
+          aspect-ratio: 1/1;
+        }
+        .home-tile .tile-img img {
+          object-fit: cover;
+          padding: 0;
         }
         .card-body {
           padding: 14px;
