@@ -6,7 +6,7 @@
     <title>Smart Things PT — Catálogo</title>
     <script>
       (() => {
-        const build = "mobileimg-20260530";
+        const build = "jun04-20260604";
         try {
           const url = new URL(window.location.href);
           const v = url.searchParams.get("v");
@@ -167,6 +167,20 @@
         align-items: center;
         gap: 12px;
         flex-wrap: wrap;
+      }
+      .hero-note {
+        margin-top: 14px;
+        font-size: 13px;
+        color: var(--text3);
+        max-width: 520px;
+        line-height: 1.5;
+      }
+      .hero-note a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+      .hero-note a:hover {
+        text-decoration: underline;
       }
       .btn-primary {
         display: inline-flex;
@@ -1069,8 +1083,22 @@
         <a
           href="https://wa.me/351927515217?text=Olá!%20Vi%20o%20catálogo%20e%20tenho%20interesse."
           target="_blank"
-          class="btn-secondary"
+          class="btn-primary"
           >💬 WhatsApp</a
+        >
+        <a
+          href="https://t.me/smartthingspt"
+          target="_blank"
+          rel="noopener"
+          class="btn-secondary"
+          >📸 Telegram</a
+        >
+      </div>
+      <div class="hero-note">
+        Pedido sob consulta • Entrega média 10–15 dias • Vendas reais no
+        Telegram:
+        <a href="https://t.me/smartthingspt" target="_blank" rel="noopener"
+          >t.me/smartthingspt</a
         >
       </div>
     </section>
