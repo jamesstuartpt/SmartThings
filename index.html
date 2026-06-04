@@ -6,7 +6,7 @@
     <title>Smart Things PT — Catálogo</title>
     <script>
       (() => {
-        const build = "jun04-20260604";
+        const build = "wa-model-20260604";
         try {
           const url = new URL(window.location.href);
           const v = url.searchParams.get("v");
@@ -2994,6 +2994,12 @@
           .querySelectorAll(".angle-dot")
           .forEach((b) => b.classList.remove("active"));
         btn.classList.add("active");
+        const card = btn.closest(".card");
+        const n = Number(btn.textContent || "0");
+        if (card && n) {
+          card.dataset.selectedModel = String(n);
+          updateCardCustomerWhatsAppLink(card, n);
+        }
       }
 
       const lightboxState = {
@@ -3207,10 +3213,46 @@
       }
 
       function sneakerWhatsappHref(brandLabel, modelLabel) {
+        return whatsappHrefForLabel(`${brandLabel} ${modelLabel}`.trim());
+      }
+
+      function whatsappHrefForLabel(label, selectedModel) {
+        const suffix =
+          selectedModel && Number(selectedModel) > 0
+            ? ` modelo ${Number(selectedModel)}`
+            : "";
         const msg = encodeURIComponent(
-          `Olá! Tenho interesse no ${brandLabel} ${modelLabel}. Está disponível?`,
+          `Olá! Tenho interesse no ${String(label || "").trim()}${suffix}. Está disponível?`,
         );
         return `https://wa.me/${WHATSAPP_NUM}?text=${msg}`;
+      }
+
+      function getWhatsAppLabelFromCard(card) {
+        if (!card) return "";
+        const cat = String(card.dataset.cat || "").trim();
+        const source = String(card.dataset.source || "").trim();
+        if (source === "telegram" && cat !== "sneakers") {
+          return getCardText(card, ".card-name");
+        }
+        return `${getCardText(card, ".card-cat")} ${getCardText(
+          card,
+          ".card-name",
+        )}`.trim();
+      }
+
+      function updateCardCustomerWhatsAppLink(card, selectedModel) {
+        if (!card) return;
+        const footer = card.querySelector(".card-footer");
+        if (!footer) return;
+        const btn = footer.querySelector("a.card-btn:not(.admin-buy-btn)");
+        if (!btn) return;
+
+        const label = getWhatsAppLabelFromCard(card);
+        if (!label) return;
+
+        const dots = card.querySelectorAll(".angle-dot");
+        const hasModels = dots && dots.length > 1;
+        btn.href = whatsappHrefForLabel(label, hasModels ? selectedModel : "");
       }
 
       function buildSneakerCard({
@@ -3398,9 +3440,7 @@
         const btn = document.createElement("a");
         btn.className = "card-btn";
         btn.target = "_blank";
-        btn.href = `https://wa.me/${WHATSAPP_NUM}?text=${encodeURIComponent(
-          `Olá! Tenho interesse no ${name}. Está disponível?`,
-        )}`;
+        btn.href = whatsappHrefForLabel(name);
         btn.textContent = "Quero este →";
 
         footer.appendChild(btn);
