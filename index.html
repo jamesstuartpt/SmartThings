@@ -6,7 +6,7 @@
     <title>Smart Things PT — Catálogo</title>
     <script>
       (() => {
-        const build = "wa-model-20260604";
+        const build = "newfirst-20260610";
         try {
           const url = new URL(window.location.href);
           const v = url.searchParams.get("v");
@@ -2562,9 +2562,18 @@
       }
 
       function applyFilters() {
+        const grid = document.getElementById("grid");
         const cards = Array.from(
           document.querySelectorAll(".grid > .card, .products-grid > .card"),
         );
+        const getCardRecency = (card) => {
+          const n = Number(card?.dataset?.addedAt || "0");
+          return Number.isFinite(n) ? n : 0;
+        };
+        cards.sort((a, b) => getCardRecency(b) - getCardRecency(a));
+        if (grid) {
+          cards.forEach((card) => grid.appendChild(card));
+        }
         const matches = [];
         cards.forEach((card) => {
           const catOk =
@@ -2703,6 +2712,9 @@
               card.dataset.source = "telegram";
             } else {
               card = buildTelegramCard({ name, images, category });
+            }
+            if (p && p.latestTs) {
+              card.dataset.addedAt = String(p.latestTs);
             }
             if (anchor) grid.insertBefore(card, anchor);
             else grid.appendChild(card);

@@ -501,7 +501,13 @@ def _write_site_manifest_from_export(
             count += 1
 
         if images:
-            product: dict[str, Any] = {"slug": slug, "name": name, "images": images}
+            latest_ts = max((msg_time(m) for m in msgs), default=0)
+            product: dict[str, Any] = {
+                "slug": slug,
+                "name": name,
+                "images": images,
+                "latestTs": latest_ts,
+            }
             sneaker = _infer_sneaker_fields(name)
             if sneaker:
                 product.update(sneaker)

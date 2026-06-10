@@ -1,6 +1,1822 @@
 {
   "products": [
     {
+      "slug": "beats_x_kim_kardashian",
+      "name": "BEATS x KIM KARDASHIAN",
+      "images": [
+        "imagens/telegram/beats_x_kim_kardashian/beats_x_kim_kardashian_01.jpg",
+        "imagens/telegram/beats_x_kim_kardashian/beats_x_kim_kardashian_02.jpg",
+        "imagens/telegram/beats_x_kim_kardashian/beats_x_kim_kardashian_03.jpg"
+      ],
+      "latestTs": 1781104552,
+      "category": "fones"
+    },
+    {
+      "slug": "emestudios",
+      "name": "EMESTUDIOS",
+      "images": [
+        "imagens/telegram/emestudios/emestudios_01.jpg",
+        "imagens/telegram/emestudios/emestudios_02.jpg",
+        "imagens/telegram/emestudios/emestudios_03.jpg"
+      ],
+      "latestTs": 1781103226,
+      "category": "outros"
+    },
+    {
+      "slug": "adidas_adizero_evo_sl",
+      "name": "ADIDAS Adizero EVO SL",
+      "images": [
+        "imagens/telegram/adidas_adizero_evo_sl/adidas_adizero_evo_sl_01.jpg",
+        "imagens/telegram/adidas_adizero_evo_sl/adidas_adizero_evo_sl_02.jpg",
+        "imagens/telegram/adidas_adizero_evo_sl/adidas_adizero_evo_sl_03.jpg",
+        "imagens/telegram/adidas_adizero_evo_sl/adidas_adizero_evo_sl_04.jpg",
+        "imagens/telegram/adidas_adizero_evo_sl/adidas_adizero_evo_sl_05.jpg",
+        "imagens/telegram/adidas_adizero_evo_sl/adidas_adizero_evo_sl_06.jpg",
+        "imagens/telegram/adidas_adizero_evo_sl/adidas_adizero_evo_sl_07.jpg",
+        "imagens/telegram/adidas_adizero_evo_sl/adidas_adizero_evo_sl_08.jpg",
+        "imagens/telegram/adidas_adizero_evo_sl/adidas_adizero_evo_sl_09.jpg",
+        "imagens/telegram/adidas_adizero_evo_sl/adidas_adizero_evo_sl_10.jpg"
+      ],
+      "latestTs": 1781101332,
+      "category": "sneakers",
+      "brandSlug": "adidas",
+      "brandLabel": "Adidas",
+      "modelSlug": "adizero-evo-sl",
+      "modelLabel": "Adizero EVO SL"
+    },
+    {
+      "slug": "polo_ralph_lauren_bañador",
+      "name": "POLO RALPH LAUREN (bañador)",
+      "images": [
+        "imagens/telegram/polo_ralph_lauren_bañador/polo_ralph_lauren_bañador_01.jpg",
+        "imagens/telegram/polo_ralph_lauren_bañador/polo_ralph_lauren_bañador_02.jpg"
+      ],
+      "latestTs": 1781100797,
+      "category": "roupas"
+    },
+    {
+      "slug": "adidas_argentina_mundial_2026",
+      "name": "ADIDAS Argentina Mundial 2026",
+      "images": [
+        "imagens/telegram/adidas_argentina_mundial_2026/adidas_argentina_mundial_2026_01.jpg",
+        "imagens/telegram/adidas_argentina_mundial_2026/adidas_argentina_mundial_2026_02.jpg",
+        "imagens/telegram/adidas_argentina_mundial_2026/adidas_argentina_mundial_2026_03.jpg"
+      ],
+      "latestTs": 1781099064,
+      "category": "roupas"
+    },
+    {
+      "slug": "polo_ralph_lauren",
+      "name": "POLO RALPH LAUREN",
+      "images": [
+        "imagens/telegram/polo_ralph_lauren/polo_ralph_lauren_01.jpg",
+        "imagens/telegram/polo_ralph_lauren/polo_ralph_lauren_02.jpg",
+        "imagens/telegram/polo_ralph_lauren/polo_ralph_lauren_03.jpg",
+        "imagens/telegram/polo_ralph_lauren/polo_ralph_lauren_04.jpg",
+        "imagens/telegram/polo_ralph_lauren/polo_ralph_lauren_05.jpg",
+        "imagens/telegram/polo_ralph_lauren/polo_ralph_lauren_06.jpg",
+        "imagens/telegram/polo_ralph_lauren/polo_ralph_lauren_07.jpg",
+        "imagens/telegram/polo_ralph_lauren/polo_ralph_lauren_08.jpg",
+        "imagens/telegram/polo_ralph_lauren/polo_ralph_lauren_09.jpg",
+        "imagens/telegram/polo_ralph_lauren/polo_ralph_lauren_10.jpg"
+      ],
+      "latestTs": 1781098815,
+      "category": "roupas"
+    },
+    {
+      "slug": "on_cloud",
+      "name": "ON CLOUD",
+      "images": [
+        "imagens/telegram/on_cloud/on_cloud_01.jpg",
+        "imagens/telegram/on_cloud/on_cloud_02.jpg"
+      ],
+      "latestTs": 1781097421,
+      "category": "outros"
+    },
+    {
+      "slug": "carhartt",
+      "name": "CARHARTT",
+      "images": [
+        "imagens/telegram/carhartt/carhartt_01.jpg",
+        "imagens/telegram/carhartt/carhartt_02.jpg",
+        "imagens/telegram/carhartt/carhartt_03.jpg",
+        "imagens/telegram/carhartt/carhartt_04.jpg",
+        "imagens/telegram/carhartt/carhartt_05.jpg",
+        "imagens/telegram/carhartt/carhartt_06.jpg",
+        "imagens/telegram/carhartt/carhartt_07.jpg",
+        "imagens/telegram/carhartt/carhartt_08.jpg",
+        "imagens/telegram/carhartt/carhartt_09.jpg",
+        "imagens/telegram/carhartt/carhartt_10.jpg"
+      ],
+      "latestTs": 1781097349,
+      "category": "roupas"
+    },
+    {
+      "slug": "stussy",
+      "name": "STUSSY",
+      "images": [
+        "imagens/telegram/stussy/stussy_01.jpg",
+        "imagens/telegram/stussy/stussy_02.jpg",
+        "imagens/telegram/stussy/stussy_03.jpg",
+        "imagens/telegram/stussy/stussy_04.jpg",
+        "imagens/telegram/stussy/stussy_05.jpg",
+        "imagens/telegram/stussy/stussy_06.jpg",
+        "imagens/telegram/stussy/stussy_07.jpg",
+        "imagens/telegram/stussy/stussy_08.jpg",
+        "imagens/telegram/stussy/stussy_09.jpg"
+      ],
+      "latestTs": 1781095862,
+      "category": "roupas"
+    },
+    {
+      "slug": "nike_react_x",
+      "name": "NIKE React X",
+      "images": [
+        "imagens/telegram/nike_react_x/nike_react_x_01.jpg"
+      ],
+      "latestTs": 1781095189,
+      "category": "sneakers",
+      "brandSlug": "nike",
+      "brandLabel": "Nike",
+      "modelSlug": "react-x",
+      "modelLabel": "React X"
+    },
+    {
+      "slug": "adidas_inter_miami_conjunto",
+      "name": "ADIDAS Inter Miami (conjunto)",
+      "images": [
+        "imagens/telegram/adidas_inter_miami_conjunto/adidas_inter_miami_conjunto_01.jpg"
+      ],
+      "latestTs": 1781092356,
+      "category": "roupas"
+    },
+    {
+      "slug": "nike_pro_conjunto",
+      "name": "NIKE Pro (conjunto)",
+      "images": [
+        "imagens/telegram/nike_pro_conjunto/nike_pro_conjunto_01.jpg"
+      ],
+      "latestTs": 1781092108,
+      "category": "roupas"
+    },
+    {
+      "slug": "goyard_tarjetero",
+      "name": "GOYARD (tarjetero)",
+      "images": [
+        "imagens/telegram/goyard_tarjetero/goyard_tarjetero_01.jpg"
+      ],
+      "latestTs": 1781088723,
+      "category": "bolsas"
+    },
+    {
+      "slug": "adidas_crochet",
+      "name": "ADIDAS \"crochet\"",
+      "images": [
+        "imagens/telegram/adidas_crochet/adidas_crochet_01.jpg"
+      ],
+      "latestTs": 1781088645,
+      "category": "sneakers",
+      "brandSlug": "adidas",
+      "brandLabel": "Adidas",
+      "modelSlug": "crochet",
+      "modelLabel": "\"crochet\""
+    },
+    {
+      "slug": "fred_perry",
+      "name": "FRED PERRY",
+      "images": [
+        "imagens/telegram/fred_perry/fred_perry_01.jpg",
+        "imagens/telegram/fred_perry/fred_perry_02.jpg"
+      ],
+      "latestTs": 1781085720,
+      "category": "outros"
+    },
+    {
+      "slug": "nike_air_force_1",
+      "name": "NIKE Air Force 1",
+      "images": [
+        "imagens/telegram/nike_air_force_1/nike_air_force_1_01.jpg"
+      ],
+      "latestTs": 1781083750,
+      "category": "sneakers",
+      "brandSlug": "nike",
+      "brandLabel": "Nike",
+      "modelSlug": "air-force-1",
+      "modelLabel": "Air Force 1"
+    },
+    {
+      "slug": "on_cloud_pack_5",
+      "name": "ON CLOUD (pack 5)",
+      "images": [
+        "imagens/telegram/on_cloud_pack_5/on_cloud_pack_5_01.jpg"
+      ],
+      "latestTs": 1781083000,
+      "category": "outros"
+    },
+    {
+      "slug": "adidas",
+      "name": "ADIDAS",
+      "images": [
+        "imagens/telegram/adidas/adidas_01.jpg",
+        "imagens/telegram/adidas/adidas_02.jpg",
+        "imagens/telegram/adidas/adidas_03.jpg",
+        "imagens/telegram/adidas/adidas_04.jpg",
+        "imagens/telegram/adidas/adidas_05.jpg",
+        "imagens/telegram/adidas/adidas_06.jpg",
+        "imagens/telegram/adidas/adidas_07.jpg",
+        "imagens/telegram/adidas/adidas_08.jpg",
+        "imagens/telegram/adidas/adidas_09.jpg",
+        "imagens/telegram/adidas/adidas_10.jpg"
+      ],
+      "latestTs": 1781082661,
+      "category": "outros"
+    },
+    {
+      "slug": "birkenstock",
+      "name": "BIRKENSTOCK",
+      "images": [
+        "imagens/telegram/birkenstock/birkenstock_01.jpg",
+        "imagens/telegram/birkenstock/birkenstock_02.jpg",
+        "imagens/telegram/birkenstock/birkenstock_03.jpg",
+        "imagens/telegram/birkenstock/birkenstock_04.jpg",
+        "imagens/telegram/birkenstock/birkenstock_05.jpg",
+        "imagens/telegram/birkenstock/birkenstock_06.jpg",
+        "imagens/telegram/birkenstock/birkenstock_07.jpg",
+        "imagens/telegram/birkenstock/birkenstock_08.jpg",
+        "imagens/telegram/birkenstock/birkenstock_09.jpg",
+        "imagens/telegram/birkenstock/birkenstock_10.jpg"
+      ],
+      "latestTs": 1781082661,
+      "category": "outros"
+    },
+    {
+      "slug": "guess",
+      "name": "GUESS",
+      "images": [
+        "imagens/telegram/guess/guess_01.jpg",
+        "imagens/telegram/guess/guess_02.jpg",
+        "imagens/telegram/guess/guess_03.jpg",
+        "imagens/telegram/guess/guess_04.jpg",
+        "imagens/telegram/guess/guess_05.jpg",
+        "imagens/telegram/guess/guess_06.jpg"
+      ],
+      "latestTs": 1781082661,
+      "category": "outros"
+    },
+    {
+      "slug": "golden_goose",
+      "name": "GOLDEN GOOSE",
+      "images": [
+        "imagens/telegram/golden_goose/golden_goose_01.jpg",
+        "imagens/telegram/golden_goose/golden_goose_02.jpg",
+        "imagens/telegram/golden_goose/golden_goose_03.jpg",
+        "imagens/telegram/golden_goose/golden_goose_04.jpg",
+        "imagens/telegram/golden_goose/golden_goose_05.jpg",
+        "imagens/telegram/golden_goose/golden_goose_06.jpg",
+        "imagens/telegram/golden_goose/golden_goose_07.jpg",
+        "imagens/telegram/golden_goose/golden_goose_08.jpg",
+        "imagens/telegram/golden_goose/golden_goose_09.jpg"
+      ],
+      "latestTs": 1781082661,
+      "category": "outros"
+    },
+    {
+      "slug": "hoka_x_gore_tex",
+      "name": "HOKA x GORE TEX",
+      "images": [
+        "imagens/telegram/hoka_x_gore_tex/hoka_x_gore_tex_01.jpg"
+      ],
+      "latestTs": 1781082661,
+      "category": "outros"
+    },
+    {
+      "slug": "the_north_face_x_kaws_chaqueta_fina",
+      "name": "THE NORTH FACE x KAWS (chaqueta fina)",
+      "images": [
+        "imagens/telegram/the_north_face_x_kaws_chaqueta_fina/the_north_face_x_kaws_chaqueta_fina_01.jpg"
+      ],
+      "latestTs": 1781082661,
+      "category": "roupas"
+    },
+    {
+      "slug": "vans_sk8",
+      "name": "VANS SK8",
+      "images": [
+        "imagens/telegram/vans_sk8/vans_sk8_01.jpg"
+      ],
+      "latestTs": 1781082661,
+      "category": "sneakers",
+      "brandSlug": "vans",
+      "brandLabel": "Vans",
+      "modelSlug": "sk8",
+      "modelLabel": "SK8"
+    },
+    {
+      "slug": "nike_air_jordan_3",
+      "name": "NIKE Air Jordan 3",
+      "images": [
+        "imagens/telegram/nike_air_jordan_3/nike_air_jordan_3_01.jpg",
+        "imagens/telegram/nike_air_jordan_3/nike_air_jordan_3_02.jpg",
+        "imagens/telegram/nike_air_jordan_3/nike_air_jordan_3_03.jpg"
+      ],
+      "latestTs": 1781082661,
+      "category": "sneakers",
+      "brandSlug": "nike",
+      "brandLabel": "Nike",
+      "modelSlug": "air-jordan-3",
+      "modelLabel": "Air Jordan 3"
+    },
+    {
+      "slug": "asics_magic_speed_4",
+      "name": "ASICS Magic Speed 4",
+      "images": [
+        "imagens/telegram/asics_magic_speed_4/asics_magic_speed_4_01.jpg",
+        "imagens/telegram/asics_magic_speed_4/asics_magic_speed_4_02.jpg",
+        "imagens/telegram/asics_magic_speed_4/asics_magic_speed_4_03.jpg"
+      ],
+      "latestTs": 1781082661,
+      "category": "sneakers",
+      "brandSlug": "asics",
+      "brandLabel": "ASICS",
+      "modelSlug": "magic-speed-4",
+      "modelLabel": "Magic Speed 4"
+    },
+    {
+      "slug": "ugg_goldenstar",
+      "name": "UGG \"GoldenStar\"",
+      "images": [
+        "imagens/telegram/ugg_goldenstar/ugg_goldenstar_01.jpg"
+      ],
+      "latestTs": 1781082628,
+      "category": "outros"
+    },
+    {
+      "slug": "adidas_sl72",
+      "name": "ADIDAS SL72",
+      "images": [
+        "imagens/telegram/adidas_sl72/adidas_sl72_01.jpg",
+        "imagens/telegram/adidas_sl72/adidas_sl72_02.jpg",
+        "imagens/telegram/adidas_sl72/adidas_sl72_03.jpg",
+        "imagens/telegram/adidas_sl72/adidas_sl72_04.jpg",
+        "imagens/telegram/adidas_sl72/adidas_sl72_05.jpg",
+        "imagens/telegram/adidas_sl72/adidas_sl72_06.jpg",
+        "imagens/telegram/adidas_sl72/adidas_sl72_07.jpg"
+      ],
+      "latestTs": 1781079017,
+      "category": "sneakers",
+      "brandSlug": "adidas",
+      "brandLabel": "Adidas",
+      "modelSlug": "sl72",
+      "modelLabel": "SL72"
+    },
+    {
+      "slug": "carhartt_bordado",
+      "name": "CARHARTT (bordado)",
+      "images": [
+        "imagens/telegram/carhartt_bordado/carhartt_bordado_01.jpg",
+        "imagens/telegram/carhartt_bordado/carhartt_bordado_02.jpg"
+      ],
+      "latestTs": 1781079016,
+      "category": "roupas"
+    },
+    {
+      "slug": "goyard",
+      "name": "GOYARD",
+      "images": [
+        "imagens/telegram/goyard/goyard_01.jpg",
+        "imagens/telegram/goyard/goyard_02.jpg",
+        "imagens/telegram/goyard/goyard_03.jpg",
+        "imagens/telegram/goyard/goyard_04.jpg",
+        "imagens/telegram/goyard/goyard_05.jpg",
+        "imagens/telegram/goyard/goyard_06.jpg",
+        "imagens/telegram/goyard/goyard_07.jpg",
+        "imagens/telegram/goyard/goyard_08.jpg",
+        "imagens/telegram/goyard/goyard_09.jpg",
+        "imagens/telegram/goyard/goyard_10.jpg"
+      ],
+      "latestTs": 1781079016,
+      "category": "bolsas"
+    },
+    {
+      "slug": "carhartt_conjunto",
+      "name": "CARHARTT (conjunto)",
+      "images": [
+        "imagens/telegram/carhartt_conjunto/carhartt_conjunto_01.jpg",
+        "imagens/telegram/carhartt_conjunto/carhartt_conjunto_02.jpg",
+        "imagens/telegram/carhartt_conjunto/carhartt_conjunto_03.jpg"
+      ],
+      "latestTs": 1781079016,
+      "category": "roupas"
+    },
+    {
+      "slug": "amiri",
+      "name": "AMIRI",
+      "images": [
+        "imagens/telegram/amiri/amiri_01.jpg",
+        "imagens/telegram/amiri/amiri_02.jpg",
+        "imagens/telegram/amiri/amiri_03.jpg",
+        "imagens/telegram/amiri/amiri_04.jpg",
+        "imagens/telegram/amiri/amiri_05.jpg",
+        "imagens/telegram/amiri/amiri_06.jpg",
+        "imagens/telegram/amiri/amiri_07.jpg",
+        "imagens/telegram/amiri/amiri_08.jpg",
+        "imagens/telegram/amiri/amiri_09.jpg",
+        "imagens/telegram/amiri/amiri_10.jpg"
+      ],
+      "latestTs": 1781079016,
+      "category": "outros"
+    },
+    {
+      "slug": "ray_ban",
+      "name": "RAY BAN",
+      "images": [
+        "imagens/telegram/ray_ban/ray_ban_01.jpg",
+        "imagens/telegram/ray_ban/ray_ban_02.jpg",
+        "imagens/telegram/ray_ban/ray_ban_03.jpg",
+        "imagens/telegram/ray_ban/ray_ban_04.jpg",
+        "imagens/telegram/ray_ban/ray_ban_05.jpg",
+        "imagens/telegram/ray_ban/ray_ban_06.jpg"
+      ],
+      "latestTs": 1781079016,
+      "category": "oculos"
+    },
+    {
+      "slug": "chrome_hearts",
+      "name": "CHROME HEARTS",
+      "images": [
+        "imagens/telegram/chrome_hearts/chrome_hearts_01.jpg",
+        "imagens/telegram/chrome_hearts/chrome_hearts_02.jpg",
+        "imagens/telegram/chrome_hearts/chrome_hearts_03.jpg"
+      ],
+      "latestTs": 1781079016,
+      "category": "outros"
+    },
+    {
+      "slug": "stussy_bañador",
+      "name": "STUSSY (bañador)",
+      "images": [
+        "imagens/telegram/stussy_bañador/stussy_bañador_01.jpg"
+      ],
+      "latestTs": 1781079016,
+      "category": "roupas"
+    },
+    {
+      "slug": "under_armour_conjunto",
+      "name": "UNDER ARMOUR (conjunto)",
+      "images": [
+        "imagens/telegram/under_armour_conjunto/under_armour_conjunto_01.jpg"
+      ],
+      "latestTs": 1781079016,
+      "category": "roupas"
+    },
+    {
+      "slug": "dfyne_chándal_completo",
+      "name": "DFYNE (chándal completo)",
+      "images": [
+        "imagens/telegram/dfyne_chándal_completo/dfyne_chándal_completo_01.jpg"
+      ],
+      "latestTs": 1781079016,
+      "category": "roupas"
+    },
+    {
+      "slug": "adidas_3_pares",
+      "name": "ADIDAS (3 pares)",
+      "images": [
+        "imagens/telegram/adidas_3_pares/adidas_3_pares_01.jpg"
+      ],
+      "latestTs": 1781079016,
+      "category": "sneakers",
+      "brandSlug": "adidas",
+      "brandLabel": "Adidas",
+      "modelSlug": "3-pares",
+      "modelLabel": "(3 pares)"
+    },
+    {
+      "slug": "veja_volley",
+      "name": "VEJA Volley",
+      "images": [
+        "imagens/telegram/veja_volley/veja_volley_01.jpg",
+        "imagens/telegram/veja_volley/veja_volley_02.jpg"
+      ],
+      "latestTs": 1781079016,
+      "category": "outros"
+    },
+    {
+      "slug": "adidas_samba_og",
+      "name": "ADIDAS Samba OG",
+      "images": [
+        "imagens/telegram/adidas_samba_og/adidas_samba_og_01.jpg",
+        "imagens/telegram/adidas_samba_og/adidas_samba_og_02.jpg",
+        "imagens/telegram/adidas_samba_og/adidas_samba_og_03.jpg",
+        "imagens/telegram/adidas_samba_og/adidas_samba_og_04.jpg",
+        "imagens/telegram/adidas_samba_og/adidas_samba_og_05.jpg",
+        "imagens/telegram/adidas_samba_og/adidas_samba_og_06.jpg",
+        "imagens/telegram/adidas_samba_og/adidas_samba_og_07.jpg",
+        "imagens/telegram/adidas_samba_og/adidas_samba_og_08.jpg",
+        "imagens/telegram/adidas_samba_og/adidas_samba_og_09.jpg",
+        "imagens/telegram/adidas_samba_og/adidas_samba_og_10.jpg"
+      ],
+      "latestTs": 1781078941,
+      "category": "sneakers",
+      "brandSlug": "adidas",
+      "brandLabel": "Adidas",
+      "modelSlug": "samba-og",
+      "modelLabel": "Samba OG"
+    },
+    {
+      "slug": "corteiz",
+      "name": "CORTEIZ",
+      "images": [
+        "imagens/telegram/corteiz/corteiz_01.jpg",
+        "imagens/telegram/corteiz/corteiz_02.jpg",
+        "imagens/telegram/corteiz/corteiz_03.jpg",
+        "imagens/telegram/corteiz/corteiz_04.jpg"
+      ],
+      "latestTs": 1781040037,
+      "category": "roupas"
+    },
+    {
+      "slug": "the_north_face_glenclyffe",
+      "name": "THE NORTH FACE \"Glenclyffe\"",
+      "images": [
+        "imagens/telegram/the_north_face_glenclyffe/the_north_face_glenclyffe_01.jpg",
+        "imagens/telegram/the_north_face_glenclyffe/the_north_face_glenclyffe_02.jpg",
+        "imagens/telegram/the_north_face_glenclyffe/the_north_face_glenclyffe_03.jpg",
+        "imagens/telegram/the_north_face_glenclyffe/the_north_face_glenclyffe_04.jpg",
+        "imagens/telegram/the_north_face_glenclyffe/the_north_face_glenclyffe_05.jpg",
+        "imagens/telegram/the_north_face_glenclyffe/the_north_face_glenclyffe_06.jpg"
+      ],
+      "latestTs": 1781036708,
+      "category": "roupas"
+    },
+    {
+      "slug": "essentials_x_fear_of_god",
+      "name": "ESSENTIALS x FEAR OF GOD",
+      "images": [
+        "imagens/telegram/essentials_x_fear_of_god/essentials_x_fear_of_god_01.jpg",
+        "imagens/telegram/essentials_x_fear_of_god/essentials_x_fear_of_god_02.jpg"
+      ],
+      "latestTs": 1781036342,
+      "category": "roupas"
+    },
+    {
+      "slug": "new_era_bordada",
+      "name": "NEW ERA (bordada)",
+      "images": [
+        "imagens/telegram/new_era_bordada/new_era_bordada_01.jpg"
+      ],
+      "latestTs": 1781032809,
+      "category": "bones"
+    },
+    {
+      "slug": "asics_gt_2160",
+      "name": "ASICS GT 2160",
+      "images": [
+        "imagens/telegram/asics_gt_2160/asics_gt_2160_01.jpg",
+        "imagens/telegram/asics_gt_2160/asics_gt_2160_02.jpg",
+        "imagens/telegram/asics_gt_2160/asics_gt_2160_03.jpg"
+      ],
+      "latestTs": 1781032299,
+      "category": "sneakers",
+      "brandSlug": "asics",
+      "brandLabel": "ASICS",
+      "modelSlug": "gt-2160",
+      "modelLabel": "GT 2160"
+    },
+    {
+      "slug": "longchamp",
+      "name": "LONGCHAMP",
+      "images": [
+        "imagens/telegram/longchamp/longchamp_01.jpg",
+        "imagens/telegram/longchamp/longchamp_02.jpg"
+      ],
+      "latestTs": 1781032105,
+      "category": "bolsas"
+    },
+    {
+      "slug": "stussy_conjunto",
+      "name": "STUSSY (conjunto)",
+      "images": [
+        "imagens/telegram/stussy_conjunto/stussy_conjunto_01.jpg"
+      ],
+      "latestTs": 1781030774,
+      "category": "roupas"
+    },
+    {
+      "slug": "adidas_campus",
+      "name": "ADIDAS Campus",
+      "images": [
+        "imagens/telegram/adidas_campus/adidas_campus_01.jpg",
+        "imagens/telegram/adidas_campus/adidas_campus_02.jpg",
+        "imagens/telegram/adidas_campus/adidas_campus_03.jpg",
+        "imagens/telegram/adidas_campus/adidas_campus_04.jpg",
+        "imagens/telegram/adidas_campus/adidas_campus_05.jpg",
+        "imagens/telegram/adidas_campus/adidas_campus_06.jpg",
+        "imagens/telegram/adidas_campus/adidas_campus_07.jpg",
+        "imagens/telegram/adidas_campus/adidas_campus_08.jpg",
+        "imagens/telegram/adidas_campus/adidas_campus_09.jpg"
+      ],
+      "latestTs": 1781030697,
+      "category": "sneakers",
+      "brandSlug": "adidas",
+      "brandLabel": "Adidas",
+      "modelSlug": "campus",
+      "modelLabel": "Campus"
+    },
+    {
+      "slug": "vans_og_x_blends",
+      "name": "VANS OG x BLENDS",
+      "images": [
+        "imagens/telegram/vans_og_x_blends/vans_og_x_blends_01.jpg",
+        "imagens/telegram/vans_og_x_blends/vans_og_x_blends_02.jpg",
+        "imagens/telegram/vans_og_x_blends/vans_og_x_blends_03.jpg"
+      ],
+      "latestTs": 1781025940,
+      "category": "sneakers",
+      "brandSlug": "vans",
+      "brandLabel": "Vans",
+      "modelSlug": "og-x-blends",
+      "modelLabel": "OG x BLENDS"
+    },
+    {
+      "slug": "nike_vomero_18",
+      "name": "NIKE Vomero 18",
+      "images": [
+        "imagens/telegram/nike_vomero_18/nike_vomero_18_01.jpg"
+      ],
+      "latestTs": 1781012854,
+      "category": "sneakers",
+      "brandSlug": "nike",
+      "brandLabel": "Nike",
+      "modelSlug": "vomero-18",
+      "modelLabel": "Vomero 18"
+    },
+    {
+      "slug": "stanley",
+      "name": "STANLEY",
+      "images": [
+        "imagens/telegram/stanley/stanley_01.jpg",
+        "imagens/telegram/stanley/stanley_02.jpg",
+        "imagens/telegram/stanley/stanley_03.jpg",
+        "imagens/telegram/stanley/stanley_04.jpg"
+      ],
+      "latestTs": 1781011935,
+      "category": "outros"
+    },
+    {
+      "slug": "adidas_samba",
+      "name": "ADIDAS Samba",
+      "images": [
+        "imagens/telegram/adidas_samba/adidas_samba_01.jpg",
+        "imagens/telegram/adidas_samba/adidas_samba_02.jpg",
+        "imagens/telegram/adidas_samba/adidas_samba_03.jpg",
+        "imagens/telegram/adidas_samba/adidas_samba_04.jpg",
+        "imagens/telegram/adidas_samba/adidas_samba_05.jpg",
+        "imagens/telegram/adidas_samba/adidas_samba_06.jpg",
+        "imagens/telegram/adidas_samba/adidas_samba_07.jpg",
+        "imagens/telegram/adidas_samba/adidas_samba_08.jpg",
+        "imagens/telegram/adidas_samba/adidas_samba_09.jpg",
+        "imagens/telegram/adidas_samba/adidas_samba_10.jpg"
+      ],
+      "latestTs": 1781011645,
+      "category": "sneakers",
+      "brandSlug": "adidas",
+      "brandLabel": "Adidas",
+      "modelSlug": "samba",
+      "modelLabel": "Samba"
+    },
+    {
+      "slug": "adidas_superstar_x_molly_mae",
+      "name": "ADIDAS Superstar x MOLLY MAE",
+      "images": [
+        "imagens/telegram/adidas_superstar_x_molly_mae/adidas_superstar_x_molly_mae_01.jpg",
+        "imagens/telegram/adidas_superstar_x_molly_mae/adidas_superstar_x_molly_mae_02.jpg",
+        "imagens/telegram/adidas_superstar_x_molly_mae/adidas_superstar_x_molly_mae_03.jpg"
+      ],
+      "latestTs": 1781009107,
+      "category": "sneakers",
+      "brandSlug": "adidas",
+      "brandLabel": "Adidas",
+      "modelSlug": "superstar-x-molly-mae",
+      "modelLabel": "Superstar x MOLLY MAE"
+    },
+    {
+      "slug": "off_white_be_right_back",
+      "name": "OFF WHITE \"Be Right Back\"",
+      "images": [
+        "imagens/telegram/off_white_be_right_back/off_white_be_right_back_01.jpg",
+        "imagens/telegram/off_white_be_right_back/off_white_be_right_back_02.jpg",
+        "imagens/telegram/off_white_be_right_back/off_white_be_right_back_03.jpg"
+      ],
+      "latestTs": 1781008893,
+      "category": "outros"
+    },
+    {
+      "slug": "coach_telapiel",
+      "name": "COACH (tela/piel)",
+      "images": [
+        "imagens/telegram/coach_telapiel/coach_telapiel_01.jpg"
+      ],
+      "latestTs": 1781005276,
+      "category": "outros"
+    },
+    {
+      "slug": "mixed_emotion_conjunto",
+      "name": "MIXED EMOTION (conjunto)",
+      "images": [
+        "imagens/telegram/mixed_emotion_conjunto/mixed_emotion_conjunto_01.jpg",
+        "imagens/telegram/mixed_emotion_conjunto/mixed_emotion_conjunto_02.jpg",
+        "imagens/telegram/mixed_emotion_conjunto/mixed_emotion_conjunto_03.jpg"
+      ],
+      "latestTs": 1781000382,
+      "category": "roupas"
+    },
+    {
+      "slug": "on_cloud_x_loewe",
+      "name": "ON CLOUD x LOEWE",
+      "images": [
+        "imagens/telegram/on_cloud_x_loewe/on_cloud_x_loewe_01.jpg",
+        "imagens/telegram/on_cloud_x_loewe/on_cloud_x_loewe_02.jpg",
+        "imagens/telegram/on_cloud_x_loewe/on_cloud_x_loewe_03.jpg"
+      ],
+      "latestTs": 1780996163,
+      "category": "outros"
+    },
+    {
+      "slug": "patagonia",
+      "name": "PATAGONIA",
+      "images": [
+        "imagens/telegram/patagonia/patagonia_01.jpg",
+        "imagens/telegram/patagonia/patagonia_02.jpg"
+      ],
+      "latestTs": 1780995629,
+      "category": "outros"
+    },
+    {
+      "slug": "gymshark_conjunto",
+      "name": "GYMSHARK (conjunto)",
+      "images": [
+        "imagens/telegram/gymshark_conjunto/gymshark_conjunto_01.jpg"
+      ],
+      "latestTs": 1780954284,
+      "category": "roupas"
+    },
+    {
+      "slug": "maison_margiela",
+      "name": "MAISON MARGIELA",
+      "images": [
+        "imagens/telegram/maison_margiela/maison_margiela_01.jpg",
+        "imagens/telegram/maison_margiela/maison_margiela_02.jpg"
+      ],
+      "latestTs": 1780954107,
+      "category": "outros"
+    },
+    {
+      "slug": "asics_gel_flux_cn",
+      "name": "ASICS Gel Flux CN",
+      "images": [
+        "imagens/telegram/asics_gel_flux_cn/asics_gel_flux_cn_01.jpg",
+        "imagens/telegram/asics_gel_flux_cn/asics_gel_flux_cn_02.jpg",
+        "imagens/telegram/asics_gel_flux_cn/asics_gel_flux_cn_03.jpg",
+        "imagens/telegram/asics_gel_flux_cn/asics_gel_flux_cn_04.jpg"
+      ],
+      "latestTs": 1780949792,
+      "category": "sneakers",
+      "brandSlug": "asics",
+      "brandLabel": "ASICS",
+      "modelSlug": "gel-flux-cn",
+      "modelLabel": "Gel Flux CN"
+    },
+    {
+      "slug": "nike_comfort_ride",
+      "name": "NIKE Comfort Ride",
+      "images": [
+        "imagens/telegram/nike_comfort_ride/nike_comfort_ride_01.jpg",
+        "imagens/telegram/nike_comfort_ride/nike_comfort_ride_02.jpg",
+        "imagens/telegram/nike_comfort_ride/nike_comfort_ride_03.jpg",
+        "imagens/telegram/nike_comfort_ride/nike_comfort_ride_04.jpg",
+        "imagens/telegram/nike_comfort_ride/nike_comfort_ride_05.jpg",
+        "imagens/telegram/nike_comfort_ride/nike_comfort_ride_06.jpg"
+      ],
+      "latestTs": 1780949425,
+      "category": "sneakers",
+      "brandSlug": "nike",
+      "brandLabel": "Nike",
+      "modelSlug": "comfort-ride",
+      "modelLabel": "Comfort Ride"
+    },
+    {
+      "slug": "patagonia_cortavientosimpermeable",
+      "name": "PATAGONIA (cortavientos/impermeable)",
+      "images": [
+        "imagens/telegram/patagonia_cortavientosimpermeable/patagonia_cortavientosimpermeable_01.jpg"
+      ],
+      "latestTs": 1780949270,
+      "category": "outros"
+    },
+    {
+      "slug": "polo_ralph_lauren_bordado",
+      "name": "POLO RALPH LAUREN (bordado)",
+      "images": [
+        "imagens/telegram/polo_ralph_lauren_bordado/polo_ralph_lauren_bordado_01.jpg"
+      ],
+      "latestTs": 1780948732,
+      "category": "roupas"
+    },
+    {
+      "slug": "gallery_dept",
+      "name": "GALLERY DEPT",
+      "images": [
+        "imagens/telegram/gallery_dept/gallery_dept_01.jpg"
+      ],
+      "latestTs": 1780948565,
+      "category": "outros"
+    },
+    {
+      "slug": "ami_paris",
+      "name": "AMI PARIS",
+      "images": [
+        "imagens/telegram/ami_paris/ami_paris_01.jpg",
+        "imagens/telegram/ami_paris/ami_paris_02.jpg",
+        "imagens/telegram/ami_paris/ami_paris_03.jpg",
+        "imagens/telegram/ami_paris/ami_paris_04.jpg",
+        "imagens/telegram/ami_paris/ami_paris_05.jpg",
+        "imagens/telegram/ami_paris/ami_paris_06.jpg"
+      ],
+      "latestTs": 1780948480,
+      "category": "outros"
+    },
+    {
+      "slug": "nike_mind_001_x_nocta",
+      "name": "NIKE Mind 001 x NOCTA",
+      "images": [
+        "imagens/telegram/nike_mind_001_x_nocta/nike_mind_001_x_nocta_01.jpg",
+        "imagens/telegram/nike_mind_001_x_nocta/nike_mind_001_x_nocta_02.jpg",
+        "imagens/telegram/nike_mind_001_x_nocta/nike_mind_001_x_nocta_03.jpg",
+        "imagens/telegram/nike_mind_001_x_nocta/nike_mind_001_x_nocta_04.jpg",
+        "imagens/telegram/nike_mind_001_x_nocta/nike_mind_001_x_nocta_05.jpg"
+      ],
+      "latestTs": 1780944916,
+      "category": "sneakers",
+      "brandSlug": "nike",
+      "brandLabel": "Nike",
+      "modelSlug": "mind-001-x-nocta",
+      "modelLabel": "Mind 001 x NOCTA"
+    },
+    {
+      "slug": "adidas_sl72_pro",
+      "name": "ADIDAS SL72 Pro",
+      "images": [
+        "imagens/telegram/adidas_sl72_pro/adidas_sl72_pro_01.jpg",
+        "imagens/telegram/adidas_sl72_pro/adidas_sl72_pro_02.jpg",
+        "imagens/telegram/adidas_sl72_pro/adidas_sl72_pro_03.jpg",
+        "imagens/telegram/adidas_sl72_pro/adidas_sl72_pro_04.jpg",
+        "imagens/telegram/adidas_sl72_pro/adidas_sl72_pro_05.jpg",
+        "imagens/telegram/adidas_sl72_pro/adidas_sl72_pro_06.jpg",
+        "imagens/telegram/adidas_sl72_pro/adidas_sl72_pro_07.jpg",
+        "imagens/telegram/adidas_sl72_pro/adidas_sl72_pro_08.jpg"
+      ],
+      "latestTs": 1780943005,
+      "category": "sneakers",
+      "brandSlug": "adidas",
+      "brandLabel": "Adidas",
+      "modelSlug": "sl72-pro",
+      "modelLabel": "SL72 Pro"
+    },
+    {
+      "slug": "dayson",
+      "name": "DAYSON",
+      "images": [
+        "imagens/telegram/dayson/dayson_01.jpg",
+        "imagens/telegram/dayson/dayson_02.jpg",
+        "imagens/telegram/dayson/dayson_03.jpg"
+      ],
+      "latestTs": 1780942566,
+      "category": "outros"
+    },
+    {
+      "slug": "dr_martens",
+      "name": "DR MARTENS",
+      "images": [
+        "imagens/telegram/dr_martens/dr_martens_01.jpg",
+        "imagens/telegram/dr_martens/dr_martens_02.jpg"
+      ],
+      "latestTs": 1780939334,
+      "category": "outros"
+    },
+    {
+      "slug": "set_micrófonos",
+      "name": "Set Micrófonos",
+      "images": [
+        "imagens/telegram/set_micrófonos/set_micrófonos_01.jpg"
+      ],
+      "latestTs": 1780939221,
+      "category": "outros"
+    },
+    {
+      "slug": "proyector_wifi_4k_con_auto_enfoque",
+      "name": "PROYECTOR Wifi 4K con auto enfoque",
+      "images": [
+        "imagens/telegram/proyector_wifi_4k_con_auto_enfoque/proyector_wifi_4k_con_auto_enfoque_01.jpg"
+      ],
+      "latestTs": 1780938079,
+      "category": "tecnologia"
+    },
+    {
+      "slug": "moncler_bañador",
+      "name": "MONCLER (bañador)",
+      "images": [
+        "imagens/telegram/moncler_bañador/moncler_bañador_01.jpg",
+        "imagens/telegram/moncler_bañador/moncler_bañador_02.jpg"
+      ],
+      "latestTs": 1780935243,
+      "category": "roupas"
+    },
+    {
+      "slug": "converse_chuck_70_plus",
+      "name": "CONVERSE Chuck 70 Plus",
+      "images": [
+        "imagens/telegram/converse_chuck_70_plus/converse_chuck_70_plus_01.jpg",
+        "imagens/telegram/converse_chuck_70_plus/converse_chuck_70_plus_02.jpg",
+        "imagens/telegram/converse_chuck_70_plus/converse_chuck_70_plus_03.jpg",
+        "imagens/telegram/converse_chuck_70_plus/converse_chuck_70_plus_04.jpg",
+        "imagens/telegram/converse_chuck_70_plus/converse_chuck_70_plus_05.jpg",
+        "imagens/telegram/converse_chuck_70_plus/converse_chuck_70_plus_06.jpg"
+      ],
+      "latestTs": 1780933193,
+      "category": "sneakers",
+      "brandSlug": "converse",
+      "brandLabel": "Converse",
+      "modelSlug": "chuck-70-plus",
+      "modelLabel": "Chuck 70 Plus"
+    },
+    {
+      "slug": "polo_ralph_lauren_pack_3",
+      "name": "POLO RALPH LAUREN (pack 3)",
+      "images": [
+        "imagens/telegram/polo_ralph_lauren_pack_3/polo_ralph_lauren_pack_3_01.jpg"
+      ],
+      "latestTs": 1780933092,
+      "category": "roupas"
+    },
+    {
+      "slug": "nautilus",
+      "name": "NAUTILUS",
+      "images": [
+        "imagens/telegram/nautilus/nautilus_01.jpg"
+      ],
+      "latestTs": 1780923930,
+      "category": "outros"
+    },
+    {
+      "slug": "stone_island",
+      "name": "STONE ISLAND",
+      "images": [
+        "imagens/telegram/stone_island/stone_island_01.jpg",
+        "imagens/telegram/stone_island/stone_island_02.jpg"
+      ],
+      "latestTs": 1780916055,
+      "category": "roupas"
+    },
+    {
+      "slug": "supreme",
+      "name": "SUPREME",
+      "images": [
+        "imagens/telegram/supreme/supreme_01.jpg"
+      ],
+      "latestTs": 1780914049,
+      "category": "outros"
+    },
+    {
+      "slug": "adidas_superstar_xlg",
+      "name": "ADIDAS Superstar XLG",
+      "images": [
+        "imagens/telegram/adidas_superstar_xlg/adidas_superstar_xlg_01.jpg",
+        "imagens/telegram/adidas_superstar_xlg/adidas_superstar_xlg_02.jpg",
+        "imagens/telegram/adidas_superstar_xlg/adidas_superstar_xlg_03.jpg",
+        "imagens/telegram/adidas_superstar_xlg/adidas_superstar_xlg_04.jpg",
+        "imagens/telegram/adidas_superstar_xlg/adidas_superstar_xlg_05.jpg",
+        "imagens/telegram/adidas_superstar_xlg/adidas_superstar_xlg_06.jpg",
+        "imagens/telegram/adidas_superstar_xlg/adidas_superstar_xlg_07.jpg",
+        "imagens/telegram/adidas_superstar_xlg/adidas_superstar_xlg_08.jpg"
+      ],
+      "latestTs": 1780913430,
+      "category": "sneakers",
+      "brandSlug": "adidas",
+      "brandLabel": "Adidas",
+      "modelSlug": "superstar-xlg",
+      "modelLabel": "Superstar XLG"
+    },
+    {
+      "slug": "converse_piel",
+      "name": "CONVERSE (piel)",
+      "images": [
+        "imagens/telegram/converse_piel/converse_piel_01.jpg",
+        "imagens/telegram/converse_piel/converse_piel_02.jpg",
+        "imagens/telegram/converse_piel/converse_piel_03.jpg"
+      ],
+      "latestTs": 1780912670,
+      "category": "sneakers",
+      "brandSlug": "converse",
+      "brandLabel": "Converse",
+      "modelSlug": "piel",
+      "modelLabel": "(piel)"
+    },
+    {
+      "slug": "adidas_superstar",
+      "name": "ADIDAS Superstar",
+      "images": [
+        "imagens/telegram/adidas_superstar/adidas_superstar_01.jpg"
+      ],
+      "latestTs": 1780910386,
+      "category": "sneakers",
+      "brandSlug": "adidas",
+      "brandLabel": "Adidas",
+      "modelSlug": "superstar",
+      "modelLabel": "Superstar"
+    },
+    {
+      "slug": "nike_x_stussy",
+      "name": "NIKE x STUSSY",
+      "images": [
+        "imagens/telegram/nike_x_stussy/nike_x_stussy_01.jpg"
+      ],
+      "latestTs": 1780909455,
+      "category": "sneakers",
+      "brandSlug": "nike",
+      "brandLabel": "Nike",
+      "modelSlug": "x-stussy",
+      "modelLabel": "x STUSSY"
+    },
+    {
+      "slug": "isabel_marant",
+      "name": "ISABEL MARANT",
+      "images": [
+        "imagens/telegram/isabel_marant/isabel_marant_01.jpg"
+      ],
+      "latestTs": 1780906597,
+      "category": "outros"
+    },
+    {
+      "slug": "adidas_españa_mundial_2026",
+      "name": "ADIDAS España Mundial 2026",
+      "images": [
+        "imagens/telegram/adidas_españa_mundial_2026/adidas_españa_mundial_2026_01.jpg",
+        "imagens/telegram/adidas_españa_mundial_2026/adidas_españa_mundial_2026_02.jpg",
+        "imagens/telegram/adidas_españa_mundial_2026/adidas_españa_mundial_2026_03.jpg",
+        "imagens/telegram/adidas_españa_mundial_2026/adidas_españa_mundial_2026_04.jpg"
+      ],
+      "latestTs": 1780867348,
+      "category": "roupas"
+    },
+    {
+      "slug": "asics_gel_venture_6_shield",
+      "name": "ASICS Gel Venture 6 Shield",
+      "images": [
+        "imagens/telegram/asics_gel_venture_6_shield/asics_gel_venture_6_shield_01.jpg",
+        "imagens/telegram/asics_gel_venture_6_shield/asics_gel_venture_6_shield_02.jpg",
+        "imagens/telegram/asics_gel_venture_6_shield/asics_gel_venture_6_shield_03.jpg",
+        "imagens/telegram/asics_gel_venture_6_shield/asics_gel_venture_6_shield_04.jpg",
+        "imagens/telegram/asics_gel_venture_6_shield/asics_gel_venture_6_shield_05.jpg"
+      ],
+      "latestTs": 1780866781,
+      "category": "sneakers",
+      "brandSlug": "asics",
+      "brandLabel": "ASICS",
+      "modelSlug": "gel-venture-6-shield",
+      "modelLabel": "Gel Venture 6 Shield"
+    },
+    {
+      "slug": "adidas_ozwave",
+      "name": "ADIDAS Ozwave",
+      "images": [
+        "imagens/telegram/adidas_ozwave/adidas_ozwave_01.jpg",
+        "imagens/telegram/adidas_ozwave/adidas_ozwave_02.jpg"
+      ],
+      "latestTs": 1780866335,
+      "category": "sneakers",
+      "brandSlug": "adidas",
+      "brandLabel": "Adidas",
+      "modelSlug": "ozwave",
+      "modelLabel": "Ozwave"
+    },
+    {
+      "slug": "adidas_argentina_1994",
+      "name": "ADIDAS Argentina 1994",
+      "images": [
+        "imagens/telegram/adidas_argentina_1994/adidas_argentina_1994_01.jpg"
+      ],
+      "latestTs": 1780863808,
+      "category": "sneakers",
+      "brandSlug": "adidas",
+      "brandLabel": "Adidas",
+      "modelSlug": "argentina-1994",
+      "modelLabel": "Argentina 1994"
+    },
+    {
+      "slug": "new_balance_327",
+      "name": "NEW BALANCE 327",
+      "images": [
+        "imagens/telegram/new_balance_327/new_balance_327_01.jpg",
+        "imagens/telegram/new_balance_327/new_balance_327_02.jpg",
+        "imagens/telegram/new_balance_327/new_balance_327_03.jpg",
+        "imagens/telegram/new_balance_327/new_balance_327_04.jpg"
+      ],
+      "latestTs": 1780856328,
+      "category": "sneakers",
+      "brandSlug": "newbalance",
+      "brandLabel": "New Balance",
+      "modelSlug": "327",
+      "modelLabel": "327"
+    },
+    {
+      "slug": "nike",
+      "name": "NIKE",
+      "images": [
+        "imagens/telegram/nike/nike_01.jpg",
+        "imagens/telegram/nike/nike_02.jpg",
+        "imagens/telegram/nike/nike_03.jpg"
+      ],
+      "latestTs": 1780856035,
+      "category": "outros"
+    },
+    {
+      "slug": "asics_gel_cumulus_x_cecilie_bahnsen",
+      "name": "ASICS Gel Cumulus x CECILIE BAHNSEN",
+      "images": [
+        "imagens/telegram/asics_gel_cumulus_x_cecilie_bahnsen/asics_gel_cumulus_x_cecilie_bahnsen_01.jpg",
+        "imagens/telegram/asics_gel_cumulus_x_cecilie_bahnsen/asics_gel_cumulus_x_cecilie_bahnsen_02.jpg",
+        "imagens/telegram/asics_gel_cumulus_x_cecilie_bahnsen/asics_gel_cumulus_x_cecilie_bahnsen_03.jpg"
+      ],
+      "latestTs": 1780850503,
+      "category": "sneakers",
+      "brandSlug": "asics",
+      "brandLabel": "ASICS",
+      "modelSlug": "gel-cumulus-x-cecilie-bahnsen",
+      "modelLabel": "Gel Cumulus x CECILIE BAHNSEN"
+    },
+    {
+      "slug": "carolina_herrera",
+      "name": "CAROLINA HERRERA",
+      "images": [
+        "imagens/telegram/carolina_herrera/carolina_herrera_01.jpg",
+        "imagens/telegram/carolina_herrera/carolina_herrera_02.jpg",
+        "imagens/telegram/carolina_herrera/carolina_herrera_03.jpg",
+        "imagens/telegram/carolina_herrera/carolina_herrera_04.jpg",
+        "imagens/telegram/carolina_herrera/carolina_herrera_05.jpg"
+      ],
+      "latestTs": 1780849902,
+      "category": "outros"
+    },
+    {
+      "slug": "carolina_herrera_bordada",
+      "name": "CAROLINA HERRERA (bordada)",
+      "images": [
+        "imagens/telegram/carolina_herrera_bordada/carolina_herrera_bordada_01.jpg"
+      ],
+      "latestTs": 1780849805,
+      "category": "outros"
+    },
+    {
+      "slug": "vans",
+      "name": "VANS",
+      "images": [
+        "imagens/telegram/vans/vans_01.jpg",
+        "imagens/telegram/vans/vans_02.jpg",
+        "imagens/telegram/vans/vans_03.jpg",
+        "imagens/telegram/vans/vans_04.jpg",
+        "imagens/telegram/vans/vans_05.jpg",
+        "imagens/telegram/vans/vans_06.jpg",
+        "imagens/telegram/vans/vans_07.jpg"
+      ],
+      "latestTs": 1780837456,
+      "category": "outros"
+    },
+    {
+      "slug": "polo_ralph_lauren_3_piezas",
+      "name": "POLO RALPH LAUREN (3 piezas)",
+      "images": [
+        "imagens/telegram/polo_ralph_lauren_3_piezas/polo_ralph_lauren_3_piezas_01.jpg"
+      ],
+      "latestTs": 1780779990,
+      "category": "roupas"
+    },
+    {
+      "slug": "moncler",
+      "name": "MONCLER",
+      "images": [
+        "imagens/telegram/moncler/moncler_01.jpg",
+        "imagens/telegram/moncler/moncler_02.jpg"
+      ],
+      "latestTs": 1780779927,
+      "category": "roupas"
+    },
+    {
+      "slug": "rhode_pack_4_labiales",
+      "name": "RHODE (pack 4 labiales)",
+      "images": [
+        "imagens/telegram/rhode_pack_4_labiales/rhode_pack_4_labiales_01.jpg"
+      ],
+      "latestTs": 1780779792,
+      "category": "outros"
+    },
+    {
+      "slug": "apple_airpods_pro2",
+      "name": "APPLE AirPods Pro2",
+      "images": [
+        "imagens/telegram/apple_airpods_pro2/apple_airpods_pro2_01.jpg",
+        "imagens/telegram/apple_airpods_pro2/apple_airpods_pro2_02.jpg",
+        "imagens/telegram/apple_airpods_pro2/apple_airpods_pro2_03.jpg"
+      ],
+      "latestTs": 1780776906,
+      "category": "fones"
+    },
+    {
+      "slug": "on_cloud_pack_2",
+      "name": "ON CLOUD (pack 2)",
+      "images": [
+        "imagens/telegram/on_cloud_pack_2/on_cloud_pack_2_01.jpg"
+      ],
+      "latestTs": 1780776761,
+      "category": "outros"
+    },
+    {
+      "slug": "gallery_dept_bordada",
+      "name": "GALLERY DEPT (bordada)",
+      "images": [
+        "imagens/telegram/gallery_dept_bordada/gallery_dept_bordada_01.jpg",
+        "imagens/telegram/gallery_dept_bordada/gallery_dept_bordada_02.jpg",
+        "imagens/telegram/gallery_dept_bordada/gallery_dept_bordada_03.jpg"
+      ],
+      "latestTs": 1780776647,
+      "category": "outros"
+    },
+    {
+      "slug": "adidas_año_nuevo_chino_chándal_completo",
+      "name": "ADIDAS \"Año Nuevo Chino\" (chándal completo)",
+      "images": [
+        "imagens/telegram/adidas_año_nuevo_chino_chándal_completo/adidas_año_nuevo_chino_chándal_completo_01.jpg"
+      ],
+      "latestTs": 1780776263,
+      "category": "roupas"
+    },
+    {
+      "slug": "bape",
+      "name": "BAPE",
+      "images": [
+        "imagens/telegram/bape/bape_01.jpg"
+      ],
+      "latestTs": 1780775679,
+      "category": "outros"
+    },
+    {
+      "slug": "kanken_mochila",
+      "name": "KANKEN (mochila)",
+      "images": [
+        "imagens/telegram/kanken_mochila/kanken_mochila_01.jpg"
+      ],
+      "latestTs": 1780775580,
+      "category": "bolsas"
+    },
+    {
+      "slug": "miu_miu",
+      "name": "MIU MIU",
+      "images": [
+        "imagens/telegram/miu_miu/miu_miu_01.jpg",
+        "imagens/telegram/miu_miu/miu_miu_02.jpg",
+        "imagens/telegram/miu_miu/miu_miu_03.jpg",
+        "imagens/telegram/miu_miu/miu_miu_04.jpg"
+      ],
+      "latestTs": 1780775435,
+      "category": "outros"
+    },
+    {
+      "slug": "diesel",
+      "name": "DIESEL",
+      "images": [
+        "imagens/telegram/diesel/diesel_01.jpg"
+      ],
+      "latestTs": 1780774854,
+      "category": "outros"
+    },
+    {
+      "slug": "pompeii_x_ibiza",
+      "name": "POMPEII x IBIZA",
+      "images": [
+        "imagens/telegram/pompeii_x_ibiza/pompeii_x_ibiza_01.jpg"
+      ],
+      "latestTs": 1780774256,
+      "category": "outros"
+    },
+    {
+      "slug": "adidas_gazelle_indoor",
+      "name": "ADIDAS Gazelle Indoor",
+      "images": [
+        "imagens/telegram/adidas_gazelle_indoor/adidas_gazelle_indoor_01.jpg",
+        "imagens/telegram/adidas_gazelle_indoor/adidas_gazelle_indoor_02.jpg",
+        "imagens/telegram/adidas_gazelle_indoor/adidas_gazelle_indoor_03.jpg",
+        "imagens/telegram/adidas_gazelle_indoor/adidas_gazelle_indoor_04.jpg",
+        "imagens/telegram/adidas_gazelle_indoor/adidas_gazelle_indoor_05.jpg",
+        "imagens/telegram/adidas_gazelle_indoor/adidas_gazelle_indoor_06.jpg",
+        "imagens/telegram/adidas_gazelle_indoor/adidas_gazelle_indoor_07.jpg",
+        "imagens/telegram/adidas_gazelle_indoor/adidas_gazelle_indoor_08.jpg",
+        "imagens/telegram/adidas_gazelle_indoor/adidas_gazelle_indoor_09.jpg",
+        "imagens/telegram/adidas_gazelle_indoor/adidas_gazelle_indoor_10.jpg"
+      ],
+      "latestTs": 1780773317,
+      "category": "sneakers",
+      "brandSlug": "adidas",
+      "brandLabel": "Adidas",
+      "modelSlug": "gazelle-indoor",
+      "modelLabel": "Gazelle Indoor"
+    },
+    {
+      "slug": "nike_moon_x_jacquemus",
+      "name": "NIKE Moon x JACQUEMUS",
+      "images": [
+        "imagens/telegram/nike_moon_x_jacquemus/nike_moon_x_jacquemus_01.jpg",
+        "imagens/telegram/nike_moon_x_jacquemus/nike_moon_x_jacquemus_02.jpg",
+        "imagens/telegram/nike_moon_x_jacquemus/nike_moon_x_jacquemus_03.jpg",
+        "imagens/telegram/nike_moon_x_jacquemus/nike_moon_x_jacquemus_04.jpg",
+        "imagens/telegram/nike_moon_x_jacquemus/nike_moon_x_jacquemus_05.jpg"
+      ],
+      "latestTs": 1780769148,
+      "category": "sneakers",
+      "brandSlug": "nike",
+      "brandLabel": "Nike",
+      "modelSlug": "moon-x-jacquemus",
+      "modelLabel": "Moon x JACQUEMUS"
+    },
+    {
+      "slug": "polene_2_piezas",
+      "name": "POLENE (2 piezas)",
+      "images": [
+        "imagens/telegram/polene_2_piezas/polene_2_piezas_01.jpg",
+        "imagens/telegram/polene_2_piezas/polene_2_piezas_02.jpg",
+        "imagens/telegram/polene_2_piezas/polene_2_piezas_03.jpg"
+      ],
+      "latestTs": 1780769054,
+      "category": "bolsas"
+    },
+    {
+      "slug": "sol_de_janeiro",
+      "name": "SOL DE JANEIRO",
+      "images": [
+        "imagens/telegram/sol_de_janeiro/sol_de_janeiro_01.jpg"
+      ],
+      "latestTs": 1780768898,
+      "category": "outros"
+    },
+    {
+      "slug": "carhartt_chaqueta_fina",
+      "name": "CARHARTT (chaqueta fina)",
+      "images": [
+        "imagens/telegram/carhartt_chaqueta_fina/carhartt_chaqueta_fina_01.jpg"
+      ],
+      "latestTs": 1780767975,
+      "category": "roupas"
+    },
+    {
+      "slug": "marc_jacobs",
+      "name": "MARC JACOBS",
+      "images": [
+        "imagens/telegram/marc_jacobs/marc_jacobs_01.jpg"
+      ],
+      "latestTs": 1780762942,
+      "category": "outros"
+    },
+    {
+      "slug": "new_balance_1906l_v1_loafers",
+      "name": "NEW BALANCE 1906L v1 Loafers",
+      "images": [
+        "imagens/telegram/new_balance_1906l_v1_loafers/new_balance_1906l_v1_loafers_01.jpg",
+        "imagens/telegram/new_balance_1906l_v1_loafers/new_balance_1906l_v1_loafers_02.jpg",
+        "imagens/telegram/new_balance_1906l_v1_loafers/new_balance_1906l_v1_loafers_03.jpg",
+        "imagens/telegram/new_balance_1906l_v1_loafers/new_balance_1906l_v1_loafers_04.jpg",
+        "imagens/telegram/new_balance_1906l_v1_loafers/new_balance_1906l_v1_loafers_05.jpg",
+        "imagens/telegram/new_balance_1906l_v1_loafers/new_balance_1906l_v1_loafers_06.jpg",
+        "imagens/telegram/new_balance_1906l_v1_loafers/new_balance_1906l_v1_loafers_07.jpg",
+        "imagens/telegram/new_balance_1906l_v1_loafers/new_balance_1906l_v1_loafers_08.jpg",
+        "imagens/telegram/new_balance_1906l_v1_loafers/new_balance_1906l_v1_loafers_09.jpg"
+      ],
+      "latestTs": 1780753497,
+      "category": "sneakers",
+      "brandSlug": "newbalance",
+      "brandLabel": "New Balance",
+      "modelSlug": "1906l-v1-loafers",
+      "modelLabel": "1906L v1 Loafers"
+    },
+    {
+      "slug": "nike_shox",
+      "name": "NIKE Shox",
+      "images": [
+        "imagens/telegram/nike_shox/nike_shox_01.jpg",
+        "imagens/telegram/nike_shox/nike_shox_02.jpg",
+        "imagens/telegram/nike_shox/nike_shox_03.jpg",
+        "imagens/telegram/nike_shox/nike_shox_04.jpg",
+        "imagens/telegram/nike_shox/nike_shox_05.jpg",
+        "imagens/telegram/nike_shox/nike_shox_06.jpg",
+        "imagens/telegram/nike_shox/nike_shox_07.jpg"
+      ],
+      "latestTs": 1780752877,
+      "category": "sneakers",
+      "brandSlug": "nike",
+      "brandLabel": "Nike",
+      "modelSlug": "shox",
+      "modelLabel": "Shox"
+    },
+    {
+      "slug": "jbl_flip_6",
+      "name": "JBL Flip 6",
+      "images": [
+        "imagens/telegram/jbl_flip_6/jbl_flip_6_01.jpg",
+        "imagens/telegram/jbl_flip_6/jbl_flip_6_02.jpg",
+        "imagens/telegram/jbl_flip_6/jbl_flip_6_03.jpg"
+      ],
+      "latestTs": 1780752734,
+      "category": "tecnologia"
+    },
+    {
+      "slug": "numeris",
+      "name": "NUMERIS",
+      "images": [
+        "imagens/telegram/numeris/numeris_01.jpg",
+        "imagens/telegram/numeris/numeris_02.jpg",
+        "imagens/telegram/numeris/numeris_03.jpg",
+        "imagens/telegram/numeris/numeris_04.jpg",
+        "imagens/telegram/numeris/numeris_05.jpg",
+        "imagens/telegram/numeris/numeris_06.jpg"
+      ],
+      "latestTs": 1780752672,
+      "category": "outros"
+    },
+    {
+      "slug": "adidas_venezuela_mundial_2026",
+      "name": "ADIDAS Venezuela Mundial 2026",
+      "images": [
+        "imagens/telegram/adidas_venezuela_mundial_2026/adidas_venezuela_mundial_2026_01.jpg"
+      ],
+      "latestTs": 1780752090,
+      "category": "roupas"
+    },
+    {
+      "slug": "adidas_arabia_mundial_2026",
+      "name": "ADIDAS Arabia Mundial 2026",
+      "images": [
+        "imagens/telegram/adidas_arabia_mundial_2026/adidas_arabia_mundial_2026_01.jpg"
+      ],
+      "latestTs": 1780751804,
+      "category": "roupas"
+    },
+    {
+      "slug": "adidas_chile_mundial_2026",
+      "name": "ADIDAS Chile Mundial 2026",
+      "images": [
+        "imagens/telegram/adidas_chile_mundial_2026/adidas_chile_mundial_2026_01.jpg"
+      ],
+      "latestTs": 1780751693,
+      "category": "roupas"
+    },
+    {
+      "slug": "converse",
+      "name": "CONVERSE",
+      "images": [
+        "imagens/telegram/converse/converse_01.jpg"
+      ],
+      "latestTs": 1780751428,
+      "category": "outros"
+    },
+    {
+      "slug": "adidas_gazelle_x_bad_bunny",
+      "name": "ADIDAS Gazelle x BAD BUNNY",
+      "images": [
+        "imagens/telegram/adidas_gazelle_x_bad_bunny/adidas_gazelle_x_bad_bunny_01.jpg",
+        "imagens/telegram/adidas_gazelle_x_bad_bunny/adidas_gazelle_x_bad_bunny_02.jpg",
+        "imagens/telegram/adidas_gazelle_x_bad_bunny/adidas_gazelle_x_bad_bunny_03.jpg",
+        "imagens/telegram/adidas_gazelle_x_bad_bunny/adidas_gazelle_x_bad_bunny_04.jpg",
+        "imagens/telegram/adidas_gazelle_x_bad_bunny/adidas_gazelle_x_bad_bunny_05.jpg",
+        "imagens/telegram/adidas_gazelle_x_bad_bunny/adidas_gazelle_x_bad_bunny_06.jpg"
+      ],
+      "latestTs": 1780751329,
+      "category": "sneakers",
+      "brandSlug": "adidas",
+      "brandLabel": "Adidas",
+      "modelSlug": "gazelle-x-bad-bunny",
+      "modelLabel": "Gazelle x BAD BUNNY"
+    },
+    {
+      "slug": "onitsuka_tiger_mexico_66",
+      "name": "ONITSUKA TIGER \"Mexico 66\"",
+      "images": [
+        "imagens/telegram/onitsuka_tiger_mexico_66/onitsuka_tiger_mexico_66_01.jpg",
+        "imagens/telegram/onitsuka_tiger_mexico_66/onitsuka_tiger_mexico_66_02.jpg",
+        "imagens/telegram/onitsuka_tiger_mexico_66/onitsuka_tiger_mexico_66_03.jpg",
+        "imagens/telegram/onitsuka_tiger_mexico_66/onitsuka_tiger_mexico_66_04.jpg",
+        "imagens/telegram/onitsuka_tiger_mexico_66/onitsuka_tiger_mexico_66_05.jpg",
+        "imagens/telegram/onitsuka_tiger_mexico_66/onitsuka_tiger_mexico_66_06.jpg",
+        "imagens/telegram/onitsuka_tiger_mexico_66/onitsuka_tiger_mexico_66_07.jpg",
+        "imagens/telegram/onitsuka_tiger_mexico_66/onitsuka_tiger_mexico_66_08.jpg"
+      ],
+      "latestTs": 1780750802,
+      "category": "outros"
+    },
+    {
+      "slug": "onitsuka_tiger_california",
+      "name": "ONITSUKA TIGER \"California\"",
+      "images": [
+        "imagens/telegram/onitsuka_tiger_california/onitsuka_tiger_california_01.jpg",
+        "imagens/telegram/onitsuka_tiger_california/onitsuka_tiger_california_02.jpg",
+        "imagens/telegram/onitsuka_tiger_california/onitsuka_tiger_california_03.jpg",
+        "imagens/telegram/onitsuka_tiger_california/onitsuka_tiger_california_04.jpg",
+        "imagens/telegram/onitsuka_tiger_california/onitsuka_tiger_california_05.jpg",
+        "imagens/telegram/onitsuka_tiger_california/onitsuka_tiger_california_06.jpg"
+      ],
+      "latestTs": 1780733413,
+      "category": "outros"
+    },
+    {
+      "slug": "new_era",
+      "name": "NEW ERA",
+      "images": [
+        "imagens/telegram/new_era/new_era_01.jpg",
+        "imagens/telegram/new_era/new_era_02.jpg",
+        "imagens/telegram/new_era/new_era_03.jpg"
+      ],
+      "latestTs": 1780691189,
+      "category": "bones"
+    },
+    {
+      "slug": "adidas_samba_mule",
+      "name": "ADIDAS \"Samba Mule\"",
+      "images": [
+        "imagens/telegram/adidas_samba_mule/adidas_samba_mule_01.jpg",
+        "imagens/telegram/adidas_samba_mule/adidas_samba_mule_02.jpg",
+        "imagens/telegram/adidas_samba_mule/adidas_samba_mule_03.jpg"
+      ],
+      "latestTs": 1780689811,
+      "category": "sneakers",
+      "brandSlug": "adidas",
+      "brandLabel": "Adidas",
+      "modelSlug": "samba-mule",
+      "modelLabel": "\"Samba Mule\""
+    },
+    {
+      "slug": "adidas_loafer",
+      "name": "ADIDAS \"Loafer\"",
+      "images": [
+        "imagens/telegram/adidas_loafer/adidas_loafer_01.jpg"
+      ],
+      "latestTs": 1780689096,
+      "category": "sneakers",
+      "brandSlug": "adidas",
+      "brandLabel": "Adidas",
+      "modelSlug": "loafer",
+      "modelLabel": "\"Loafer\""
+    },
+    {
+      "slug": "adidas_spezial_x_liberty_london",
+      "name": "ADIDAS Spezial x LIBERTY LONDON",
+      "images": [
+        "imagens/telegram/adidas_spezial_x_liberty_london/adidas_spezial_x_liberty_london_01.jpg",
+        "imagens/telegram/adidas_spezial_x_liberty_london/adidas_spezial_x_liberty_london_02.jpg",
+        "imagens/telegram/adidas_spezial_x_liberty_london/adidas_spezial_x_liberty_london_03.jpg",
+        "imagens/telegram/adidas_spezial_x_liberty_london/adidas_spezial_x_liberty_london_04.jpg",
+        "imagens/telegram/adidas_spezial_x_liberty_london/adidas_spezial_x_liberty_london_05.jpg",
+        "imagens/telegram/adidas_spezial_x_liberty_london/adidas_spezial_x_liberty_london_06.jpg"
+      ],
+      "latestTs": 1780688854,
+      "category": "sneakers",
+      "brandSlug": "adidas",
+      "brandLabel": "Adidas",
+      "modelSlug": "spezial-x-liberty-london",
+      "modelLabel": "Spezial x LIBERTY LONDON"
+    },
+    {
+      "slug": "asics_gel_kayano_121_x_up_there",
+      "name": "ASICS Gel Kayano 12.1 x UP THERE",
+      "images": [
+        "imagens/telegram/asics_gel_kayano_121_x_up_there/asics_gel_kayano_121_x_up_there_01.jpg",
+        "imagens/telegram/asics_gel_kayano_121_x_up_there/asics_gel_kayano_121_x_up_there_02.jpg",
+        "imagens/telegram/asics_gel_kayano_121_x_up_there/asics_gel_kayano_121_x_up_there_03.jpg"
+      ],
+      "latestTs": 1780688683,
+      "category": "sneakers",
+      "brandSlug": "asics",
+      "brandLabel": "ASICS",
+      "modelSlug": "gel-kayano-121-x-up-there",
+      "modelLabel": "Gel Kayano 12.1 x UP THERE"
+    },
+    {
+      "slug": "vans_x_satoshi_nakamoto",
+      "name": "VANS x SATOSHI NAKAMOTO",
+      "images": [
+        "imagens/telegram/vans_x_satoshi_nakamoto/vans_x_satoshi_nakamoto_01.jpg",
+        "imagens/telegram/vans_x_satoshi_nakamoto/vans_x_satoshi_nakamoto_02.jpg",
+        "imagens/telegram/vans_x_satoshi_nakamoto/vans_x_satoshi_nakamoto_03.jpg"
+      ],
+      "latestTs": 1780688487,
+      "category": "sneakers",
+      "brandSlug": "vans",
+      "brandLabel": "Vans",
+      "modelSlug": "x-satoshi-nakamoto",
+      "modelLabel": "x SATOSHI NAKAMOTO"
+    },
+    {
+      "slug": "adidas_spezial_cow_print",
+      "name": "ADIDAS Spezial \"Cow Print\"",
+      "images": [
+        "imagens/telegram/adidas_spezial_cow_print/adidas_spezial_cow_print_01.jpg",
+        "imagens/telegram/adidas_spezial_cow_print/adidas_spezial_cow_print_02.jpg",
+        "imagens/telegram/adidas_spezial_cow_print/adidas_spezial_cow_print_03.jpg"
+      ],
+      "latestTs": 1780675657,
+      "category": "sneakers",
+      "brandSlug": "adidas",
+      "brandLabel": "Adidas",
+      "modelSlug": "spezial-cow-print",
+      "modelLabel": "Spezial \"Cow Print\""
+    },
+    {
+      "slug": "aime_leon_dore",
+      "name": "AIME LEON DORE",
+      "images": [
+        "imagens/telegram/aime_leon_dore/aime_leon_dore_01.jpg"
+      ],
+      "latestTs": 1780675420,
+      "category": "outros"
+    },
+    {
+      "slug": "asics_gel_k1011",
+      "name": "ASICS Gel K1011",
+      "images": [
+        "imagens/telegram/asics_gel_k1011/asics_gel_k1011_01.jpg",
+        "imagens/telegram/asics_gel_k1011/asics_gel_k1011_02.jpg",
+        "imagens/telegram/asics_gel_k1011/asics_gel_k1011_03.jpg",
+        "imagens/telegram/asics_gel_k1011/asics_gel_k1011_04.jpg",
+        "imagens/telegram/asics_gel_k1011/asics_gel_k1011_05.jpg",
+        "imagens/telegram/asics_gel_k1011/asics_gel_k1011_06.jpg"
+      ],
+      "latestTs": 1780649161,
+      "category": "sneakers",
+      "brandSlug": "asics",
+      "brandLabel": "ASICS",
+      "modelSlug": "gel-k1011",
+      "modelLabel": "Gel K1011"
+    },
+    {
+      "slug": "polo_ralph_lauren_pack_5",
+      "name": "POLO RALPH LAUREN (Pack 5)",
+      "images": [
+        "imagens/telegram/polo_ralph_lauren_pack_5/polo_ralph_lauren_pack_5_01.jpg",
+        "imagens/telegram/polo_ralph_lauren_pack_5/polo_ralph_lauren_pack_5_02.jpg",
+        "imagens/telegram/polo_ralph_lauren_pack_5/polo_ralph_lauren_pack_5_03.jpg"
+      ],
+      "latestTs": 1780648502,
+      "category": "roupas"
+    },
+    {
+      "slug": "polo_ralph_lauren_train",
+      "name": "POLO RALPH LAUREN Train",
+      "images": [
+        "imagens/telegram/polo_ralph_lauren_train/polo_ralph_lauren_train_01.jpg"
+      ],
+      "latestTs": 1780648321,
+      "category": "roupas"
+    },
+    {
+      "slug": "nike_mind_001",
+      "name": "NIKE Mind 001",
+      "images": [
+        "imagens/telegram/nike_mind_001/nike_mind_001_01.jpg",
+        "imagens/telegram/nike_mind_001/nike_mind_001_02.jpg",
+        "imagens/telegram/nike_mind_001/nike_mind_001_03.jpg",
+        "imagens/telegram/nike_mind_001/nike_mind_001_04.jpg",
+        "imagens/telegram/nike_mind_001/nike_mind_001_05.jpg",
+        "imagens/telegram/nike_mind_001/nike_mind_001_06.jpg",
+        "imagens/telegram/nike_mind_001/nike_mind_001_07.jpg"
+      ],
+      "latestTs": 1780647841,
+      "category": "sneakers",
+      "brandSlug": "nike",
+      "brandLabel": "Nike",
+      "modelSlug": "mind-001",
+      "modelLabel": "Mind 001"
+    },
+    {
+      "slug": "iik",
+      "name": "IIK",
+      "images": [
+        "imagens/telegram/iik/iik_01.jpg"
+      ],
+      "latestTs": 1780647721,
+      "category": "outros"
+    },
+    {
+      "slug": "polo_ralph_lauren_chándal_completo",
+      "name": "POLO RALPH LAUREN (chándal completo)",
+      "images": [
+        "imagens/telegram/polo_ralph_lauren_chándal_completo/polo_ralph_lauren_chándal_completo_01.jpg"
+      ],
+      "latestTs": 1780647241,
+      "category": "roupas"
+    },
+    {
+      "slug": "loro_piana",
+      "name": "LORO PIANA",
+      "images": [
+        "imagens/telegram/loro_piana/loro_piana_01.jpg"
+      ],
+      "latestTs": 1780647061,
+      "category": "outros"
+    },
+    {
+      "slug": "adidas_spezial",
+      "name": "ADIDAS Spezial",
+      "images": [
+        "imagens/telegram/adidas_spezial/adidas_spezial_01.jpg",
+        "imagens/telegram/adidas_spezial/adidas_spezial_02.jpg",
+        "imagens/telegram/adidas_spezial/adidas_spezial_03.jpg",
+        "imagens/telegram/adidas_spezial/adidas_spezial_04.jpg",
+        "imagens/telegram/adidas_spezial/adidas_spezial_05.jpg",
+        "imagens/telegram/adidas_spezial/adidas_spezial_06.jpg",
+        "imagens/telegram/adidas_spezial/adidas_spezial_07.jpg",
+        "imagens/telegram/adidas_spezial/adidas_spezial_08.jpg",
+        "imagens/telegram/adidas_spezial/adidas_spezial_09.jpg",
+        "imagens/telegram/adidas_spezial/adidas_spezial_10.jpg"
+      ],
+      "latestTs": 1780647012,
+      "category": "sneakers",
+      "brandSlug": "adidas",
+      "brandLabel": "Adidas",
+      "modelSlug": "spezial",
+      "modelLabel": "Spezial"
+    },
+    {
+      "slug": "adidas_argentina_entrenamiento_2026",
+      "name": "ADIDAS Argentina Entrenamiento 2026",
+      "images": [
+        "imagens/telegram/adidas_argentina_entrenamiento_2026/adidas_argentina_entrenamiento_2026_01.jpg"
+      ],
+      "latestTs": 1780646881,
+      "category": "sneakers",
+      "brandSlug": "adidas",
+      "brandLabel": "Adidas",
+      "modelSlug": "argentina-entrenamiento-2026",
+      "modelLabel": "Argentina Entrenamiento 2026"
+    },
+    {
+      "slug": "adidas_liverpool_special_95",
+      "name": "ADIDAS Liverpool \"Special 95\"",
+      "images": [
+        "imagens/telegram/adidas_liverpool_special_95/adidas_liverpool_special_95_01.jpg"
+      ],
+      "latestTs": 1780646761,
+      "category": "sneakers",
+      "brandSlug": "adidas",
+      "brandLabel": "Adidas",
+      "modelSlug": "liverpool-special-95",
+      "modelLabel": "Liverpool \"Special 95\""
+    },
+    {
+      "slug": "casa_blanca_conjunto",
+      "name": "CASA BLANCA (conjunto)",
+      "images": [
+        "imagens/telegram/casa_blanca_conjunto/casa_blanca_conjunto_01.jpg"
+      ],
+      "latestTs": 1780646655,
+      "category": "roupas"
+    },
+    {
+      "slug": "the_north_face",
+      "name": "THE NORTH FACE",
+      "images": [
+        "imagens/telegram/the_north_face/the_north_face_01.jpg",
+        "imagens/telegram/the_north_face/the_north_face_02.jpg",
+        "imagens/telegram/the_north_face/the_north_face_03.jpg"
+      ],
+      "latestTs": 1780595688,
+      "category": "roupas"
+    },
+    {
+      "slug": "coach",
+      "name": "COACH",
+      "images": [
+        "imagens/telegram/coach/coach_01.jpg",
+        "imagens/telegram/coach/coach_02.jpg"
+      ],
+      "latestTs": 1780595461,
+      "category": "outros"
+    },
+    {
+      "slug": "godspeed",
+      "name": "GODSPEED",
+      "images": [
+        "imagens/telegram/godspeed/godspeed_01.jpg"
+      ],
+      "latestTs": 1780595219,
+      "category": "outros"
+    },
+    {
       "slug": "asics_gel_quantum_levitrack",
       "name": "ASICS Gel Quantum Levitrack",
       "images": [
@@ -10,6 +1826,7 @@
         "imagens/telegram/asics_gel_quantum_levitrack/asics_gel_quantum_levitrack_04.jpg",
         "imagens/telegram/asics_gel_quantum_levitrack/asics_gel_quantum_levitrack_05.jpg"
       ],
+      "latestTs": 1780594051,
       "category": "sneakers",
       "brandSlug": "asics",
       "brandLabel": "ASICS",
@@ -22,43 +1839,16 @@
       "images": [
         "imagens/telegram/veja_rio/veja_rio_01.jpg"
       ],
+      "latestTs": 1780587826,
       "category": "outros"
-    },
-    {
-      "slug": "corteiz",
-      "name": "CORTEIZ",
-      "images": [
-        "imagens/telegram/corteiz/corteiz_01.jpg",
-        "imagens/telegram/corteiz/corteiz_02.jpg",
-        "imagens/telegram/corteiz/corteiz_03.jpg",
-        "imagens/telegram/corteiz/corteiz_04.jpg",
-        "imagens/telegram/corteiz/corteiz_05.jpg",
-        "imagens/telegram/corteiz/corteiz_06.jpg",
-        "imagens/telegram/corteiz/corteiz_07.jpg",
-        "imagens/telegram/corteiz/corteiz_08.jpg",
-        "imagens/telegram/corteiz/corteiz_09.jpg",
-        "imagens/telegram/corteiz/corteiz_10.jpg"
-      ],
-      "category": "roupas"
-    },
-    {
-      "slug": "carhartt_conjunto",
-      "name": "CARHARTT (conjunto)",
-      "images": [
-        "imagens/telegram/carhartt_conjunto/carhartt_conjunto_01.jpg"
-      ],
-      "category": "roupas"
     },
     {
       "slug": "palm_angels",
       "name": "PALM ANGELS",
       "images": [
-        "imagens/telegram/palm_angels/palm_angels_01.jpg",
-        "imagens/telegram/palm_angels/palm_angels_02.jpg",
-        "imagens/telegram/palm_angels/palm_angels_03.jpg",
-        "imagens/telegram/palm_angels/palm_angels_04.jpg",
-        "imagens/telegram/palm_angels/palm_angels_05.jpg"
+        "imagens/telegram/palm_angels/palm_angels_01.jpg"
       ],
+      "latestTs": 1780574993,
       "category": "outros"
     },
     {
@@ -76,6 +1866,7 @@
         "imagens/telegram/adidas_samba_xlg/adidas_samba_xlg_09.jpg",
         "imagens/telegram/adidas_samba_xlg/adidas_samba_xlg_10.jpg"
       ],
+      "latestTs": 1780574389,
       "category": "sneakers",
       "brandSlug": "adidas",
       "brandLabel": "Adidas",
@@ -95,31 +1886,7 @@
         "imagens/telegram/mizuno_adventure/mizuno_adventure_07.jpg",
         "imagens/telegram/mizuno_adventure/mizuno_adventure_08.jpg"
       ],
-      "category": "outros"
-    },
-    {
-      "slug": "carolina_herrera",
-      "name": "CAROLINA HERRERA",
-      "images": [
-        "imagens/telegram/carolina_herrera/carolina_herrera_01.jpg",
-        "imagens/telegram/carolina_herrera/carolina_herrera_02.jpg",
-        "imagens/telegram/carolina_herrera/carolina_herrera_03.jpg",
-        "imagens/telegram/carolina_herrera/carolina_herrera_04.jpg",
-        "imagens/telegram/carolina_herrera/carolina_herrera_05.jpg",
-        "imagens/telegram/carolina_herrera/carolina_herrera_06.jpg",
-        "imagens/telegram/carolina_herrera/carolina_herrera_07.jpg",
-        "imagens/telegram/carolina_herrera/carolina_herrera_08.jpg",
-        "imagens/telegram/carolina_herrera/carolina_herrera_09.jpg"
-      ],
-      "category": "outros"
-    },
-    {
-      "slug": "coach",
-      "name": "COACH",
-      "images": [
-        "imagens/telegram/coach/coach_01.jpg",
-        "imagens/telegram/coach/coach_02.jpg"
-      ],
+      "latestTs": 1780572706,
       "category": "outros"
     },
     {
@@ -128,6 +1895,7 @@
       "images": [
         "imagens/telegram/corteiz_x_brasil/corteiz_x_brasil_01.jpg"
       ],
+      "latestTs": 1780568460,
       "category": "roupas"
     },
     {
@@ -143,6 +1911,7 @@
         "imagens/telegram/adidas_gazelle_bold/adidas_gazelle_bold_07.jpg",
         "imagens/telegram/adidas_gazelle_bold/adidas_gazelle_bold_08.jpg"
       ],
+      "latestTs": 1780522892,
       "category": "sneakers",
       "brandSlug": "adidas",
       "brandLabel": "Adidas",
@@ -150,28 +1919,12 @@
       "modelLabel": "Gazelle Bold"
     },
     {
-      "slug": "polo_ralph_lauren",
-      "name": "POLO RALPH LAUREN",
-      "images": [
-        "imagens/telegram/polo_ralph_lauren/polo_ralph_lauren_01.jpg",
-        "imagens/telegram/polo_ralph_lauren/polo_ralph_lauren_02.jpg",
-        "imagens/telegram/polo_ralph_lauren/polo_ralph_lauren_03.jpg",
-        "imagens/telegram/polo_ralph_lauren/polo_ralph_lauren_04.jpg",
-        "imagens/telegram/polo_ralph_lauren/polo_ralph_lauren_05.jpg",
-        "imagens/telegram/polo_ralph_lauren/polo_ralph_lauren_06.jpg",
-        "imagens/telegram/polo_ralph_lauren/polo_ralph_lauren_07.jpg",
-        "imagens/telegram/polo_ralph_lauren/polo_ralph_lauren_08.jpg",
-        "imagens/telegram/polo_ralph_lauren/polo_ralph_lauren_09.jpg",
-        "imagens/telegram/polo_ralph_lauren/polo_ralph_lauren_10.jpg"
-      ],
-      "category": "roupas"
-    },
-    {
       "slug": "nike_5_pares",
       "name": "NIKE (5 pares)",
       "images": [
         "imagens/telegram/nike_5_pares/nike_5_pares_01.jpg"
       ],
+      "latestTs": 1780522541,
       "category": "sneakers",
       "brandSlug": "nike",
       "brandLabel": "Nike",
@@ -184,24 +1937,8 @@
       "images": [
         "imagens/telegram/guess_bandolera/guess_bandolera_01.jpg"
       ],
+      "latestTs": 1780518470,
       "category": "bolsas"
-    },
-    {
-      "slug": "birkenstock",
-      "name": "BIRKENSTOCK",
-      "images": [
-        "imagens/telegram/birkenstock/birkenstock_01.jpg",
-        "imagens/telegram/birkenstock/birkenstock_02.jpg",
-        "imagens/telegram/birkenstock/birkenstock_03.jpg",
-        "imagens/telegram/birkenstock/birkenstock_04.jpg",
-        "imagens/telegram/birkenstock/birkenstock_05.jpg",
-        "imagens/telegram/birkenstock/birkenstock_06.jpg",
-        "imagens/telegram/birkenstock/birkenstock_07.jpg",
-        "imagens/telegram/birkenstock/birkenstock_08.jpg",
-        "imagens/telegram/birkenstock/birkenstock_09.jpg",
-        "imagens/telegram/birkenstock/birkenstock_10.jpg"
-      ],
-      "category": "outros"
     },
     {
       "slug": "adidas_stone_slides_x_bad_bunny",
@@ -209,6 +1946,7 @@
       "images": [
         "imagens/telegram/adidas_stone_slides_x_bad_bunny/adidas_stone_slides_x_bad_bunny_01.jpg"
       ],
+      "latestTs": 1780510293,
       "category": "sneakers",
       "brandSlug": "adidas",
       "brandLabel": "Adidas",
@@ -223,17 +1961,7 @@
         "imagens/telegram/on_cloud_the_roger/on_cloud_the_roger_02.jpg",
         "imagens/telegram/on_cloud_the_roger/on_cloud_the_roger_03.jpg"
       ],
-      "category": "outros"
-    },
-    {
-      "slug": "vans",
-      "name": "VANS",
-      "images": [
-        "imagens/telegram/vans/vans_01.jpg",
-        "imagens/telegram/vans/vans_02.jpg",
-        "imagens/telegram/vans/vans_03.jpg",
-        "imagens/telegram/vans/vans_04.jpg"
-      ],
+      "latestTs": 1780507028,
       "category": "outros"
     },
     {
@@ -248,24 +1976,8 @@
         "imagens/telegram/revenge_x_storm/revenge_x_storm_06.jpg",
         "imagens/telegram/revenge_x_storm/revenge_x_storm_07.jpg"
       ],
+      "latestTs": 1780503967,
       "category": "outros"
-    },
-    {
-      "slug": "carhartt",
-      "name": "CARHARTT",
-      "images": [
-        "imagens/telegram/carhartt/carhartt_01.jpg",
-        "imagens/telegram/carhartt/carhartt_02.jpg",
-        "imagens/telegram/carhartt/carhartt_03.jpg",
-        "imagens/telegram/carhartt/carhartt_04.jpg",
-        "imagens/telegram/carhartt/carhartt_05.jpg",
-        "imagens/telegram/carhartt/carhartt_06.jpg",
-        "imagens/telegram/carhartt/carhartt_07.jpg",
-        "imagens/telegram/carhartt/carhartt_08.jpg",
-        "imagens/telegram/carhartt/carhartt_09.jpg",
-        "imagens/telegram/carhartt/carhartt_10.jpg"
-      ],
-      "category": "roupas"
     },
     {
       "slug": "onitsuka_tiger_edr78",
@@ -280,22 +1992,8 @@
         "imagens/telegram/onitsuka_tiger_edr78/onitsuka_tiger_edr78_07.jpg",
         "imagens/telegram/onitsuka_tiger_edr78/onitsuka_tiger_edr78_08.jpg"
       ],
+      "latestTs": 1780501884,
       "category": "outros"
-    },
-    {
-      "slug": "goyard",
-      "name": "GOYARD",
-      "images": [
-        "imagens/telegram/goyard/goyard_01.jpg",
-        "imagens/telegram/goyard/goyard_02.jpg",
-        "imagens/telegram/goyard/goyard_03.jpg",
-        "imagens/telegram/goyard/goyard_04.jpg",
-        "imagens/telegram/goyard/goyard_05.jpg",
-        "imagens/telegram/goyard/goyard_06.jpg",
-        "imagens/telegram/goyard/goyard_07.jpg",
-        "imagens/telegram/goyard/goyard_08.jpg"
-      ],
-      "category": "bolsas"
     },
     {
       "slug": "off_white",
@@ -306,48 +2004,8 @@
         "imagens/telegram/off_white/off_white_03.jpg",
         "imagens/telegram/off_white/off_white_04.jpg"
       ],
+      "latestTs": 1780500038,
       "category": "outros"
-    },
-    {
-      "slug": "moncler",
-      "name": "MONCLER",
-      "images": [
-        "imagens/telegram/moncler/moncler_01.jpg",
-        "imagens/telegram/moncler/moncler_02.jpg",
-        "imagens/telegram/moncler/moncler_03.jpg",
-        "imagens/telegram/moncler/moncler_04.jpg"
-      ],
-      "category": "roupas"
-    },
-    {
-      "slug": "adidas_sl72_pro",
-      "name": "ADIDAS SL72 Pro",
-      "images": [
-        "imagens/telegram/adidas_sl72_pro/adidas_sl72_pro_01.jpg",
-        "imagens/telegram/adidas_sl72_pro/adidas_sl72_pro_02.jpg",
-        "imagens/telegram/adidas_sl72_pro/adidas_sl72_pro_03.jpg",
-        "imagens/telegram/adidas_sl72_pro/adidas_sl72_pro_04.jpg",
-        "imagens/telegram/adidas_sl72_pro/adidas_sl72_pro_05.jpg"
-      ],
-      "category": "sneakers",
-      "brandSlug": "adidas",
-      "brandLabel": "Adidas",
-      "modelSlug": "sl72-pro",
-      "modelLabel": "SL72 Pro"
-    },
-    {
-      "slug": "the_north_face",
-      "name": "THE NORTH FACE",
-      "images": [
-        "imagens/telegram/the_north_face/the_north_face_01.jpg",
-        "imagens/telegram/the_north_face/the_north_face_02.jpg",
-        "imagens/telegram/the_north_face/the_north_face_03.jpg",
-        "imagens/telegram/the_north_face/the_north_face_04.jpg",
-        "imagens/telegram/the_north_face/the_north_face_05.jpg",
-        "imagens/telegram/the_north_face/the_north_face_06.jpg",
-        "imagens/telegram/the_north_face/the_north_face_07.jpg"
-      ],
-      "category": "roupas"
     },
     {
       "slug": "corteiz_pantalónbañador",
@@ -355,65 +2013,16 @@
       "images": [
         "imagens/telegram/corteiz_pantalónbañador/corteiz_pantalónbañador_01.jpg"
       ],
+      "latestTs": 1780496387,
       "category": "roupas"
-    },
-    {
-      "slug": "adidas_samba",
-      "name": "ADIDAS Samba",
-      "images": [
-        "imagens/telegram/adidas_samba/adidas_samba_01.jpg",
-        "imagens/telegram/adidas_samba/adidas_samba_02.jpg",
-        "imagens/telegram/adidas_samba/adidas_samba_03.jpg",
-        "imagens/telegram/adidas_samba/adidas_samba_04.jpg",
-        "imagens/telegram/adidas_samba/adidas_samba_05.jpg",
-        "imagens/telegram/adidas_samba/adidas_samba_06.jpg",
-        "imagens/telegram/adidas_samba/adidas_samba_07.jpg",
-        "imagens/telegram/adidas_samba/adidas_samba_08.jpg",
-        "imagens/telegram/adidas_samba/adidas_samba_09.jpg",
-        "imagens/telegram/adidas_samba/adidas_samba_10.jpg"
-      ],
-      "category": "sneakers",
-      "brandSlug": "adidas",
-      "brandLabel": "Adidas",
-      "modelSlug": "samba",
-      "modelLabel": "Samba"
-    },
-    {
-      "slug": "adidas_samba_og",
-      "name": "ADIDAS Samba OG",
-      "images": [
-        "imagens/telegram/adidas_samba_og/adidas_samba_og_01.jpg",
-        "imagens/telegram/adidas_samba_og/adidas_samba_og_02.jpg",
-        "imagens/telegram/adidas_samba_og/adidas_samba_og_03.jpg",
-        "imagens/telegram/adidas_samba_og/adidas_samba_og_04.jpg",
-        "imagens/telegram/adidas_samba_og/adidas_samba_og_05.jpg",
-        "imagens/telegram/adidas_samba_og/adidas_samba_og_06.jpg",
-        "imagens/telegram/adidas_samba_og/adidas_samba_og_07.jpg",
-        "imagens/telegram/adidas_samba_og/adidas_samba_og_08.jpg",
-        "imagens/telegram/adidas_samba_og/adidas_samba_og_09.jpg",
-        "imagens/telegram/adidas_samba_og/adidas_samba_og_10.jpg"
-      ],
-      "category": "sneakers",
-      "brandSlug": "adidas",
-      "brandLabel": "Adidas",
-      "modelSlug": "samba-og",
-      "modelLabel": "Samba OG"
     },
     {
       "slug": "asics_gel_nyc",
       "name": "ASICS Gel NYC",
       "images": [
-        "imagens/telegram/asics_gel_nyc/asics_gel_nyc_01.jpg",
-        "imagens/telegram/asics_gel_nyc/asics_gel_nyc_02.jpg",
-        "imagens/telegram/asics_gel_nyc/asics_gel_nyc_03.jpg",
-        "imagens/telegram/asics_gel_nyc/asics_gel_nyc_04.jpg",
-        "imagens/telegram/asics_gel_nyc/asics_gel_nyc_05.jpg",
-        "imagens/telegram/asics_gel_nyc/asics_gel_nyc_06.jpg",
-        "imagens/telegram/asics_gel_nyc/asics_gel_nyc_07.jpg",
-        "imagens/telegram/asics_gel_nyc/asics_gel_nyc_08.jpg",
-        "imagens/telegram/asics_gel_nyc/asics_gel_nyc_09.jpg",
-        "imagens/telegram/asics_gel_nyc/asics_gel_nyc_10.jpg"
+        "imagens/telegram/asics_gel_nyc/asics_gel_nyc_01.jpg"
       ],
+      "latestTs": 1780495089,
       "category": "sneakers",
       "brandSlug": "asics",
       "brandLabel": "ASICS",
@@ -426,6 +2035,7 @@
       "images": [
         "imagens/telegram/amiri_bordada/amiri_bordada_01.jpg"
       ],
+      "latestTs": 1780485521,
       "category": "outros"
     },
     {
@@ -442,6 +2052,7 @@
         "imagens/telegram/asics_gel_1130/asics_gel_1130_08.jpg",
         "imagens/telegram/asics_gel_1130/asics_gel_1130_09.jpg"
       ],
+      "latestTs": 1780475761,
       "category": "sneakers",
       "brandSlug": "asics",
       "brandLabel": "ASICS",
@@ -456,19 +2067,12 @@
         "imagens/telegram/adidas_sambae/adidas_sambae_02.jpg",
         "imagens/telegram/adidas_sambae/adidas_sambae_03.jpg"
       ],
+      "latestTs": 1780475041,
       "category": "sneakers",
       "brandSlug": "adidas",
       "brandLabel": "Adidas",
       "modelSlug": "sambae",
       "modelLabel": "Sambae"
-    },
-    {
-      "slug": "fred_perry",
-      "name": "FRED PERRY",
-      "images": [
-        "imagens/telegram/fred_perry/fred_perry_01.jpg"
-      ],
-      "category": "outros"
     },
     {
       "slug": "onitsuka_tiger_mexico",
@@ -484,6 +2088,7 @@
         "imagens/telegram/onitsuka_tiger_mexico/onitsuka_tiger_mexico_08.jpg",
         "imagens/telegram/onitsuka_tiger_mexico/onitsuka_tiger_mexico_09.jpg"
       ],
+      "latestTs": 1780474211,
       "category": "outros"
     },
     {
@@ -492,21 +2097,8 @@
       "images": [
         "imagens/telegram/denim_tears_conjunto/denim_tears_conjunto_01.jpg"
       ],
+      "latestTs": 1780473961,
       "category": "roupas"
-    },
-    {
-      "slug": "adidas_spezial_x_liberty_london",
-      "name": "ADIDAS Spezial x LIBERTY LONDON",
-      "images": [
-        "imagens/telegram/adidas_spezial_x_liberty_london/adidas_spezial_x_liberty_london_01.jpg",
-        "imagens/telegram/adidas_spezial_x_liberty_london/adidas_spezial_x_liberty_london_02.jpg",
-        "imagens/telegram/adidas_spezial_x_liberty_london/adidas_spezial_x_liberty_london_03.jpg"
-      ],
-      "category": "sneakers",
-      "brandSlug": "adidas",
-      "brandLabel": "Adidas",
-      "modelSlug": "spezial-x-liberty-london",
-      "modelLabel": "Spezial x LIBERTY LONDON"
     },
     {
       "slug": "nike_tech_fleece",
@@ -518,6 +2110,7 @@
         "imagens/telegram/nike_tech_fleece/nike_tech_fleece_04.jpg",
         "imagens/telegram/nike_tech_fleece/nike_tech_fleece_05.jpg"
       ],
+      "latestTs": 1780435568,
       "category": "sneakers",
       "brandSlug": "nike",
       "brandLabel": "Nike",
@@ -525,40 +2118,12 @@
       "modelLabel": "Tech Fleece"
     },
     {
-      "slug": "adidas_spezial",
-      "name": "ADIDAS Spezial",
-      "images": [
-        "imagens/telegram/adidas_spezial/adidas_spezial_01.jpg",
-        "imagens/telegram/adidas_spezial/adidas_spezial_02.jpg",
-        "imagens/telegram/adidas_spezial/adidas_spezial_03.jpg",
-        "imagens/telegram/adidas_spezial/adidas_spezial_04.jpg",
-        "imagens/telegram/adidas_spezial/adidas_spezial_05.jpg",
-        "imagens/telegram/adidas_spezial/adidas_spezial_06.jpg",
-        "imagens/telegram/adidas_spezial/adidas_spezial_07.jpg",
-        "imagens/telegram/adidas_spezial/adidas_spezial_08.jpg",
-        "imagens/telegram/adidas_spezial/adidas_spezial_09.jpg",
-        "imagens/telegram/adidas_spezial/adidas_spezial_10.jpg"
-      ],
-      "category": "sneakers",
-      "brandSlug": "adidas",
-      "brandLabel": "Adidas",
-      "modelSlug": "spezial",
-      "modelLabel": "Spezial"
-    },
-    {
-      "slug": "on_cloud",
-      "name": "ON CLOUD",
-      "images": [
-        "imagens/telegram/on_cloud/on_cloud_01.jpg"
-      ],
-      "category": "outros"
-    },
-    {
       "slug": "polo_ralph_lauren_conjunto",
       "name": "POLO RALPH LAUREN (conjunto)",
       "images": [
         "imagens/telegram/polo_ralph_lauren_conjunto/polo_ralph_lauren_conjunto_01.jpg"
       ],
+      "latestTs": 1780412048,
       "category": "roupas"
     },
     {
@@ -567,19 +2132,16 @@
       "images": [
         "imagens/telegram/under_armour_chándal_completo/under_armour_chándal_completo_01.jpg"
       ],
+      "latestTs": 1780411979,
       "category": "roupas"
     },
     {
       "slug": "alo",
       "name": "ALO",
       "images": [
-        "imagens/telegram/alo/alo_01.jpg",
-        "imagens/telegram/alo/alo_02.jpg",
-        "imagens/telegram/alo/alo_03.jpg",
-        "imagens/telegram/alo/alo_04.jpg",
-        "imagens/telegram/alo/alo_05.jpg",
-        "imagens/telegram/alo/alo_06.jpg"
+        "imagens/telegram/alo/alo_01.jpg"
       ],
+      "latestTs": 1780411792,
       "category": "outros"
     },
     {
@@ -588,6 +2150,7 @@
       "images": [
         "imagens/telegram/poedagar_nautilus/poedagar_nautilus_01.jpg"
       ],
+      "latestTs": 1780411685,
       "category": "outros"
     },
     {
@@ -598,19 +2161,8 @@
         "imagens/telegram/apple_airpods4/apple_airpods4_02.jpg",
         "imagens/telegram/apple_airpods4/apple_airpods4_03.jpg"
       ],
+      "latestTs": 1780411534,
       "category": "fones"
-    },
-    {
-      "slug": "adidas_ozwave",
-      "name": "ADIDAS Ozwave",
-      "images": [
-        "imagens/telegram/adidas_ozwave/adidas_ozwave_01.jpg"
-      ],
-      "category": "sneakers",
-      "brandSlug": "adidas",
-      "brandLabel": "Adidas",
-      "modelSlug": "ozwave",
-      "modelLabel": "Ozwave"
     },
     {
       "slug": "new_balance_1906a",
@@ -627,6 +2179,7 @@
         "imagens/telegram/new_balance_1906a/new_balance_1906a_09.jpg",
         "imagens/telegram/new_balance_1906a/new_balance_1906a_10.jpg"
       ],
+      "latestTs": 1780408689,
       "category": "sneakers",
       "brandSlug": "newbalance",
       "brandLabel": "New Balance",
@@ -639,6 +2192,7 @@
       "images": [
         "imagens/telegram/aimana_royal_oak/aimana_royal_oak_01.jpg"
       ],
+      "latestTs": 1780406637,
       "category": "outros"
     },
     {
@@ -647,6 +2201,7 @@
       "images": [
         "imagens/telegram/numeris_eclipse/numeris_eclipse_01.jpg"
       ],
+      "latestTs": 1780404146,
       "category": "outros"
     },
     {
@@ -659,6 +2214,7 @@
         "imagens/telegram/adidas_terrex_daroga/adidas_terrex_daroga_04.jpg",
         "imagens/telegram/adidas_terrex_daroga/adidas_terrex_daroga_05.jpg"
       ],
+      "latestTs": 1780403482,
       "category": "sneakers",
       "brandSlug": "adidas",
       "brandLabel": "Adidas",
@@ -671,6 +2227,7 @@
       "images": [
         "imagens/telegram/adidas_stan_smith/adidas_stan_smith_01.jpg"
       ],
+      "latestTs": 1780387814,
       "category": "sneakers",
       "brandSlug": "adidas",
       "brandLabel": "Adidas",
@@ -683,6 +2240,7 @@
       "images": [
         "imagens/telegram/adidas_inter_miami_2026_chándal_completo/adidas_inter_miami_2026_chándal_completo_01.jpg"
       ],
+      "latestTs": 1780387681,
       "category": "roupas"
     },
     {
@@ -691,6 +2249,7 @@
       "images": [
         "imagens/telegram/alexander_mcqueen/alexander_mcqueen_01.jpg"
       ],
+      "latestTs": 1780348097,
       "category": "outros"
     },
     {
@@ -699,15 +2258,8 @@
       "images": [
         "imagens/telegram/stussy_bordada/stussy_bordada_01.jpg"
       ],
+      "latestTs": 1780346415,
       "category": "roupas"
-    },
-    {
-      "slug": "dayson",
-      "name": "DAYSON",
-      "images": [
-        "imagens/telegram/dayson/dayson_01.jpg"
-      ],
-      "category": "outros"
     },
     {
       "slug": "adidas_sl72_sl",
@@ -723,6 +2275,7 @@
         "imagens/telegram/adidas_sl72_sl/adidas_sl72_sl_08.jpg",
         "imagens/telegram/adidas_sl72_sl/adidas_sl72_sl_09.jpg"
       ],
+      "latestTs": 1780341366,
       "category": "sneakers",
       "brandSlug": "adidas",
       "brandLabel": "Adidas",
@@ -730,37 +2283,12 @@
       "modelLabel": "SL72 SL"
     },
     {
-      "slug": "ami_paris",
-      "name": "AMI PARIS",
-      "images": [
-        "imagens/telegram/ami_paris/ami_paris_01.jpg",
-        "imagens/telegram/ami_paris/ami_paris_02.jpg"
-      ],
-      "category": "outros"
-    },
-    {
-      "slug": "adidas_adizero_evo_sl",
-      "name": "ADIDAS Adizero EVO SL",
-      "images": [
-        "imagens/telegram/adidas_adizero_evo_sl/adidas_adizero_evo_sl_01.jpg",
-        "imagens/telegram/adidas_adizero_evo_sl/adidas_adizero_evo_sl_02.jpg",
-        "imagens/telegram/adidas_adizero_evo_sl/adidas_adizero_evo_sl_03.jpg",
-        "imagens/telegram/adidas_adizero_evo_sl/adidas_adizero_evo_sl_04.jpg",
-        "imagens/telegram/adidas_adizero_evo_sl/adidas_adizero_evo_sl_05.jpg",
-        "imagens/telegram/adidas_adizero_evo_sl/adidas_adizero_evo_sl_06.jpg"
-      ],
-      "category": "sneakers",
-      "brandSlug": "adidas",
-      "brandLabel": "Adidas",
-      "modelSlug": "adizero-evo-sl",
-      "modelLabel": "Adizero EVO SL"
-    },
-    {
       "slug": "rayban_wayfarer",
       "name": "RAYBAN Wayfarer",
       "images": [
         "imagens/telegram/rayban_wayfarer/rayban_wayfarer_01.jpg"
       ],
+      "latestTs": 1780332452,
       "category": "oculos"
     },
     {
@@ -773,30 +2301,12 @@
         "imagens/telegram/adidas_f50_freestyle_x_messi/adidas_f50_freestyle_x_messi_04.jpg",
         "imagens/telegram/adidas_f50_freestyle_x_messi/adidas_f50_freestyle_x_messi_05.jpg"
       ],
+      "latestTs": 1780331308,
       "category": "sneakers",
       "brandSlug": "adidas",
       "brandLabel": "Adidas",
       "modelSlug": "f50-freestyle-x-messi",
       "modelLabel": "F50 Freestyle x MESSI"
-    },
-    {
-      "slug": "carhartt_bordado",
-      "name": "CARHARTT (bordado)",
-      "images": [
-        "imagens/telegram/carhartt_bordado/carhartt_bordado_01.jpg",
-        "imagens/telegram/carhartt_bordado/carhartt_bordado_02.jpg",
-        "imagens/telegram/carhartt_bordado/carhartt_bordado_03.jpg",
-        "imagens/telegram/carhartt_bordado/carhartt_bordado_04.jpg"
-      ],
-      "category": "roupas"
-    },
-    {
-      "slug": "stone_island",
-      "name": "STONE ISLAND",
-      "images": [
-        "imagens/telegram/stone_island/stone_island_01.jpg"
-      ],
-      "category": "roupas"
     },
     {
       "slug": "nike_jordan_1_x_travis_scott",
@@ -813,19 +2323,12 @@
         "imagens/telegram/nike_jordan_1_x_travis_scott/nike_jordan_1_x_travis_scott_09.jpg",
         "imagens/telegram/nike_jordan_1_x_travis_scott/nike_jordan_1_x_travis_scott_10.jpg"
       ],
+      "latestTs": 1780326567,
       "category": "sneakers",
       "brandSlug": "nike",
       "brandLabel": "Nike",
       "modelSlug": "jordan-1-x-travis-scott",
       "modelLabel": "Jordan 1 x TRAVIS SCOTT"
-    },
-    {
-      "slug": "maison_margiela",
-      "name": "MAISON MARGIELA",
-      "images": [
-        "imagens/telegram/maison_margiela/maison_margiela_01.jpg"
-      ],
-      "category": "outros"
     },
     {
       "slug": "bape_sta",
@@ -838,10 +2341,9 @@
         "imagens/telegram/bape_sta/bape_sta_05.jpg",
         "imagens/telegram/bape_sta/bape_sta_06.jpg",
         "imagens/telegram/bape_sta/bape_sta_07.jpg",
-        "imagens/telegram/bape_sta/bape_sta_08.jpg",
-        "imagens/telegram/bape_sta/bape_sta_09.jpg",
-        "imagens/telegram/bape_sta/bape_sta_10.jpg"
+        "imagens/telegram/bape_sta/bape_sta_08.jpg"
       ],
+      "latestTs": 1780324728,
       "category": "outros"
     },
     {
@@ -850,15 +2352,8 @@
       "images": [
         "imagens/telegram/essentials_x_fear_of_god_conjunto/essentials_x_fear_of_god_conjunto_01.jpg"
       ],
+      "latestTs": 1780323921,
       "category": "roupas"
-    },
-    {
-      "slug": "patagonia",
-      "name": "PATAGONIA",
-      "images": [
-        "imagens/telegram/patagonia/patagonia_01.jpg"
-      ],
-      "category": "outros"
     },
     {
       "slug": "adidas_samba_earth_strata",
@@ -866,6 +2361,7 @@
       "images": [
         "imagens/telegram/adidas_samba_earth_strata/adidas_samba_earth_strata_01.jpg"
       ],
+      "latestTs": 1780323704,
       "category": "sneakers",
       "brandSlug": "adidas",
       "brandLabel": "Adidas",
@@ -884,6 +2380,7 @@
         "imagens/telegram/adidas_forum/adidas_forum_06.jpg",
         "imagens/telegram/adidas_forum/adidas_forum_07.jpg"
       ],
+      "latestTs": 1780322789,
       "category": "sneakers",
       "brandSlug": "adidas",
       "brandLabel": "Adidas",
@@ -898,9 +2395,9 @@
         "imagens/telegram/on_cloud_conjunto/on_cloud_conjunto_02.jpg",
         "imagens/telegram/on_cloud_conjunto/on_cloud_conjunto_03.jpg",
         "imagens/telegram/on_cloud_conjunto/on_cloud_conjunto_04.jpg",
-        "imagens/telegram/on_cloud_conjunto/on_cloud_conjunto_05.jpg",
-        "imagens/telegram/on_cloud_conjunto/on_cloud_conjunto_06.jpg"
+        "imagens/telegram/on_cloud_conjunto/on_cloud_conjunto_05.jpg"
       ],
+      "latestTs": 1780314024,
       "category": "roupas"
     },
     {
@@ -910,718 +2407,8 @@
         "imagens/telegram/scuffers/scuffers_01.jpg",
         "imagens/telegram/scuffers/scuffers_02.jpg"
       ],
+      "latestTs": 1780310230,
       "category": "outros"
-    },
-    {
-      "slug": "adidas",
-      "name": "ADIDAS",
-      "images": [
-        "imagens/telegram/adidas/adidas_01.jpg",
-        "imagens/telegram/adidas/adidas_02.jpg",
-        "imagens/telegram/adidas/adidas_03.jpg",
-        "imagens/telegram/adidas/adidas_04.jpg"
-      ],
-      "category": "outros"
-    },
-    {
-      "slug": "converse",
-      "name": "CONVERSE",
-      "images": [
-        "imagens/telegram/converse/converse_01.jpg",
-        "imagens/telegram/converse/converse_02.jpg",
-        "imagens/telegram/converse/converse_03.jpg",
-        "imagens/telegram/converse/converse_04.jpg",
-        "imagens/telegram/converse/converse_05.jpg"
-      ],
-      "category": "outros"
-    },
-    {
-      "slug": "adidas_handball_spezial_candy",
-      "name": "ADIDAS Handball Spezial \"candy\"",
-      "images": [
-        "imagens/telegram/adidas_handball_spezial_candy/adidas_handball_spezial_candy_01.jpg",
-        "imagens/telegram/adidas_handball_spezial_candy/adidas_handball_spezial_candy_02.jpg",
-        "imagens/telegram/adidas_handball_spezial_candy/adidas_handball_spezial_candy_03.jpg",
-        "imagens/telegram/adidas_handball_spezial_candy/adidas_handball_spezial_candy_04.jpg",
-        "imagens/telegram/adidas_handball_spezial_candy/adidas_handball_spezial_candy_05.jpg"
-      ],
-      "category": "sneakers",
-      "brandSlug": "adidas",
-      "brandLabel": "Adidas",
-      "modelSlug": "handball-spezial-candy",
-      "modelLabel": "Handball Spezial \"candy\""
-    },
-    {
-      "slug": "on_cloud_tilt",
-      "name": "ON CLOUD Tilt",
-      "images": [
-        "imagens/telegram/on_cloud_tilt/on_cloud_tilt_01.jpg",
-        "imagens/telegram/on_cloud_tilt/on_cloud_tilt_02.jpg",
-        "imagens/telegram/on_cloud_tilt/on_cloud_tilt_03.jpg",
-        "imagens/telegram/on_cloud_tilt/on_cloud_tilt_04.jpg",
-        "imagens/telegram/on_cloud_tilt/on_cloud_tilt_05.jpg",
-        "imagens/telegram/on_cloud_tilt/on_cloud_tilt_06.jpg",
-        "imagens/telegram/on_cloud_tilt/on_cloud_tilt_07.jpg",
-        "imagens/telegram/on_cloud_tilt/on_cloud_tilt_08.jpg"
-      ],
-      "category": "outros"
-    },
-    {
-      "slug": "adidas_conjunto",
-      "name": "ADIDAS (conjunto)",
-      "images": [
-        "imagens/telegram/adidas_conjunto/adidas_conjunto_01.jpg"
-      ],
-      "category": "roupas"
-    },
-    {
-      "slug": "adidas_samba_lt_x_wales_bonner",
-      "name": "ADIDAS Samba LT x WALES BONNER",
-      "images": [
-        "imagens/telegram/adidas_samba_lt_x_wales_bonner/adidas_samba_lt_x_wales_bonner_01.jpg",
-        "imagens/telegram/adidas_samba_lt_x_wales_bonner/adidas_samba_lt_x_wales_bonner_02.jpg",
-        "imagens/telegram/adidas_samba_lt_x_wales_bonner/adidas_samba_lt_x_wales_bonner_03.jpg",
-        "imagens/telegram/adidas_samba_lt_x_wales_bonner/adidas_samba_lt_x_wales_bonner_04.jpg",
-        "imagens/telegram/adidas_samba_lt_x_wales_bonner/adidas_samba_lt_x_wales_bonner_05.jpg",
-        "imagens/telegram/adidas_samba_lt_x_wales_bonner/adidas_samba_lt_x_wales_bonner_06.jpg",
-        "imagens/telegram/adidas_samba_lt_x_wales_bonner/adidas_samba_lt_x_wales_bonner_07.jpg"
-      ],
-      "category": "sneakers",
-      "brandSlug": "adidas",
-      "brandLabel": "Adidas",
-      "modelSlug": "samba-lt-x-wales-bonner",
-      "modelLabel": "Samba LT x WALES BONNER"
-    },
-    {
-      "slug": "ugg_goldenstar",
-      "name": "UGG \"GoldenStar\"",
-      "images": [
-        "imagens/telegram/ugg_goldenstar/ugg_goldenstar_01.jpg"
-      ],
-      "category": "outros"
-    },
-    {
-      "slug": "vans_knu_skool",
-      "name": "VANS Knu Skool",
-      "images": [
-        "imagens/telegram/vans_knu_skool/vans_knu_skool_01.jpg"
-      ],
-      "category": "sneakers",
-      "brandSlug": "vans",
-      "brandLabel": "Vans",
-      "modelSlug": "knu-skool",
-      "modelLabel": "Knu Skool"
-    },
-    {
-      "slug": "nike_air_force_1_just_do_it",
-      "name": "NIKE Air Force 1 \"Just Do It\"",
-      "images": [
-        "imagens/telegram/nike_air_force_1_just_do_it/nike_air_force_1_just_do_it_01.jpg"
-      ],
-      "category": "sneakers",
-      "brandSlug": "nike",
-      "brandLabel": "Nike",
-      "modelSlug": "air-force-1-just-do-it",
-      "modelLabel": "Air Force 1 \"Just Do It\""
-    },
-    {
-      "slug": "carhartt_chaqueta_fina",
-      "name": "CARHARTT (chaqueta fina)",
-      "images": [
-        "imagens/telegram/carhartt_chaqueta_fina/carhartt_chaqueta_fina_01.jpg"
-      ],
-      "category": "roupas"
-    },
-    {
-      "slug": "asics_gel_gt2160",
-      "name": "ASICS Gel GT2160",
-      "images": [
-        "imagens/telegram/asics_gel_gt2160/asics_gel_gt2160_01.jpg"
-      ],
-      "category": "sneakers",
-      "brandSlug": "asics",
-      "brandLabel": "ASICS",
-      "modelSlug": "gel-gt2160",
-      "modelLabel": "Gel GT2160"
-    },
-    {
-      "slug": "asics_magic_speed_4",
-      "name": "ASICS Magic Speed 4",
-      "images": [
-        "imagens/telegram/asics_magic_speed_4/asics_magic_speed_4_01.jpg",
-        "imagens/telegram/asics_magic_speed_4/asics_magic_speed_4_02.jpg",
-        "imagens/telegram/asics_magic_speed_4/asics_magic_speed_4_03.jpg",
-        "imagens/telegram/asics_magic_speed_4/asics_magic_speed_4_04.jpg",
-        "imagens/telegram/asics_magic_speed_4/asics_magic_speed_4_05.jpg",
-        "imagens/telegram/asics_magic_speed_4/asics_magic_speed_4_06.jpg",
-        "imagens/telegram/asics_magic_speed_4/asics_magic_speed_4_07.jpg"
-      ],
-      "category": "sneakers",
-      "brandSlug": "asics",
-      "brandLabel": "ASICS",
-      "modelSlug": "magic-speed-4",
-      "modelLabel": "Magic Speed 4"
-    },
-    {
-      "slug": "patagonia_refract_chaqueta_fina",
-      "name": "PATAGONIA \"refract\" (chaqueta fina)",
-      "images": [
-        "imagens/telegram/patagonia_refract_chaqueta_fina/patagonia_refract_chaqueta_fina_01.jpg"
-      ],
-      "category": "roupas"
-    },
-    {
-      "slug": "alo_pack_5",
-      "name": "ALO (pack 5)",
-      "images": [
-        "imagens/telegram/alo_pack_5/alo_pack_5_01.jpg",
-        "imagens/telegram/alo_pack_5/alo_pack_5_02.jpg",
-        "imagens/telegram/alo_pack_5/alo_pack_5_03.jpg"
-      ],
-      "category": "outros"
-    },
-    {
-      "slug": "adidas_alemania_mundial_2026_camiseta_pantalón",
-      "name": "ADIDAS Alemania Mundial 2026 (camiseta + pantalón)",
-      "images": [
-        "imagens/telegram/adidas_alemania_mundial_2026_camiseta_pantalón/adidas_alemania_mundial_2026_camiseta_pantalón_01.jpg"
-      ],
-      "category": "roupas"
-    },
-    {
-      "slug": "stanley",
-      "name": "STANLEY",
-      "images": [
-        "imagens/telegram/stanley/stanley_01.jpg",
-        "imagens/telegram/stanley/stanley_02.jpg",
-        "imagens/telegram/stanley/stanley_03.jpg",
-        "imagens/telegram/stanley/stanley_04.jpg"
-      ],
-      "category": "outros"
-    },
-    {
-      "slug": "alo_neceser",
-      "name": "ALO (neceser)",
-      "images": [
-        "imagens/telegram/alo_neceser/alo_neceser_01.jpg"
-      ],
-      "category": "outros"
-    },
-    {
-      "slug": "jacquemus",
-      "name": "JACQUEMUS",
-      "images": [
-        "imagens/telegram/jacquemus/jacquemus_01.jpg",
-        "imagens/telegram/jacquemus/jacquemus_02.jpg",
-        "imagens/telegram/jacquemus/jacquemus_03.jpg",
-        "imagens/telegram/jacquemus/jacquemus_04.jpg",
-        "imagens/telegram/jacquemus/jacquemus_05.jpg"
-      ],
-      "category": "bolsas"
-    },
-    {
-      "slug": "polo_ralph_lauren_chándal_completo",
-      "name": "POLO RALPH LAUREN (chándal completo)",
-      "images": [
-        "imagens/telegram/polo_ralph_lauren_chándal_completo/polo_ralph_lauren_chándal_completo_01.jpg"
-      ],
-      "category": "roupas"
-    },
-    {
-      "slug": "under_armour",
-      "name": "UNDER ARMOUR",
-      "images": [
-        "imagens/telegram/under_armour/under_armour_01.jpg"
-      ],
-      "category": "outros"
-    },
-    {
-      "slug": "adidas_españa_mundial_2026",
-      "name": "ADIDAS España Mundial 2026",
-      "images": [
-        "imagens/telegram/adidas_españa_mundial_2026/adidas_españa_mundial_2026_01.jpg"
-      ],
-      "category": "roupas"
-    },
-    {
-      "slug": "adidas_tokyo",
-      "name": "ADIDAS Tokyo",
-      "images": [
-        "imagens/telegram/adidas_tokyo/adidas_tokyo_01.jpg",
-        "imagens/telegram/adidas_tokyo/adidas_tokyo_02.jpg",
-        "imagens/telegram/adidas_tokyo/adidas_tokyo_03.jpg"
-      ],
-      "category": "sneakers",
-      "brandSlug": "adidas",
-      "brandLabel": "Adidas",
-      "modelSlug": "tokyo",
-      "modelLabel": "Tokyo"
-    },
-    {
-      "slug": "camisetas_mundial_2026",
-      "name": "Camisetas Mundial 2026",
-      "images": [
-        "imagens/telegram/camisetas_mundial_2026/camisetas_mundial_2026_01.jpg",
-        "imagens/telegram/camisetas_mundial_2026/camisetas_mundial_2026_02.jpg",
-        "imagens/telegram/camisetas_mundial_2026/camisetas_mundial_2026_03.jpg",
-        "imagens/telegram/camisetas_mundial_2026/camisetas_mundial_2026_04.jpg",
-        "imagens/telegram/camisetas_mundial_2026/camisetas_mundial_2026_05.jpg",
-        "imagens/telegram/camisetas_mundial_2026/camisetas_mundial_2026_06.jpg",
-        "imagens/telegram/camisetas_mundial_2026/camisetas_mundial_2026_07.jpg",
-        "imagens/telegram/camisetas_mundial_2026/camisetas_mundial_2026_08.jpg",
-        "imagens/telegram/camisetas_mundial_2026/camisetas_mundial_2026_09.jpg"
-      ],
-      "category": "roupas"
-    },
-    {
-      "slug": "miu_miu",
-      "name": "MIU MIU",
-      "images": [
-        "imagens/telegram/miu_miu/miu_miu_01.jpg",
-        "imagens/telegram/miu_miu/miu_miu_02.jpg",
-        "imagens/telegram/miu_miu/miu_miu_03.jpg"
-      ],
-      "category": "outros"
-    },
-    {
-      "slug": "apple_earpods",
-      "name": "APPLE EarPods",
-      "images": [
-        "imagens/telegram/apple_earpods/apple_earpods_01.jpg"
-      ],
-      "category": "fones"
-    },
-    {
-      "slug": "amiri",
-      "name": "AMIRI",
-      "images": [
-        "imagens/telegram/amiri/amiri_01.jpg",
-        "imagens/telegram/amiri/amiri_02.jpg",
-        "imagens/telegram/amiri/amiri_03.jpg",
-        "imagens/telegram/amiri/amiri_04.jpg"
-      ],
-      "category": "outros"
-    },
-    {
-      "slug": "adidas_superstar",
-      "name": "ADIDAS Superstar",
-      "images": [
-        "imagens/telegram/adidas_superstar/adidas_superstar_01.jpg",
-        "imagens/telegram/adidas_superstar/adidas_superstar_02.jpg",
-        "imagens/telegram/adidas_superstar/adidas_superstar_03.jpg",
-        "imagens/telegram/adidas_superstar/adidas_superstar_04.jpg",
-        "imagens/telegram/adidas_superstar/adidas_superstar_05.jpg"
-      ],
-      "category": "sneakers",
-      "brandSlug": "adidas",
-      "brandLabel": "Adidas",
-      "modelSlug": "superstar",
-      "modelLabel": "Superstar"
-    },
-    {
-      "slug": "adidas_samba_og_legacy",
-      "name": "ADIDAS Samba OG \"Legacy\"",
-      "images": [
-        "imagens/telegram/adidas_samba_og_legacy/adidas_samba_og_legacy_01.jpg"
-      ],
-      "category": "sneakers",
-      "brandSlug": "adidas",
-      "brandLabel": "Adidas",
-      "modelSlug": "samba-og-legacy",
-      "modelLabel": "Samba OG \"Legacy\""
-    },
-    {
-      "slug": "cp_company_conjunto",
-      "name": "CP COMPANY (conjunto)",
-      "images": [
-        "imagens/telegram/cp_company_conjunto/cp_company_conjunto_01.jpg"
-      ],
-      "category": "roupas"
-    },
-    {
-      "slug": "golden_goose",
-      "name": "GOLDEN GOOSE",
-      "images": [
-        "imagens/telegram/golden_goose/golden_goose_01.jpg",
-        "imagens/telegram/golden_goose/golden_goose_02.jpg",
-        "imagens/telegram/golden_goose/golden_goose_03.jpg",
-        "imagens/telegram/golden_goose/golden_goose_04.jpg",
-        "imagens/telegram/golden_goose/golden_goose_05.jpg",
-        "imagens/telegram/golden_goose/golden_goose_06.jpg",
-        "imagens/telegram/golden_goose/golden_goose_07.jpg",
-        "imagens/telegram/golden_goose/golden_goose_08.jpg"
-      ],
-      "category": "outros"
-    },
-    {
-      "slug": "numeris",
-      "name": "NUMERIS",
-      "images": [
-        "imagens/telegram/numeris/numeris_01.jpg",
-        "imagens/telegram/numeris/numeris_02.jpg",
-        "imagens/telegram/numeris/numeris_03.jpg"
-      ],
-      "category": "outros"
-    },
-    {
-      "slug": "adidas_oversize",
-      "name": "ADIDAS (oversize)",
-      "images": [
-        "imagens/telegram/adidas_oversize/adidas_oversize_01.jpg",
-        "imagens/telegram/adidas_oversize/adidas_oversize_02.jpg",
-        "imagens/telegram/adidas_oversize/adidas_oversize_03.jpg"
-      ],
-      "category": "sneakers",
-      "brandSlug": "adidas",
-      "brandLabel": "Adidas",
-      "modelSlug": "oversize",
-      "modelLabel": "(oversize)"
-    },
-    {
-      "slug": "on_cloud_boomstrike",
-      "name": "ON CLOUD BoomStrike",
-      "images": [
-        "imagens/telegram/on_cloud_boomstrike/on_cloud_boomstrike_01.jpg"
-      ],
-      "category": "outros"
-    },
-    {
-      "slug": "timberland",
-      "name": "TIMBERLAND",
-      "images": [
-        "imagens/telegram/timberland/timberland_01.jpg"
-      ],
-      "category": "outros"
-    },
-    {
-      "slug": "nike_mind_001",
-      "name": "NIKE Mind 001",
-      "images": [
-        "imagens/telegram/nike_mind_001/nike_mind_001_01.jpg",
-        "imagens/telegram/nike_mind_001/nike_mind_001_02.jpg",
-        "imagens/telegram/nike_mind_001/nike_mind_001_03.jpg",
-        "imagens/telegram/nike_mind_001/nike_mind_001_04.jpg",
-        "imagens/telegram/nike_mind_001/nike_mind_001_05.jpg",
-        "imagens/telegram/nike_mind_001/nike_mind_001_06.jpg"
-      ],
-      "category": "sneakers",
-      "brandSlug": "nike",
-      "brandLabel": "Nike",
-      "modelSlug": "mind-001",
-      "modelLabel": "Mind 001"
-    },
-    {
-      "slug": "adidas_mundial_2026",
-      "name": "ADIDAS Mundial 2026",
-      "images": [
-        "imagens/telegram/adidas_mundial_2026/adidas_mundial_2026_01.jpg",
-        "imagens/telegram/adidas_mundial_2026/adidas_mundial_2026_02.jpg",
-        "imagens/telegram/adidas_mundial_2026/adidas_mundial_2026_03.jpg"
-      ],
-      "category": "roupas"
-    },
-    {
-      "slug": "amiri_conjunto",
-      "name": "AMIRI (conjunto)",
-      "images": [
-        "imagens/telegram/amiri_conjunto/amiri_conjunto_01.jpg"
-      ],
-      "category": "roupas"
-    },
-    {
-      "slug": "patagonia_bañador",
-      "name": "PATAGONIA (bañador)",
-      "images": [
-        "imagens/telegram/patagonia_bañador/patagonia_bañador_01.jpg"
-      ],
-      "category": "outros"
-    },
-    {
-      "slug": "adidas_zx500",
-      "name": "ADIDAS ZX500",
-      "images": [
-        "imagens/telegram/adidas_zx500/adidas_zx500_01.jpg",
-        "imagens/telegram/adidas_zx500/adidas_zx500_02.jpg",
-        "imagens/telegram/adidas_zx500/adidas_zx500_03.jpg",
-        "imagens/telegram/adidas_zx500/adidas_zx500_04.jpg",
-        "imagens/telegram/adidas_zx500/adidas_zx500_05.jpg",
-        "imagens/telegram/adidas_zx500/adidas_zx500_06.jpg",
-        "imagens/telegram/adidas_zx500/adidas_zx500_07.jpg",
-        "imagens/telegram/adidas_zx500/adidas_zx500_08.jpg"
-      ],
-      "category": "sneakers",
-      "brandSlug": "adidas",
-      "brandLabel": "Adidas",
-      "modelSlug": "zx500",
-      "modelLabel": "ZX500"
-    },
-    {
-      "slug": "veja",
-      "name": "Veja",
-      "images": [
-        "imagens/telegram/veja/veja_01.jpg"
-      ],
-      "category": "outros"
-    },
-    {
-      "slug": "adidas_gazelle_x_bad_bunny",
-      "name": "ADIDAS Gazelle x BAD BUNNY",
-      "images": [
-        "imagens/telegram/adidas_gazelle_x_bad_bunny/adidas_gazelle_x_bad_bunny_01.jpg",
-        "imagens/telegram/adidas_gazelle_x_bad_bunny/adidas_gazelle_x_bad_bunny_02.jpg",
-        "imagens/telegram/adidas_gazelle_x_bad_bunny/adidas_gazelle_x_bad_bunny_03.jpg"
-      ],
-      "category": "sneakers",
-      "brandSlug": "adidas",
-      "brandLabel": "Adidas",
-      "modelSlug": "gazelle-x-bad-bunny",
-      "modelLabel": "Gazelle x BAD BUNNY"
-    },
-    {
-      "slug": "havaianas",
-      "name": "HAVAIANAS",
-      "images": [
-        "imagens/telegram/havaianas/havaianas_01.jpg"
-      ],
-      "category": "outros"
-    },
-    {
-      "slug": "new_balance_530",
-      "name": "NEW BALANCE 530",
-      "images": [
-        "imagens/telegram/new_balance_530/new_balance_530_01.jpg",
-        "imagens/telegram/new_balance_530/new_balance_530_02.jpg",
-        "imagens/telegram/new_balance_530/new_balance_530_03.jpg",
-        "imagens/telegram/new_balance_530/new_balance_530_04.jpg",
-        "imagens/telegram/new_balance_530/new_balance_530_05.jpg",
-        "imagens/telegram/new_balance_530/new_balance_530_06.jpg",
-        "imagens/telegram/new_balance_530/new_balance_530_07.jpg"
-      ],
-      "category": "sneakers",
-      "brandSlug": "newbalance",
-      "brandLabel": "New Balance",
-      "modelSlug": "530",
-      "modelLabel": "530"
-    },
-    {
-      "slug": "nike_shox",
-      "name": "NIKE Shox",
-      "images": [
-        "imagens/telegram/nike_shox/nike_shox_01.jpg",
-        "imagens/telegram/nike_shox/nike_shox_02.jpg",
-        "imagens/telegram/nike_shox/nike_shox_03.jpg",
-        "imagens/telegram/nike_shox/nike_shox_04.jpg",
-        "imagens/telegram/nike_shox/nike_shox_05.jpg",
-        "imagens/telegram/nike_shox/nike_shox_06.jpg",
-        "imagens/telegram/nike_shox/nike_shox_07.jpg",
-        "imagens/telegram/nike_shox/nike_shox_08.jpg"
-      ],
-      "category": "sneakers",
-      "brandSlug": "nike",
-      "brandLabel": "Nike",
-      "modelSlug": "shox",
-      "modelLabel": "Shox"
-    },
-    {
-      "slug": "hellstar",
-      "name": "HELLSTAR",
-      "images": [
-        "imagens/telegram/hellstar/hellstar_01.jpg"
-      ],
-      "category": "outros"
-    },
-    {
-      "slug": "hummel_malaga_2627",
-      "name": "HUMMEL Malaga 26/27",
-      "images": [
-        "imagens/telegram/hummel_malaga_2627/hummel_malaga_2627_01.jpg"
-      ],
-      "category": "outros"
-    },
-    {
-      "slug": "corteiz_conjunto",
-      "name": "CORTEIZ (conjunto)",
-      "images": [
-        "imagens/telegram/corteiz_conjunto/corteiz_conjunto_01.jpg"
-      ],
-      "category": "roupas"
-    },
-    {
-      "slug": "carhartt_cartera",
-      "name": "CARHARTT (cartera)",
-      "images": [
-        "imagens/telegram/carhartt_cartera/carhartt_cartera_01.jpg"
-      ],
-      "category": "roupas"
-    },
-    {
-      "slug": "adidas_campus_x_korn",
-      "name": "ADIDAS Campus x KORN",
-      "images": [
-        "imagens/telegram/adidas_campus_x_korn/adidas_campus_x_korn_01.jpg"
-      ],
-      "category": "sneakers",
-      "brandSlug": "adidas",
-      "brandLabel": "Adidas",
-      "modelSlug": "campus-x-korn",
-      "modelLabel": "Campus x KORN"
-    },
-    {
-      "slug": "adidas_samba_x_notitle",
-      "name": "ADIDAS Samba x NOTITLE",
-      "images": [
-        "imagens/telegram/adidas_samba_x_notitle/adidas_samba_x_notitle_01.jpg",
-        "imagens/telegram/adidas_samba_x_notitle/adidas_samba_x_notitle_02.jpg",
-        "imagens/telegram/adidas_samba_x_notitle/adidas_samba_x_notitle_03.jpg"
-      ],
-      "category": "sneakers",
-      "brandSlug": "adidas",
-      "brandLabel": "Adidas",
-      "modelSlug": "samba-x-notitle",
-      "modelLabel": "Samba x NOTITLE"
-    },
-    {
-      "slug": "hoodrich",
-      "name": "HOODRICH",
-      "images": [
-        "imagens/telegram/hoodrich/hoodrich_01.jpg"
-      ],
-      "category": "outros"
-    },
-    {
-      "slug": "adidas_pack_10",
-      "name": "ADIDAS (pack 10)",
-      "images": [
-        "imagens/telegram/adidas_pack_10/adidas_pack_10_01.jpg"
-      ],
-      "category": "sneakers",
-      "brandSlug": "adidas",
-      "brandLabel": "Adidas",
-      "modelSlug": "pack-10",
-      "modelLabel": "(pack 10)"
-    },
-    {
-      "slug": "brooks_adrenaline_gts",
-      "name": "BROOKS Adrenaline GTS",
-      "images": [
-        "imagens/telegram/brooks_adrenaline_gts/brooks_adrenaline_gts_01.jpg"
-      ],
-      "category": "outros"
-    },
-    {
-      "slug": "guess_2_bolsos",
-      "name": "GUESS (2 Bolsos)",
-      "images": [
-        "imagens/telegram/guess_2_bolsos/guess_2_bolsos_01.jpg",
-        "imagens/telegram/guess_2_bolsos/guess_2_bolsos_02.jpg",
-        "imagens/telegram/guess_2_bolsos/guess_2_bolsos_03.jpg",
-        "imagens/telegram/guess_2_bolsos/guess_2_bolsos_04.jpg",
-        "imagens/telegram/guess_2_bolsos/guess_2_bolsos_05.jpg"
-      ],
-      "category": "outros"
-    },
-    {
-      "slug": "palm_angels_conjunto",
-      "name": "PALM ANGELS (conjunto)",
-      "images": [
-        "imagens/telegram/palm_angels_conjunto/palm_angels_conjunto_01.jpg",
-        "imagens/telegram/palm_angels_conjunto/palm_angels_conjunto_02.jpg",
-        "imagens/telegram/palm_angels_conjunto/palm_angels_conjunto_03.jpg"
-      ],
-      "category": "roupas"
-    },
-    {
-      "slug": "veja-2",
-      "name": "VEJA",
-      "images": [
-        "imagens/telegram/veja-2/veja-2_01.jpg"
-      ],
-      "category": "outros"
-    },
-    {
-      "slug": "dsquared2",
-      "name": "DSQUARED2",
-      "images": [
-        "imagens/telegram/dsquared2/dsquared2_01.jpg"
-      ],
-      "category": "outros"
-    },
-    {
-      "slug": "apple_funda_magsafe",
-      "name": "APPLE Funda MagSafe",
-      "images": [
-        "imagens/telegram/apple_funda_magsafe/apple_funda_magsafe_01.jpg",
-        "imagens/telegram/apple_funda_magsafe/apple_funda_magsafe_02.jpg",
-        "imagens/telegram/apple_funda_magsafe/apple_funda_magsafe_03.jpg"
-      ],
-      "category": "tecnologia"
-    },
-    {
-      "slug": "nike_p6000",
-      "name": "NIKE P6000",
-      "images": [
-        "imagens/telegram/nike_p6000/nike_p6000_01.jpg",
-        "imagens/telegram/nike_p6000/nike_p6000_02.jpg",
-        "imagens/telegram/nike_p6000/nike_p6000_03.jpg",
-        "imagens/telegram/nike_p6000/nike_p6000_04.jpg",
-        "imagens/telegram/nike_p6000/nike_p6000_05.jpg",
-        "imagens/telegram/nike_p6000/nike_p6000_06.jpg",
-        "imagens/telegram/nike_p6000/nike_p6000_07.jpg",
-        "imagens/telegram/nike_p6000/nike_p6000_08.jpg"
-      ],
-      "category": "sneakers",
-      "brandSlug": "nike",
-      "brandLabel": "Nike",
-      "modelSlug": "p6000",
-      "modelLabel": "P6000"
-    },
-    {
-      "slug": "adidas_hamburg",
-      "name": "ADIDAS Hamburg",
-      "images": [
-        "imagens/telegram/adidas_hamburg/adidas_hamburg_01.jpg",
-        "imagens/telegram/adidas_hamburg/adidas_hamburg_02.jpg",
-        "imagens/telegram/adidas_hamburg/adidas_hamburg_03.jpg",
-        "imagens/telegram/adidas_hamburg/adidas_hamburg_04.jpg",
-        "imagens/telegram/adidas_hamburg/adidas_hamburg_05.jpg",
-        "imagens/telegram/adidas_hamburg/adidas_hamburg_06.jpg",
-        "imagens/telegram/adidas_hamburg/adidas_hamburg_07.jpg",
-        "imagens/telegram/adidas_hamburg/adidas_hamburg_08.jpg"
-      ],
-      "category": "sneakers",
-      "brandSlug": "adidas",
-      "brandLabel": "Adidas",
-      "modelSlug": "hamburg",
-      "modelLabel": "Hamburg"
-    },
-    {
-      "slug": "adidas_españa_x_dellafuente",
-      "name": "ADIDAS España x DELLAFUENTE",
-      "images": [
-        "imagens/telegram/adidas_españa_x_dellafuente/adidas_españa_x_dellafuente_01.jpg"
-      ],
-      "category": "sneakers",
-      "brandSlug": "adidas",
-      "brandLabel": "Adidas",
-      "modelSlug": "españa-x-dellafuente",
-      "modelLabel": "España x DELLAFUENTE"
-    },
-    {
-      "slug": "nike_comfort_ride",
-      "name": "NIKE Comfort Ride",
-      "images": [
-        "imagens/telegram/nike_comfort_ride/nike_comfort_ride_01.jpg",
-        "imagens/telegram/nike_comfort_ride/nike_comfort_ride_02.jpg",
-        "imagens/telegram/nike_comfort_ride/nike_comfort_ride_03.jpg",
-        "imagens/telegram/nike_comfort_ride/nike_comfort_ride_04.jpg",
-        "imagens/telegram/nike_comfort_ride/nike_comfort_ride_05.jpg",
-        "imagens/telegram/nike_comfort_ride/nike_comfort_ride_06.jpg"
-      ],
-      "category": "sneakers",
-      "brandSlug": "nike",
-      "brandLabel": "Nike",
-      "modelSlug": "comfort-ride",
-      "modelLabel": "Comfort Ride"
     }
   ]
 }
