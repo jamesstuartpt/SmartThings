@@ -3,6 +3,7 @@ import csv
 import hashlib
 import html as html_module
 import json
+from json import JSONDecodeError
 import re
 import shutil
 from datetime import datetime, timedelta, timezone
@@ -383,12 +384,18 @@ def _parse_html_export_timestamp(title: str) -> int:
 def _load_export_messages(export_dir: Path) -> list[dict[str, Any]]:
     json_path = export_dir / "result.json"
     if json_path.exists():
-        with json_path.open("r", encoding="utf-8") as f:
-            data = json.load(f)
-        messages = data.get("messages", [])
-        if not isinstance(messages, list):
-            raise ValueError("result.json inesperado: 'messages' não é lista")
-        return messages
+        try:
+            with json_path.open("r", encoding="utf-8") as f:
+                data = json.load(f)
+            messages = data.get("messages", [])
+            if not isinstance(messages, list):
+                raise ValueError("result.json inesperado: 'messages' não é lista")
+            return messages
+        except JSONDecodeError:
+            raw = json_path.read_text(encoding="utf-8", errors="ignore")
+            recovered = _recover_messages_from_broken_result_json(raw)
+            if recovered:
+                return recovered
 
     html_path = export_dir / "messages.html"
     if html_path.exists():
@@ -401,6 +408,41 @@ def _load_export_messages(export_dir: Path) -> list[dict[str, Any]]:
     raise FileNotFoundError(
         f"Não encontrei export válido em {export_dir} (preciso de result.json ou messages.html)"
     )
+
+
+def _recover_messages_from_broken_result_json(raw: str) -> list[dict[str, Any]]:
+    marker = '"messages":'
+    start = raw.find(marker)
+    if start < 0:
+        return []
+
+    array_start = raw.find("[", start)
+    if array_start < 0:
+        return []
+
+    decoder = json.JSONDecoder()
+    messages: list[dict[str, Any]] = []
+    i = array_start + 1
+    n = len(raw)
+
+    while i < n:
+        while i < n and raw[i] in " \r\n\t,":
+            i += 1
+        if i >= n or raw[i] == "]":
+            break
+        if raw[i] != "{":
+            i += 1
+            continue
+        try:
+            obj, end = decoder.raw_decode(raw, i)
+        except JSONDecodeError:
+            i += 1
+            continue
+        if isinstance(obj, dict):
+            messages.append(obj)
+        i = end
+
+    return messages
 
 
 
