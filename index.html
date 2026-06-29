@@ -6,7 +6,7 @@
     <title>Smart Things PT — Catálogo</title>
     <script>
       (() => {
-        const build = "newfirst-20260610";
+        const build = "search-20260629";
         try {
           const url = new URL(window.location.href);
           const v = url.searchParams.get("v");
@@ -351,6 +351,28 @@
         font-size: 13px;
         outline: none;
         min-width: 220px;
+      }
+      .catalog-search {
+        width: 100%;
+      }
+      .search-input {
+        width: min(420px, 100%);
+        background: var(--bg3);
+        color: var(--text);
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        padding: 12px 16px;
+        font-family: inherit;
+        font-size: 14px;
+        outline: none;
+        transition: border-color 0.15s, box-shadow 0.15s;
+      }
+      .search-input::placeholder {
+        color: var(--text3);
+      }
+      .search-input:focus {
+        border-color: var(--accent);
+        box-shadow: 0 0 0 3px rgba(214, 255, 59, 0.12);
       }
 
       /* SNEAKER CONTROLS OVERLAYS */
@@ -779,6 +801,9 @@
         .products-grid {
           grid-template-columns: repeat(2, minmax(0, 1fr));
           gap: 12px;
+        }
+        .search-input {
+          width: 100%;
         }
         .card-img {
           aspect-ratio: 1/1;
@@ -1212,6 +1237,15 @@
         >
           Roupas
         </button>
+      </div>
+      <div class="catalog-search">
+        <input
+          type="search"
+          id="catalog-search"
+          class="search-input"
+          placeholder="Pesquisar por nome, marca ou modelo"
+          aria-label="Pesquisar produtos"
+        />
       </div>
       <div
         class="filters brand-filters"
@@ -2203,6 +2237,7 @@
       let activeCategory = "todos";
       let activeBrand = "todos";
       let activeModel = "todos";
+      let activeSearchQuery = "";
       let sneakersIndex = { brands: [], modelsByBrand: {} };
       let catalogVisibleLimit = 18;
       const catalogLimitStep = 18;
@@ -2353,6 +2388,14 @@
       function getCardText(card, selector) {
         const el = card.querySelector(selector);
         return (el ? el.textContent : "").trim();
+      }
+
+      function normalizeSearchText(text) {
+        return String(text || "")
+          .normalize("NFD")
+          .replace(/[\u0300-\u036f]/g, "")
+          .toLowerCase()
+          .trim();
       }
 
       function getProductMeta(card) {
@@ -2586,15 +2629,28 @@
             activeCategory !== "sneakers" ||
             activeModel === "todos" ||
             card.dataset.model === activeModel;
+          const searchHaystack = normalizeSearchText(
+            [
+              card.dataset.cat || "",
+              card.dataset.brand || "",
+              card.dataset.model || "",
+              getCardText(card, ".card-cat"),
+              getCardText(card, ".card-name"),
+              getCardText(card, ".card-desc"),
+            ].join(" "),
+          );
+          const searchOk =
+            !activeSearchQuery || searchHaystack.includes(activeSearchQuery);
 
-          if (catOk && brandOk && modelOk) matches.push(card);
+          if (catOk && brandOk && modelOk && searchOk) matches.push(card);
           else card.setAttribute("data-hidden", "true");
         });
 
         const limitCatalog =
           activeCategory === "todos" &&
           activeBrand === "todos" &&
-          activeModel === "todos";
+          activeModel === "todos" &&
+          !activeSearchQuery;
         if (limitCatalog) {
           matches.forEach((card, idx) => {
             if (idx < catalogVisibleLimit) card.removeAttribute("data-hidden");
@@ -3594,6 +3650,15 @@
           modelSelect.addEventListener("change", function () {
             if (activeCategory !== "sneakers") return;
             filterModel(this.value);
+          });
+        }
+
+        const searchInput = document.getElementById("catalog-search");
+        if (searchInput) {
+          searchInput.addEventListener("input", function () {
+            activeSearchQuery = normalizeSearchText(this.value);
+            catalogVisibleLimit = catalogLimitStep;
+            applyFilters();
           });
         }
 
