@@ -6,7 +6,7 @@
     <title>Smart Things PT — Catálogo</title>
     <script>
       (() => {
-        const build = "search-20260629";
+        const build = "search-yellow-20260629";
         try {
           const url = new URL(window.location.href);
           const v = url.searchParams.get("v");
@@ -357,22 +357,23 @@
       }
       .search-input {
         width: min(420px, 100%);
-        background: var(--bg3);
-        color: var(--text);
-        border: 1px solid var(--border);
+        background: var(--accent);
+        color: #0a0a0a;
+        border: 1px solid var(--accent);
         border-radius: 999px;
         padding: 12px 16px;
         font-family: inherit;
+        font-weight: 700;
         font-size: 14px;
         outline: none;
         transition: border-color 0.15s, box-shadow 0.15s;
       }
       .search-input::placeholder {
-        color: var(--text3);
+        color: rgba(10, 10, 10, 0.72);
       }
       .search-input:focus {
-        border-color: var(--accent);
-        box-shadow: 0 0 0 3px rgba(214, 255, 59, 0.12);
+        border-color: var(--accent2);
+        box-shadow: 0 0 0 4px rgba(214, 255, 59, 0.22);
       }
 
       /* SNEAKER CONTROLS OVERLAYS */
