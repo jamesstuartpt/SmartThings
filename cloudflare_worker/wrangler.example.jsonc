@@ -1,0 +1,13 @@
+{
+  // Copia este ficheiro para wrangler.jsonc se fores usar o CLI do Cloudflare.
+  "name": "smartthings-buy-redirect",
+  "main": "cloudflare_worker/buy_redirect_worker.js",
+  "compatibility_date": "2026-07-18",
+  "vars": {
+    "GOOGLE_SHEET_ID": "17Wye0UCdfJe6y6tnXKmyU7DnFggmqefO78bK485gln8",
+    "GOOGLE_SHEET_NAME": "LINKS",
+    "FALLBACK_WHATSAPP_URL": "https://api.whatsapp.com/send?phone=351927515217&text=Ol%C3%A1!%20Vi%20o%20cat%C3%A1logo%20e%20preciso%20de%20ajuda.",
+    "BUY_REDIRECT_CACHE_TTL": "300",
+    "DEBUG_BUY_REDIRECT": "false"
+  }
+}
