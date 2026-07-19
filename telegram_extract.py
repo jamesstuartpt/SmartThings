@@ -285,6 +285,92 @@ def _infer_sneaker_fields(name: str) -> Optional[dict[str, str]]:
     }
 
 
+def _message_timestamp(message: dict[str, Any]) -> int:
+    ts = message.get("date_unixtime")
+    try:
+        return int(ts)
+    except Exception:
+        return 0
+
+
+def _build_export_catalog(
+    messages: list[dict[str, Any]],
+    *,
+    max_products: int,
+) -> list[dict[str, Any]]:
+    by_name: dict[str, list[dict[str, Any]]] = {}
+    last_name = ""
+    last_ts = 0
+
+    for msg in messages:
+        if not isinstance(msg, dict):
+            continue
+        rel = msg.get("photo")
+        if not rel:
+            continue
+        caption, link = _flatten_caption_and_link(msg)
+        cleaned = _clean_product_name(caption)
+        ts = _message_timestamp(msg)
+        if cleaned:
+            last_name = cleaned
+            last_ts = ts
+            name = cleaned
+        else:
+            if last_name and ts and last_ts and abs(ts - last_ts) <= 300:
+                name = last_name
+            else:
+                name = "Sem descrição"
+
+        item = dict(msg)
+        item["_buy_link"] = link
+        by_name.setdefault(name, []).append(item)
+
+    names_sorted = sorted(
+        by_name.keys(),
+        key=lambda n: max((_message_timestamp(m) for m in by_name[n]), default=0),
+        reverse=True,
+    )[: max_products if max_products > 0 else len(by_name)]
+
+    used_slugs: dict[str, int] = {}
+    products: list[dict[str, Any]] = []
+
+    for name in names_sorted:
+        slug = _safe_slug(name, max_len=60).lower()
+        if not slug:
+            continue
+        if slug in used_slugs:
+            used_slugs[slug] += 1
+            slug = f"{slug}-{used_slugs[slug]}"
+        else:
+            used_slugs[slug] = 1
+
+        msgs = sorted(by_name[name], key=_message_timestamp, reverse=True)
+        latest_ts = max((_message_timestamp(m) for m in msgs), default=0)
+        buy_link = ""
+        for msg in msgs:
+            maybe_link = str(msg.get("_buy_link") or "").strip()
+            if maybe_link:
+                buy_link = maybe_link
+                break
+
+        product: dict[str, Any] = {
+            "slug": slug,
+            "name": name,
+            "latestTs": latest_ts,
+            "buyLink": buy_link,
+            "hasBuyLink": bool(buy_link),
+            "messages": msgs,
+        }
+        sneaker = _infer_sneaker_fields(name)
+        if sneaker:
+            product.update(sneaker)
+        else:
+            product["category"] = _infer_category(name)
+        products.append(product)
+
+    return products
+
+
 class _TelegramHTMLExportParser(HTMLParser):
     def __init__(self) -> None:
         super().__init__()
@@ -450,66 +536,18 @@ def _write_site_manifest_from_export(
     export_dir: Path,
     out_images_dir: Path,
     *,
-    max_products: int,
+    products: list[dict[str, Any]],
     max_images_per_product: int,
 ) -> dict[str, Any]:
-    messages = _load_export_messages(export_dir)
-
-    by_name: dict[str, list[dict[str, Any]]] = {}
-    last_name = ""
-    last_ts = 0
-    for msg in messages:
-        if not isinstance(msg, dict):
-            continue
-        rel = msg.get("photo")
-        if not rel:
-            continue
-        caption, _ = _flatten_caption_and_link(msg)
-        cleaned = _clean_product_name(caption)
-        try:
-            ts = int(msg.get("date_unixtime") or 0)
-        except Exception:
-            ts = 0
-        if cleaned:
-            last_name = cleaned
-            last_ts = ts
-            name = cleaned
-        else:
-            if last_name and ts and last_ts and abs(ts - last_ts) <= 300:
-                name = last_name
-            else:
-                name = "Sem descrição"
-        by_name.setdefault(name, []).append(msg)
-
-    def msg_time(m: dict[str, Any]) -> int:
-        ts = m.get("date_unixtime")
-        try:
-            return int(ts)
-        except Exception:
-            return 0
-
-    names_sorted = sorted(
-        by_name.keys(),
-        key=lambda n: max((msg_time(m) for m in by_name[n]), default=0),
-        reverse=True,
-    )[: max_products if max_products > 0 else len(by_name)]
-
     out_images_dir.mkdir(parents=True, exist_ok=True)
+    manifest_products: list[dict[str, Any]] = []
 
-    used_slugs: dict[str, int] = {}
-    products: list[dict[str, Any]] = []
-
-    for name in names_sorted:
-        slug = _safe_slug(name, max_len=60).lower()
-        if not slug:
+    for item in products:
+        slug = str(item.get("slug") or "").strip()
+        name = str(item.get("name") or "").strip()
+        msgs = list(item.get("messages") or [])
+        if not slug or not name or not msgs:
             continue
-        if slug in used_slugs:
-            used_slugs[slug] += 1
-            slug = f"{slug}-{used_slugs[slug]}"
-        else:
-            used_slugs[slug] = 1
-
-        msgs = sorted(by_name[name], key=msg_time, reverse=True)
         dest_dir = out_images_dir / slug
         dest_dir.mkdir(parents=True, exist_ok=True)
 
@@ -543,23 +581,68 @@ def _write_site_manifest_from_export(
             count += 1
 
         if images:
-            latest_ts = max((msg_time(m) for m in msgs), default=0)
+            latest_ts = max((_message_timestamp(m) for m in msgs), default=0)
             product: dict[str, Any] = {
                 "slug": slug,
                 "name": name,
                 "images": images,
                 "latestTs": latest_ts,
+                "hasBuyLink": bool(item.get("hasBuyLink")),
             }
-            sneaker = _infer_sneaker_fields(name)
-            if sneaker:
-                product.update(sneaker)
+            if item.get("category") == "sneakers":
+                product.update(
+                    {
+                        "category": "sneakers",
+                        "brandSlug": item.get("brandSlug", ""),
+                        "brandLabel": item.get("brandLabel", ""),
+                        "modelSlug": item.get("modelSlug", ""),
+                        "modelLabel": item.get("modelLabel", ""),
+                    }
+                )
             else:
-                product["category"] = _infer_category(name)
-            products.append(
-                product
-            )
+                product["category"] = item.get("category", "outros")
+            manifest_products.append(product)
 
-    return {"products": products}
+    return {"products": manifest_products}
+
+
+def _write_google_sheets_links_csv(
+    products: list[dict[str, Any]],
+    out_csv_path: Path,
+) -> None:
+    out_csv_path.parent.mkdir(parents=True, exist_ok=True)
+    with out_csv_path.open("w", newline="", encoding="utf-8") as f:
+        writer = csv.DictWriter(
+            f,
+            fieldnames=[
+                "slug",
+                "name",
+                "category",
+                "brandSlug",
+                "brandLabel",
+                "modelSlug",
+                "modelLabel",
+                "buyLink",
+                "active",
+                "latestTs",
+            ],
+        )
+        writer.writeheader()
+        for product in products:
+            writer.writerow(
+                {
+                    "slug": product.get("slug", ""),
+                    "name": product.get("name", ""),
+                    "category": product.get("category", ""),
+                    "brandSlug": product.get("brandSlug", ""),
+                    "brandLabel": product.get("brandLabel", ""),
+                    "modelSlug": product.get("modelSlug", ""),
+                    "modelLabel": product.get("modelLabel", ""),
+                    "buyLink": product.get("buyLink", ""),
+                    "active": "TRUE" if product.get("hasBuyLink") else "FALSE",
+                    "latestTs": product.get("latestTs", 0),
+                }
+            )
 
 
 def main() -> int:
@@ -671,13 +754,20 @@ def main() -> int:
         w.writeheader()
         w.writerows(rows)
 
+    catalog_products = _build_export_catalog(
+        messages,
+        max_products=args.max_products if args.sync_site else 0,
+    )
+    buy_links_csv_path = out_root / "google_sheets_buy_links.csv"
+    _write_google_sheets_links_csv(catalog_products, buy_links_csv_path)
+
     site_manifest: Optional[dict[str, Any]] = None
     if args.sync_site:
         site_images_dir = Path(r"C:\SmartThings\imagens\telegram")
         site_manifest = _write_site_manifest_from_export(
             export_dir,
             site_images_dir,
-            max_products=args.max_products,
+            products=catalog_products,
             max_images_per_product=args.max_images_per_product,
         )
         manifest_path = Path(r"C:\SmartThings\imagens\telegram_manifest.json")
@@ -690,6 +780,7 @@ def main() -> int:
     print(f"- copiadas: {copied}" if args.copy else "- copiadas: (desativado)")
     print(f"- ficheiros em falta: {missing}")
     print(f"- CSV: {csv_path}")
+    print(f"- Google Sheets CSV: {buy_links_csv_path}")
     if site_manifest is not None:
         print(
             f"- site: {len(site_manifest.get('products', []))} produtos em C:\\SmartThings\\imagens\\telegram"
