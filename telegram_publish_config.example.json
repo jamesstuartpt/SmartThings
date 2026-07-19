@@ -1,0 +1,12 @@
+{
+  "api_id": 37796011,
+  "api_hash": "1c9d795f9c4b7014fb10d3c960c869ee",
+  "phone": "+351927515217",
+  "channel": "@smartthingspt",
+  "session_file": "_local/telegram_publisher",
+  "price_label": "💲Valor",
+  "footer_lines": ["🔥 Pedido sob consulta", "📦 Prazo médio: 10 a 15 dias"],
+  "default_price_text": "Sob consulta",
+  "max_media_per_post": 10,
+  "delay_seconds": 1.0
+}
