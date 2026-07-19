@@ -6,7 +6,7 @@
     <title>Smart Things PT — Catálogo</title>
     <script>
       (() => {
-        const build = "search-yellow-20260629";
+        const build = "buy-redirect-20260718";
         try {
           const url = new URL(window.location.href);
           const v = url.searchParams.get("v");
@@ -2230,9 +2230,73 @@
       };
     </script>
 
+    <script src="site_config.js"></script>
     <script>
       // Número centralizado do teu WhatsApp Business
       const WHATSAPP_NUM = "351927515217";
+      const SITE_CONFIG = window.SMARTTHINGS_CONFIG || {};
+
+      function getBuyRedirectBaseUrl() {
+        return String(SITE_CONFIG.buyRedirectBaseUrl || "").trim();
+      }
+
+      function buildBuyRedirectHref(slug) {
+        const baseUrl = getBuyRedirectBaseUrl();
+        const cleanSlug = String(slug || "").trim();
+        if (!baseUrl || !cleanSlug) return "";
+        try {
+          const url = new URL(baseUrl, window.location.href);
+          url.searchParams.set("slug", cleanSlug);
+          return url.toString();
+        } catch {
+          return "";
+        }
+      }
+
+      function getProductSlug(card) {
+        if (!card) return "";
+        const explicit = String(card.dataset.slug || "").trim();
+        if (explicit) return explicit;
+        const cat = String(card.dataset.cat || "").trim();
+        if (cat === "sneakers") {
+          const brand = String(card.dataset.brand || "").trim();
+          const model = String(card.dataset.model || "").trim();
+          if (brand && model) return `${brand}-${model}`;
+        }
+        const name = getCardText(card, ".card-name");
+        return slugify(name || getWhatsAppLabelFromCard(card));
+      }
+
+      function cardUsesBuyRedirect(card) {
+        if (!card) return false;
+        if (String(card.dataset.hasBuyLink || "").trim() !== "true") return false;
+        return Boolean(buildBuyRedirectHref(getProductSlug(card)));
+      }
+
+      function getPrimaryCtaLabel(card) {
+        return cardUsesBuyRedirect(card) ? "Comprar ↗" : "Quero este →";
+      }
+
+      function getCardPrimaryHref(card, selectedModel) {
+        if (!card) return "#";
+        if (cardUsesBuyRedirect(card)) {
+          const href = buildBuyRedirectHref(getProductSlug(card));
+          if (href) return href;
+        }
+        const label = getWhatsAppLabelFromCard(card);
+        const dots = card.querySelectorAll(".angle-dot");
+        const hasModels = dots && dots.length > 1;
+        return whatsappHrefForLabel(label, hasModels ? selectedModel : "");
+      }
+
+      function refreshCustomerButtons() {
+        getAllCards().forEach((card) => {
+          updateCardCustomerWhatsAppLink(
+            card,
+            String(card.dataset.selectedModel || "").trim(),
+          );
+        });
+      }
 
       // Função nativa de filtragem do template
       let activeCategory = "todos";
@@ -2742,6 +2806,8 @@
             const name = (p && p.name) || "";
             const images = (p && p.images) || [];
             const category = (p && p.category) || "telegram";
+            const slug = (p && p.slug) || "";
+            const hasBuyLink = Boolean(p && p.hasBuyLink);
             if (!name || !Array.isArray(images) || images.length === 0)
               continue;
             let card = null;
@@ -2766,12 +2832,15 @@
                 modelLabel: p.modelLabel,
                 images,
               });
+                productSlug: slug,
+                hasBuyLink,
               card.dataset.source = "telegram";
             } else {
               card = buildTelegramCard({ name, images, category });
-            }
+              card = buildTelegramCard({ name, images, category, slug, hasBuyLink });
             if (p && p.latestTs) {
               card.dataset.addedAt = String(p.latestTs);
+            }
             }
             if (anchor) grid.insertBefore(card, anchor);
             else grid.appendChild(card);
@@ -3315,13 +3384,14 @@
         if (!footer) return;
         const btn = footer.querySelector("a.card-btn:not(.admin-buy-btn)");
         if (!btn) return;
-
-        const label = getWhatsAppLabelFromCard(card);
-        if (!label) return;
-
-        const dots = card.querySelectorAll(".angle-dot");
-        const hasModels = dots && dots.length > 1;
-        btn.href = whatsappHrefForLabel(label, hasModels ? selectedModel : "");
+        const activeDot = card.querySelector(".angle-dot.active");
+        const effectiveModel =
+          String(selectedModel || "").trim() ||
+          String(activeDot ? activeDot.textContent || "" : "").trim();
+        btn.href = getCardPrimaryHref(card, effectiveModel);
+        btn.textContent = getPrimaryCtaLabel(card);
+        btn.target = "_blank";
+        btn.rel = "noopener";
       }
 
       function buildSneakerCard({
@@ -3330,12 +3400,17 @@
         modelSlug,
         modelLabel,
         images,
+        productSlug,
+        hasBuyLink = false,
       }) {
         const card = document.createElement("div");
         card.className = "card";
         card.dataset.cat = "sneakers";
         card.dataset.brand = brandSlug;
         card.dataset.model = modelSlug;
+        card.dataset.slug = productSlug || `${brandSlug}-${modelSlug}`;
+        card.dataset.hasBuyLink = hasBuyLink ? "true" : "false";
+        card.dataset.selectedModel = "1";
         try {
           card.dataset.images = JSON.stringify(images || []);
         } catch {}
@@ -3419,8 +3494,9 @@
         const btn = document.createElement("a");
         btn.className = "card-btn";
         btn.target = "_blank";
-        btn.href = sneakerWhatsappHref(brandLabel, modelLabel);
-        btn.textContent = "Quero este →";
+        btn.rel = "noopener";
+        btn.href = getCardPrimaryHref(card, "1");
+        btn.textContent = getPrimaryCtaLabel(card);
 
         footer.appendChild(price);
         footer.appendChild(btn);
@@ -3432,11 +3508,14 @@
         return card;
       }
 
-      function buildTelegramCard({ name, images, category }) {
+      function buildTelegramCard({ name, images, category, slug, hasBuyLink }) {
         const card = document.createElement("div");
         card.className = "card";
         card.dataset.source = "telegram";
         card.dataset.cat = category || "outros";
+        card.dataset.slug = slug || slugify(name);
+        card.dataset.hasBuyLink = hasBuyLink ? "true" : "false";
+        card.dataset.selectedModel = "1";
         try {
           card.dataset.images = JSON.stringify(images || []);
         } catch {}
@@ -3509,8 +3588,9 @@
         const btn = document.createElement("a");
         btn.className = "card-btn";
         btn.target = "_blank";
-        btn.href = whatsappHrefForLabel(name);
-        btn.textContent = "Quero este →";
+        btn.rel = "noopener";
+        btn.href = getCardPrimaryHref(card, "1");
+        btn.textContent = getPrimaryCtaLabel(card);
 
         footer.appendChild(btn);
         body.appendChild(footer);
@@ -3601,6 +3681,8 @@
               modelSlug,
               modelLabel,
               images,
+              productSlug: `${brandSlug}-${modelSlug}`,
+              hasBuyLink: false,
             });
             if (anchor) grid.insertBefore(card, anchor);
             else grid.appendChild(card);
@@ -3625,6 +3707,7 @@
         initHomeShowcase();
         applyFilters();
         syncAdminState();
+        refreshCustomerButtons();
 
         const moreBtn = document.getElementById("catalog-more-btn");
         if (moreBtn) {

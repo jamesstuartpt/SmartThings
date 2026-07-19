@@ -1,551 +1,679 @@
-﻿{
-    "products":  [
-                     {
-                         "slug":  "conjunto_chándal_hellstar",
-                         "name":  "Conjunto Chándal Hellstar",
-                         "images":  [
-                                        "imagens/telegram/conjunto_chándal_hellstar/conjunto_chándal_hellstar_01.jpg"
-                                    ],
-                         "latestTs":  1784369995,
-                         "category":  "roupas"
-                     },
-                     {
-                         "slug":  "conjunto_chándal_corteiz",
-                         "name":  "Conjunto Chándal Corteiz",
-                         "images":  [
-                                        "imagens/telegram/conjunto_chándal_corteiz/conjunto_chándal_corteiz_01.jpg",
-                                        "imagens/telegram/conjunto_chándal_corteiz/conjunto_chándal_corteiz_02.jpg",
-                                        "imagens/telegram/conjunto_chándal_corteiz/conjunto_chándal_corteiz_03.jpg"
-                                    ],
-                         "latestTs":  1784369974,
-                         "category":  "roupas"
-                     },
-                     {
-                         "slug":  "conjunto_chándal_essentials",
-                         "name":  "Conjunto Chándal Essentials",
-                         "images":  [
-                                        "imagens/telegram/conjunto_chándal_essentials/conjunto_chándal_essentials_01.jpg"
-                                    ],
-                         "latestTs":  1784369928,
-                         "category":  "roupas"
-                     },
-                     {
-                         "slug":  "camisetas_jugadores_fútbol",
-                         "name":  "Camisetas Jugadores Fútbol",
-                         "images":  [
-                                        "imagens/telegram/camisetas_jugadores_fútbol/camisetas_jugadores_fútbol_01.jpg",
-                                        "imagens/telegram/camisetas_jugadores_fútbol/camisetas_jugadores_fútbol_02.jpg",
-                                        "imagens/telegram/camisetas_jugadores_fútbol/camisetas_jugadores_fútbol_03.jpg"
-                                    ],
-                         "latestTs":  1784369896,
-                         "category":  "roupas"
-                     },
-                     {
-                         "slug":  "pantalón_corto_rhude",
-                         "name":  "Pantalón Corto Rhude",
-                         "images":  [
-                                        "imagens/telegram/pantalón_corto_rhude/pantalón_corto_rhude_01.jpg",
-                                        "imagens/telegram/pantalón_corto_rhude/pantalón_corto_rhude_02.jpg",
-                                        "imagens/telegram/pantalón_corto_rhude/pantalón_corto_rhude_03.jpg",
-                                        "imagens/telegram/pantalón_corto_rhude/pantalón_corto_rhude_04.jpg",
-                                        "imagens/telegram/pantalón_corto_rhude/pantalón_corto_rhude_05.jpg"
-                                    ],
-                         "latestTs":  1784369847,
-                         "category":  "roupas"
-                     },
-                     {
-                         "slug":  "pantalón_corto_syna_world",
-                         "name":  "Pantalón Corto Syna World",
-                         "images":  [
-                                        "imagens/telegram/pantalón_corto_syna_world/pantalón_corto_syna_world_01.jpg",
-                                        "imagens/telegram/pantalón_corto_syna_world/pantalón_corto_syna_world_02.jpg",
-                                        "imagens/telegram/pantalón_corto_syna_world/pantalón_corto_syna_world_03.jpg"
-                                    ],
-                         "latestTs":  1784369785,
-                         "category":  "roupas"
-                     },
-                     {
-                         "slug":  "camiseta_sp5der",
-                         "name":  "Camiseta Sp5der",
-                         "images":  [
-                                        "imagens/telegram/camiseta_sp5der/camiseta_sp5der_01.jpg",
-                                        "imagens/telegram/camiseta_sp5der/camiseta_sp5der_02.jpg",
-                                        "imagens/telegram/camiseta_sp5der/camiseta_sp5der_03.jpg"
-                                    ],
-                         "latestTs":  1784369756,
-                         "category":  "roupas"
-                     },
-                     {
-                         "slug":  "camiseta_polo_ralph_lauren",
-                         "name":  "Camiseta Polo Ralph Lauren",
-                         "images":  [
-                                        "imagens/telegram/camiseta_polo_ralph_lauren/camiseta_polo_ralph_lauren_01.jpg",
-                                        "imagens/telegram/camiseta_polo_ralph_lauren/camiseta_polo_ralph_lauren_02.jpg"
-                                    ],
-                         "latestTs":  1784369733,
-                         "category":  "roupas"
-                     },
-                     {
-                         "slug":  "jersey_polo_ralph_lauren",
-                         "name":  "Jersey Polo Ralph Lauren",
-                         "images":  [
-                                        "imagens/telegram/jersey_polo_ralph_lauren/jersey_polo_ralph_lauren_01.jpg"
-                                    ],
-                         "latestTs":  1784369715,
-                         "category":  "roupas"
-                     },
-                     {
-                         "slug":  "jersey_cole_buxton",
-                         "name":  "Jersey Cole Buxton",
-                         "images":  [
-                                        "imagens/telegram/jersey_cole_buxton/jersey_cole_buxton_01.jpg"
-                                    ],
-                         "latestTs":  1784369696,
-                         "category":  "roupas"
-                     },
-                     {
-                         "slug":  "brooks_ghost_max_2",
-                         "name":  "Brooks Ghost Max 2",
-                         "images":  [
-                                        "imagens/telegram/brooks_ghost_max_2/brooks_ghost_max_2_01.jpg"
-                                    ],
-                         "latestTs":  1784369668,
-                         "category":  "outros"
-                     },
-                     {
-                         "slug":  "adidas_sl_72",
-                         "name":  "Adidas SL 72",
-                         "images":  [
-                                        "imagens/telegram/adidas_sl_72/adidas_sl_72_01.jpg",
-                                        "imagens/telegram/adidas_sl_72/adidas_sl_72_02.jpg"
-                                    ],
-                         "latestTs":  1784369619,
-                         "category":  "sneakers",
-                         "brandSlug":  "adidas",
-                         "brandLabel":  "Adidas",
-                         "modelSlug":  "adidas-sl-72",
-                         "modelLabel":  "Adidas SL 72"
-                     },
-                     {
-                         "slug":  "adidas_gazelle",
-                         "name":  "Adidas Gazelle",
-                         "images":  [
-                                        "imagens/telegram/adidas_gazelle/adidas_gazelle_01.jpg",
-                                        "imagens/telegram/adidas_gazelle/adidas_gazelle_02.jpg",
-                                        "imagens/telegram/adidas_gazelle/adidas_gazelle_03.jpg"
-                                    ],
-                         "latestTs":  1784369576,
-                         "category":  "sneakers",
-                         "brandSlug":  "adidas",
-                         "brandLabel":  "Adidas",
-                         "modelSlug":  "adidas-gazelle",
-                         "modelLabel":  "Adidas Gazelle"
-                     },
-                     {
-                         "slug":  "zapatillas_maison_margiela",
-                         "name":  "Zapatillas Maison Margiela",
-                         "images":  [
-                                        "imagens/telegram/zapatillas_maison_margiela/zapatillas_maison_margiela_01.jpg",
-                                        "imagens/telegram/zapatillas_maison_margiela/zapatillas_maison_margiela_02.jpg",
-                                        "imagens/telegram/zapatillas_maison_margiela/zapatillas_maison_margiela_03.jpg"
-                                    ],
-                         "latestTs":  1784369551,
-                         "category":  "outros"
-                     },
-                     {
-                         "slug":  "nike_slides_yepex",
-                         "name":  "Nike Slides (yepex)",
-                         "images":  [
-                                        "imagens/telegram/nike_slides_yepex/nike_slides_yepex_01.jpg"
-                                    ],
-                         "latestTs":  1784369517,
-                         "category":  "sneakers",
-                         "brandSlug":  "nike",
-                         "brandLabel":  "Nike",
-                         "modelSlug":  "nike-slides-yepex",
-                         "modelLabel":  "Nike Slides (yepex)"
-                     },
-                     {
-                         "slug":  "nike_shox_ride_2_yepex",
-                         "name":  "Nike Shox Ride 2 (yepex)",
-                         "images":  [
-                                        "imagens/telegram/nike_shox_ride_2_yepex/nike_shox_ride_2_yepex_01.jpg"
-                                    ],
-                         "latestTs":  1784369486,
-                         "category":  "sneakers",
-                         "brandSlug":  "nike",
-                         "brandLabel":  "Nike",
-                         "modelSlug":  "nike-shox-ride-2-yepex",
-                         "modelLabel":  "Nike Shox Ride 2 (yepex)"
-                     },
-                     {
-                         "slug":  "vans_rowley_xlt",
-                         "name":  "Vans Rowley XLT",
-                         "images":  [
-                                        "imagens/telegram/vans_rowley_xlt/vans_rowley_xlt_01.jpg"
-                                    ],
-                         "latestTs":  1784369460,
-                         "category":  "sneakers",
-                         "brandSlug":  "vans",
-                         "brandLabel":  "Vans",
-                         "modelSlug":  "vans-rowley-xlt",
-                         "modelLabel":  "Vans Rowley XLT"
-                     },
-                     {
-                         "slug":  "nike_cortez_yepex",
-                         "name":  "Nike Cortez (yepex)",
-                         "images":  [
-                                        "imagens/telegram/nike_cortez_yepex/nike_cortez_yepex_01.jpg",
-                                        "imagens/telegram/nike_cortez_yepex/nike_cortez_yepex_02.jpg"
-                                    ],
-                         "latestTs":  1784369424,
-                         "category":  "sneakers",
-                         "brandSlug":  "nike",
-                         "brandLabel":  "Nike",
-                         "modelSlug":  "nike-cortez-yepex",
-                         "modelLabel":  "Nike Cortez (yepex)"
-                     },
-                     {
-                         "slug":  "nike_v2k_run_yepex",
-                         "name":  "Nike V2K Run (yepex)",
-                         "images":  [
-                                        "imagens/telegram/nike_v2k_run_yepex/nike_v2k_run_yepex_01.jpg"
-                                    ],
-                         "latestTs":  1784369399,
-                         "category":  "sneakers",
-                         "brandSlug":  "nike",
-                         "brandLabel":  "Nike",
-                         "modelSlug":  "nike-v2k-run-yepex",
-                         "modelLabel":  "Nike V2K Run (yepex)"
-                     },
-                     {
-                         "slug":  "camiseta_cold_culture",
-                         "name":  "Camiseta Cold Culture",
-                         "images":  [
-                                        "imagens/telegram/camiseta_cold_culture/camiseta_cold_culture_01.jpg",
-                                        "imagens/telegram/camiseta_cold_culture/camiseta_cold_culture_02.jpg",
-                                        "imagens/telegram/camiseta_cold_culture/camiseta_cold_culture_03.jpg",
-                                        "imagens/telegram/camiseta_cold_culture/camiseta_cold_culture_04.jpg",
-                                        "imagens/telegram/camiseta_cold_culture/camiseta_cold_culture_05.jpg",
-                                        "imagens/telegram/camiseta_cold_culture/camiseta_cold_culture_06.jpg"
-                                    ],
-                         "latestTs":  1784283447,
-                         "category":  "roupas"
-                     },
-                     {
-                         "slug":  "funda_iphone_goyard_con_tarjetero",
-                         "name":  "Funda iPhone Goyard con tarjetero",
-                         "images":  [
-                                        "imagens/telegram/funda_iphone_goyard_con_tarjetero/funda_iphone_goyard_con_tarjetero_01.jpg"
-                                    ],
-                         "latestTs":  1784283427,
-                         "category":  "bolsas"
-                     },
-                     {
-                         "slug":  "jersey_mutimer",
-                         "name":  "Jersey Mutimer",
-                         "images":  [
-                                        "imagens/telegram/jersey_mutimer/jersey_mutimer_01.jpg"
-                                    ],
-                         "latestTs":  1784283398,
-                         "category":  "roupas"
-                     },
-                     {
-                         "slug":  "conjunto_chándal_hellstar_foto_pixelada_no_había_otra",
-                         "name":  "Conjunto Chándal Hellstar (foto pixelada, no había otra😂)",
-                         "images":  [
-                                        "imagens/telegram/conjunto_chándal_hellstar_foto_pixelada_no_había_otra/conjunto_chándal_hellstar_foto_pixelada_no_había_otra_01.jpg"
-                                    ],
-                         "latestTs":  1784283316,
-                         "category":  "roupas"
-                     },
-                     {
-                         "slug":  "conjunto_sp5der_para_verano_e_invierno",
-                         "name":  "Conjunto Sp5der (para verano e invierno😁)",
-                         "images":  [
-                                        "imagens/telegram/conjunto_sp5der_para_verano_e_invierno/conjunto_sp5der_para_verano_e_invierno_01.jpg"
-                                    ],
-                         "latestTs":  1784283238,
-                         "category":  "roupas"
-                     },
-                     {
-                         "slug":  "camiseta_neymar_jr",
-                         "name":  "Camiseta Neymar Jr",
-                         "images":  [
-                                        "imagens/telegram/camiseta_neymar_jr/camiseta_neymar_jr_01.jpg"
-                                    ],
-                         "latestTs":  1784283183,
-                         "category":  "roupas"
-                     },
-                     {
-                         "slug":  "camiseta_central_cee",
-                         "name":  "Camiseta Central Cee",
-                         "images":  [
-                                        "imagens/telegram/camiseta_central_cee/camiseta_central_cee_01.jpg"
-                                    ],
-                         "latestTs":  1784283157,
-                         "category":  "roupas"
-                     },
-                     {
-                         "slug":  "camiseta_gods_brand",
-                         "name":  "Camiseta Gods Brand",
-                         "images":  [
-                                        "imagens/telegram/camiseta_gods_brand/camiseta_gods_brand_01.jpg"
-                                    ],
-                         "latestTs":  1784283133,
-                         "category":  "roupas"
-                     },
-                     {
-                         "slug":  "camiseta_gallery_dept",
-                         "name":  "Camiseta Gallery Dept",
-                         "images":  [
-                                        "imagens/telegram/camiseta_gallery_dept/camiseta_gallery_dept_01.jpg",
-                                        "imagens/telegram/camiseta_gallery_dept/camiseta_gallery_dept_02.jpg"
-                                    ],
-                         "latestTs":  1784283081,
-                         "category":  "roupas"
-                     },
-                     {
-                         "slug":  "camiseta_cp_company",
-                         "name":  "Camiseta C.P. Company",
-                         "images":  [
-                                        "imagens/telegram/camiseta_cp_company/camiseta_cp_company_01.jpg",
-                                        "imagens/telegram/camiseta_cp_company/camiseta_cp_company_02.jpg"
-                                    ],
-                         "latestTs":  1784283061,
-                         "category":  "roupas"
-                     },
-                     {
-                         "slug":  "camiseta_scuffers",
-                         "name":  "Camiseta Scuffers",
-                         "images":  [
-                                        "imagens/telegram/camiseta_scuffers/camiseta_scuffers_01.jpg",
-                                        "imagens/telegram/camiseta_scuffers/camiseta_scuffers_02.jpg",
-                                        "imagens/telegram/camiseta_scuffers/camiseta_scuffers_03.jpg",
-                                        "imagens/telegram/camiseta_scuffers/camiseta_scuffers_04.jpg",
-                                        "imagens/telegram/camiseta_scuffers/camiseta_scuffers_05.jpg",
-                                        "imagens/telegram/camiseta_scuffers/camiseta_scuffers_06.jpg",
-                                        "imagens/telegram/camiseta_scuffers/camiseta_scuffers_07.jpg",
-                                        "imagens/telegram/camiseta_scuffers/camiseta_scuffers_08.jpg",
-                                        "imagens/telegram/camiseta_scuffers/camiseta_scuffers_09.jpg",
-                                        "imagens/telegram/camiseta_scuffers/camiseta_scuffers_10.jpg"
-                                    ],
-                         "latestTs":  1784283061,
-                         "category":  "roupas"
-                     },
-                     {
-                         "slug":  "off-white_be_right_back",
-                         "name":  "Off-White Be Right Back",
-                         "images":  [
-                                        "imagens/telegram/off-white_be_right_back/off-white_be_right_back_01.jpg"
-                                    ],
-                         "latestTs":  1784282990,
-                         "category":  "outros"
-                     },
-                     {
-                         "slug":  "birckenstock_arizona_eva",
-                         "name":  "Birckenstock Arizona EVA",
-                         "images":  [
-                                        "imagens/telegram/birckenstock_arizona_eva/birckenstock_arizona_eva_01.jpg"
-                                    ],
-                         "latestTs":  1784282950,
-                         "category":  "outros"
-                     },
-                     {
-                         "slug":  "the_north_face_altamesa_500",
-                         "name":  "The North Face Altamesa 500",
-                         "images":  [
-                                        "imagens/telegram/the_north_face_altamesa_500/the_north_face_altamesa_500_01.jpg"
-                                    ],
-                         "latestTs":  1784282909,
-                         "category":  "roupas"
-                     },
-                     {
-                         "slug":  "adidas_slides_x_bad_bunny",
-                         "name":  "Adidas Slides x Bad Bunny",
-                         "images":  [
-                                        "imagens/telegram/adidas_slides_x_bad_bunny/adidas_slides_x_bad_bunny_01.jpg",
-                                        "imagens/telegram/adidas_slides_x_bad_bunny/adidas_slides_x_bad_bunny_02.jpg"
-                                    ],
-                         "latestTs":  1784282859,
-                         "category":  "sneakers",
-                         "brandSlug":  "adidas",
-                         "brandLabel":  "Adidas",
-                         "modelSlug":  "adidas-slides-x-bad-bunny",
-                         "modelLabel":  "Adidas Slides x Bad Bunny"
-                     },
-                     {
-                         "slug":  "zuecos_birckenstock",
-                         "name":  "Zuecos Birckenstock",
-                         "images":  [
-                                        "imagens/telegram/zuecos_birckenstock/zuecos_birckenstock_01.jpg",
-                                        "imagens/telegram/zuecos_birckenstock/zuecos_birckenstock_02.jpg"
-                                    ],
-                         "latestTs":  1784282832,
-                         "category":  "outros"
-                     },
-                     {
-                         "slug":  "nike_p-6000_yepex",
-                         "name":  "Nike P-6000 (yepex)",
-                         "images":  [
-                                        "imagens/telegram/nike_p-6000_yepex/nike_p-6000_yepex_01.jpg"
-                                    ],
-                         "latestTs":  1784282806,
-                         "category":  "sneakers",
-                         "brandSlug":  "nike",
-                         "brandLabel":  "Nike",
-                         "modelSlug":  "nike-p-6000-yepex",
-                         "modelLabel":  "Nike P-6000 (yepex)"
-                     },
-                     {
-                         "slug":  "nike_air_max_plus_yepex",
-                         "name":  "Nike Air Max Plus (yepex)",
-                         "images":  [
-                                        "imagens/telegram/nike_air_max_plus_yepex/nike_air_max_plus_yepex_01.jpg"
-                                    ],
-                         "latestTs":  1784282778,
-                         "category":  "sneakers",
-                         "brandSlug":  "nike",
-                         "brandLabel":  "Nike",
-                         "modelSlug":  "nike-air-max-plus-yepex",
-                         "modelLabel":  "Nike Air Max Plus (yepex)"
-                     },
-                     {
-                         "slug":  "nocta_tech_fleece_yepexse_agota_rápido",
-                         "name":  "Nocta Tech Fleece (yepex)(se agota rápido)",
-                         "images":  [
-                                        "imagens/telegram/nocta_tech_fleece_yepexse_agota_rápido/nocta_tech_fleece_yepexse_agota_rápido_01.jpg"
-                                    ],
-                         "latestTs":  1784282748,
-                         "category":  "outros"
-                     },
-                     {
-                         "slug":  "nike_mind_001_x_nocta_yepexnuevos_colores",
-                         "name":  "Nike Mind 001 x Nocta (yepex)(nuevos colores)",
-                         "images":  [
-                                        "imagens/telegram/nike_mind_001_x_nocta_yepexnuevos_colores/nike_mind_001_x_nocta_yepexnuevos_colores_01.jpg",
-                                        "imagens/telegram/nike_mind_001_x_nocta_yepexnuevos_colores/nike_mind_001_x_nocta_yepexnuevos_colores_02.jpg"
-                                    ],
-                         "latestTs":  1784282681,
-                         "category":  "sneakers",
-                         "brandSlug":  "nike",
-                         "brandLabel":  "Nike",
-                         "modelSlug":  "nike-mind-001-x-nocta-yepexnuevos-colores",
-                         "modelLabel":  "Nike Mind 001 x Nocta (yepex)(nuevos colores)"
-                     },
-                     {
-                         "slug":  "jordan_1_low_x_travis_scott_yepex",
-                         "name":  "Jordan 1 Low x Travis Scott (yepex)",
-                         "images":  [
-                                        "imagens/telegram/jordan_1_low_x_travis_scott_yepex/jordan_1_low_x_travis_scott_yepex_01.jpg"
-                                    ],
-                         "latestTs":  1784282608,
-                         "category":  "outros"
-                     },
-                     {
-                         "slug":  "polo_ralph_lauren_ciudades",
-                         "name":  "Polo Ralph Lauren Ciudades",
-                         "images":  [
-                                        "imagens/telegram/polo_ralph_lauren_ciudades/polo_ralph_lauren_ciudades_01.jpg"
-                                    ],
-                         "latestTs":  1784196923,
-                         "category":  "roupas"
-                     },
-                     {
-                         "slug":  "camisa_verano_lino",
-                         "name":  "Camisa Verano Lino",
-                         "images":  [
-                                        "imagens/telegram/camisa_verano_lino/camisa_verano_lino_01.jpg"
-                                    ],
-                         "latestTs":  1784196899,
-                         "category":  "outros"
-                     },
-                     {
-                         "slug":  "chaqueta_cuero_corteiz",
-                         "name":  "Chaqueta Cuero Corteiz",
-                         "images":  [
-                                        "imagens/telegram/chaqueta_cuero_corteiz/chaqueta_cuero_corteiz_01.jpg"
-                                    ],
-                         "latestTs":  1784196853,
-                         "category":  "roupas"
-                     },
-                     {
-                         "slug":  "mochila_adidas",
-                         "name":  "Mochila Adidas",
-                         "images":  [
-                                        "imagens/telegram/mochila_adidas/mochila_adidas_01.jpg"
-                                    ],
-                         "latestTs":  1784196830,
-                         "category":  "sneakers",
-                         "brandSlug":  "adidas",
-                         "brandLabel":  "Adidas",
-                         "modelSlug":  "mochila-adidas",
-                         "modelLabel":  "Mochila Adidas"
-                     },
-                     {
-                         "slug":  "polo_ralph_lauren",
-                         "name":  "Polo Ralph Lauren",
-                         "images":  [
-                                        "imagens/telegram/polo_ralph_lauren/polo_ralph_lauren_01.jpg",
-                                        "imagens/telegram/polo_ralph_lauren/polo_ralph_lauren_02.jpg",
-                                        "imagens/telegram/polo_ralph_lauren/polo_ralph_lauren_03.jpg"
-                                    ],
-                         "latestTs":  1784196806,
-                         "category":  "roupas"
-                     },
-                     {
-                         "slug":  "mochila_bape",
-                         "name":  "Mochila Bape",
-                         "images":  [
-                                        "imagens/telegram/mochila_bape/mochila_bape_01.jpg"
-                                    ],
-                         "latestTs":  1784196772,
-                         "category":  "bolsas"
-                     },
-                     {
-                         "slug":  "camiseta_vlone",
-                         "name":  "Camiseta Vlone",
-                         "images":  [
-                                        "imagens/telegram/camiseta_vlone/camiseta_vlone_01.jpg",
-                                        "imagens/telegram/camiseta_vlone/camiseta_vlone_02.jpg",
-                                        "imagens/telegram/camiseta_vlone/camiseta_vlone_03.jpg",
-                                        "imagens/telegram/camiseta_vlone/camiseta_vlone_04.jpg",
-                                        "imagens/telegram/camiseta_vlone/camiseta_vlone_05.jpg"
-                                    ],
-                         "latestTs":  1784196646,
-                         "category":  "roupas"
-                     },
-                     {
-                         "slug":  "bandolera_goyard",
-                         "name":  "Bandolera Goyard",
-                         "images":  [
-                                        "imagens/telegram/bandolera_goyard/bandolera_goyard_01.jpg",
-                                        "imagens/telegram/bandolera_goyard/bandolera_goyard_02.jpg",
-                                        "imagens/telegram/bandolera_goyard/bandolera_goyard_03.jpg",
-                                        "imagens/telegram/bandolera_goyard/bandolera_goyard_04.jpg"
-                                    ],
-                         "latestTs":  1784196626,
-                         "category":  "bolsas"
-                     },
-                     {
-                         "slug":  "cinturón_chrome_hearts",
-                         "name":  "Cinturón Chrome Hearts",
-                         "images":  [
-                                        "imagens/telegram/cinturón_chrome_hearts/cinturón_chrome_hearts_01.jpg"
-                                    ],
-                         "latestTs":  1784196608,
-                         "category":  "outros"
-                     },
-                     {
-                         "slug":  "saucony_progrid_omni_9",
-                         "name":  "Saucony Progrid Omni 9",
-                         "images":  [
-                                        "imagens/telegram/saucony_progrid_omni_9/saucony_progrid_omni_9_01.jpg",
-                                        "imagens/telegram/saucony_progrid_omni_9/saucony_progrid_omni_9_02.jpg",
-                                        "imagens/telegram/saucony_progrid_omni_9/saucony_progrid_omni_9_03.jpg"
-                                    ],
-                         "latestTs":  1784196526,
-                         "category":  "outros"
-                     }
-                 ]
+{
+  "products": [
+    {
+      "slug": "carhartt_conjunto",
+      "name": "CARHARTT (conjunto)",
+      "images": [
+        "imagens/telegram/carhartt_conjunto/carhartt_conjunto_01.jpg",
+        "imagens/telegram/carhartt_conjunto/carhartt_conjunto_02.jpg",
+        "imagens/telegram/carhartt_conjunto/carhartt_conjunto_03.jpg",
+        "imagens/telegram/carhartt_conjunto/carhartt_conjunto_04.jpg"
+      ],
+      "latestTs": 1784453628,
+      "hasBuyLink": true,
+      "category": "roupas"
+    },
+    {
+      "slug": "moncler_conjunto_-_20",
+      "name": "MONCLER (conjunto) —-) 20€",
+      "images": [
+        "imagens/telegram/moncler_conjunto_-_20/moncler_conjunto_-_20_01.jpg"
+      ],
+      "latestTs": 1784453521,
+      "hasBuyLink": true,
+      "category": "roupas"
+    },
+    {
+      "slug": "dsquared2",
+      "name": "DSQUARED2",
+      "images": [
+        "imagens/telegram/dsquared2/dsquared2_01.jpg",
+        "imagens/telegram/dsquared2/dsquared2_02.jpg",
+        "imagens/telegram/dsquared2/dsquared2_03.jpg",
+        "imagens/telegram/dsquared2/dsquared2_04.jpg"
+      ],
+      "latestTs": 1784453161,
+      "hasBuyLink": true,
+      "category": "outros"
+    },
+    {
+      "slug": "polo_ralph_lauren",
+      "name": "POLO RALPH LAUREN",
+      "images": [
+        "imagens/telegram/polo_ralph_lauren/polo_ralph_lauren_01.jpg",
+        "imagens/telegram/polo_ralph_lauren/polo_ralph_lauren_02.jpg",
+        "imagens/telegram/polo_ralph_lauren/polo_ralph_lauren_03.jpg",
+        "imagens/telegram/polo_ralph_lauren/polo_ralph_lauren_04.jpg"
+      ],
+      "latestTs": 1784453121,
+      "hasBuyLink": true,
+      "category": "roupas"
+    },
+    {
+      "slug": "dr_martens",
+      "name": "DR MARTENS",
+      "images": [
+        "imagens/telegram/dr_martens/dr_martens_01.jpg",
+        "imagens/telegram/dr_martens/dr_martens_02.jpg",
+        "imagens/telegram/dr_martens/dr_martens_03.jpg",
+        "imagens/telegram/dr_martens/dr_martens_04.jpg"
+      ],
+      "latestTs": 1784452817,
+      "hasBuyLink": true,
+      "category": "outros"
+    },
+    {
+      "slug": "asics_gel_nyc",
+      "name": "ASICS Gel NYC",
+      "images": [
+        "imagens/telegram/asics_gel_nyc/asics_gel_nyc_01.jpg",
+        "imagens/telegram/asics_gel_nyc/asics_gel_nyc_02.jpg",
+        "imagens/telegram/asics_gel_nyc/asics_gel_nyc_03.jpg",
+        "imagens/telegram/asics_gel_nyc/asics_gel_nyc_04.jpg"
+      ],
+      "latestTs": 1784452441,
+      "hasBuyLink": true,
+      "category": "sneakers",
+      "brandSlug": "asics",
+      "brandLabel": "ASICS",
+      "modelSlug": "gel-nyc",
+      "modelLabel": "Gel NYC"
+    },
+    {
+      "slug": "stanley",
+      "name": "STANLEY",
+      "images": [
+        "imagens/telegram/stanley/stanley_01.jpg",
+        "imagens/telegram/stanley/stanley_02.jpg",
+        "imagens/telegram/stanley/stanley_03.jpg",
+        "imagens/telegram/stanley/stanley_04.jpg"
+      ],
+      "latestTs": 1784452261,
+      "hasBuyLink": true,
+      "category": "outros"
+    },
+    {
+      "slug": "fred_perry_bordado",
+      "name": "FRED PERRY (bordado)",
+      "images": [
+        "imagens/telegram/fred_perry_bordado/fred_perry_bordado_01.jpg",
+        "imagens/telegram/fred_perry_bordado/fred_perry_bordado_02.jpg",
+        "imagens/telegram/fred_perry_bordado/fred_perry_bordado_03.jpg",
+        "imagens/telegram/fred_perry_bordado/fred_perry_bordado_04.jpg"
+      ],
+      "latestTs": 1784451961,
+      "hasBuyLink": true,
+      "category": "outros"
+    },
+    {
+      "slug": "fred_perry",
+      "name": "FRED PERRY",
+      "images": [
+        "imagens/telegram/fred_perry/fred_perry_01.jpg",
+        "imagens/telegram/fred_perry/fred_perry_02.jpg",
+        "imagens/telegram/fred_perry/fred_perry_03.jpg",
+        "imagens/telegram/fred_perry/fred_perry_04.jpg"
+      ],
+      "latestTs": 1784451841,
+      "hasBuyLink": true,
+      "category": "outros"
+    },
+    {
+      "slug": "the_north_face_700",
+      "name": "THE NORTH FACE 700",
+      "images": [
+        "imagens/telegram/the_north_face_700/the_north_face_700_01.jpg",
+        "imagens/telegram/the_north_face_700/the_north_face_700_02.jpg",
+        "imagens/telegram/the_north_face_700/the_north_face_700_03.jpg",
+        "imagens/telegram/the_north_face_700/the_north_face_700_04.jpg"
+      ],
+      "latestTs": 1784451764,
+      "hasBuyLink": true,
+      "category": "roupas"
+    },
+    {
+      "slug": "the_north_face",
+      "name": "THE NORTH FACE",
+      "images": [
+        "imagens/telegram/the_north_face/the_north_face_01.jpg",
+        "imagens/telegram/the_north_face/the_north_face_02.jpg",
+        "imagens/telegram/the_north_face/the_north_face_03.jpg",
+        "imagens/telegram/the_north_face/the_north_face_04.jpg"
+      ],
+      "latestTs": 1784451721,
+      "hasBuyLink": true,
+      "category": "roupas"
+    },
+    {
+      "slug": "adidas_bermuda",
+      "name": "ADIDAS Bermuda",
+      "images": [
+        "imagens/telegram/adidas_bermuda/adidas_bermuda_01.jpg",
+        "imagens/telegram/adidas_bermuda/adidas_bermuda_02.jpg",
+        "imagens/telegram/adidas_bermuda/adidas_bermuda_03.jpg",
+        "imagens/telegram/adidas_bermuda/adidas_bermuda_04.jpg"
+      ],
+      "latestTs": 1784451015,
+      "hasBuyLink": true,
+      "category": "sneakers",
+      "brandSlug": "adidas",
+      "brandLabel": "Adidas",
+      "modelSlug": "bermuda",
+      "modelLabel": "Bermuda"
+    },
+    {
+      "slug": "on_cloud_5",
+      "name": "ON CLOUD 5",
+      "images": [
+        "imagens/telegram/on_cloud_5/on_cloud_5_01.jpg",
+        "imagens/telegram/on_cloud_5/on_cloud_5_02.jpg",
+        "imagens/telegram/on_cloud_5/on_cloud_5_03.jpg"
+      ],
+      "latestTs": 1784450881,
+      "hasBuyLink": true,
+      "category": "outros"
+    },
+    {
+      "slug": "asics_gel_kahana_8",
+      "name": "ASICS Gel Kahana 8",
+      "images": [
+        "imagens/telegram/asics_gel_kahana_8/asics_gel_kahana_8_01.jpg",
+        "imagens/telegram/asics_gel_kahana_8/asics_gel_kahana_8_02.jpg",
+        "imagens/telegram/asics_gel_kahana_8/asics_gel_kahana_8_03.jpg",
+        "imagens/telegram/asics_gel_kahana_8/asics_gel_kahana_8_04.jpg"
+      ],
+      "latestTs": 1784450521,
+      "hasBuyLink": true,
+      "category": "sneakers",
+      "brandSlug": "asics",
+      "brandLabel": "ASICS",
+      "modelSlug": "gel-kahana-8",
+      "modelLabel": "Gel Kahana 8"
+    },
+    {
+      "slug": "golden_goose_ballstar",
+      "name": "GOLDEN GOOSE \"BallStar”",
+      "images": [
+        "imagens/telegram/golden_goose_ballstar/golden_goose_ballstar_01.jpg",
+        "imagens/telegram/golden_goose_ballstar/golden_goose_ballstar_02.jpg",
+        "imagens/telegram/golden_goose_ballstar/golden_goose_ballstar_03.jpg"
+      ],
+      "latestTs": 1784450281,
+      "hasBuyLink": true,
+      "category": "outros"
+    },
+    {
+      "slug": "adidas_gazelle_bold",
+      "name": "ADIDAS Gazelle Bold",
+      "images": [
+        "imagens/telegram/adidas_gazelle_bold/adidas_gazelle_bold_01.jpg",
+        "imagens/telegram/adidas_gazelle_bold/adidas_gazelle_bold_02.jpg",
+        "imagens/telegram/adidas_gazelle_bold/adidas_gazelle_bold_03.jpg",
+        "imagens/telegram/adidas_gazelle_bold/adidas_gazelle_bold_04.jpg"
+      ],
+      "latestTs": 1784450161,
+      "hasBuyLink": true,
+      "category": "sneakers",
+      "brandSlug": "adidas",
+      "brandLabel": "Adidas",
+      "modelSlug": "gazelle-bold",
+      "modelLabel": "Gazelle Bold"
+    },
+    {
+      "slug": "adidas_sl72",
+      "name": "ADIDAS SL72",
+      "images": [
+        "imagens/telegram/adidas_sl72/adidas_sl72_01.jpg",
+        "imagens/telegram/adidas_sl72/adidas_sl72_02.jpg",
+        "imagens/telegram/adidas_sl72/adidas_sl72_03.jpg",
+        "imagens/telegram/adidas_sl72/adidas_sl72_04.jpg"
+      ],
+      "latestTs": 1784450060,
+      "hasBuyLink": true,
+      "category": "sneakers",
+      "brandSlug": "adidas",
+      "brandLabel": "Adidas",
+      "modelSlug": "sl72",
+      "modelLabel": "SL72"
+    },
+    {
+      "slug": "off_white",
+      "name": "OFF WHITE",
+      "images": [
+        "imagens/telegram/off_white/off_white_01.jpg",
+        "imagens/telegram/off_white/off_white_02.jpg",
+        "imagens/telegram/off_white/off_white_03.jpg",
+        "imagens/telegram/off_white/off_white_04.jpg"
+      ],
+      "latestTs": 1784449441,
+      "hasBuyLink": true,
+      "category": "outros"
+    },
+    {
+      "slug": "vans_super_lowpro",
+      "name": "VANS \"Super LowPro\"",
+      "images": [
+        "imagens/telegram/vans_super_lowpro/vans_super_lowpro_01.jpg",
+        "imagens/telegram/vans_super_lowpro/vans_super_lowpro_02.jpg",
+        "imagens/telegram/vans_super_lowpro/vans_super_lowpro_03.jpg",
+        "imagens/telegram/vans_super_lowpro/vans_super_lowpro_04.jpg"
+      ],
+      "latestTs": 1784448961,
+      "hasBuyLink": true,
+      "category": "sneakers",
+      "brandSlug": "vans",
+      "brandLabel": "Vans",
+      "modelSlug": "super-lowpro",
+      "modelLabel": "\"Super LowPro\""
+    },
+    {
+      "slug": "adidas_forum",
+      "name": "ADIDAS Forum",
+      "images": [
+        "imagens/telegram/adidas_forum/adidas_forum_01.jpg",
+        "imagens/telegram/adidas_forum/adidas_forum_02.jpg",
+        "imagens/telegram/adidas_forum/adidas_forum_03.jpg",
+        "imagens/telegram/adidas_forum/adidas_forum_04.jpg"
+      ],
+      "latestTs": 1784448721,
+      "hasBuyLink": true,
+      "category": "sneakers",
+      "brandSlug": "adidas",
+      "brandLabel": "Adidas",
+      "modelSlug": "forum",
+      "modelLabel": "Forum"
+    },
+    {
+      "slug": "converse",
+      "name": "CONVERSE",
+      "images": [
+        "imagens/telegram/converse/converse_01.jpg",
+        "imagens/telegram/converse/converse_02.jpg",
+        "imagens/telegram/converse/converse_03.jpg",
+        "imagens/telegram/converse/converse_04.jpg"
+      ],
+      "latestTs": 1784448617,
+      "hasBuyLink": true,
+      "category": "outros"
+    },
+    {
+      "slug": "adidas_samba_x_notitle",
+      "name": "ADIDAS Samba x NOTITLE",
+      "images": [
+        "imagens/telegram/adidas_samba_x_notitle/adidas_samba_x_notitle_01.jpg",
+        "imagens/telegram/adidas_samba_x_notitle/adidas_samba_x_notitle_02.jpg",
+        "imagens/telegram/adidas_samba_x_notitle/adidas_samba_x_notitle_03.jpg",
+        "imagens/telegram/adidas_samba_x_notitle/adidas_samba_x_notitle_04.jpg"
+      ],
+      "latestTs": 1784410349,
+      "hasBuyLink": true,
+      "category": "sneakers",
+      "brandSlug": "adidas",
+      "brandLabel": "Adidas",
+      "modelSlug": "samba-x-notitle",
+      "modelLabel": "Samba x NOTITLE"
+    },
+    {
+      "slug": "apple_earpods",
+      "name": "APPLE EarPods",
+      "images": [
+        "imagens/telegram/apple_earpods/apple_earpods_01.jpg"
+      ],
+      "latestTs": 1784410347,
+      "hasBuyLink": true,
+      "category": "fones"
+    },
+    {
+      "slug": "carhartt_chaqueta_fina",
+      "name": "CARHARTT (chaqueta fina)",
+      "images": [
+        "imagens/telegram/carhartt_chaqueta_fina/carhartt_chaqueta_fina_01.jpg",
+        "imagens/telegram/carhartt_chaqueta_fina/carhartt_chaqueta_fina_02.jpg",
+        "imagens/telegram/carhartt_chaqueta_fina/carhartt_chaqueta_fina_03.jpg",
+        "imagens/telegram/carhartt_chaqueta_fina/carhartt_chaqueta_fina_04.jpg"
+      ],
+      "latestTs": 1784410343,
+      "hasBuyLink": true,
+      "category": "roupas"
+    },
+    {
+      "slug": "carhartt",
+      "name": "CARHARTT",
+      "images": [
+        "imagens/telegram/carhartt/carhartt_01.jpg",
+        "imagens/telegram/carhartt/carhartt_02.jpg",
+        "imagens/telegram/carhartt/carhartt_03.jpg",
+        "imagens/telegram/carhartt/carhartt_04.jpg"
+      ],
+      "latestTs": 1784410341,
+      "hasBuyLink": true,
+      "category": "roupas"
+    },
+    {
+      "slug": "under_armour",
+      "name": "UNDER ARMOUR",
+      "images": [
+        "imagens/telegram/under_armour/under_armour_01.jpg",
+        "imagens/telegram/under_armour/under_armour_02.jpg",
+        "imagens/telegram/under_armour/under_armour_03.jpg",
+        "imagens/telegram/under_armour/under_armour_04.jpg"
+      ],
+      "latestTs": 1784410339,
+      "hasBuyLink": true,
+      "category": "outros"
+    },
+    {
+      "slug": "saucony_progrid_omni_9",
+      "name": "SAUCONY \"Progrid Omni 9\"",
+      "images": [
+        "imagens/telegram/saucony_progrid_omni_9/saucony_progrid_omni_9_01.jpg",
+        "imagens/telegram/saucony_progrid_omni_9/saucony_progrid_omni_9_02.jpg",
+        "imagens/telegram/saucony_progrid_omni_9/saucony_progrid_omni_9_03.jpg",
+        "imagens/telegram/saucony_progrid_omni_9/saucony_progrid_omni_9_04.jpg"
+      ],
+      "latestTs": 1784399964,
+      "hasBuyLink": true,
+      "category": "outros"
+    },
+    {
+      "slug": "birkenstock",
+      "name": "BIRKENSTOCK",
+      "images": [
+        "imagens/telegram/birkenstock/birkenstock_01.jpg",
+        "imagens/telegram/birkenstock/birkenstock_02.jpg",
+        "imagens/telegram/birkenstock/birkenstock_03.jpg",
+        "imagens/telegram/birkenstock/birkenstock_04.jpg"
+      ],
+      "latestTs": 1784397011,
+      "hasBuyLink": true,
+      "category": "outros"
+    },
+    {
+      "slug": "loro_piana",
+      "name": "LORO PIANA",
+      "images": [
+        "imagens/telegram/loro_piana/loro_piana_01.jpg",
+        "imagens/telegram/loro_piana/loro_piana_02.jpg",
+        "imagens/telegram/loro_piana/loro_piana_03.jpg",
+        "imagens/telegram/loro_piana/loro_piana_04.jpg"
+      ],
+      "latestTs": 1784396327,
+      "hasBuyLink": true,
+      "category": "outros"
+    },
+    {
+      "slug": "miu_miu",
+      "name": "MIU MIU",
+      "images": [
+        "imagens/telegram/miu_miu/miu_miu_01.jpg",
+        "imagens/telegram/miu_miu/miu_miu_02.jpg",
+        "imagens/telegram/miu_miu/miu_miu_03.jpg",
+        "imagens/telegram/miu_miu/miu_miu_04.jpg"
+      ],
+      "latestTs": 1784396128,
+      "hasBuyLink": true,
+      "category": "outros"
+    },
+    {
+      "slug": "nike_tech_conjunto",
+      "name": "NIKE Tech (conjunto)",
+      "images": [
+        "imagens/telegram/nike_tech_conjunto/nike_tech_conjunto_01.jpg"
+      ],
+      "latestTs": 1784396043,
+      "hasBuyLink": true,
+      "category": "roupas"
+    },
+    {
+      "slug": "nike_tech_fleece",
+      "name": "NIKE \"Tech Fleece\"",
+      "images": [
+        "imagens/telegram/nike_tech_fleece/nike_tech_fleece_01.jpg"
+      ],
+      "latestTs": 1784386238,
+      "hasBuyLink": true,
+      "category": "sneakers",
+      "brandSlug": "nike",
+      "brandLabel": "Nike",
+      "modelSlug": "tech-fleece",
+      "modelLabel": "\"Tech Fleece\""
+    },
+    {
+      "slug": "dyson",
+      "name": "DYSON",
+      "images": [
+        "imagens/telegram/dyson/dyson_01.jpg",
+        "imagens/telegram/dyson/dyson_02.jpg",
+        "imagens/telegram/dyson/dyson_03.jpg",
+        "imagens/telegram/dyson/dyson_04.jpg"
+      ],
+      "latestTs": 1784367361,
+      "hasBuyLink": true,
+      "category": "tecnologia"
+    },
+    {
+      "slug": "nike_air_max_tn_plus",
+      "name": "NIKE Air Max TN Plus",
+      "images": [
+        "imagens/telegram/nike_air_max_tn_plus/nike_air_max_tn_plus_01.jpg",
+        "imagens/telegram/nike_air_max_tn_plus/nike_air_max_tn_plus_02.jpg",
+        "imagens/telegram/nike_air_max_tn_plus/nike_air_max_tn_plus_03.jpg",
+        "imagens/telegram/nike_air_max_tn_plus/nike_air_max_tn_plus_04.jpg"
+      ],
+      "latestTs": 1784366761,
+      "hasBuyLink": true,
+      "category": "sneakers",
+      "brandSlug": "nike",
+      "brandLabel": "Nike",
+      "modelSlug": "air-max-tn-plus",
+      "modelLabel": "Air Max TN Plus"
+    },
+    {
+      "slug": "onitsuka_tiger_tokuten",
+      "name": "ONITSUKA TIGER \"Tokuten\"",
+      "images": [
+        "imagens/telegram/onitsuka_tiger_tokuten/onitsuka_tiger_tokuten_01.jpg",
+        "imagens/telegram/onitsuka_tiger_tokuten/onitsuka_tiger_tokuten_02.jpg",
+        "imagens/telegram/onitsuka_tiger_tokuten/onitsuka_tiger_tokuten_03.jpg",
+        "imagens/telegram/onitsuka_tiger_tokuten/onitsuka_tiger_tokuten_04.jpg"
+      ],
+      "latestTs": 1784366641,
+      "hasBuyLink": true,
+      "category": "outros"
+    },
+    {
+      "slug": "apple_airpods_max",
+      "name": "APPLE AirPods Max",
+      "images": [
+        "imagens/telegram/apple_airpods_max/apple_airpods_max_01.jpg",
+        "imagens/telegram/apple_airpods_max/apple_airpods_max_02.jpg",
+        "imagens/telegram/apple_airpods_max/apple_airpods_max_03.jpg"
+      ],
+      "latestTs": 1784365861,
+      "hasBuyLink": true,
+      "category": "fones"
+    },
+    {
+      "slug": "apple_funda_magsafe",
+      "name": "APPLE Funda MagSafe",
+      "images": [
+        "imagens/telegram/apple_funda_magsafe/apple_funda_magsafe_01.jpg",
+        "imagens/telegram/apple_funda_magsafe/apple_funda_magsafe_02.jpg",
+        "imagens/telegram/apple_funda_magsafe/apple_funda_magsafe_03.jpg",
+        "imagens/telegram/apple_funda_magsafe/apple_funda_magsafe_04.jpg"
+      ],
+      "latestTs": 1784365681,
+      "hasBuyLink": true,
+      "category": "tecnologia"
+    },
+    {
+      "slug": "converse_piel",
+      "name": "CONVERSE (piel)",
+      "images": [
+        "imagens/telegram/converse_piel/converse_piel_01.jpg",
+        "imagens/telegram/converse_piel/converse_piel_02.jpg",
+        "imagens/telegram/converse_piel/converse_piel_03.jpg",
+        "imagens/telegram/converse_piel/converse_piel_04.jpg"
+      ],
+      "latestTs": 1784365561,
+      "hasBuyLink": true,
+      "category": "sneakers",
+      "brandSlug": "converse",
+      "brandLabel": "Converse",
+      "modelSlug": "piel",
+      "modelLabel": "(piel)"
+    },
+    {
+      "slug": "mizuno_racer_trail",
+      "name": "MIZUNO \"Racer Trail\"",
+      "images": [
+        "imagens/telegram/mizuno_racer_trail/mizuno_racer_trail_01.jpg",
+        "imagens/telegram/mizuno_racer_trail/mizuno_racer_trail_02.jpg",
+        "imagens/telegram/mizuno_racer_trail/mizuno_racer_trail_03.jpg",
+        "imagens/telegram/mizuno_racer_trail/mizuno_racer_trail_04.jpg"
+      ],
+      "latestTs": 1784364616,
+      "hasBuyLink": true,
+      "category": "outros"
+    },
+    {
+      "slug": "mizuno_racer_s",
+      "name": "MIZUNO \"Racer S\"",
+      "images": [
+        "imagens/telegram/mizuno_racer_s/mizuno_racer_s_01.jpg",
+        "imagens/telegram/mizuno_racer_s/mizuno_racer_s_02.jpg",
+        "imagens/telegram/mizuno_racer_s/mizuno_racer_s_03.jpg",
+        "imagens/telegram/mizuno_racer_s/mizuno_racer_s_04.jpg"
+      ],
+      "latestTs": 1784364241,
+      "hasBuyLink": true,
+      "category": "outros"
+    },
+    {
+      "slug": "asics_gel_sonoma_180",
+      "name": "ASICS Gel Sonoma 180",
+      "images": [
+        "imagens/telegram/asics_gel_sonoma_180/asics_gel_sonoma_180_01.jpg",
+        "imagens/telegram/asics_gel_sonoma_180/asics_gel_sonoma_180_02.jpg",
+        "imagens/telegram/asics_gel_sonoma_180/asics_gel_sonoma_180_03.jpg"
+      ],
+      "latestTs": 1784363881,
+      "hasBuyLink": true,
+      "category": "sneakers",
+      "brandSlug": "asics",
+      "brandLabel": "ASICS",
+      "modelSlug": "gel-sonoma-180",
+      "modelLabel": "Gel Sonoma 180"
+    },
+    {
+      "slug": "adidas",
+      "name": "ADIDAS",
+      "images": [
+        "imagens/telegram/adidas/adidas_01.jpg",
+        "imagens/telegram/adidas/adidas_02.jpg",
+        "imagens/telegram/adidas/adidas_03.jpg",
+        "imagens/telegram/adidas/adidas_04.jpg"
+      ],
+      "latestTs": 1784363761,
+      "hasBuyLink": true,
+      "category": "outros"
+    },
+    {
+      "slug": "keen",
+      "name": "KEEN",
+      "images": [
+        "imagens/telegram/keen/keen_01.jpg",
+        "imagens/telegram/keen/keen_02.jpg",
+        "imagens/telegram/keen/keen_03.jpg",
+        "imagens/telegram/keen/keen_04.jpg"
+      ],
+      "latestTs": 1784363041,
+      "hasBuyLink": true,
+      "category": "outros"
+    },
+    {
+      "slug": "marshall_minor_3",
+      "name": "MARSHALL Minor 3",
+      "images": [
+        "imagens/telegram/marshall_minor_3/marshall_minor_3_01.jpg",
+        "imagens/telegram/marshall_minor_3/marshall_minor_3_02.jpg",
+        "imagens/telegram/marshall_minor_3/marshall_minor_3_03.jpg"
+      ],
+      "latestTs": 1784362441,
+      "hasBuyLink": true,
+      "category": "tecnologia"
+    },
+    {
+      "slug": "on",
+      "name": "ON",
+      "images": [
+        "imagens/telegram/on/on_01.jpg"
+      ],
+      "latestTs": 1784362261,
+      "hasBuyLink": true,
+      "category": "outros"
+    },
+    {
+      "slug": "new_era",
+      "name": "NEW ERA",
+      "images": [
+        "imagens/telegram/new_era/new_era_01.jpg",
+        "imagens/telegram/new_era/new_era_02.jpg",
+        "imagens/telegram/new_era/new_era_03.jpg",
+        "imagens/telegram/new_era/new_era_04.jpg"
+      ],
+      "latestTs": 1784361961,
+      "hasBuyLink": true,
+      "category": "bones"
+    },
+    {
+      "slug": "moncler",
+      "name": "MONCLER",
+      "images": [
+        "imagens/telegram/moncler/moncler_01.jpg",
+        "imagens/telegram/moncler/moncler_02.jpg",
+        "imagens/telegram/moncler/moncler_03.jpg",
+        "imagens/telegram/moncler/moncler_04.jpg"
+      ],
+      "latestTs": 1784361481,
+      "hasBuyLink": true,
+      "category": "roupas"
+    },
+    {
+      "slug": "corteiz",
+      "name": "CORTEIZ",
+      "images": [
+        "imagens/telegram/corteiz/corteiz_01.jpg",
+        "imagens/telegram/corteiz/corteiz_02.jpg",
+        "imagens/telegram/corteiz/corteiz_03.jpg",
+        "imagens/telegram/corteiz/corteiz_04.jpg"
+      ],
+      "latestTs": 1784361361,
+      "hasBuyLink": true,
+      "category": "roupas"
+    },
+    {
+      "slug": "on_cloud_boom_carbon",
+      "name": "ON CLOUD Boom \"Carbon\"",
+      "images": [
+        "imagens/telegram/on_cloud_boom_carbon/on_cloud_boom_carbon_01.jpg",
+        "imagens/telegram/on_cloud_boom_carbon/on_cloud_boom_carbon_02.jpg",
+        "imagens/telegram/on_cloud_boom_carbon/on_cloud_boom_carbon_03.jpg",
+        "imagens/telegram/on_cloud_boom_carbon/on_cloud_boom_carbon_04.jpg"
+      ],
+      "latestTs": 1784311486,
+      "hasBuyLink": true,
+      "category": "outros"
+    },
+    {
+      "slug": "goyard_cartera",
+      "name": "GOYARD (cartera)",
+      "images": [
+        "imagens/telegram/goyard_cartera/goyard_cartera_01.jpg"
+      ],
+      "latestTs": 1784290623,
+      "hasBuyLink": true,
+      "category": "bolsas"
+    }
+  ]
 }
