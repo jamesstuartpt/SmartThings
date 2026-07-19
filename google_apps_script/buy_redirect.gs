@@ -1,7 +1,7 @@
 const SPREADSHEET_ID = "17Wye0UCdfJe6y6tnXKmyU7DnFggmqefO78bK485gln8";
 const SHEET_NAME = "LINKS";
 const FALLBACK_WHATSAPP_URL =
-  "https://wa.me/351927515217?text=Ol%C3%A1!%20Vi%20o%20cat%C3%A1logo%20e%20preciso%20de%20ajuda.";
+  "https://api.whatsapp.com/send?phone=351927515217&text=Ol%C3%A1!%20Vi%20o%20cat%C3%A1logo%20e%20preciso%20de%20ajuda.";
 
 function doGet(e) {
   const slug = sanitizeSlug_(e && e.parameter ? e.parameter.slug : "");
