@@ -671,8 +671,8 @@ def main() -> int:
     parser.add_argument(
         "--max-products",
         type=int,
-        default=50,
-        help="Máximo de produtos para adicionar ao site (mais recentes).",
+        default=0,
+        help="Máximo de produtos para adicionar ao site (0 = sem limite).",
     )
     parser.add_argument(
         "--max-images-per-product",

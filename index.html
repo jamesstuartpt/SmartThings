@@ -2311,8 +2311,9 @@
       let activeModel = "todos";
       let activeSearchQuery = "";
       let sneakersIndex = { brands: [], modelsByBrand: {} };
-      let catalogVisibleLimit = 18;
-      const catalogLimitStep = 18;
+      // Sem limite no catalogo: mostra todos os produtos logo de inicio.
+      let catalogVisibleLimit = Number.MAX_SAFE_INTEGER;
+      const catalogLimitStep = Number.MAX_SAFE_INTEGER;
 
       const POPULAR_SNEAKERS = [
         { brand: "adidas", contains: ["samba"] },
