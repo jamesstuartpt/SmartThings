@@ -2236,6 +2236,12 @@
       const WHATSAPP_NUM = "351927515217";
       const SITE_CONFIG = window.SMARTTHINGS_CONFIG || {};
 
+      function publicBuyLinksEnabled() {
+        const value = SITE_CONFIG.enablePublicBuyLinks;
+        if (value === true) return true;
+        return String(value || "").trim().toLowerCase() === "true";
+      }
+
       function getBuyRedirectBaseUrl() {
         return String(SITE_CONFIG.buyRedirectBaseUrl || "").trim();
       }
@@ -2269,6 +2275,7 @@
 
       function cardUsesBuyRedirect(card) {
         if (!card) return false;
+        if (!publicBuyLinksEnabled()) return false;
         if (String(card.dataset.hasBuyLink || "").trim() !== "true") return false;
         return Boolean(buildBuyRedirectHref(getProductSlug(card)));
       }
