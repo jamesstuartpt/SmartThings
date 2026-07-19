@@ -1,3 +1,5 @@
+const DEFAULT_GOOGLE_SHEET_ID = "17Wye0UCdfJe6y6tnXKmyU7DnFggmqefO78bK485gln8";
+const DEFAULT_GOOGLE_SHEET_NAME = "LINKS";
 const DEFAULT_WHATSAPP_FALLBACK =
   "https://api.whatsapp.com/send?phone=351927515217&text=Ol%C3%A1!%20Vi%20o%20cat%C3%A1logo%20e%20preciso%20de%20ajuda.";
 const DEFAULT_CACHE_TTL_SECONDS = 300;
@@ -72,8 +74,8 @@ function getFallbackWhatsAppUrl(env) {
 function getSheetSourceUrl(env) {
   if (env.GOOGLE_SHEET_GVIZ_URL) return String(env.GOOGLE_SHEET_GVIZ_URL).trim();
 
-  const spreadsheetId = String(env.GOOGLE_SHEET_ID || "").trim();
-  const sheetName = String(env.GOOGLE_SHEET_NAME || "LINKS").trim();
+  const spreadsheetId = String(env.GOOGLE_SHEET_ID || DEFAULT_GOOGLE_SHEET_ID).trim();
+  const sheetName = String(env.GOOGLE_SHEET_NAME || DEFAULT_GOOGLE_SHEET_NAME).trim();
   if (!spreadsheetId) {
     throw new Error("Missing GOOGLE_SHEET_ID.");
   }
