@@ -4,7 +4,7 @@ window.SMARTTHINGS_CONFIG = Object.assign(
     // Exemplo:
     // buyRedirectBaseUrl: "https://script.google.com/macros/s/AKfycb.../exec",
     buyRedirectBaseUrl:
-      "https://script.google.com/macros/s/AKfycbxBtcftrRpxk4T1GmiMTfjPB9BxRs2_NtZqicT4AGfwqainxvbH7rQZOyxrZ_v1zXUH/exec",
+      "https://script.google.com/macros/s/AKfycbw99BubLIHf6tIWheRFZZMFN3iW_qKvIiEs9IAPS4bFcjdxZgj5PeZNagpUQoeD8Um_/exec",
   },
   window.SMARTTHINGS_CONFIG || {},
 );
