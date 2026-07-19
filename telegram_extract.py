@@ -83,6 +83,30 @@ _PRICE_RE = re.compile(
     re.IGNORECASE,
 )
 
+_STORE_NAME_RE = re.compile(r"\b(?:yep\s*express|yepexpress|yepex|hacoo)\b", re.IGNORECASE)
+_PROMO_PATTERNS = [
+    re.compile(pattern, re.IGNORECASE)
+    for pattern in (
+        r"como pedir",
+        r"perfil de hacoo",
+        r"primeros pedidos",
+        r"90%\s*de\s*descuento",
+        r"\bc[oó]digos?\b",
+        r"seguirnos",
+        r"\btutorial\b",
+        r"todos los enlaces",
+        r"novedades",
+        r"v[áa]lido para",
+    )
+]
+
+
+def _is_catalog_promo(caption: str) -> bool:
+    text = re.sub(r"\s+", " ", (caption or "").strip().lower())
+    if not text:
+        return False
+    return any(pattern.search(text) for pattern in _PROMO_PATTERNS)
+
 
 def _clean_product_name(caption: str) -> str:
     s = (caption or "").replace("\r", "").strip()
@@ -98,6 +122,7 @@ def _clean_product_name(caption: str) -> str:
 
     s = s.replace("💎", " ").replace("🔥", " ").replace("❤", " ").replace("✅", " ")
     s = s.replace("⭐", " ").replace("✨", " ").replace("🔗", " ")
+    s = _STORE_NAME_RE.sub(" ", s)
     s = re.sub(r"\s+", " ", s).strip()
 
     if "—->" in s:
@@ -309,6 +334,8 @@ def _build_export_catalog(
         if not rel:
             continue
         caption, link = _flatten_caption_and_link(msg)
+        if _is_catalog_promo(caption):
+            continue
         cleaned = _clean_product_name(caption)
         ts = _message_timestamp(msg)
         if cleaned:
