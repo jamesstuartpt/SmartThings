@@ -587,7 +587,8 @@ def _write_site_manifest_from_export(
                 "name": name,
                 "images": images,
                 "latestTs": latest_ts,
-                "hasBuyLink": bool(item.get("hasBuyLink")),
+                # O site publico nunca deve expor o fluxo de compra final.
+                "hasBuyLink": False,
             }
             if item.get("category") == "sneakers":
                 product.update(
