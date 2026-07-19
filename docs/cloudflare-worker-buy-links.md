@@ -59,6 +59,12 @@ As colunas obrigatorias sao:
 10. Copia a URL final, por exemplo:
     `https://smartthings-buy-redirect.<teu-subdominio>.workers.dev`
 
+Notas:
+
+- O codigo ja traz por defeito o `GOOGLE_SHEET_ID` e a aba `LINKS`.
+- Portanto, se nao quiseres configurar variaveis, o Worker continua a funcionar
+  desde que uses esta mesma Sheet publica.
+
 ## Ligar Ao Site
 
 Quando tiveres a URL do Worker, cola em `site_config.js`:
