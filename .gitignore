@@ -3,3 +3,9 @@ __pycache__/
 *.pyc
 *.pyo
 .pytest_cache/
+_local/
+.vscode/
+telegram_prices.csv
+telegram_publish_config.json
+manifest-imagens.csv
+telegram_prices.example.csv
