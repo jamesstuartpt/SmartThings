@@ -799,9 +799,23 @@
 
       /* RESPONSIVE */
       @media (max-width: 600px) {
+        nav {
+          height: 56px;
+          padding: 0 16px;
+        }
+        .hero {
+          padding: max(32px, 5vh) 16px 18px;
+        }
+        .hero p {
+          font-size: 16px;
+        }
         .products-grid {
           grid-template-columns: repeat(2, minmax(0, 1fr));
           gap: 12px;
+          padding: 0 16px 72px;
+        }
+        .home-section {
+          padding: 0 16px 22px;
         }
         .search-input {
           width: 100%;
@@ -840,11 +854,21 @@
           padding-bottom: 0;
         }
         .cta-inner {
-          padding: 32px 24px;
+          padding: 28px 16px;
         }
         footer {
+          padding: 28px 16px;
           flex-direction: column;
           align-items: flex-start;
+        }
+      }
+
+      @media (max-width: 420px) {
+        .products-grid {
+          grid-template-columns: minmax(0, 1fr);
+        }
+        .home-tile {
+          flex-basis: 190px;
         }
       }
 
@@ -859,7 +883,7 @@
       .admin-fab {
         position: fixed;
         right: 18px;
-        bottom: 18px;
+        bottom: calc(18px + env(safe-area-inset-bottom));
         z-index: 50;
         background: rgba(0, 0, 0, 0.7);
         border: 1px solid var(--border);
@@ -2311,7 +2335,6 @@
       let activeModel = "todos";
       let activeSearchQuery = "";
       let sneakersIndex = { brands: [], modelsByBrand: {} };
-      // Sem limite no catalogo: mostra todos os produtos logo de inicio.
       let catalogVisibleLimit = Number.MAX_SAFE_INTEGER;
       const catalogLimitStep = Number.MAX_SAFE_INTEGER;
 
