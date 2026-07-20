@@ -532,6 +532,84 @@
       .catalog-more[data-visible="false"] {
         display: none;
       }
+      .catalog-more.is-loading .btn-primary {
+        opacity: 0.75;
+        pointer-events: none;
+      }
+      .catalog-skeletons {
+        max-width: 960px;
+        margin: 0 auto 28px;
+        padding: 0 max(24px, 5vw);
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+        gap: 16px;
+      }
+      .catalog-skeletons[data-visible="false"] {
+        display: none;
+      }
+      .skeleton-card {
+        background: var(--bg2);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        overflow: hidden;
+      }
+      .skeleton-shimmer {
+        position: relative;
+        overflow: hidden;
+        background: linear-gradient(
+          90deg,
+          rgba(255, 255, 255, 0.04) 0%,
+          rgba(255, 255, 255, 0.08) 50%,
+          rgba(255, 255, 255, 0.04) 100%
+        );
+        background-size: 200% 100%;
+        animation: shimmer 1.15s linear infinite;
+      }
+      .skeleton-img {
+        aspect-ratio: 4/3;
+      }
+      .skeleton-body {
+        padding: 14px;
+      }
+      .skeleton-line {
+        height: 12px;
+        border-radius: 999px;
+        margin-bottom: 10px;
+      }
+      .skeleton-line.short {
+        width: 40%;
+      }
+      .skeleton-line.medium {
+        width: 68%;
+      }
+      .skeleton-line.long {
+        width: 92%;
+      }
+      .skeleton-footer {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        margin-top: 14px;
+      }
+      .skeleton-pill {
+        height: 14px;
+        border-radius: 999px;
+        flex: 1;
+      }
+      .skeleton-pill.price {
+        max-width: 72px;
+      }
+      .skeleton-pill.btn {
+        max-width: 120px;
+      }
+      @keyframes shimmer {
+        from {
+          background-position: 200% 0;
+        }
+        to {
+          background-position: -200% 0;
+        }
+      }
 
       .card {
         background: var(--bg2);
@@ -814,6 +892,11 @@
           gap: 12px;
           padding: 0 16px 72px;
         }
+        .catalog-skeletons {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 12px;
+          padding: 0 16px;
+        }
         .home-section {
           padding: 0 16px 22px;
         }
@@ -865,6 +948,9 @@
 
       @media (max-width: 420px) {
         .products-grid {
+          grid-template-columns: minmax(0, 1fr);
+        }
+        .catalog-skeletons {
           grid-template-columns: minmax(0, 1fr);
         }
         .home-tile {
@@ -1303,6 +1389,7 @@
         Ver mais produtos
       </button>
     </div>
+    <div class="catalog-skeletons" id="catalog-skeletons" data-visible="false"></div>
 
     <div class="stats">
       <div class="stat">
@@ -1823,8 +1910,10 @@
       let telegramProductsData = [];
       let filteredProductsData = [];
       let renderedProductsCount = 0;
-      const catalogLimitStep = 60;
-      let catalogVisibleLimit = catalogLimitStep;
+      let isAppendingBatch = false;
+      const DESKTOP_CATALOG_BATCH = 60;
+      const MOBILE_CATALOG_BATCH = 24;
+      const BATCH_RENDER_CHUNK = 12;
 
       const POPULAR_SNEAKERS = [
         { brand: "adidas", contains: ["samba"] },
@@ -2229,6 +2318,7 @@
 
         const remaining = filteredProductsData.length - renderedProductsCount;
         if (remaining <= 0) {
+          more.classList.remove("is-loading");
           more.dataset.visible = "false";
           return;
         }
@@ -2236,58 +2326,115 @@
         more.dataset.visible = "true";
         moreBtn.textContent = `Ver mais produtos (+${Math.min(
           remaining,
-          catalogLimitStep,
+          getCatalogBatchSize(),
         )})`;
       }
 
-      function appendNextBatch({ scrollToNew } = {}) {
+      function getCatalogBatchSize() {
+        return window.innerWidth <= 600 ? MOBILE_CATALOG_BATCH : DESKTOP_CATALOG_BATCH;
+      }
+
+      function setCatalogLoading(loading) {
+        const more = document.getElementById("catalog-more");
+        if (!more) return;
+        more.classList.toggle("is-loading", Boolean(loading));
+      }
+
+      function renderCatalogSkeletons(count) {
+        const wrap = document.getElementById("catalog-skeletons");
+        if (!wrap) return;
+        wrap.innerHTML = "";
+        for (let i = 0; i < count; i += 1) {
+          const card = document.createElement("div");
+          card.className = "skeleton-card";
+          card.innerHTML = `
+            <div class="skeleton-img skeleton-shimmer"></div>
+            <div class="skeleton-body">
+              <div class="skeleton-line short skeleton-shimmer"></div>
+              <div class="skeleton-line medium skeleton-shimmer"></div>
+              <div class="skeleton-line long skeleton-shimmer"></div>
+              <div class="skeleton-footer">
+                <div class="skeleton-pill price skeleton-shimmer"></div>
+                <div class="skeleton-pill btn skeleton-shimmer"></div>
+              </div>
+            </div>
+          `;
+          wrap.appendChild(card);
+        }
+        wrap.dataset.visible = count > 0 ? "true" : "false";
+      }
+
+      function clearCatalogSkeletons() {
+        const wrap = document.getElementById("catalog-skeletons");
+        if (!wrap) return;
+        wrap.innerHTML = "";
+        wrap.dataset.visible = "false";
+      }
+
+      function buildProductCardFromData(p) {
+        const name = (p && p.name) || "";
+        const images = (p && p.images) || [];
+        const category = (p && p.category) || "telegram";
+        const slug = (p && p.slug) || "";
+        const hasBuyLink = Boolean(p && p.hasBuyLink);
+        let card = null;
+        if (
+          category === "sneakers" &&
+          p &&
+          p.brandSlug &&
+          p.brandLabel &&
+          p.modelSlug &&
+          p.modelLabel
+        ) {
+          card = buildSneakerCard({
+            brandLabel: p.brandLabel,
+            brandSlug: p.brandSlug,
+            modelSlug: p.modelSlug,
+            modelLabel: p.modelLabel,
+            images,
+            productSlug: slug,
+            hasBuyLink,
+          });
+          card.dataset.source = "telegram";
+        } else {
+          card = buildTelegramCard({ name, images, category, slug, hasBuyLink });
+        }
+        if (p && p.latestTs) {
+          card.dataset.addedAt = String(p.latestTs);
+        }
+        return card;
+      }
+
+      async function appendNextBatch({ scrollToNew } = {}) {
         const grid = document.getElementById("grid");
         if (!grid) return;
+        if (isAppendingBatch) return;
 
         const prev = renderedProductsCount;
         const next = Math.min(
-          renderedProductsCount + catalogLimitStep,
+          renderedProductsCount + getCatalogBatchSize(),
           filteredProductsData.length,
         );
         if (next <= renderedProductsCount) return;
 
-        const frag = document.createDocumentFragment();
-        for (let i = renderedProductsCount; i < next; i += 1) {
-          const p = filteredProductsData[i];
-          const name = (p && p.name) || "";
-          const images = (p && p.images) || [];
-          const category = (p && p.category) || "telegram";
-          const slug = (p && p.slug) || "";
-          const hasBuyLink = Boolean(p && p.hasBuyLink);
-          let card = null;
-          if (
-            category === "sneakers" &&
-            p &&
-            p.brandSlug &&
-            p.brandLabel &&
-            p.modelSlug &&
-            p.modelLabel
-          ) {
-            card = buildSneakerCard({
-              brandLabel: p.brandLabel,
-              brandSlug: p.brandSlug,
-              modelSlug: p.modelSlug,
-              modelLabel: p.modelLabel,
-              images,
-              productSlug: slug,
-              hasBuyLink,
-            });
-            card.dataset.source = "telegram";
-          } else {
-            card = buildTelegramCard({ name, images, category, slug, hasBuyLink });
+        isAppendingBatch = true;
+        setCatalogLoading(true);
+        renderCatalogSkeletons(Math.min(next - renderedProductsCount, BATCH_RENDER_CHUNK));
+
+        for (let start = renderedProductsCount; start < next; start += BATCH_RENDER_CHUNK) {
+          const frag = document.createDocumentFragment();
+          const end = Math.min(start + BATCH_RENDER_CHUNK, next);
+          for (let i = start; i < end; i += 1) {
+            frag.appendChild(buildProductCardFromData(filteredProductsData[i]));
           }
-          if (p && p.latestTs) {
-            card.dataset.addedAt = String(p.latestTs);
-          }
-          frag.appendChild(card);
+          grid.appendChild(frag);
+          renderedProductsCount = end;
+          await new Promise((resolve) => requestAnimationFrame(() => resolve()));
         }
-        renderedProductsCount = next;
-        grid.appendChild(frag);
+
+        clearCatalogSkeletons();
+        setCatalogLoading(false);
+        isAppendingBatch = false;
         refreshSneakerBadges();
         refreshCustomerButtons();
         if (isAdminEnabled()) {
@@ -2309,15 +2456,19 @@
         if (!grid) return;
         filteredProductsData = getFilteredProductsData();
         renderedProductsCount = 0;
-        if (reset) {
-          catalogVisibleLimit = catalogLimitStep;
-        }
+        isAppendingBatch = false;
+        setCatalogLoading(false);
+        clearCatalogSkeletons();
         grid.querySelectorAll(".card").forEach((el) => el.remove());
-        appendNextBatch();
+        if (filteredProductsData.length > 0) {
+          renderCatalogSkeletons(Math.min(getCatalogBatchSize(), 6));
+          appendNextBatch();
+        } else {
+          updateCatalogMoreUi();
+        }
       }
 
       function filter(cat, btn) {
-        catalogVisibleLimit = catalogLimitStep;
         activeCategory = cat;
         activeBrand = "todos";
         activeModel = "todos";
@@ -3299,7 +3450,6 @@
         if (searchInput) {
           searchInput.addEventListener("input", function () {
             activeSearchQuery = normalizeSearchText(this.value);
-            catalogVisibleLimit = catalogLimitStep;
             applyFilters(true);
           });
         }
