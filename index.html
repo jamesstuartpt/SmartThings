@@ -2401,6 +2401,7 @@
         }
         if (p && p.latestTs) {
           card.dataset.addedAt = String(p.latestTs);
+          card.dataset.latestTs = String(p.latestTs);
         }
         return card;
       }
@@ -2713,6 +2714,21 @@
         return null;
       }
 
+      function findCardBySlug(slug) {
+        const cleanSlug = String(slug || "").trim().toLowerCase();
+        if (!cleanSlug) return null;
+        const cards = Array.from(
+          document.querySelectorAll(".products-grid > .card"),
+        );
+        for (const c of cards) {
+          const cardSlug = String(c.dataset.slug || "")
+            .trim()
+            .toLowerCase();
+          if (cardSlug === cleanSlug) return c;
+        }
+        return null;
+      }
+
       function focusCard(card) {
         if (!card) return;
         card.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -2723,6 +2739,61 @@
         }, 1200);
       }
 
+      const SPOTLIGHT_SLUGS = [
+        { slug: "asics_gel_nyc", meta: "ASICS Gel NYC" },
+        { slug: "nike_react_vision", meta: "Nike" },
+        { slug: "adidas_gazelle_og", meta: "Adidas" },
+      ];
+
+      const NEWS_SLUGS = [
+        { slug: "nike_react_vision", meta: "Tênis" },
+        { slug: "adidas_gazelle_og", meta: "Tênis" },
+        { slug: "adidas_ozwave", meta: "Tênis" },
+        { slug: "nike_x_nocta_chándal_completo", meta: "Conjunto" },
+        { slug: "carhartt_bordado", meta: "Conjunto" },
+        { slug: "corteiz", meta: "Conjunto" },
+        { slug: "adidas_campus_x_bad_bunny", meta: "Tênis" },
+        { slug: "asics_gel_nimbus_16", meta: "Tênis" },
+      ];
+
+      function addTileBySlug(container, slug, meta, pickedRef) {
+        const card = findCardBySlug(slug);
+        if (!card) return false;
+        if (pickedRef.has(card)) return false;
+
+        const brandLabel = getCardText(card, ".card-cat");
+        const modelLabel = getCardText(card, ".card-name");
+        const title = `${brandLabel} ${modelLabel}`.trim();
+        const img = card.querySelector("img");
+        const badgeEl = card.querySelector(".card-badge");
+        const badgeText = badgeEl
+          ? String(badgeEl.textContent || "").trim()
+          : "";
+        const badgeClass = badgeText.toLowerCase().includes("popular")
+          ? "popular"
+          : "";
+
+        const tile = buildHomeTile({
+          title: title || modelLabel || brandLabel || "",
+          meta: meta || "",
+          imageSrc: img ? img.src : "",
+          badgeText: badgeText || "Destaque",
+          badgeClass,
+        });
+        tile.addEventListener("click", () => {
+          const cat = card.dataset.cat || "todos";
+          filter(cat);
+          if (cat === "sneakers") {
+            filterBrand(card.dataset.brand || "todos");
+            filterModel(card.dataset.model || "todos");
+          }
+          focusCard(card);
+        });
+        container.appendChild(tile);
+        pickedRef.add(card);
+        return true;
+      }
+
       function initHomeShowcase() {
         const spotlight = document.getElementById("spotlight-strip");
         const news = document.getElementById("new-strip");
@@ -2731,53 +2802,44 @@
         news.innerHTML = "";
         const picked = new Set();
 
-        function addTile(container, card, metaText) {
-          if (!container || !card) return false;
-          if (picked.has(card)) return false;
-
-          const brandLabel = getCardText(card, ".card-cat");
-          const modelLabel = getCardText(card, ".card-name");
-          const title = `${brandLabel} ${modelLabel}`.trim();
-          const img = card.querySelector("img");
-          const badgeEl = card.querySelector(".card-badge");
-          const badgeText = badgeEl
-            ? String(badgeEl.textContent || "").trim()
-            : "";
-          const badgeClass = badgeText.toLowerCase().includes("popular")
-            ? "popular"
-            : "";
-
-          const tile = buildHomeTile({
-            title: title || modelLabel || brandLabel || "",
-            meta: metaText || "",
-            imageSrc: img ? img.src : "",
-            badgeText,
-            badgeClass,
-          });
-          tile.addEventListener("click", () => {
-            const cat = card.dataset.cat || "todos";
-            filter(cat);
-            if (cat === "sneakers") {
-              filterBrand(card.dataset.brand || "todos");
-              filterModel(card.dataset.model || "todos");
-            }
-            focusCard(card);
-          });
-          container.appendChild(tile);
-          picked.add(card);
-          return true;
+        for (const item of SPOTLIGHT_SLUGS) {
+          addTileBySlug(spotlight, item.slug, item.meta, picked);
         }
 
-        for (const rule of POPULAR_SNEAKERS) {
-          const card = findSneakerCard(rule);
-          if (!card) continue;
-          addTile(spotlight, card, "Sneakers");
+        for (const item of NEWS_SLUGS) {
+          addTileBySlug(news, item.slug, item.meta, picked);
         }
 
-        for (const rule of NEW_SNEAKERS) {
-          const card = findSneakerCard(rule);
-          if (!card) continue;
-          addTile(news, card, "Novidade");
+        if (spotlight.childElementCount < 3) {
+          for (const rule of POPULAR_SNEAKERS) {
+            if (spotlight.childElementCount >= 6) break;
+            const card = findSneakerCard(rule);
+            if (!card) continue;
+            if (picked.has(card)) continue;
+
+            const brandLabel = getCardText(card, ".card-cat");
+            const modelLabel = getCardText(card, ".card-name");
+            const title = `${brandLabel} ${modelLabel}`.trim();
+            const img = card.querySelector("img");
+            const tile = buildHomeTile({
+              title: title || modelLabel || brandLabel || "",
+              meta: "Destaque",
+              imageSrc: img ? img.src : "",
+              badgeText: "Destaque",
+              badgeClass: "popular",
+            });
+            tile.addEventListener("click", () => {
+              const cat = card.dataset.cat || "todos";
+              filter(cat);
+              if (cat === "sneakers") {
+                filterBrand(card.dataset.brand || "todos");
+                filterModel(card.dataset.model || "todos");
+              }
+              focusCard(card);
+            });
+            spotlight.appendChild(tile);
+            picked.add(card);
+          }
         }
 
         if (spotlight.childElementCount === 0) {
@@ -2786,40 +2848,103 @@
               '.products-grid > .card[data-cat="sneakers"]',
             ),
           ).slice(0, 4);
-          fallback.forEach((c) => addTile(spotlight, c, "Sneakers"));
+          fallback.forEach((c) => {
+            if (picked.has(c)) return;
+            const brandLabel = getCardText(c, ".card-cat");
+            const modelLabel = getCardText(c, ".card-name");
+            const title = `${brandLabel} ${modelLabel}`.trim();
+            const img = c.querySelector("img");
+            const tile = buildHomeTile({
+              title: title || modelLabel || brandLabel || "",
+              meta: "Sneakers",
+              imageSrc: img ? img.src : "",
+              badgeText: "Destaque",
+              badgeClass: "",
+            });
+            tile.addEventListener("click", () => {
+              const cat = c.dataset.cat || "todos";
+              filter(cat);
+              if (cat === "sneakers") {
+                filterBrand(c.dataset.brand || "todos");
+                filterModel(c.dataset.model || "todos");
+              }
+              focusCard(c);
+            });
+            spotlight.appendChild(tile);
+            picked.add(c);
+          });
+        }
+
+        const cardsSortedByTs = Array.from(
+          document.querySelectorAll(".products-grid > .card"),
+        ).sort((a, b) => {
+          const ta = Number(a.dataset.latestTs || 0);
+          const tb = Number(b.dataset.latestTs || 0);
+          return tb - ta;
+        });
+
+        if (news.childElementCount < 6) {
+          const priorityCategories = new Set([
+            "sneakers",
+            "roupas",
+          ]);
+          for (const c of cardsSortedByTs) {
+            if (news.childElementCount >= 8) break;
+            if (picked.has(c)) continue;
+            const cat = c.dataset.cat || "";
+            if (!priorityCategories.has(cat)) continue;
+            const brandLabel = getCardText(c, ".card-cat");
+            const modelLabel = getCardText(c, ".card-name");
+            const title = `${brandLabel} ${modelLabel}`.trim();
+            const img = c.querySelector("img");
+            const metaText = cat === "roupas" ? "Conjunto" : "Tênis";
+            const tile = buildHomeTile({
+              title: title || modelLabel || brandLabel || "",
+              meta: metaText,
+              imageSrc: img ? img.src : "",
+              badgeText: "Novidade",
+              badgeClass: "",
+            });
+            tile.addEventListener("click", () => {
+              const catItem = c.dataset.cat || "todos";
+              filter(catItem);
+              if (catItem === "sneakers") {
+                filterBrand(c.dataset.brand || "todos");
+                filterModel(c.dataset.model || "todos");
+              }
+              focusCard(c);
+            });
+            news.appendChild(tile);
+            picked.add(c);
+          }
         }
 
         if (news.childElementCount === 0) {
-          const cards = Array.from(
-            document.querySelectorAll(".products-grid > .card"),
-          );
-          const nov = [];
-          for (const c of cards) {
-            if (picked.has(c)) continue;
-            const badge = c.querySelector(".card-badge");
-            const txt = badge
-              ? String(badge.textContent || "")
-                  .trim()
-                  .toLowerCase()
-              : "";
-            if (txt === "novo") nov.push(c);
-            if (nov.length >= 4) break;
-          }
-          if (nov.length === 0) {
-            const fallback = Array.from(
-              document.querySelectorAll(
-                '.products-grid > .card[data-cat="sneakers"]',
-              ),
-            ).slice(0, 4);
-            fallback.forEach((c) => addTile(news, c, "Novidade"));
-          } else {
-            nov.forEach((c) => addTile(news, c, "Novidade"));
-          }
-        }
-
-        const kilburn = document.getElementById("product-marshall-kilburn-ii");
-        if (kilburn) {
-          addTile(news, kilburn, "Tecnologia");
+          cardsSortedByTs.slice(0, 6).forEach((c) => {
+            if (picked.has(c)) return;
+            const brandLabel = getCardText(c, ".card-cat");
+            const modelLabel = getCardText(c, ".card-name");
+            const title = `${brandLabel} ${modelLabel}`.trim();
+            const img = c.querySelector("img");
+            const tile = buildHomeTile({
+              title: title || modelLabel || brandLabel || "",
+              meta: "Novidade",
+              imageSrc: img ? img.src : "",
+              badgeText: "Novidade",
+              badgeClass: "",
+            });
+            tile.addEventListener("click", () => {
+              const catItem = c.dataset.cat || "todos";
+              filter(catItem);
+              if (catItem === "sneakers") {
+                filterBrand(c.dataset.brand || "todos");
+                filterModel(c.dataset.model || "todos");
+              }
+              focusCard(c);
+            });
+            news.appendChild(tile);
+            picked.add(c);
+          });
         }
       }
 
