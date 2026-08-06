@@ -1,3706 +1,653 @@
-<!doctype html>
-<html lang="pt">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Smart Things PT — Catálogo</title>
-    <script>
-      (() => {
-        const build = "buy-redirect-20260718";
-        try {
-          const url = new URL(window.location.href);
-          const v = url.searchParams.get("v");
-          if (v !== build) {
-            url.searchParams.set("v", build);
-            window.location.replace(url.toString());
-          }
-        } catch {}
-      })();
-    </script>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap"
-      rel="stylesheet"
-    />
-    <style>
-      *,
-      *::before,
-      *::after {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Things PT — Catálogo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #ffffff;
+      --bg-muted: #f7f7f7;
+      --text-primary: #111111;
+      --text-secondary: #555555;
+      --text-tertiary: #888888;
+      --text-quaternary: #aaaaaa;
+      --border: #e5e5e5;
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 12px;
+      --shadow: 0 1px 3px rgba(0,0,0,0.04);
+      --transition: 0.2s ease-out;
+    }
 
+    @media (prefers-color-scheme: dark) {
       :root {
         --bg: #0a0a0a;
-        --bg2: #111111;
-        --bg3: #1a1a1a;
-        --border: rgba(255, 255, 255, 0.08);
-        --border-hover: rgba(255, 255, 255, 0.18);
-        --text: #f0f0f0;
-        --text2: #888;
-        --text3: #555;
-        --accent: #e8ff47;
-        --accent2: #c8e820;
-        --accent-dark: #1a1f00;
-        --radius: 16px;
-        --radius-sm: 8px;
+        --bg-muted: #141414;
+        --text-primary: #f0f0f0;
+        --text-secondary: #a0a0a0;
+        --text-tertiary: #666666;
+        --text-quaternary: #444444;
+        --border: #222222;
       }
+    }
 
-      html {
-        scroll-behavior: smooth;
-      }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
-      body {
-        background: var(--bg);
-        color: var(--text);
-        font-family: "DM Sans", sans-serif;
-        font-size: 16px;
-        line-height: 1.6;
-        min-height: 100vh;
-      }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 1.5;
+      color: var(--text-primary);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+    }
 
-      /* NAV */
-      nav {
-        position: sticky;
-        top: 0;
-        z-index: 100;
-        background: rgba(10, 10, 10, 0.85);
-        backdrop-filter: blur(16px);
-        border-bottom: 1px solid var(--border);
-        padding: 0 max(24px, 5vw);
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        height: 64px;
-      }
-      .logo {
-        font-family: "Syne", sans-serif;
-        font-weight: 800;
-        font-size: 20px;
-        color: var(--text);
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-      }
-      .logo span {
-        color: var(--accent);
-      }
-      .nav-contact {
-        background: var(--accent);
-        color: #0a0a0a;
-        border: none;
-        border-radius: 100px;
-        padding: 10px 22px;
-        font-family: "DM Sans", sans-serif;
-        font-size: 14px;
-        font-weight: 500;
-        cursor: pointer;
-        text-decoration: none;
-        transition:
-          background 0.2s,
-          transform 0.15s;
-        white-space: nowrap;
-      }
-      .nav-contact:hover {
-        background: var(--accent2);
-        transform: scale(1.03);
-      }
+    a { color: inherit; text-decoration: none; }
 
-      /* HERO */
-      .hero {
-        padding: max(44px, 6vh) max(24px, 5vw) 22px;
-        max-width: 960px;
-        margin: 0 auto;
-      }
-      .hero-tag {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        background: var(--bg3);
-        border: 1px solid var(--border);
-        border-radius: 100px;
-        padding: 6px 14px;
-        font-size: 13px;
-        color: var(--text2);
-        margin-bottom: 18px;
-      }
-      .hero-tag span {
-        width: 6px;
-        height: 6px;
-        border-radius: 50%;
-        background: var(--accent);
-        display: inline-block;
-        animation: pulse 2s infinite;
-      }
-      @keyframes pulse {
-        0%,
-        100% {
-          opacity: 1;
-        }
-        50% {
-          opacity: 0.3;
-        }
-      }
-      .hero h1 {
-        font-family: "Syne", sans-serif;
-        font-weight: 800;
-        font-size: clamp(36px, 6vw, 72px);
-        line-height: 1.05;
-        letter-spacing: -0.03em;
-        margin-bottom: 20px;
-      }
-      .hero h1 em {
-        color: var(--accent);
-        font-style: normal;
-      }
-      .hero p {
-        font-size: 18px;
-        color: var(--text2);
-        max-width: 480px;
-        line-height: 1.6;
-        margin-bottom: 32px;
-      }
-      .hero-actions {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        flex-wrap: wrap;
-      }
-      .hero-note {
-        margin-top: 14px;
-        font-size: 13px;
-        color: var(--text3);
-        max-width: 520px;
-        line-height: 1.5;
-      }
-      .hero-note a {
-        color: var(--accent);
-        text-decoration: none;
-      }
-      .hero-note a:hover {
-        text-decoration: underline;
-      }
-      .btn-primary {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        background: var(--accent);
-        color: #0a0a0a;
-        border: none;
-        border-radius: 100px;
-        padding: 14px 28px;
-        font-family: "DM Sans", sans-serif;
-        font-size: 15px;
-        font-weight: 500;
-        cursor: pointer;
-        text-decoration: none;
-        transition:
-          background 0.2s,
-          transform 0.15s;
-      }
-      .btn-primary:hover {
-        background: var(--accent2);
-        transform: scale(1.03);
-      }
-      .btn-secondary {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        background: transparent;
-        color: var(--text);
-        border: 1px solid var(--border);
-        border-radius: 100px;
-        padding: 14px 28px;
-        font-family: "DM Sans", sans-serif;
-        font-size: 15px;
-        font-weight: 400;
-        cursor: pointer;
-        text-decoration: none;
-        transition:
-          border-color 0.2s,
-          background 0.2s;
-      }
-      .btn-secondary:hover {
-        border-color: var(--border-hover);
-        background: var(--bg3);
-      }
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
 
-      /* STATS */
-      .stats {
-        max-width: 960px;
-        margin: 0 auto;
-        padding: 28px 0;
-        display: flex;
-        gap: 0;
-        border: 1px solid var(--border);
-        border-radius: var(--radius);
-        overflow: hidden;
-        background: var(--bg2);
-      }
-      .stat {
-        flex: 1;
-        padding: 0 32px;
-        border-right: 1px solid var(--border);
-      }
-      .stat:last-child {
-        border-right: none;
-      }
-      .stat-num {
-        font-family: "Syne", sans-serif;
-        font-weight: 800;
-        font-size: 32px;
-        color: var(--accent);
-        line-height: 1;
-        margin-bottom: 4px;
-      }
-      .stat-label {
-        font-size: 13px;
-        color: var(--text3);
-      }
+    /* Header */
+    .header {
+      text-align: center;
+      padding: 48px 0 16px;
+    }
+    .header h1 {
+      font-size: 22px;
+      font-weight: 500;
+      letter-spacing: 0.3px;
+    }
+    .header p {
+      font-size: 14px;
+      color: var(--text-secondary);
+      margin-top: 6px;
+    }
 
-      /* FILTER */
-      .section-header {
-        max-width: 960px;
-        margin: 26px auto 0;
-        padding: 0 max(24px, 5vw) 24px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        gap: 16px;
-      }
-      .section-title {
-        font-family: "Syne", sans-serif;
-        font-weight: 700;
-        font-size: 24px;
-      }
-      .filters {
-        display: flex;
-        gap: 8px;
-        flex-wrap: wrap;
-      }
-      .filter-btn {
-        background: var(--bg3);
-        border: 1px solid var(--border);
-        color: var(--text2);
-        border-radius: 100px;
-        padding: 8px 18px;
-        font-family: "DM Sans", sans-serif;
-        font-size: 13px;
-        cursor: pointer;
-        transition: all 0.15s;
-      }
-      .filter-btn:hover,
-      .filter-btn.active {
-        background: var(--accent);
-        color: #0a0a0a;
-        border-color: var(--accent);
-      }
-      .brand-filters {
-        width: 100%;
-        padding: 10px 12px;
-        border: 1px solid var(--border);
-        border-radius: var(--radius);
-        background: rgba(17, 17, 17, 0.55);
-        gap: 10px;
-      }
-      .brand-filters .brand-chip {
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-        border-radius: 12px;
-        padding: 10px 12px;
-        font-weight: 800;
-        font-size: 12px;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        background: rgba(0, 0, 0, 0.1);
-        border: 1px solid rgba(255, 255, 255, 0.12);
-        color: rgba(255, 255, 255, 0.75);
-      }
-      .brand-filters .brand-chip::before {
-        content: "";
-        width: 10px;
-        height: 10px;
-        border-radius: 999px;
-        background: var(--brand-color, var(--accent));
-        box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.06);
-        flex: 0 0 10px;
-      }
-      .brand-filters .brand-chip:hover,
-      .brand-filters .brand-chip.active {
-        background: rgba(0, 0, 0, 0.2);
-        border-color: rgba(255, 255, 255, 0.22);
-        color: var(--text);
-      }
-      .brand-filters[data-visible="false"] {
-        display: none;
-      }
-      .model-filters[data-visible="false"] {
-        display: none;
-      }
-      .model-select {
-        background: var(--bg3);
-        color: var(--text);
-        border: 1px solid var(--border);
-        padding: 8px 12px;
-        border-radius: 100px;
-        font-family: inherit;
-        font-size: 13px;
-        outline: none;
-        min-width: 220px;
-      }
-      .catalog-search {
-        width: 100%;
-      }
-      .search-input {
-        width: min(420px, 100%);
-        background: var(--accent);
-        color: #0a0a0a;
-        border: 1px solid var(--accent);
-        border-radius: 999px;
-        padding: 12px 16px;
-        font-family: inherit;
-        font-weight: 700;
-        font-size: 14px;
-        outline: none;
-        transition: border-color 0.15s, box-shadow 0.15s;
-      }
-      .search-input::placeholder {
-        color: rgba(10, 10, 10, 0.72);
-      }
-      .search-input:focus {
-        border-color: var(--accent2);
-        box-shadow: 0 0 0 4px rgba(214, 255, 59, 0.22);
-      }
+    /* Badges */
+    .badges {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      padding: 20px 0;
+      font-size: 13px;
+      color: var(--text-secondary);
+      flex-wrap: wrap;
+    }
+    .badges span {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
 
-      /* SNEAKER CONTROLS OVERLAYS */
-      .angle-container {
-        display: flex;
-        gap: 4px;
-        margin: 10px 0;
-        flex-wrap: wrap;
-      }
-      .angle-dot {
-        background: var(--bg3);
-        border: 1px solid var(--border);
-        color: var(--text2);
-        font-size: 11px;
-        padding: 4px 10px;
-        border-radius: 6px;
-        cursor: pointer;
-        font-weight: 600;
-        transition: 0.15s;
-      }
-      .angle-dot.active {
-        background: var(--text);
-        color: var(--bg);
-        border-color: var(--text);
-      }
-      .size-select {
-        background: var(--bg3);
-        color: var(--text);
-        border: 1px solid var(--border);
-        padding: 8px;
-        border-radius: var(--radius-sm);
-        width: 100%;
-        font-family: inherit;
-        font-size: 13px;
-        margin-top: 5px;
-        outline: none;
-      }
+    /* Tabs */
+    .tabs {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      padding: 8px 0 24px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 28px;
+      flex-wrap: wrap;
+    }
+    .tab {
+      padding: 8px 16px;
+      border-radius: var(--radius-sm);
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      background: transparent;
+      color: var(--text-secondary);
+      border: none;
+      transition: all var(--transition);
+      font-family: inherit;
+    }
+    .tab:hover {
+      background: var(--bg-muted);
+      color: var(--text-primary);
+    }
+    .tab.active {
+      background: var(--text-primary);
+      color: var(--bg);
+    }
 
-      /* GRID */
-      .products-grid {
-        max-width: 960px;
-        margin: 0 auto;
-        padding: 0 max(24px, 5vw) 80px;
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
-        gap: 16px;
-      }
+    /* Sections */
+    .section { display: none; animation: fadeIn 0.3s ease; }
+    .section.active { display: block; }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
 
-      .home-section {
-        max-width: 960px;
-        margin: 0 auto;
-        padding: 0 max(24px, 5vw) 22px;
+    /* Product Grid */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 16px;
+    }
+    .card {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 12px;
+      background: var(--bg);
+      transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
+      cursor: pointer;
+    }
+    .card:hover {
+      border-color: var(--text-primary);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+    .card-img {
+      width: 100%;
+      aspect-ratio: 1;
+      background: var(--bg-muted);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 40px;
+      margin-bottom: 12px;
+      overflow: hidden;
+    }
+    .card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .card-name {
+      font-size: 14px;
+      font-weight: 500;
+      margin: 0 0 4px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .card-price {
+      font-size: 16px;
+      font-weight: 500;
+      margin: 0;
+      color: var(--text-primary);
+    }
+    .card-tag {
+      display: inline-block;
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: var(--radius-sm);
+      margin-top: 8px;
+      font-weight: 500;
+      letter-spacing: 0.2px;
+    }
+    .tag-pop {
+      background: var(--bg-muted);
+      color: var(--text-primary);
+    }
+    .tag-new {
+      background: rgba(34, 197, 94, 0.12);
+      color: #16a34a;
+    }
+    @media (prefers-color-scheme: dark) {
+      .tag-new {
+        background: rgba(34, 197, 94, 0.15);
+        color: #4ade80;
       }
-      .home-head {
-        display: flex;
-        align-items: baseline;
-        justify-content: space-between;
-        gap: 12px;
-        margin: 10px 0 12px;
-      }
-      .home-title {
-        font-family: "Syne", sans-serif;
-        font-weight: 800;
-        font-size: 18px;
-      }
-      .home-sub {
-        font-size: 13px;
-        color: var(--text3);
-      }
-      .home-strip {
-        display: flex;
-        gap: 12px;
-        overflow-x: auto;
-        overscroll-behavior-x: contain;
-        padding-bottom: 6px;
-      }
-      .home-strip::-webkit-scrollbar {
-        height: 8px;
-      }
-      .home-strip::-webkit-scrollbar-thumb {
-        background: rgba(255, 255, 255, 0.1);
-        border-radius: 999px;
-      }
-      .home-tile {
-        flex: 0 0 240px;
-        background: var(--bg2);
-        border: 1px solid var(--border);
-        border-radius: var(--radius);
-        overflow: hidden;
-        cursor: pointer;
-        transition:
-          border-color 0.2s,
-          transform 0.2s;
-      }
-      .home-tile:hover {
-        border-color: var(--border-hover);
-        transform: translateY(-2px);
-      }
-      .home-tile .tile-img {
-        aspect-ratio: 4/3;
-        background: #fff;
-        position: relative;
-        overflow: hidden;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      .home-tile .tile-img img {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-        padding: 10px;
-      }
-      .home-tile .tile-body {
-        padding: 14px 14px 16px 14px;
-      }
-      .home-tile .tile-name {
-        font-family: "Syne", sans-serif;
-        font-weight: 700;
-        font-size: 15px;
-        line-height: 1.2;
-      }
-      .home-tile .tile-meta {
-        margin-top: 6px;
-        font-size: 12px;
-        color: var(--text3);
-      }
+    }
 
-      .catalog-divider {
-        max-width: 960px;
-        margin: 12px auto 0;
-        padding: 0 max(24px, 5vw);
-        display: flex;
-        align-items: center;
-        gap: 14px;
-      }
-      .catalog-divider .line {
-        height: 1px;
-        background: var(--border);
-        flex: 1;
-      }
-      .catalog-divider .label {
-        font-size: 12px;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        color: var(--text3);
-      }
+    /* CTA Button */
+    .cta-wrap {
+      text-align: center;
+      margin-top: 28px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 11px 28px;
+      background: var(--text-primary);
+      color: var(--bg);
+      border-radius: var(--radius-sm);
+      font-size: 14px;
+      font-weight: 500;
+      transition: opacity var(--transition);
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+    }
+    .btn:hover { opacity: 0.85; }
+    .btn-outline {
+      background: transparent;
+      color: var(--text-primary);
+      border: 1px solid var(--border);
+    }
+    .btn-outline:hover {
+      border-color: var(--text-primary);
+      opacity: 1;
+    }
 
-      .catalog-more {
-        max-width: 960px;
-        margin: 0 auto 28px;
-        padding: 0 max(24px, 5vw);
-        display: flex;
-        justify-content: center;
-      }
-      .catalog-more[data-visible="false"] {
-        display: none;
-      }
-      .catalog-more.is-loading .btn-primary {
-        opacity: 0.75;
-        pointer-events: none;
-      }
-      .catalog-skeletons {
-        max-width: 960px;
-        margin: 0 auto 28px;
-        padding: 0 max(24px, 5vw);
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
-        gap: 16px;
-      }
-      .catalog-skeletons[data-visible="false"] {
-        display: none;
-      }
-      .skeleton-card {
-        background: var(--bg2);
-        border: 1px solid var(--border);
-        border-radius: var(--radius);
-        overflow: hidden;
-      }
-      .skeleton-shimmer {
-        position: relative;
-        overflow: hidden;
-        background: linear-gradient(
-          90deg,
-          rgba(255, 255, 255, 0.04) 0%,
-          rgba(255, 255, 255, 0.08) 50%,
-          rgba(255, 255, 255, 0.04) 100%
-        );
-        background-size: 200% 100%;
-        animation: shimmer 1.15s linear infinite;
-      }
-      .skeleton-img {
-        aspect-ratio: 4/3;
-      }
-      .skeleton-body {
-        padding: 14px;
-      }
-      .skeleton-line {
-        height: 12px;
-        border-radius: 999px;
-        margin-bottom: 10px;
-      }
-      .skeleton-line.short {
-        width: 40%;
-      }
-      .skeleton-line.medium {
-        width: 68%;
-      }
-      .skeleton-line.long {
-        width: 92%;
-      }
-      .skeleton-footer {
-        display: flex;
-        justify-content: space-between;
-        gap: 12px;
-        margin-top: 14px;
-      }
-      .skeleton-pill {
-        height: 14px;
-        border-radius: 999px;
-        flex: 1;
-      }
-      .skeleton-pill.price {
-        max-width: 72px;
-      }
-      .skeleton-pill.btn {
-        max-width: 120px;
-      }
-      @keyframes shimmer {
-        from {
-          background-position: 200% 0;
-        }
-        to {
-          background-position: -200% 0;
-        }
-      }
+    /* Steps */
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 8px;
+    }
+    .step {
+      text-align: center;
+      padding: 24px 16px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+    }
+    .step-num {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--text-primary);
+      color: var(--bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 500;
+      margin: 0 auto 12px;
+    }
+    .step h3 {
+      font-size: 14px;
+      font-weight: 500;
+      margin: 0 0 6px;
+    }
+    .step p {
+      font-size: 13px;
+      color: var(--text-secondary);
+      margin: 0;
+      line-height: 1.5;
+    }
 
-      .card {
-        background: var(--bg2);
-        border: 1px solid var(--border);
-        border-radius: var(--radius);
-        overflow: hidden;
-        transition:
-          border-color 0.2s,
-          transform 0.2s;
-        cursor: default;
-        display: flex;
-        flex-direction: column;
-      }
-      .card:hover {
-        border-color: var(--border-hover);
-        transform: translateY(-2px);
-      }
-      .card-img {
-        aspect-ratio: 4/3;
-        background: #fff;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        position: relative;
-        overflow: hidden;
-      }
-      .card-img img {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-        padding: 12px;
-      }
-      .card-badge {
-        position: absolute;
-        top: 12px;
-        left: 12px;
-        background: var(--accent);
-        color: #0a0a0a;
-        font-size: 11px;
-        font-weight: 800;
-        letter-spacing: 0.04em;
-        border-radius: 100px;
-        padding: 6px 12px;
-        text-transform: uppercase;
-        box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
-      }
-      .card-badge.popular {
-        background: var(--accent2);
-      }
-      .card-badge.sold {
-        background: var(--bg3);
-        color: var(--text3);
-        border: 1px solid var(--border);
-      }
-      .card-body {
-        padding: 20px;
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-      }
-      .card-cat {
-        font-size: 11px;
-        text-transform: uppercase;
-        letter-spacing: 0.08em;
-        color: var(--text3);
-        margin-bottom: 6px;
-      }
-      .card-name {
-        font-family: "Syne", sans-serif;
-        font-weight: 600;
-        font-size: 17px;
-        line-height: 1.3;
-        margin-bottom: 8px;
-        color: var(--text);
-      }
-      .card-desc {
-        font-size: 13px;
-        color: var(--text2);
-        line-height: 1.5;
-        margin-bottom: 16px;
-        flex: 1;
-      }
-      .card-footer {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        border-top: 1px solid var(--border);
-        padding-top: 16px;
-        margin-top: auto;
-      }
-      .card-price {
-        font-family: "Syne", sans-serif;
-        font-weight: 700;
-        font-size: 20px;
-        color: var(--text);
-      }
-      .card-price .old {
-        font-size: 13px;
-        color: var(--text3);
-        text-decoration: line-through;
-        font-weight: 400;
-        margin-right: 4px;
-      }
-      .card-btn {
-        background: var(--accent);
-        color: #0a0a0a;
-        border: none;
-        border-radius: 100px;
-        padding: 9px 18px;
-        font-family: "DM Sans", sans-serif;
-        font-size: 13px;
-        font-weight: 500;
-        cursor: pointer;
-        text-decoration: none;
-        transition:
-          background 0.15s,
-          transform 0.1s;
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-      }
-      .card-btn:hover {
-        background: var(--accent2);
-        transform: scale(1.04);
-      }
-      .card-btn.sold-btn {
-        background: var(--bg3);
-        color: var(--text3);
-        cursor: default;
-        pointer-events: none;
-      }
+    /* FAQ */
+    .faq-item {
+      border-bottom: 1px solid var(--border);
+    }
+    .faq-q {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 0;
+      font-size: 15px;
+      font-weight: 500;
+      cursor: pointer;
+      user-select: none;
+    }
+    .faq-q::after {
+      content: '+';
+      font-size: 20px;
+      color: var(--text-tertiary);
+      transition: transform var(--transition);
+      font-weight: 400;
+      min-width: 20px;
+      text-align: center;
+    }
+    .faq-item.open .faq-q::after {
+      transform: rotate(45deg);
+    }
+    .faq-a {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+    .faq-item.open .faq-a {
+      max-height: 200px;
+    }
+    .faq-a p {
+      font-size: 14px;
+      color: var(--text-secondary);
+      margin: 0 0 18px;
+      line-height: 1.6;
+    }
 
-      /* CTA BANNER */
-      .cta-banner {
-        max-width: 960px;
-        margin: 0 auto 80px;
-        padding: 0 max(24px, 5vw);
-      }
-      .cta-inner {
-        background: var(--accent);
-        border-radius: 24px;
-        padding: 48px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 24px;
-        flex-wrap: wrap;
-      }
-      .cta-inner h2 {
-        font-family: "Syne", sans-serif;
-        font-weight: 800;
-        font-size: clamp(22px, 4vw, 36px);
-        color: #0a0a0a;
-        line-height: 1.15;
-        max-width: 400px;
-      }
-      .cta-inner h2 small {
-        display: block;
-        font-weight: 400;
-        font-size: 0.55em;
-        color: #444;
-        margin-top: 6px;
-        font-family: "DM Sans", sans-serif;
-      }
-      .cta-btns {
-        display: flex;
-        gap: 12px;
-        flex-wrap: wrap;
-      }
-      .cta-wa {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        background: #0a0a0a;
-        color: #f0f0f0;
-        border-radius: 100px;
-        padding: 14px 28px;
-        font-family: "DM Sans", sans-serif;
-        font-size: 15px;
-        font-weight: 500;
-        text-decoration: none;
-        transition:
-          background 0.2s,
-          transform 0.15s;
-      }
-      .cta-wa:hover {
-        background: #1a1a1a;
-        transform: scale(1.03);
-      }
-      .cta-email {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        background: rgba(0, 0, 0, 0.12);
-        color: #0a0a0a;
-        border-radius: 100px;
-        padding: 14px 28px;
-        font-family: "DM Sans", sans-serif;
-        font-size: 15px;
-        font-weight: 500;
-        text-decoration: none;
-        transition: background 0.2s;
-      }
-      .cta-email:hover {
-        background: rgba(0, 0, 0, 0.2);
-      }
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 40px 0 24px;
+      font-size: 13px;
+      color: var(--text-quaternary);
+    }
+    .footer a {
+      color: var(--text-secondary);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .footer a:hover { color: var(--text-primary); }
 
-      .faq {
-        max-width: 960px;
-        margin: 0 auto 40px;
-        padding: 0 max(24px, 5vw);
-      }
-      .faq-inner {
-        background: var(--bg2);
-        border: 1px solid var(--border);
-        border-radius: 24px;
-        padding: 28px;
-      }
-      .faq-title {
-        font-family: "Syne", sans-serif;
-        font-weight: 800;
-        font-size: 22px;
-        margin-bottom: 14px;
-      }
-      details.faq-item {
-        border-top: 1px solid var(--border);
-        padding: 14px 0;
-      }
-      details.faq-item:first-of-type {
-        border-top: none;
-        padding-top: 0;
-      }
-      details.faq-item summary {
-        cursor: pointer;
-        list-style: none;
-        font-weight: 700;
-      }
-      details.faq-item summary::-webkit-details-marker {
-        display: none;
-      }
-      .faq-answer {
-        margin-top: 10px;
-        color: var(--text2);
-      }
+    /* Responsive */
+    @media (max-width: 600px) {
+      .grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+      .steps { grid-template-columns: 1fr; }
+      .header { padding: 32px 0 12px; }
+      .header h1 { font-size: 20px; }
+      .badges { gap: 16px; font-size: 12px; }
+      .tabs { gap: 6px; }
+      .tab { padding: 7px 12px; font-size: 13px; }
+    }
+  </style>
+</head>
+<body>
 
-      /* FOOTER */
-      footer {
-        border-top: 1px solid var(--border);
-        padding: 32px max(24px, 5vw);
-        max-width: 960px;
-        margin: 0 auto;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        gap: 12px;
-      }
-      footer .logo {
-        font-size: 16px;
-      }
-      footer p {
-        font-size: 13px;
-        color: var(--text3);
-      }
+  <div class="container">
 
-      /* RESPONSIVE */
-      @media (max-width: 600px) {
-        nav {
-          height: 56px;
-          padding: 0 16px;
-        }
-        .hero {
-          padding: max(32px, 5vh) 16px 18px;
-        }
-        .hero p {
-          font-size: 16px;
-        }
-        .products-grid {
-          grid-template-columns: repeat(2, minmax(0, 1fr));
-          gap: 12px;
-          padding: 0 16px 72px;
-        }
-        .catalog-skeletons {
-          grid-template-columns: repeat(2, minmax(0, 1fr));
-          gap: 12px;
-          padding: 0 16px;
-        }
-        .home-section {
-          padding: 0 16px 22px;
-        }
-        .search-input {
-          width: 100%;
-        }
-        .card-img {
-          aspect-ratio: 1/1;
-        }
-        .card-img img {
-          object-fit: cover;
-          padding: 0;
-        }
-        .home-tile .tile-img {
-          aspect-ratio: 1/1;
-        }
-        .home-tile .tile-img img {
-          object-fit: cover;
-          padding: 0;
-        }
-        .card-body {
-          padding: 14px;
-        }
-        .home-tile {
-          flex-basis: 210px;
-        }
-        .stats {
-          flex-direction: column;
-          gap: 16px;
-        }
-        .stat {
-          border-right: none;
-          border-bottom: 1px solid var(--border);
-          padding-bottom: 16px;
-        }
-        .stat:last-child {
-          border-bottom: none;
-          padding-bottom: 0;
-        }
-        .cta-inner {
-          padding: 28px 16px;
-        }
-        footer {
-          padding: 28px 16px;
-          flex-direction: column;
-          align-items: flex-start;
-        }
-      }
+    <!-- Header -->
+    <header class="header">
+      <h1>Smart Things PT</h1>
+      <p>Catálogo atualizado · Preços imbatíveis · Envio para todo o país</p>
+    </header>
 
-      @media (max-width: 420px) {
-        .products-grid {
-          grid-template-columns: minmax(0, 1fr);
-        }
-        .catalog-skeletons {
-          grid-template-columns: minmax(0, 1fr);
-        }
-        .home-tile {
-          flex-basis: 190px;
-        }
-      }
+    <!-- Badges -->
+    <div class="badges">
+      <span id="badge-count">📦 … produtos</span>
+      <span>🚚 10–15 dias</span>
+      <span>⭐ 5★ clientes</span>
+    </div>
 
-      /* HIDDEN */
-      .card[data-hidden="true"] {
-        display: none;
-      }
-
-      .admin-fab[data-visible="false"] {
-        display: none;
-      }
-      .admin-fab {
-        position: fixed;
-        right: 18px;
-        bottom: calc(18px + env(safe-area-inset-bottom));
-        z-index: 50;
-        background: rgba(0, 0, 0, 0.7);
-        border: 1px solid var(--border);
-        color: var(--text);
-        padding: 10px 12px;
-        border-radius: 999px;
-        font-size: 13px;
-        font-weight: 700;
-        cursor: pointer;
-        backdrop-filter: blur(10px);
-      }
-      .admin-modal[data-open="false"] {
-        display: none;
-      }
-      .admin-modal {
-        position: fixed;
-        inset: 0;
-        z-index: 60;
-        background: rgba(0, 0, 0, 0.65);
-        backdrop-filter: blur(6px);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 18px;
-      }
-      .admin-dialog {
-        width: min(960px, 100%);
-        max-height: min(80vh, 720px);
-        overflow: hidden;
-        background: rgba(15, 15, 15, 0.92);
-        border: 1px solid var(--border);
-        border-radius: 18px;
-        box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
-        display: flex;
-        flex-direction: column;
-      }
-      .admin-header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 14px 14px 10px 14px;
-        border-bottom: 1px solid var(--border);
-        gap: 12px;
-      }
-      .admin-title {
-        font-size: 14px;
-        font-weight: 800;
-        letter-spacing: 0.4px;
-        text-transform: uppercase;
-        color: var(--text2);
-      }
-      .admin-close {
-        background: transparent;
-        border: 1px solid var(--border);
-        color: var(--text);
-        width: 34px;
-        height: 34px;
-        border-radius: 10px;
-        cursor: pointer;
-      }
-      .admin-actions {
-        display: flex;
-        gap: 8px;
-        padding: 12px 14px;
-        border-bottom: 1px solid var(--border);
-        flex-wrap: wrap;
-      }
-      .admin-list {
-        padding: 14px;
-        overflow: auto;
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-      }
-      .admin-row {
-        border: 1px solid var(--border);
-        border-radius: 14px;
-        padding: 12px;
-        background: rgba(0, 0, 0, 0.25);
-        display: grid;
-        gap: 10px;
-      }
-      .admin-row-top {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 10px;
-        flex-wrap: wrap;
-      }
-      .admin-row-title {
-        font-weight: 800;
-        color: var(--text);
-      }
-      .admin-row-meta {
-        font-size: 12px;
-        color: var(--text3);
-      }
-      .admin-row-form {
-        display: grid;
-        grid-template-columns: 1fr auto auto;
-        gap: 8px;
-      }
-      .admin-input {
-        background: var(--bg3);
-        color: var(--text);
-        border: 1px solid var(--border);
-        padding: 10px 12px;
-        border-radius: 12px;
-        width: 100%;
-        outline: none;
-      }
-      .admin-only {
-        display: none;
-      }
-      body[data-admin="true"] .admin-only {
-        display: inline-flex;
-      }
-      .lightbox[data-open="false"] {
-        display: none;
-      }
-      .lightbox {
-        position: fixed;
-        inset: 0;
-        z-index: 200;
-        display: grid;
-        place-items: center;
-        padding: 18px;
-      }
-      .lightbox-backdrop {
-        position: absolute;
-        inset: 0;
-        background: rgba(0, 0, 0, 0.78);
-        backdrop-filter: blur(6px);
-      }
-      .lightbox-panel {
-        position: relative;
-        width: min(1040px, 100%);
-        max-height: min(86vh, 780px);
-        border-radius: 18px;
-        border: 1px solid var(--border);
-        background: rgba(10, 10, 10, 0.92);
-        box-shadow: 0 30px 80px rgba(0, 0, 0, 0.7);
-        overflow: hidden;
-        display: grid;
-        grid-template-rows: 1fr auto;
-      }
-      .lightbox-img-wrap {
-        position: relative;
-        background: #0c0c0c;
-        display: grid;
-        place-items: center;
-        overflow: hidden;
-      }
-      .lightbox-img {
-        width: 100%;
-        height: 100%;
-        max-height: min(78vh, 700px);
-        object-fit: contain;
-        padding: 16px;
-        cursor: zoom-in;
-        transform-origin: center center;
-        transition: transform 0.18s ease;
-      }
-      .lightbox-img.zoom {
-        transform: scale(1.8);
-        cursor: zoom-out;
-      }
-      .lightbox-meta {
-        padding: 12px 14px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 12px;
-        border-top: 1px solid var(--border);
-        color: rgba(255, 255, 255, 0.75);
-        font-size: 13px;
-      }
-      .lightbox-meta .title {
-        font-weight: 800;
-        color: var(--text);
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-      }
-      .lightbox-meta .count {
-        color: var(--text3);
-        font-weight: 700;
-        white-space: nowrap;
-      }
-      .lightbox-close {
-        position: absolute;
-        top: 12px;
-        right: 12px;
-        width: 40px;
-        height: 40px;
-        border-radius: 12px;
-        border: 1px solid rgba(255, 255, 255, 0.16);
-        background: rgba(0, 0, 0, 0.35);
-        color: var(--text);
-        cursor: pointer;
-        z-index: 2;
-      }
-      .lightbox-nav {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 42px;
-        height: 42px;
-        border-radius: 14px;
-        border: 1px solid rgba(255, 255, 255, 0.16);
-        background: rgba(0, 0, 0, 0.35);
-        color: var(--text);
-        cursor: pointer;
-        z-index: 2;
-        font-size: 22px;
-        line-height: 1;
-        display: grid;
-        place-items: center;
-      }
-      .lightbox-nav[disabled] {
-        opacity: 0.35;
-        cursor: default;
-        pointer-events: none;
-      }
-      .lightbox-nav.prev {
-        left: 12px;
-      }
-      .lightbox-nav.next {
-        right: 12px;
-      }
-    </style>
-  </head>
-  <body>
-    <nav>
-      <a href="#" class="logo">Smart <span>Things</span> PT</a>
-      <a href="#contacto" class="nav-contact">Entrar em contacto</a>
+    <!-- Tabs -->
+    <nav class="tabs" role="tablist">
+      <button class="tab active" onclick="showTab('destaques', this)" role="tab" aria-selected="true">Destaques</button>
+      <button class="tab" onclick="showTab('novidades', this)" role="tab" aria-selected="false">Novidades</button>
+      <button class="tab" onclick="showTab('comofunciona', this)" role="tab" aria-selected="false">Como funciona</button>
+      <button class="tab" onclick="showTab('faq', this)" role="tab" aria-selected="false">FAQ</button>
     </nav>
 
-    <section class="hero">
-      <div class="hero-tag"><span></span> Catálogo atualizado</div>
-      <h1>Produtos a preços<br /><em>imbatíveis.</em></h1>
-      <p>
-        Escolhe um dos destaques ou vê as novidades desta semana. Produtos
-        selecionados e enviados para todo o país.
-      </p>
-      <div class="hero-actions">
-        <a
-          href="https://api.whatsapp.com/send?phone=351927515217&text=Olá!%20Vi%20o%20catálogo%20e%20tenho%20interesse."
-          target="_blank"
-          class="btn-primary"
-          >💬 WhatsApp</a
-        >
-        <a
-          href="https://t.me/smartthingspt"
-          target="_blank"
-          rel="noopener"
-          class="btn-secondary"
-          >📸 Telegram</a
-        >
-      </div>
-      <div class="hero-note">
-        Pedido sob consulta • Entrega média 10–15 dias • Vendas reais no
-        Telegram:
-        <a href="https://t.me/smartthingspt" target="_blank" rel="noopener"
-          >t.me/smartthingspt</a
-        >
+    <!-- Destaques -->
+    <section id="destaques" class="section active" role="tabpanel">
+      <div class="grid" id="grid-destaques"></div>
+      <div class="cta-wrap">
+        <a href="https://t.me/smartthingspt" target="_blank" class="btn">Ver catálogo completo no Telegram</a>
       </div>
     </section>
 
-    <section class="home-section" id="destaques">
-      <div class="home-head">
-        <div class="home-title">Destaques</div>
-        <div class="home-sub">Os mais populares</div>
-      </div>
-      <div class="home-strip" id="spotlight-strip"></div>
+    <!-- Novidades -->
+    <section id="novidades" class="section" role="tabpanel">
+      <div class="grid" id="grid-novidades"></div>
     </section>
 
-    <section class="home-section" id="novidades">
-      <div class="home-head">
-        <div class="home-title">🔥 Novidades desta semana</div>
-        <div class="home-sub">Chegaram agora</div>
-      </div>
-      <div class="home-strip" id="new-strip"></div>
-    </section>
-
-    <div class="catalog-divider">
-      <div class="line"></div>
-      <div class="label">Catálogo completo</div>
-      <div class="line"></div>
-    </div>
-
-    <div class="section-header" id="produtos">
-      <span class="section-title">Catálogo</span>
-      <div class="filters">
-        <button
-          class="filter-btn cat-filter active"
-          data-cat="todos"
-          onclick="filter('todos', this)"
-        >
-          Todos
-        </button>
-        <button
-          class="filter-btn cat-filter"
-          data-cat="sneakers"
-          onclick="filter('sneakers', this)"
-        >
-          Sneakers
-        </button>
-        <button
-          class="filter-btn cat-filter"
-          data-cat="outros"
-          onclick="filter('outros', this)"
-        >
-          Outros
-        </button>
-        <button
-          class="filter-btn cat-filter"
-          data-cat="bolsas"
-          onclick="filter('bolsas', this)"
-        >
-          Bolsas
-        </button>
-        <button
-          class="filter-btn cat-filter"
-          data-cat="oculos"
-          onclick="filter('oculos', this)"
-        >
-          Óculos
-        </button>
-        <button
-          class="filter-btn cat-filter"
-          data-cat="fones"
-          onclick="filter('fones', this)"
-        >
-          Fones
-        </button>
-        <button
-          class="filter-btn cat-filter"
-          data-cat="bones"
-          onclick="filter('bones', this)"
-        >
-          Bonés
-        </button>
-        <button
-          class="filter-btn cat-filter"
-          data-cat="relogios"
-          onclick="filter('relogios', this)"
-        >
-          Relógios
-        </button>
-        <button
-          class="filter-btn cat-filter"
-          data-cat="capas"
-          onclick="filter('capas', this)"
-        >
-          Capas
-        </button>
-        <button
-          class="filter-btn cat-filter"
-          data-cat="chinelos"
-          onclick="filter('chinelos', this)"
-        >
-          Chinelos
-        </button>
-        <button
-          class="filter-btn cat-filter"
-          data-cat="tecnologia"
-          onclick="filter('tecnologia', this)"
-        >
-          Tecnologia
-        </button>
-        <button
-          class="filter-btn cat-filter"
-          data-cat="roupas"
-          onclick="filter('roupas', this)"
-        >
-          Roupas
-        </button>
-      </div>
-      <div class="catalog-search">
-        <input
-          type="search"
-          id="catalog-search"
-          class="search-input"
-          placeholder="Pesquisar por nome, marca ou modelo"
-          aria-label="Pesquisar produtos"
-        />
-      </div>
-      <div
-        class="filters brand-filters"
-        id="brand-filters"
-        data-visible="false"
-      >
-        <button
-          class="filter-btn brand-filter brand-chip active"
-          data-brand="todos"
-          onclick="filterBrand('todos', this)"
-        >
-          Todas as marcas
-        </button>
-      </div>
-      <div
-        class="filters model-filters"
-        id="model-filters"
-        data-visible="false"
-      >
-        <select class="model-select" id="model-select">
-          <option value="todos">Todos os modelos</option>
-        </select>
-      </div>
-    </div>
-
-    <div class="products-grid" id="grid"></div>
-
-    <div class="catalog-more" id="catalog-more" data-visible="false">
-      <button type="button" class="btn-primary" id="catalog-more-btn">
-        Ver mais produtos
-      </button>
-    </div>
-    <div class="catalog-skeletons" id="catalog-skeletons" data-visible="false"></div>
-
-    <div class="stats">
-      <div class="stat">
-        <div class="stat-num">40+</div>
-        <div class="stat-label">Produtos disponíveis</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">10-15d</div>
-        <div class="stat-label">tempo de entrega</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">5★</div>
-        <div class="stat-label">Avaliação dos clientes</div>
-      </div>
-    </div>
-
-    <div class="cta-banner" id="contacto">
-      <div class="cta-inner">
-        <h2>
-          Não encontraste o que procuras?
-          <small>Fala connosco — temos muito mais stock disponível.</small>
-        </h2>
-        <div class="cta-btns">
-          <a
-            href="https://api.whatsapp.com/send?phone=351927515217&text=Olá!%20Gostava%20de%20saber%20mais%20sobre%20os%20vossos%20produtos."
-            target="_blank"
-            class="cta-wa"
-            >💬 WhatsApp</a
-          >
-          <a href="mailto:contacto@smartthingspt.pt" class="cta-email"
-            >✉ Email</a
-          >
+    <!-- Como funciona -->
+    <section id="comofunciona" class="section" role="tabpanel">
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <h3>Escolhes</h3>
+          <p>Navegas no catálogo e escolhes o que queres.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <h3>Contactas</h3>
+          <p>Mandas mensagem no WhatsApp com o teu pedido.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <h3>Recebes</h3>
+          <p>Pagas por MB Way e recebes em 10–15 dias em casa.</p>
         </div>
       </div>
-    </div>
-
-    <section class="faq" id="faq">
-      <div class="faq-inner">
-        <div class="faq-title">Como funciona?</div>
-        <details class="faq-item">
-          <summary>É seguro comprar?</summary>
-          <div class="faq-answer">
-            Sim! Trabalhamos com pagamentos por MB Way e acompanhamos cada
-            encomenda até chegar à tua mão.
-          </div>
-        </details>
-        <details class="faq-item">
-          <summary>Qual o prazo de entrega?</summary>
-          <div class="faq-answer">
-            Devido à nossa curadoria de alta qualidade, os produtos demoram
-            entre 10 a 15 dias a chegar à tua morada.
-          </div>
-        </details>
-        <details class="faq-item">
-          <summary>Como acompanho o pedido?</summary>
-          <div class="faq-answer">
-            Enviamos atualizações diretas pelo WhatsApp.
-          </div>
-        </details>
+      <div class="cta-wrap">
+        <a href="https://wa.me/351000000000" target="_blank" class="btn">Fazer pedido pelo WhatsApp</a>
       </div>
     </section>
 
-    <footer>
-      <a href="#" class="logo">Smart <span>Things</span> PT</a>
-      <p>© 2026 Smart Things PT · Feito com ♥ em Portugal</p>
+    <!-- FAQ -->
+    <section id="faq" class="section" role="tabpanel">
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">É seguro comprar?</div>
+        <div class="faq-a">
+          <p>Sim! Trabalhamos com pagamentos por MB Way e acompanhamos cada encomenda até chegar à tua mão.</p>
+        </div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Qual o prazo de entrega?</div>
+        <div class="faq-a">
+          <p>Devido à nossa curadoria de alta qualidade, os produtos demoram entre 10 a 15 dias a chegar à tua morada.</p>
+        </div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Como acompanho o pedido?</div>
+        <div class="faq-a">
+          <p>Enviamos atualizações diretas pelo WhatsApp com o estado da tua encomenda.</p>
+        </div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Posso devolver um produto?</div>
+        <div class="faq-a">
+          <p>Contacta-nos no WhatsApp em caso de problema. Analisamos cada caso individualmente para te ajudar da melhor forma.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>Smart Things PT · Pedidos via <a href="https://t.me/smartthingspt" target="_blank">Telegram</a></p>
+      <p style="margin-top: 4px; font-size: 12px;">Pedido sob consulta · Entrega média 10–15 dias</p>
     </footer>
 
-    <div class="admin-fab" id="admin-fab" data-visible="false">Admin</div>
-
-    <div class="admin-modal" id="admin-modal" data-open="false">
-      <div class="admin-dialog" role="dialog" aria-modal="true">
-        <div class="admin-header">
-          <div>
-            <div class="admin-title">Modo admin</div>
-            <div class="admin-row-meta">
-              Apenas no teu navegador (não é enviado para o GitHub)
-            </div>
-          </div>
-          <button class="admin-close" id="admin-close" type="button">✕</button>
-        </div>
-        <div class="admin-actions">
-          <button class="filter-btn" id="admin-logout" type="button">
-            Sair
-          </button>
-          <button class="filter-btn" id="admin-export" type="button">
-            Exportar
-          </button>
-          <button class="filter-btn" id="admin-import" type="button">
-            Importar
-          </button>
-        </div>
-        <div class="admin-list" id="admin-list"></div>
-      </div>
-    </div>
-
-    <div class="lightbox" id="lightbox" data-open="false">
-      <div class="lightbox-backdrop" data-action="close"></div>
-      <div class="lightbox-panel" role="dialog" aria-modal="true">
-        <button class="lightbox-close" type="button" data-action="close">
-          ✕
-        </button>
-        <button class="lightbox-nav prev" type="button" data-action="prev">
-          ‹
-        </button>
-        <button class="lightbox-nav next" type="button" data-action="next">
-          ›
-        </button>
-        <div class="lightbox-img-wrap">
-          <img class="lightbox-img" id="lightbox-img" alt="" />
-        </div>
-        <div class="lightbox-meta">
-          <div class="title" id="lightbox-title"></div>
-          <div class="count" id="lightbox-count"></div>
-        </div>
-      </div>
-    </div>
-
-    <script>
-      window.SNEAKERS_MANIFEST = {
-        brands: [
-          {
-            brandDir: "adidas",
-            models: [
-              {
-                modelDir: "forum-x-el-grinch",
-                images: [
-                  "imagens/shoes/adidas/forum-x-el-grinch/ADIDAS_FORUM_ELGRINCH_01.jpg",
-                  "imagens/shoes/adidas/forum-x-el-grinch/ADIDAS_FORUM_ELGRINCH_02.jpg",
-                  "imagens/shoes/adidas/forum-x-el-grinch/ADIDAS_FORUM_ELGRINCH_03.jpg",
-                  "imagens/shoes/adidas/forum-x-el-grinch/ADIDAS_FORUM_ELGRINCH_04.jpg",
-                  "imagens/shoes/adidas/forum-x-el-grinch/ADIDAS_FORUM_ELGRINCH_05.jpg",
-                ],
-              },
-              {
-                modelDir: "gazelle-indoor",
-                images: [
-                  "imagens/shoes/adidas/gazelle-indoor/ADIDAS_GAZELLE_INDOOR_01.jpg",
-                  "imagens/shoes/adidas/gazelle-indoor/ADIDAS_GAZELLE_INDOOR_02.jpg",
-                  "imagens/shoes/adidas/gazelle-indoor/ADIDAS_GAZELLE_INDOOR_03.jpg",
-                  "imagens/shoes/adidas/gazelle-indoor/ADIDAS_GAZELLE_INDOOR_04.jpg",
-                  "imagens/shoes/adidas/gazelle-indoor/ADIDAS_GAZELLE_INDOOR_05.jpg",
-                  "imagens/shoes/adidas/gazelle-indoor/ADIDAS_GAZELLE_INDOOR_06.jpg",
-                  "imagens/shoes/adidas/gazelle-indoor/ADIDAS_GAZELLE_INDOOR_07.jpg",
-                  "imagens/shoes/adidas/gazelle-indoor/ADIDAS_GAZELLE_INDOOR_08.jpg",
-                  "imagens/shoes/adidas/gazelle-indoor/ADIDAS_GAZELLE_INDOOR_09.jpg",
-                ],
-              },
-              {
-                modelDir: "predator-freestyle",
-                images: [
-                  "imagens/shoes/adidas/predator-freestyle/ADIDAS_PREDATOR_FREESTYLE_01.jpg",
-                ],
-              },
-              {
-                modelDir: "samba",
-                images: [
-                  "imagens/shoes/adidas/samba/ADIDAS_SAMBA_01.jpg",
-                  "imagens/shoes/adidas/samba/ADIDAS_SAMBA_02.jpg",
-                  "imagens/shoes/adidas/samba/ADIDAS_SAMBA_03.jpg",
-                  "imagens/shoes/adidas/samba/ADIDAS_SAMBA_04.jpg",
-                  "imagens/shoes/adidas/samba/ADIDAS_SAMBA_05.jpg",
-                  "imagens/shoes/adidas/samba/ADIDAS_SAMBA_06.jpg",
-                  "imagens/shoes/adidas/samba/ADIDAS_SAMBA_07.jpg",
-                  "imagens/shoes/adidas/samba/ADIDAS_SAMBA_08.jpg",
-                ],
-              },
-              {
-                modelDir: "samba-pingskin",
-                images: [
-                  "imagens/shoes/adidas/samba-pingskin/ADIDAS_SAMBA_PINGSKIN_01.jpg",
-                ],
-              },
-              {
-                modelDir: "sl72-rs",
-                images: [
-                  "imagens/shoes/adidas/sl72-rs/ADIDAS_SL72_RS_01.jpg",
-                  "imagens/shoes/adidas/sl72-rs/ADIDAS_SL72_RS_02.jpg",
-                  "imagens/shoes/adidas/sl72-rs/ADIDAS_SL72_RS_03.jpg",
-                  "imagens/shoes/adidas/sl72-rs/ADIDAS_SL72_RS_04.jpg",
-                  "imagens/shoes/adidas/sl72-rs/ADIDAS_SL72_RS_05.jpg",
-                  "imagens/shoes/adidas/sl72-rs/ADIDAS_SL72_RS_06.jpg",
-                  "imagens/shoes/adidas/sl72-rs/ADIDAS_SL72_RS_07.jpg",
-                  "imagens/shoes/adidas/sl72-rs/ADIDAS_SL72_RS_08.jpg",
-                ],
-              },
-            ],
-          },
-          {
-            brandDir: "asics",
-            models: [
-              {
-                modelDir: "gelnyc",
-                images: [
-                  "imagens/shoes/asics/gelnyc/ASICS_GELNYC_01.jpg",
-                  "imagens/shoes/asics/gelnyc/ASICS_GELNYC_02.jpg",
-                  "imagens/shoes/asics/gelnyc/ASICS_GELNYC_03.jpg",
-                  "imagens/shoes/asics/gelnyc/ASICS_GELNYC_04.jpg",
-                  "imagens/shoes/asics/gelnyc/ASICS_GELNYC_05.jpg",
-                  "imagens/shoes/asics/gelnyc/ASICS_GELNYC_06.jpg",
-                  "imagens/shoes/asics/gelnyc/ASICS_GELNYC_07.jpg",
-                  "imagens/shoes/asics/gelnyc/ASICS_GELNYC_08.jpg",
-                  "imagens/shoes/asics/gelnyc/ASICS_GELNYC_09.jpg",
-                  "imagens/shoes/asics/gelnyc/ASICS_GELNYC_10.jpg",
-                  "imagens/shoes/asics/gelnyc/ASICS_GELNYC_11.jpg",
-                ],
-              },
-              {
-                modelDir: "gelnyc2",
-                images: [
-                  "imagens/shoes/asics/gelnyc2/ASICS_GELNYC2_01.jpg",
-                  "imagens/shoes/asics/gelnyc2/ASICS_GELNYC2_02.jpg",
-                  "imagens/shoes/asics/gelnyc2/ASICS_GELNYC2_03.jpg",
-                ],
-              },
-              {
-                modelDir: "gelnyc2-2055",
-                images: [
-                  "imagens/shoes/asics/gelnyc2-2055/ASICS_GELNYC2_2055_01.jpg",
-                  "imagens/shoes/asics/gelnyc2-2055/ASICS_GELNYC2_2055_02.jpg",
-                  "imagens/shoes/asics/gelnyc2-2055/ASICS_GELNYC2_2055_03.jpg",
-                  "imagens/shoes/asics/gelnyc2-2055/ASICS_GELNYC2_2055_04.jpg",
-                  "imagens/shoes/asics/gelnyc2-2055/ASICS_GELNYC2_2055_05.jpg",
-                  "imagens/shoes/asics/gelnyc2-2055/ASICS_GELNYC2_2055_06.jpg",
-                  "imagens/shoes/asics/gelnyc2-2055/ASICS_GELNYC2_2055_07.jpg",
-                  "imagens/shoes/asics/gelnyc2-2055/ASICS_GELNYC2_2055_08.jpg",
-                ],
-              },
-              {
-                modelDir: "gelnyc2-utility",
-                images: [
-                  "imagens/shoes/asics/gelnyc2-utility/ASICS_GELNYC2_UTILITY_01.jpg",
-                  "imagens/shoes/asics/gelnyc2-utility/ASICS_GELNYC2_UTILITY_02.jpg",
-                  "imagens/shoes/asics/gelnyc2-utility/ASICS_GELNYC2_UTILITY_03.jpg",
-                ],
-              },
-              {
-                modelDir: "metaspeed-edge",
-                images: [
-                  "imagens/shoes/asics/metaspeed-edge/ASICS_METASPEED_EDGE_01.jpg",
-                  "imagens/shoes/asics/metaspeed-edge/ASICS_METASPEED_EDGE_02.jpg",
-                  "imagens/shoes/asics/metaspeed-edge/ASICS_METASPEED_EDGE_03.jpg",
-                  "imagens/shoes/asics/metaspeed-edge/ASICS_METASPEED_EDGE_04.jpg",
-                  "imagens/shoes/asics/metaspeed-edge/ASICS_METASPEED_EDGE_05.jpg",
-                  "imagens/shoes/asics/metaspeed-edge/ASICS_METASPEED_EDGE_06.jpg",
-                  "imagens/shoes/asics/metaspeed-edge/ASICS_METASPEED_EDGE_07.jpg",
-                ],
-              },
-            ],
-          },
-          {
-            brandDir: "newBalance",
-            models: [
-              {
-                modelDir: "2002r",
-                images: [
-                  "imagens/shoes/newBalance/2002r/NB2002R_01.jpg",
-                  "imagens/shoes/newBalance/2002r/NB2002R_02.jpg",
-                  "imagens/shoes/newBalance/2002r/NB2002R_03.jpg",
-                  "imagens/shoes/newBalance/2002r/NB2002R_04.jpg",
-                  "imagens/shoes/newBalance/2002r/NB2002R_05.jpg",
-                  "imagens/shoes/newBalance/2002r/NB2002R_06.jpg",
-                  "imagens/shoes/newBalance/2002r/NB2002R_07.jpg",
-                  "imagens/shoes/newBalance/2002r/NB2002R_08.jpg",
-                ],
-              },
-              {
-                modelDir: "509",
-                images: [
-                  "imagens/shoes/newBalance/509/NB509_01.jpg",
-                  "imagens/shoes/newBalance/509/NB509_02.jpg",
-                  "imagens/shoes/newBalance/509/NB509_03.jpg",
-                  "imagens/shoes/newBalance/509/NB509_04.jpg",
-                  "imagens/shoes/newBalance/509/NB509_05.jpg",
-                  "imagens/shoes/newBalance/509/NB509_06.jpg",
-                ],
-              },
-              {
-                modelDir: "530",
-                images: [
-                  "imagens/shoes/newBalance/530/NB530_01.jpg",
-                  "imagens/shoes/newBalance/530/NB530_02.jpg",
-                  "imagens/shoes/newBalance/530/NB530_03.jpg",
-                  "imagens/shoes/newBalance/530/NB530_04.jpg",
-                  "imagens/shoes/newBalance/530/NB530_05.jpg",
-                  "imagens/shoes/newBalance/530/NB530_06.jpg",
-                  "imagens/shoes/newBalance/530/NB530_07.jpg",
-                  "imagens/shoes/newBalance/530/NB530_08.jpg",
-                  "imagens/shoes/newBalance/530/NB530_09.jpg",
-                  "imagens/shoes/newBalance/530/NB530_10.jpg",
-                  "imagens/shoes/newBalance/530/NB530_11.jpg",
-                  "imagens/shoes/newBalance/530/NB530_12.jpg",
-                  "imagens/shoes/newBalance/530/NB530_13.jpg",
-                  "imagens/shoes/newBalance/530/NB530_14.jpg",
-                  "imagens/shoes/newBalance/530/NB530_15.jpg",
-                  "imagens/shoes/newBalance/530/NB530_16.jpg",
-                ],
-              },
-              {
-                modelDir: "x-miu-miu",
-                images: [
-                  "imagens/shoes/newBalance/x-miu-miu/NBxMIUMIU_01.jpg",
-                  "imagens/shoes/newBalance/x-miu-miu/NBxMIUMIU_02.jpg",
-                  "imagens/shoes/newBalance/x-miu-miu/NBxMIUMIU_03.jpg",
-                  "imagens/shoes/newBalance/x-miu-miu/NBxMIUMIU_04.jpg",
-                  "imagens/shoes/newBalance/x-miu-miu/NBxMIUMIU_05.jpg",
-                ],
-              },
-            ],
-          },
-          {
-            brandDir: "nike",
-            models: [
-              {
-                modelDir: "air-max-95",
-                images: [
-                  "imagens/shoes/nike/air-max-95/NIKE_AIRMAX95_01.jpg",
-                  "imagens/shoes/nike/air-max-95/NIKE_AIRMAX95_02.jpg",
-                  "imagens/shoes/nike/air-max-95/NIKE_AIRMAX95_03.jpg",
-                  "imagens/shoes/nike/air-max-95/NIKE_AIRMAX95_04.jpg",
-                  "imagens/shoes/nike/air-max-95/NIKE_AIRMAX95_05.jpg",
-                  "imagens/shoes/nike/air-max-95/NIKE_AIRMAX95_06.jpg",
-                  "imagens/shoes/nike/air-max-95/NIKE_AIRMAX95_07.jpg",
-                  "imagens/shoes/nike/air-max-95/NIKE_AIRMAX95_08.jpg",
-                  "imagens/shoes/nike/air-max-95/NIKE_AIRMAX95_09.jpg",
-                ],
-              },
-              {
-                modelDir: "air-max-95-corteiz",
-                images: [
-                  "imagens/shoes/nike/air-max-95-corteiz/NIKE_AIRMAX95_CORTEIZ_01.jpg",
-                  "imagens/shoes/nike/air-max-95-corteiz/NIKE_AIRMAX95_CORTEIZ_02.jpg",
-                  "imagens/shoes/nike/air-max-95-corteiz/NIKE_AIRMAX95_CORTEIZ_03.jpg",
-                ],
-              },
-              {
-                modelDir: "air-max-tn-plus",
-                images: [
-                  "imagens/shoes/nike/air-max-tn-plus/NIKE_AIRMAX_TN_PLUS_01.jpg",
-                  "imagens/shoes/nike/air-max-tn-plus/NIKE_AIRMAX_TN_PLUS_02.jpg",
-                  "imagens/shoes/nike/air-max-tn-plus/NIKE_AIRMAX_TN_PLUS_03.jpg",
-                  "imagens/shoes/nike/air-max-tn-plus/NIKE_AIRMAX_TN_PLUS_04.jpg",
-                  "imagens/shoes/nike/air-max-tn-plus/NIKE_AIRMAX_TN_PLUS_05.jpg",
-                  "imagens/shoes/nike/air-max-tn-plus/NIKE_AIRMAX_TN_PLUS_06.jpg",
-                  "imagens/shoes/nike/air-max-tn-plus/NIKE_AIRMAX_TN_PLUS_07.jpg",
-                  "imagens/shoes/nike/air-max-tn-plus/NIKE_AIRMAX_TN_PLUS_08.jpg",
-                  "imagens/shoes/nike/air-max-tn-plus/NIKE_AIRMAX_TN_PLUS_09.jpg",
-                  "imagens/shoes/nike/air-max-tn-plus/NIKE_AIRMAX_TN_PLUS_10.jpg",
-                ],
-              },
-              {
-                modelDir: "air-uptempo",
-                images: [
-                  "imagens/shoes/nike/air-uptempo/NIKE_AIRUPTEMPO_01.jpg",
-                  "imagens/shoes/nike/air-uptempo/NIKE_AIRUPTEMPO_02.jpg",
-                  "imagens/shoes/nike/air-uptempo/NIKE_AIRUPTEMPO_03.jpg",
-                ],
-              },
-              {
-                modelDir: "blazer-city-low",
-                images: [
-                  "imagens/shoes/nike/blazer-city-low/NIKE_BLAZER_CITY_LOW_01.jpg",
-                  "imagens/shoes/nike/blazer-city-low/NIKE_BLAZER_CITY_LOW_02.jpg",
-                  "imagens/shoes/nike/blazer-city-low/NIKE_BLAZER_CITY_LOW_03.jpg",
-                  "imagens/shoes/nike/blazer-city-low/NIKE_BLAZER_CITY_LOW_04.jpg",
-                  "imagens/shoes/nike/blazer-city-low/NIKE_BLAZER_CITY_LOW_05.jpg",
-                ],
-              },
-              {
-                modelDir: "mind001",
-                images: [
-                  "imagens/shoes/nike/mind001/NIKE_MIND001_01.jpg",
-                  "imagens/shoes/nike/mind001/NIKE_MIND001_02.jpg",
-                  "imagens/shoes/nike/mind001/NIKE_MIND001_03.jpg",
-                  "imagens/shoes/nike/mind001/NIKE_MIND001_04.jpg",
-                  "imagens/shoes/nike/mind001/NIKE_MIND001_05.jpg",
-                  "imagens/shoes/nike/mind001/NIKE_MIND001_06.jpg",
-                ],
-              },
-              {
-                modelDir: "p6000",
-                images: [
-                  "imagens/shoes/nike/p6000/NIKE_P6000_01.jpg",
-                  "imagens/shoes/nike/p6000/NIKE_P6000_02.jpg",
-                  "imagens/shoes/nike/p6000/NIKE_P6000_03.jpg",
-                  "imagens/shoes/nike/p6000/NIKE_P6000_04.jpg",
-                  "imagens/shoes/nike/p6000/NIKE_P6000_05.jpg",
-                  "imagens/shoes/nike/p6000/NIKE_P6000_06.jpg",
-                  "imagens/shoes/nike/p6000/NIKE_P6000_07.jpg",
-                  "imagens/shoes/nike/p6000/NIKE_P6000_08.jpg",
-                ],
-              },
-              {
-                modelDir: "shox",
-                images: [
-                  "imagens/shoes/nike/shox/NIKE_SHOX_01.jpg",
-                  "imagens/shoes/nike/shox/NIKE_SHOX_02.jpg",
-                  "imagens/shoes/nike/shox/NIKE_SHOX_03.jpg",
-                  "imagens/shoes/nike/shox/NIKE_SHOX_04.jpg",
-                  "imagens/shoes/nike/shox/NIKE_SHOX_05.jpg",
-                  "imagens/shoes/nike/shox/NIKE_SHOX_06.jpg",
-                  "imagens/shoes/nike/shox/NIKE_SHOX_07.jpg",
-                  "imagens/shoes/nike/shox/NIKE_SHOX_08.jpg",
-                  "imagens/shoes/nike/shox/NIKE_SHOX_09.jpg",
-                  "imagens/shoes/nike/shox/NIKE_SHOX_10.jpg",
-                  "imagens/shoes/nike/shox/NIKE_SHOX_11.jpg",
-                  "imagens/shoes/nike/shox/NIKE_SHOX_12.jpg",
-                  "imagens/shoes/nike/shox/NIKE_SHOX_13.jpg",
-                  "imagens/shoes/nike/shox/NIKE_SHOX_14.jpg",
-                  "imagens/shoes/nike/shox/NIKE_SHOX_15.jpg",
-                  "imagens/shoes/nike/shox/NIKE_SHOX_16.jpg",
-                ],
-              },
-              {
-                modelDir: "shox-z",
-                images: [
-                  "imagens/shoes/nike/shox-z/NIKE_SHOX_Z_01.jpg",
-                  "imagens/shoes/nike/shox-z/NIKE_SHOX_Z_02.jpg",
-                  "imagens/shoes/nike/shox-z/NIKE_SHOX_Z_03.jpg",
-                  "imagens/shoes/nike/shox-z/NIKE_SHOX_Z_04.jpg",
-                  "imagens/shoes/nike/shox-z/NIKE_SHOX_Z_05.jpg",
-                  "imagens/shoes/nike/shox-z/NIKE_SHOX_Z_06.jpg",
-                  "imagens/shoes/nike/shox-z/NIKE_SHOX_Z_07.jpg",
-                  "imagens/shoes/nike/shox-z/NIKE_SHOX_Z_08.jpg",
-                  "imagens/shoes/nike/shox-z/NIKE_SHOX_Z_09.jpg",
-                  "imagens/shoes/nike/shox-z/NIKE_SHOX_Z_10.jpg",
-                ],
-              },
-              {
-                modelDir: "vaporfly4",
-                images: ["imagens/shoes/nike/vaporfly4/NIKE_VAPORFLY4_01.jpg"],
-              },
-            ],
-          },
-        ],
-      };
-    </script>
-
-    <script src="site_config.js"></script>
-    <script>
-      // Número centralizado do teu WhatsApp Business
-      const WHATSAPP_NUM = "351927515217";
-      const SITE_CONFIG = window.SMARTTHINGS_CONFIG || {};
-
-      function publicBuyLinksEnabled() {
-        const value = SITE_CONFIG.enablePublicBuyLinks;
-        if (value === true) return true;
-        return String(value || "").trim().toLowerCase() === "true";
-      }
-
-      function getBuyRedirectBaseUrl() {
-        return String(SITE_CONFIG.buyRedirectBaseUrl || "").trim();
-      }
-
-      function buildBuyRedirectHref(slug) {
-        const baseUrl = getBuyRedirectBaseUrl();
-        const cleanSlug = String(slug || "").trim();
-        if (!baseUrl || !cleanSlug) return "";
-        try {
-          const url = new URL(baseUrl, window.location.href);
-          url.searchParams.set("slug", cleanSlug);
-          return url.toString();
-        } catch {
-          return "";
-        }
-      }
-
-      function getProductSlug(card) {
-        if (!card) return "";
-        const explicit = String(card.dataset.slug || "").trim();
-        if (explicit) return explicit;
-        const cat = String(card.dataset.cat || "").trim();
-        if (cat === "sneakers") {
-          const brand = String(card.dataset.brand || "").trim();
-          const model = String(card.dataset.model || "").trim();
-          if (brand && model) return `${brand}-${model}`;
-        }
-        const name = getCardText(card, ".card-name");
-        return slugify(name || getWhatsAppLabelFromCard(card));
-      }
-
-      function cardUsesBuyRedirect(card) {
-        if (!card) return false;
-        if (!publicBuyLinksEnabled()) return false;
-        if (String(card.dataset.hasBuyLink || "").trim() !== "true") return false;
-        return Boolean(buildBuyRedirectHref(getProductSlug(card)));
-      }
-
-      function getPrimaryCtaLabel(card) {
-        return cardUsesBuyRedirect(card) ? "Comprar ↗" : "Quero este →";
-      }
-
-      function getCardPrimaryHref(card, selectedModel) {
-        if (!card) return "#";
-        if (cardUsesBuyRedirect(card)) {
-          const href = buildBuyRedirectHref(getProductSlug(card));
-          if (href) return href;
-        }
-        const label = getWhatsAppLabelFromCard(card);
-        const dots = card.querySelectorAll(".angle-dot");
-        const hasModels = dots && dots.length > 1;
-        return whatsappHrefForLabel(label, hasModels ? selectedModel : "");
-      }
-
-      function refreshCustomerButtons() {
-        getAllCards().forEach((card) => {
-          updateCardCustomerWhatsAppLink(
-            card,
-            String(card.dataset.selectedModel || "").trim(),
-          );
-        });
-      }
-
-      let activeCategory = "todos";
-      let activeBrand = "todos";
-      let activeModel = "todos";
-      let activeSearchQuery = "";
-      let sneakersIndex = { brands: [], modelsByBrand: {} };
-      let telegramProductsData = [];
-      let filteredProductsData = [];
-      let renderedProductsCount = 0;
-      let isAppendingBatch = false;
-      const DESKTOP_CATALOG_BATCH = 60;
-      const MOBILE_CATALOG_BATCH = 24;
-      const BATCH_RENDER_CHUNK = 12;
-
-      const POPULAR_SNEAKERS = [
-        { brand: "adidas", contains: ["samba"] },
-        { brand: "asics", contains: ["gel nyc"] },
-        { brand: "adidas", contains: ["spezial"] },
-        { brand: "nike", contains: ["mind 001"] },
-      ];
-      const NEW_SNEAKERS = [
-        { brand: "newbalance", contains: ["509"] },
-        { brand: "newbalance", contains: ["miu miu"] },
-        { brand: "nike", contains: ["jordan 1", "travis"] },
-      ];
-
-      function ensureSneakerIndexEntry(
-        brandSlug,
-        brandLabel,
-        modelSlug,
-        modelLabel,
-      ) {
-        if (!brandSlug || !modelSlug) return;
-        if (!sneakersIndex.modelsByBrand[brandSlug]) {
-          sneakersIndex.modelsByBrand[brandSlug] = [];
-        }
-        if (
-          !sneakersIndex.brands.some((b) => b.slug === brandSlug) &&
-          brandLabel
-        ) {
-          sneakersIndex.brands.push({ slug: brandSlug, label: brandLabel });
-        }
-        const models = sneakersIndex.modelsByBrand[brandSlug];
-        if (!models.some((m) => m.slug === modelSlug)) {
-          models.push({ slug: modelSlug, label: modelLabel || modelSlug });
-        }
-      }
-
-      function renderSneakerBrandFilters() {
-        const brandFilters = document.getElementById("brand-filters");
-        if (!brandFilters) return;
-
-        brandFilters.querySelectorAll(".brand-filter").forEach((b) => {
-          if (b.textContent !== "Todas as marcas") b.remove();
-        });
-
-        sneakersIndex.brands.sort((a, b) => a.label.localeCompare(b.label));
-        const brandColorMap = {
-          adidas: "#2b7cff",
-          asics: "#ff4d4d",
-          converse: "#ffffff",
-          goldengoose: "#f3c969",
-          nike: "#ff7a00",
-          newbalance: "#b7c0c7",
-          ralphlauren: "#2ad18b",
-          vans: "#e31b23",
-        };
-        for (const b of sneakersIndex.brands) {
-          if (!b || !b.slug || !b.label) continue;
-          const btn = document.createElement("button");
-          btn.className = "filter-btn brand-filter brand-chip";
-          btn.textContent = b.label;
-          btn.dataset.brand = b.slug;
-          btn.style.setProperty(
-            "--brand-color",
-            brandColorMap[b.slug] || "var(--accent)",
-          );
-          btn.addEventListener("click", function () {
-            filterBrand(b.slug, this);
-          });
-          brandFilters.appendChild(btn);
-        }
-      }
-
-      function normalizeText(value) {
-        return String(value || "")
-          .toLowerCase()
-          .normalize("NFD")
-          .replace(/[\u0300-\u036f]/g, "")
-          .replace(/[^a-z0-9]+/g, " ")
-          .replace(/\s+/g, " ")
-          .trim();
-      }
-
-      function matchesRule({ brand, modelLabel }, rule) {
-        if (!rule) return false;
-        if (rule.brand && brand !== rule.brand) return false;
-        const n = normalizeText(modelLabel);
-        const parts = Array.isArray(rule.contains) ? rule.contains : [];
-        return parts.every((p) => n.includes(normalizeText(p)));
-      }
-
-      const ADMIN_PASS_HASH_KEY = "st_admin_pass_hash";
-      const ADMIN_ENABLED_KEY = "st_admin_enabled";
-      const ADMIN_EXPIRES_KEY = "st_admin_expires";
-      const ADMIN_LINKS_KEY = "st_admin_links";
-
-      function getAdminLinks() {
-        try {
-          return JSON.parse(localStorage.getItem(ADMIN_LINKS_KEY) || "{}");
-        } catch {
-          return {};
-        }
-      }
-
-      function setAdminLinks(links) {
-        localStorage.setItem(ADMIN_LINKS_KEY, JSON.stringify(links || {}));
-      }
-
-      function setAdminEnabled(enabled) {
-        if (enabled) {
-          localStorage.setItem(ADMIN_ENABLED_KEY, "true");
-          localStorage.setItem(
-            ADMIN_EXPIRES_KEY,
-            String(Date.now() + 12 * 60 * 60 * 1000),
-          );
-        } else {
-          localStorage.removeItem(ADMIN_ENABLED_KEY);
-          localStorage.removeItem(ADMIN_EXPIRES_KEY);
-        }
-        syncAdminState();
-      }
-
-      function isAdminEnabled() {
-        if (localStorage.getItem(ADMIN_ENABLED_KEY) !== "true") return false;
-        const expires = Number(localStorage.getItem(ADMIN_EXPIRES_KEY) || "0");
-        if (!expires) return true;
-        if (Date.now() <= expires) return true;
-        localStorage.removeItem(ADMIN_ENABLED_KEY);
-        localStorage.removeItem(ADMIN_EXPIRES_KEY);
-        return false;
-      }
-
-      async function sha256Hex(text) {
-        const data = new TextEncoder().encode(text || "");
-        const buf = await crypto.subtle.digest("SHA-256", data);
-        return [...new Uint8Array(buf)]
-          .map((b) => b.toString(16).padStart(2, "0"))
-          .join("");
-      }
-
-      function getAllCards() {
-        return [
-          ...document.querySelectorAll(".grid > .card, .products-grid > .card"),
-        ];
-      }
-
-      function getCardText(card, selector) {
-        const el = card.querySelector(selector);
-        return (el ? el.textContent : "").trim();
-      }
-
-      function normalizeSearchText(text) {
-        return String(text || "")
-          .normalize("NFD")
-          .replace(/[\u0300-\u036f]/g, "")
-          .toLowerCase()
-          .trim();
-      }
-
-      function getProductMeta(card) {
-        const cat = (card.dataset.cat || "").trim() || "outros";
-        const brandSlug = (card.dataset.brand || "").trim();
-        const modelSlug = (card.dataset.model || "").trim();
-        if (cat === "sneakers" && brandSlug && modelSlug) {
-          return {
-            key: `sneakers|${brandSlug}|${modelSlug}`,
-            label: `${getCardText(card, ".card-cat")} ${getCardText(
-              card,
-              ".card-name",
-            )}`.trim(),
-            cat,
-          };
-        }
-        const label = `${getCardText(card, ".card-cat")} ${getCardText(
-          card,
-          ".card-name",
-        )}`.trim();
-        const key = `${cat}|${slugify(getCardText(card, ".card-cat"))}|${slugify(
-          getCardText(card, ".card-name"),
-        )}`;
-        return { key, label, cat };
-      }
-
-      function refreshAdminButtons() {
-        const enabled = isAdminEnabled();
-        const links = getAdminLinks();
-        getAllCards().forEach((card) => {
-          const footer = card.querySelector(".card-footer");
-          if (!footer) return;
-          let btn = footer.querySelector(".admin-buy-btn");
-          if (!btn) {
-            btn = document.createElement("a");
-            btn.className = "card-btn admin-only admin-buy-btn";
-            btn.target = "_blank";
-            footer.appendChild(btn);
-          }
-          const meta = getProductMeta(card);
-          const url = links[meta.key];
-          btn.textContent = url ? "Compra (admin) ↗" : "Definir compra";
-          btn.href = url || "#";
-          if (!btn.dataset.bound) {
-            btn.addEventListener("click", (e) => {
-              if (!isAdminEnabled()) return;
-              const m = getProductMeta(card);
-              const currentLinks = getAdminLinks();
-              const currentUrl = currentLinks[m.key];
-              if (currentUrl) {
-                btn.href = currentUrl;
-                return;
-              }
-              e.preventDefault();
-              const newUrl = prompt(
-                `Link de compra (só no teu navegador) para:\n${m.label}\n\nCole o link aqui:`,
-              );
-              if (!newUrl) return;
-              const clean = newUrl.trim();
-              if (!/^https?:\/\//i.test(clean)) {
-                alert("Link inválido. Precisa começar com http:// ou https://");
-                return;
-              }
-              currentLinks[m.key] = clean;
-              setAdminLinks(currentLinks);
-              refreshAdminButtons();
-              renderAdminList();
-            });
-            btn.dataset.bound = "true";
-          }
-          btn.style.display = enabled ? "" : "none";
-        });
-      }
-
-      function setAdminModalOpen(open) {
-        const modal = document.getElementById("admin-modal");
-        if (!modal) return;
-        modal.dataset.open = open ? "true" : "false";
-      }
-
-      function syncAdminState() {
-        const enabled = isAdminEnabled();
-        document.body.dataset.admin = enabled ? "true" : "false";
-        const fab = document.getElementById("admin-fab");
-        if (fab) fab.dataset.visible = enabled ? "true" : "false";
-        refreshAdminButtons();
-      }
-
-      function renderAdminList() {
-        const list = document.getElementById("admin-list");
-        if (!list) return;
-        if (!isAdminEnabled()) {
-          list.innerHTML = "";
-          return;
-        }
-
-        const links = getAdminLinks();
-        const items = getAllCards()
-          .map((c) => getProductMeta(c))
-          .filter((m) => m.label && m.key)
-          .sort((a, b) => (a.cat + a.label).localeCompare(b.cat + b.label));
-
-        list.innerHTML = "";
-        items.forEach((m) => {
-          const row = document.createElement("div");
-          row.className = "admin-row";
-
-          const top = document.createElement("div");
-          top.className = "admin-row-top";
-
-          const titleWrap = document.createElement("div");
-          const title = document.createElement("div");
-          title.className = "admin-row-title";
-          title.textContent = m.label;
-          const meta = document.createElement("div");
-          meta.className = "admin-row-meta";
-          meta.textContent = m.key;
-          titleWrap.appendChild(title);
-          titleWrap.appendChild(meta);
-
-          top.appendChild(titleWrap);
-          row.appendChild(top);
-
-          const form = document.createElement("div");
-          form.className = "admin-row-form";
-
-          const input = document.createElement("input");
-          input.className = "admin-input";
-          input.placeholder = "https://... (link de compra)";
-          input.value = links[m.key] || "";
-
-          const save = document.createElement("button");
-          save.type = "button";
-          save.className = "filter-btn";
-          save.textContent = "Guardar";
-          save.addEventListener("click", () => {
-            const v = input.value.trim();
-            const next = getAdminLinks();
-            if (!v) {
-              delete next[m.key];
-              setAdminLinks(next);
-              refreshAdminButtons();
-              return;
-            }
-            if (!/^https?:\/\//i.test(v)) {
-              alert("Link inválido. Precisa começar com http:// ou https://");
-              return;
-            }
-            next[m.key] = v;
-            setAdminLinks(next);
-            refreshAdminButtons();
-          });
-
-          const open = document.createElement("button");
-          open.type = "button";
-          open.className = "filter-btn";
-          open.textContent = "Abrir";
-          open.addEventListener("click", () => {
-            const v = input.value.trim();
-            if (!v) return;
-            window.open(v, "_blank");
-          });
-
-          form.appendChild(input);
-          form.appendChild(save);
-          form.appendChild(open);
-          row.appendChild(form);
-
-          list.appendChild(row);
-        });
-      }
-
-      async function ensureAdminAccessAndOpen() {
-        if (isAdminEnabled()) {
-          setAdminModalOpen(true);
-          renderAdminList();
-          return;
-        }
-
-        const storedHash = localStorage.getItem(ADMIN_PASS_HASH_KEY);
-        if (!storedHash) {
-          const pass = prompt(
-            "Definir senha do modo admin (fica apenas neste navegador):",
-          );
-          if (!pass) return;
-          const pass2 = prompt("Confirmar senha do modo admin:");
-          if (pass2 !== pass) {
-            alert("As senhas não coincidem.");
-            return;
-          }
-          const hash = await sha256Hex(pass);
-          localStorage.setItem(ADMIN_PASS_HASH_KEY, hash);
-        }
-
-        const input = prompt("Senha do modo admin:");
-        if (!input) return;
-        const inputHash = await sha256Hex(input);
-        const expected = localStorage.getItem(ADMIN_PASS_HASH_KEY);
-        if (inputHash !== expected) {
-          alert("Senha incorreta.");
-          return;
-        }
-
-        setAdminEnabled(true);
-        setAdminModalOpen(true);
-        renderAdminList();
-      }
-
-      function getFilteredProductsData() {
-        const matches = [];
-        telegramProductsData.forEach((p) => {
-          const cat = (p && p.category) || "outros";
-          const catOk = activeCategory === "todos" || cat === activeCategory;
-
-          const brandOk =
-            activeCategory !== "sneakers" ||
-            activeBrand === "todos" ||
-            String(p.brandSlug || "") === activeBrand;
-
-          const modelOk =
-            activeCategory !== "sneakers" ||
-            activeModel === "todos" ||
-            String(p.modelSlug || "") === activeModel;
-
-          const searchHaystack = normalizeSearchText(
-            [
-              cat,
-              p.brandSlug || "",
-              p.modelSlug || "",
-              p.brandLabel || "",
-              p.modelLabel || "",
-              p.name || "",
-            ].join(" "),
-          );
-          const searchOk =
-            !activeSearchQuery || searchHaystack.includes(activeSearchQuery);
-
-          if (catOk && brandOk && modelOk && searchOk) matches.push(p);
-        });
-        return matches;
-      }
-
-      function updateCatalogMoreUi() {
-        const more = document.getElementById("catalog-more");
-        const moreBtn = document.getElementById("catalog-more-btn");
-        if (!more || !moreBtn) return;
-
-        const remaining = filteredProductsData.length - renderedProductsCount;
-        if (remaining <= 0) {
-          more.classList.remove("is-loading");
-          more.dataset.visible = "false";
-          return;
-        }
-
-        more.dataset.visible = "true";
-        moreBtn.textContent = `Ver mais produtos (+${Math.min(
-          remaining,
-          getCatalogBatchSize(),
-        )})`;
-      }
-
-      function getCatalogBatchSize() {
-        return window.innerWidth <= 600 ? MOBILE_CATALOG_BATCH : DESKTOP_CATALOG_BATCH;
-      }
-
-      function setCatalogLoading(loading) {
-        const more = document.getElementById("catalog-more");
-        if (!more) return;
-        more.classList.toggle("is-loading", Boolean(loading));
-      }
-
-      function renderCatalogSkeletons(count) {
-        const wrap = document.getElementById("catalog-skeletons");
-        if (!wrap) return;
-        wrap.innerHTML = "";
-        for (let i = 0; i < count; i += 1) {
-          const card = document.createElement("div");
-          card.className = "skeleton-card";
-          card.innerHTML = `
-            <div class="skeleton-img skeleton-shimmer"></div>
-            <div class="skeleton-body">
-              <div class="skeleton-line short skeleton-shimmer"></div>
-              <div class="skeleton-line medium skeleton-shimmer"></div>
-              <div class="skeleton-line long skeleton-shimmer"></div>
-              <div class="skeleton-footer">
-                <div class="skeleton-pill price skeleton-shimmer"></div>
-                <div class="skeleton-pill btn skeleton-shimmer"></div>
-              </div>
-            </div>
-          `;
-          wrap.appendChild(card);
-        }
-        wrap.dataset.visible = count > 0 ? "true" : "false";
-      }
-
-      function clearCatalogSkeletons() {
-        const wrap = document.getElementById("catalog-skeletons");
-        if (!wrap) return;
-        wrap.innerHTML = "";
-        wrap.dataset.visible = "false";
-      }
-
-      function buildProductCardFromData(p) {
-        const name = (p && p.name) || "";
-        const images = (p && p.images) || [];
-        const category = (p && p.category) || "telegram";
-        const slug = (p && p.slug) || "";
-        const hasBuyLink = Boolean(p && p.hasBuyLink);
-        let card = null;
-        if (
-          category === "sneakers" &&
-          p &&
-          p.brandSlug &&
-          p.brandLabel &&
-          p.modelSlug &&
-          p.modelLabel
-        ) {
-          card = buildSneakerCard({
-            brandLabel: p.brandLabel,
-            brandSlug: p.brandSlug,
-            modelSlug: p.modelSlug,
-            modelLabel: p.modelLabel,
-            images,
-            productSlug: slug,
-            hasBuyLink,
-          });
-          card.dataset.source = "telegram";
-        } else {
-          card = buildTelegramCard({ name, images, category, slug, hasBuyLink });
-        }
-        if (p && p.latestTs) {
-          card.dataset.addedAt = String(p.latestTs);
-          card.dataset.latestTs = String(p.latestTs);
-        }
-        return card;
-      }
-
-      async function appendNextBatch({ scrollToNew } = {}) {
-        const grid = document.getElementById("grid");
-        if (!grid) return;
-        if (isAppendingBatch) return;
-
-        const prev = renderedProductsCount;
-        const next = Math.min(
-          renderedProductsCount + getCatalogBatchSize(),
-          filteredProductsData.length,
-        );
-        if (next <= renderedProductsCount) return;
-
-        isAppendingBatch = true;
-        setCatalogLoading(true);
-        renderCatalogSkeletons(Math.min(next - renderedProductsCount, BATCH_RENDER_CHUNK));
-
-        for (let start = renderedProductsCount; start < next; start += BATCH_RENDER_CHUNK) {
-          const frag = document.createDocumentFragment();
-          const end = Math.min(start + BATCH_RENDER_CHUNK, next);
-          for (let i = start; i < end; i += 1) {
-            frag.appendChild(buildProductCardFromData(filteredProductsData[i]));
-          }
-          grid.appendChild(frag);
-          renderedProductsCount = end;
-          await new Promise((resolve) => requestAnimationFrame(() => resolve()));
-        }
-
-        clearCatalogSkeletons();
-        setCatalogLoading(false);
-        isAppendingBatch = false;
-        refreshSneakerBadges();
-        refreshCustomerButtons();
-        if (isAdminEnabled()) {
-          refreshAdminButtons();
-        }
-        updateCatalogMoreUi();
-
-        if (scrollToNew) {
-          const cards = Array.from(grid.querySelectorAll(".card"));
-          const target = cards[Math.min(prev, Math.max(0, cards.length - 1))];
-          if (target) {
-            target.scrollIntoView({ behavior: "smooth", block: "center" });
-          }
-        }
-      }
-
-      function applyFilters(reset) {
-        const grid = document.getElementById("grid");
-        if (!grid) return;
-        filteredProductsData = getFilteredProductsData();
-        renderedProductsCount = 0;
-        isAppendingBatch = false;
-        setCatalogLoading(false);
-        clearCatalogSkeletons();
-        grid.querySelectorAll(".card").forEach((el) => el.remove());
-        if (filteredProductsData.length > 0) {
-          renderCatalogSkeletons(Math.min(getCatalogBatchSize(), 6));
-          appendNextBatch();
-        } else {
-          updateCatalogMoreUi();
-        }
-      }
-
-      function filter(cat, btn) {
-        activeCategory = cat;
-        activeBrand = "todos";
-        activeModel = "todos";
-
-        const btnEl =
-          btn || document.querySelector(`.cat-filter[data-cat="${cat}"]`);
-        document
-          .querySelectorAll(".cat-filter")
-          .forEach((b) => b.classList.remove("active"));
-        if (btnEl) btnEl.classList.add("active");
-
-        const brandFilters = document.getElementById("brand-filters");
-        if (brandFilters) {
-          brandFilters.dataset.visible = cat === "sneakers" ? "true" : "false";
-        }
-        const modelFilters = document.getElementById("model-filters");
-        if (modelFilters) {
-          modelFilters.dataset.visible = "false";
-        }
-
-        document
-          .querySelectorAll(".brand-filter")
-          .forEach((b) => b.classList.remove("active"));
-        const brandDefault = document.querySelector(".brand-filter");
-        if (brandDefault) brandDefault.classList.add("active");
-
-        const modelSelect = document.getElementById("model-select");
-        if (modelSelect) {
-          modelSelect.value = "todos";
-          while (modelSelect.options.length > 1) {
-            modelSelect.remove(1);
-          }
-        }
-
-        applyFilters(true);
-      }
-
-      async function hydrateTelegramProducts() {
-        const grid = document.getElementById("grid");
-        if (!grid) return;
-
-        try {
-          const res = await fetch("imagens/telegram_manifest.json", {
-            cache: "no-store",
-          });
-          if (!res.ok) return;
-          const manifest = await res.json();
-          const products = Array.isArray(manifest.products)
-            ? manifest.products
-            : [];
-
-          telegramProductsData = products
-            .filter((p) => p && p.name && Array.isArray(p.images) && p.images.length)
-            .slice()
-            .sort((a, b) => Number(b.latestTs || 0) - Number(a.latestTs || 0));
-
-          sneakersIndex = { brands: [], modelsByBrand: {} };
-          telegramProductsData.forEach((p) => {
-            if (
-              p &&
-              p.category === "sneakers" &&
-              p.brandSlug &&
-              p.brandLabel &&
-              p.modelSlug &&
-              p.modelLabel
-            ) {
-              ensureSneakerIndexEntry(
-                p.brandSlug,
-                p.brandLabel,
-                p.modelSlug,
-                p.modelLabel,
-              );
-            }
-          });
-          renderSneakerBrandFilters();
-        } catch {
-          return;
-        }
-      }
-
-      function filterBrand(brand, btn) {
-        activeBrand = brand;
-        activeModel = "todos";
-
-        const btnEl =
-          btn || document.querySelector(`.brand-filter[data-brand="${brand}"]`);
-        document
-          .querySelectorAll(".brand-filter")
-          .forEach((b) => b.classList.remove("active"));
-        if (btnEl) btnEl.classList.add("active");
-
-        const modelFilters = document.getElementById("model-filters");
-        if (!modelFilters) {
-          applyFilters(true);
-          return;
-        }
-
-        const modelSelect = document.getElementById("model-select");
-        if (modelSelect) {
-          modelSelect.value = "todos";
-          while (modelSelect.options.length > 1) {
-            modelSelect.remove(1);
-          }
-        }
-
-        const models = sneakersIndex.modelsByBrand[brand] || [];
-        if (brand === "todos" || models.length === 0) {
-          modelFilters.dataset.visible = "false";
-        } else {
-          modelFilters.dataset.visible = "true";
-          if (modelSelect) {
-            function getGroupLabel(brandSlug, modelLabel) {
-              const words = String(modelLabel || "")
-                .trim()
-                .split(/\s+/)
-                .filter(Boolean);
-              if (words.length === 0) return "Outros";
-              if (brandSlug === "nike" && words[0].toLowerCase() === "air") {
-                return words.slice(0, 2).join(" ");
-              }
-              if (
-                brandSlug === "adidas" &&
-                words[0].toLowerCase() === "samba"
-              ) {
-                return "Samba";
-              }
-              return words[0];
-            }
-
-            const grouped = new Map();
-            for (const m of models) {
-              const group = getGroupLabel(brand, m.label);
-              const arr = grouped.get(group) || [];
-              arr.push(m);
-              grouped.set(group, arr);
-            }
-
-            const groupsSorted = [...grouped.keys()].sort((a, b) =>
-              String(a).localeCompare(String(b)),
-            );
-
-            for (const g of groupsSorted) {
-              const optgroup = document.createElement("optgroup");
-              optgroup.label = g;
-              const arr = grouped.get(g) || [];
-              arr.sort((a, b) => a.label.localeCompare(b.label));
-              for (const m of arr) {
-                const opt = document.createElement("option");
-                opt.value = m.slug;
-                opt.textContent = m.label;
-                optgroup.appendChild(opt);
-              }
-              modelSelect.appendChild(optgroup);
-            }
-          }
-        }
-
-        applyFilters(true);
-      }
-
-      function filterModel(model, btn) {
-        activeModel = model;
-        const modelSelect = document.getElementById("model-select");
-        if (modelSelect && modelSelect.value !== model)
-          modelSelect.value = model;
-        if (btn) {
-          document
-            .querySelectorAll(".model-filter")
-            .forEach((b) => b.classList.remove("active"));
-          btn.classList.add("active");
-        }
-        applyFilters(true);
-      }
-
-      function refreshSneakerBadges() {
-        document
-          .querySelectorAll('.card[data-cat="sneakers"]')
-          .forEach((card) => {
-            const badge = card.querySelector(".card-badge");
-            if (!badge) return;
-            const meta = {
-              brand: card.dataset.brand || "",
-              modelLabel: getCardText(card, ".card-name"),
-            };
-            const isPopular = POPULAR_SNEAKERS.some((r) =>
-              matchesRule(meta, r),
-            );
-            const isNew = NEW_SNEAKERS.some((r) => matchesRule(meta, r));
-            badge.classList.toggle("popular", isPopular);
-            badge.textContent = isPopular
-              ? "🔥 Popular"
-              : isNew
-                ? "Novo"
-                : "Sneaker";
-          });
-      }
-
-      function buildHomeTile({ title, meta, imageSrc, badgeText, badgeClass }) {
-        const tile = document.createElement("div");
-        tile.className = "home-tile";
-
-        const imgWrap = document.createElement("div");
-        imgWrap.className = "tile-img";
-        const img = document.createElement("img");
-        img.src = imageSrc;
-        imgWrap.appendChild(img);
-
-        const badge = document.createElement("span");
-        badge.className = `card-badge${badgeClass ? ` ${badgeClass}` : ""}`;
-        badge.textContent = badgeText || "";
-        imgWrap.appendChild(badge);
-
-        const body = document.createElement("div");
-        body.className = "tile-body";
-        const name = document.createElement("div");
-        name.className = "tile-name";
-        name.textContent = title;
-        const sub = document.createElement("div");
-        sub.className = "tile-meta";
-        sub.textContent = meta || "";
-        body.appendChild(name);
-        body.appendChild(sub);
-
-        tile.appendChild(imgWrap);
-        tile.appendChild(body);
-        return tile;
-      }
-
-      function findSneakerCard(rule) {
-        const cards = Array.from(
-          document.querySelectorAll(
-            '.products-grid > .card[data-cat="sneakers"]',
-          ),
-        );
-        for (const c of cards) {
-          const meta = {
-            brand: c.dataset.brand || "",
-            modelLabel: getCardText(c, ".card-name"),
-          };
-          if (matchesRule(meta, rule)) return c;
-        }
-        return null;
-      }
-
-      function findCardBySlug(slug) {
-        const cleanSlug = String(slug || "").trim().toLowerCase();
-        if (!cleanSlug) return null;
-        const cards = Array.from(
-          document.querySelectorAll(".products-grid > .card"),
-        );
-        for (const c of cards) {
-          const cardSlug = String(c.dataset.slug || "")
-            .trim()
-            .toLowerCase();
-          if (cardSlug === cleanSlug) return c;
-        }
-        return null;
-      }
-
-      function focusCard(card) {
-        if (!card) return;
-        card.scrollIntoView({ behavior: "smooth", block: "start" });
-        const prev = card.style.outline;
-        card.style.outline = "2px solid var(--accent)";
-        setTimeout(() => {
-          card.style.outline = prev || "";
-        }, 1200);
-      }
-
-      const SPOTLIGHT_SLUGS = [
-        { slug: "asics_gel_nyc", meta: "ASICS Gel NYC" },
-        { slug: "nike_react_vision", meta: "Nike" },
-        { slug: "adidas_gazelle_og", meta: "Adidas" },
-      ];
-
-      const NEWS_SLUGS = [
-        { slug: "nike_react_vision", meta: "Tênis" },
-        { slug: "adidas_gazelle_og", meta: "Tênis" },
-        { slug: "adidas_ozwave", meta: "Tênis" },
-        { slug: "nike_x_nocta_chándal_completo", meta: "Conjunto" },
-        { slug: "carhartt_bordado", meta: "Conjunto" },
-        { slug: "corteiz", meta: "Conjunto" },
-        { slug: "adidas_campus_x_bad_bunny", meta: "Tênis" },
-        { slug: "asics_gel_nimbus_16", meta: "Tênis" },
-      ];
-
-      let pendingFocusSlug = null;
-      let pendingFocusBrand = null;
-      let pendingFocusModel = null;
-      let pendingFocusCat = null;
-
-      function findProductBySlug(slug) {
-        const clean = String(slug || "").trim().toLowerCase();
-        if (!clean) return null;
-        const pool = Array.isArray(allProductsData) && allProductsData.length
-          ? allProductsData
-          : Array.isArray(filteredProductsData)
-            ? filteredProductsData
-            : [];
-        for (const p of pool) {
-          const pSlug = String((p && p.slug) || "")
-            .trim()
-            .toLowerCase();
-          if (pSlug === clean) return p;
-        }
-        return null;
-      }
-
-      function productFirstImage(p) {
-        if (!p) return "";
-        if (Array.isArray(p.images) && p.images[0]) return p.images[0];
-        return "";
-      }
-
-      function productLabel(p) {
-        if (!p) return "";
-        const name = String(p.name || "").trim();
-        const brand = String(p.brandLabel || "").trim();
-        const model = String(p.modelLabel || "").trim();
-        if (brand && model) return `${brand} ${model}`.trim();
-        return name || "";
-      }
-
-      function productMeta(p, fallbackMeta) {
-        if (!p) return fallbackMeta || "";
-        const cat = String(p.category || "").trim().toLowerCase();
-        if (fallbackMeta) return fallbackMeta;
-        if (cat === "roupas") return "Conjunto";
-        if (cat === "sneakers") return "Tênis";
-        if (cat === "bolsas") return "Bolsa";
-        if (cat === "oculos") return "Óculos";
-        if (cat === "relogios") return "Relógio";
-        return "Novidade";
-      }
-
-      function scrollAndFocusSlug(slug, cat, brand, model) {
-        pendingFocusSlug = slug ? String(slug).toLowerCase() : null;
-        pendingFocusCat = cat || "todos";
-        pendingFocusBrand = brand || "todos";
-        pendingFocusModel = model || "todos";
-
-        if (pendingFocusCat && pendingFocusCat !== "todos") {
-          filter(pendingFocusCat);
-        }
-        if (pendingFocusBrand && pendingFocusBrand !== "todos") {
-          setTimeout(() => filterBrand(pendingFocusBrand), 0);
-        }
-        if (pendingFocusModel && pendingFocusModel !== "todos") {
-          setTimeout(() => filterModel(pendingFocusModel), 30);
-        }
-
-        const tryFocus = () => {
-          const grid = document.getElementById("grid");
-          const card = grid && pendingFocusSlug
-            ? findCardBySlug(pendingFocusSlug)
-            : null;
-          if (card) {
-            focusCard(card);
-            pendingFocusSlug = null;
-            pendingFocusCat = null;
-            pendingFocusBrand = null;
-            pendingFocusModel = null;
-            return true;
-          }
-          return false;
-        };
-
-        if (tryFocus()) return;
-        const start = Date.now();
-        const interval = setInterval(() => {
-          if (tryFocus() || Date.now() - start > 5000) {
-            clearInterval(interval);
-          }
-        }, 120);
-      }
-
-      function addTileByProductData(container, p, meta, pickedRef, options) {
-        if (!p) return false;
-        const slug = String(p.slug || "").trim().toLowerCase();
-        if (!slug) return false;
-        if (pickedRef.has(slug)) return false;
-
-        const title = productLabel(p);
-        const imageSrc = productFirstImage(p);
-        const badgeText = (options && options.badgeText) || "Destaque";
-        const badgeClass = (options && options.badgeClass) || "";
-        const finalMeta = (options && options.metaOverride)
-          ? options.metaOverride
-          : productMeta(p, meta);
-
-        if (!imageSrc) return false;
-
-        const tile = buildHomeTile({
-          title,
-          meta: finalMeta,
-          imageSrc,
-          badgeText,
-          badgeClass,
-        });
-
-        tile.addEventListener("click", () => {
-          const category = String(p.category || "todos").trim().toLowerCase();
-          const brand = p.brandSlug ? String(p.brandSlug).toLowerCase() : "todos";
-          const model = p.modelSlug ? String(p.modelSlug).toLowerCase() : "todos";
-          scrollAndFocusSlug(slug, category, brand, model);
-        });
-
-        container.appendChild(tile);
-        pickedRef.add(slug);
-        return true;
-      }
-
-      function initHomeShowcase() {
-        const spotlight = document.getElementById("spotlight-strip");
-        const news = document.getElementById("new-strip");
-        if (!spotlight || !news) return;
-        spotlight.innerHTML = "";
-        news.innerHTML = "";
-        const pickedSlugs = new Set();
-
-        for (const item of SPOTLIGHT_SLUGS) {
-          const p = findProductBySlug(item.slug);
-          addTileByProductData(spotlight, p, item.meta, pickedSlugs, {
-            badgeText: "🔥 Destaque",
-            badgeClass: "popular",
-          });
-        }
-
-        if (spotlight.childElementCount < 3) {
-          const pool = Array.isArray(allProductsData) && allProductsData.length
-            ? allProductsData
-            : Array.isArray(filteredProductsData)
-              ? filteredProductsData
-              : [];
-          const sneakers = pool.filter((p) => p && p.category === "sneakers");
-          for (let i = 0; i < sneakers.length && spotlight.childElementCount < 6; i += 1) {
-            const p = sneakers[i];
-            const slug = String(p.slug || "").toLowerCase();
-            if (pickedSlugs.has(slug)) continue;
-            let matches = false;
-            for (const rule of POPULAR_SNEAKERS) {
-              const brandOk = !rule.brand
-                || String(p.brandSlug || p.name || "")
-                    .toLowerCase()
-                    .includes(String(rule.brand).toLowerCase());
-              const contentOk = !Array.isArray(rule.contains)
-                || rule.contains.every((kw) =>
-                    String(p.name || "")
-                      .toLowerCase()
-                      .includes(String(kw).toLowerCase()),
-                  );
-              if (brandOk && contentOk) {
-                matches = true;
-                break;
-              }
-            }
-            if (matches) {
-              addTileByProductData(spotlight, p, "Sneakers", pickedSlugs, {
-                badgeText: "🔥 Destaque",
-                badgeClass: "popular",
-              });
-            }
-          }
-        }
-
-        if (spotlight.childElementCount === 0) {
-          const pool = Array.isArray(allProductsData) && allProductsData.length
-            ? allProductsData
-            : Array.isArray(filteredProductsData)
-              ? filteredProductsData
-              : [];
-          const sneakers = pool.filter((p) => p && p.category === "sneakers").slice(0, 4);
-          sneakers.forEach((p) =>
-            addTileByProductData(spotlight, p, "Sneakers", pickedSlugs, {
-              badgeText: "Destaque",
-              badgeClass: "",
-            }),
-          );
-        }
-
-        for (const item of NEWS_SLUGS) {
-          const p = findProductBySlug(item.slug);
-          addTileByProductData(news, p, item.meta, pickedSlugs, {
-            badgeText: "Novidade",
-            badgeClass: "",
-          });
-        }
-
-        if (news.childElementCount < 6) {
-          const pool = Array.isArray(allProductsData) && allProductsData.length
-            ? allProductsData
-            : Array.isArray(filteredProductsData)
-              ? filteredProductsData
-              : [];
-          const priorityCategories = new Set(["sneakers", "roupas"]);
-          const sorted = pool
-            .filter((p) => p && priorityCategories.has(String(p.category || "").trim().toLowerCase()))
-            .sort((a, b) => Number(b.latestTs || 0) - Number(a.latestTs || 0));
-          for (const p of sorted) {
-            if (news.childElementCount >= 8) break;
-            const slug = String(p.slug || "").toLowerCase();
-            if (pickedSlugs.has(slug)) continue;
-            const cat = String(p.category || "").toLowerCase();
-            addTileByProductData(news, p, cat === "roupas" ? "Conjunto" : "Tênis", pickedSlugs, {
-              badgeText: "Novidade",
-              badgeClass: "",
-            });
-          }
-        }
-
-        if (news.childElementCount === 0) {
-          const pool = Array.isArray(allProductsData) && allProductsData.length
-            ? allProductsData
-            : Array.isArray(filteredProductsData)
-              ? filteredProductsData
-              : [];
-          const sorted = pool
-            .slice()
-            .sort((a, b) => Number(b.latestTs || 0) - Number(a.latestTs || 0))
-            .slice(0, 6);
-          sorted.forEach((p) =>
-            addTileByProductData(news, p, "Novidade", pickedSlugs, {
-              badgeText: "Novidade",
-              badgeClass: "",
-            }),
-          );
-        }
-      }
-
-      // Trocar de ângulo mantendo a borda amarela/branca ativa
-      function changeAngle(btn, imgId, newSrc) {
-        document.getElementById(imgId).src = newSrc;
-        btn.parentElement
-          .querySelectorAll(".angle-dot")
-          .forEach((b) => b.classList.remove("active"));
-        btn.classList.add("active");
-        const card = btn.closest(".card");
-        const n = Number(btn.textContent || "0");
-        if (card && n) {
-          card.dataset.selectedModel = String(n);
-          updateCardCustomerWhatsAppLink(card, n);
-        }
-      }
-
-      const lightboxState = {
-        images: [],
-        index: 0,
-        title: "",
-      };
-
-      function toRelativeImagePath(src) {
-        try {
-          const u = new URL(src, window.location.href);
-          const p = u.pathname || "";
-          const i = p.indexOf("/imagens/");
-          if (i >= 0) return p.slice(i + 1);
-          return p.replace(/^\/+/, "");
-        } catch {
-          const s = String(src || "");
-          const j = s.indexOf("imagens/");
-          if (j >= 0) return s.slice(j);
-          return s;
-        }
-      }
-
-      function collectCardImages(card, imgEl) {
-        if (!card) return [];
-        const fromData = card.dataset.images;
-        if (fromData) {
-          try {
-            const parsed = JSON.parse(fromData);
-            if (Array.isArray(parsed) && parsed.length > 0) return parsed;
-          } catch {}
-        }
-
-        const found = [];
-        card.querySelectorAll(".angle-dot[onclick]").forEach((b) => {
-          const raw = b.getAttribute("onclick") || "";
-          const parts = [...raw.matchAll(/'([^']+)'/g)].map((m) => m[1]);
-          const last = parts.length ? parts[parts.length - 1] : "";
-          if (last) found.push(last);
-        });
-        const current = imgEl ? imgEl.getAttribute("src") || imgEl.src : "";
-        if (current) found.unshift(current);
-        const uniq = [];
-        const seen = new Set();
-        for (const s of found) {
-          const rel = toRelativeImagePath(s);
-          if (!rel) continue;
-          if (seen.has(rel)) continue;
-          seen.add(rel);
-          uniq.push(rel);
-        }
-        return uniq;
-      }
-
-      function setLightboxOpen(open) {
-        const box = document.getElementById("lightbox");
-        if (!box) return;
-        box.dataset.open = open ? "true" : "false";
-        document.body.style.overflow = open ? "hidden" : "";
-        const img = document.getElementById("lightbox-img");
-        if (img) img.classList.remove("zoom");
-      }
-
-      function renderLightbox() {
-        const img = document.getElementById("lightbox-img");
-        const title = document.getElementById("lightbox-title");
-        const count = document.getElementById("lightbox-count");
-        const prev = document.querySelector('#lightbox [data-action="prev"]');
-        const next = document.querySelector('#lightbox [data-action="next"]');
-
-        const images = Array.isArray(lightboxState.images)
-          ? lightboxState.images
-          : [];
-        const total = images.length;
-        const idx = Math.max(0, Math.min(lightboxState.index || 0, total - 1));
-        lightboxState.index = idx;
-
-        if (img) img.src = total ? images[idx] : "";
-        if (title) title.textContent = lightboxState.title || "";
-        if (count) count.textContent = total ? `${idx + 1}/${total}` : "";
-        if (prev) prev.disabled = !(total > 1 && idx > 0);
-        if (next) next.disabled = !(total > 1 && idx < total - 1);
-      }
-
-      function openLightbox(images, index, title) {
-        lightboxState.images = Array.isArray(images) ? images : [];
-        lightboxState.index = Number.isFinite(index) ? index : 0;
-        lightboxState.title = title || "";
-        setLightboxOpen(true);
-        renderLightbox();
-      }
-
-      function closeLightbox() {
-        setLightboxOpen(false);
-      }
-
-      function stepLightbox(delta) {
-        const total = Array.isArray(lightboxState.images)
-          ? lightboxState.images.length
-          : 0;
-        if (total <= 1) return;
-        const next = Math.max(
-          0,
-          Math.min((lightboxState.index || 0) + delta, total - 1),
-        );
-        if (next === lightboxState.index) return;
-        lightboxState.index = next;
-        const img = document.getElementById("lightbox-img");
-        if (img) img.classList.remove("zoom");
-        renderLightbox();
-      }
-
-      document.addEventListener("click", (e) => {
-        const t = e.target;
-        if (!(t instanceof Element)) return;
-
-        const action = t.getAttribute("data-action");
-        if (action === "close") {
-          closeLightbox();
-          return;
-        }
-        if (action === "prev") {
-          stepLightbox(-1);
-          return;
-        }
-        if (action === "next") {
-          stepLightbox(1);
-          return;
-        }
-
-        if (t.id === "lightbox-img") {
-          t.classList.toggle("zoom");
-          return;
-        }
-
-        if (t.matches(".angle-dot")) {
-          const imgId = String(t.dataset.imgId || "").trim();
-          const src = String(t.dataset.src || "").trim();
-          if (imgId && src) {
-            changeAngle(t, imgId, src);
-            return;
-          }
-        }
-
-        if (!t.matches(".card-img img")) return;
-        const card = t.closest(".card");
-        const images = collectCardImages(card, t);
-        const current = toRelativeImagePath(t.getAttribute("src") || t.src);
-        const idx = Math.max(
-          0,
-          images.findIndex((s) => toRelativeImagePath(s) === current),
-        );
-        const title =
-          (card &&
-          getCardText(card, ".card-cat") &&
-          getCardText(card, ".card-name")
-            ? `${getCardText(card, ".card-cat")} ${getCardText(card, ".card-name")}`
-            : card && getCardText(card, ".card-name")
-              ? getCardText(card, ".card-name")
-              : "") || "";
-        openLightbox(images, idx, title.trim());
+  </div>
+
+  <script>
+    function showTab(id, btn) {
+      document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+      document.querySelectorAll('.tab').forEach(t => {
+        t.classList.remove('active');
+        t.setAttribute('aria-selected', 'false');
       });
+      btn.classList.add('active');
+      btn.setAttribute('aria-selected', 'true');
+    }
 
-      document.addEventListener("keydown", (e) => {
-        const box = document.getElementById("lightbox");
-        if (!box || box.dataset.open !== "true") return;
-        if (e.key === "Escape") {
-          e.preventDefault();
-          closeLightbox();
-          return;
-        }
-        if (e.key === "ArrowLeft") {
-          e.preventDefault();
-          stepLightbox(-1);
-          return;
-        }
-        if (e.key === "ArrowRight") {
-          e.preventDefault();
-          stepLightbox(1);
-          return;
-        }
+    function toggleFaq(el) {
+      document.querySelectorAll('.faq-item').forEach(item => {
+        if (item !== el) item.classList.remove('open');
       });
+      el.classList.toggle('open');
+    }
 
-      // Enviar mensagem personalizada para o WhatsApp
-      function orderSneaker(modelName, sizeSelectId) {
-        const size = document.getElementById(sizeSelectId).value;
-        const message = encodeURIComponent(
-          `Olá! Gostava de encomendar este modelo:\n\n👟 *${modelName}*\n📏 Tamanho: ${size}\n💰 Preço: 40€\n\nEstá disponível?`,
-        );
-        window.open(
-          `https://api.whatsapp.com/send?phone=${WHATSAPP_NUM}&text=${message}`,
-          "_blank",
-        );
-      }
+    const SPOTLIGHT_SLUGS = [
+      "asics_gel_nyc",
+      "nike_react_vision",
+      "adidas_gazelle_og",
+      "adidas_ozwave",
+      "adidas_campus_x_bad_bunny",
+      "asics_gel_nimbus_16",
+    ];
 
-      function slugify(value) {
-        return (value || "")
-          .toString()
-          .trim()
-          .toLowerCase()
-          .replace(/[^a-z0-9]+/g, "-")
-          .replace(/^-+|-+$/g, "");
-      }
+    const NEWS_SLUGS = [
+      "nike_react_vision",
+      "adidas_gazelle_og",
+      "adidas_ozwave",
+      "nike_x_nocta_chándal_completo",
+      "carhartt_bordado",
+      "corteiz",
+      "adidas_campus_x_bad_bunny",
+      "asics_gel_nimbus_16",
+    ];
 
-      function titleCase(value) {
-        return (value || "")
-          .toString()
-          .split(" ")
-          .filter(Boolean)
-          .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-          .join(" ");
-      }
+    const WHATSAPP_NUMBER = "351000000000";
+    const PRODUCT_PRICE = "40€";
 
-      function humanizeModel(value) {
-        const spaced = (value || "")
-          .toString()
-          .replace(/[-_]+/g, " ")
-          .replace(/([a-zA-Z])([0-9])/g, "$1 $2")
-          .replace(/([0-9])([a-zA-Z])/g, "$1 $2")
-          .replace(/\s+/g, " ")
-          .trim();
-        return titleCase(spaced);
-      }
+    function findProductBySlug(list, slug) {
+      if (!Array.isArray(list) || !slug) return null;
+      const clean = String(slug).trim().toLowerCase();
+      return list.find(p => String(p && p.slug || "").trim().toLowerCase() === clean) || null;
+    }
 
-      function sneakerWhatsappHref(brandLabel, modelLabel) {
-        return whatsappHrefForLabel(`${brandLabel} ${modelLabel}`.trim());
-      }
+    function productFirstImage(p) {
+      if (!p) return "";
+      if (Array.isArray(p.images) && p.images.length) return p.images[0];
+      return "";
+    }
 
-      function whatsappHrefForLabel(label, selectedModel) {
-        const suffix =
-          selectedModel && Number(selectedModel) > 0
-            ? ` modelo ${Number(selectedModel)}`
-            : "";
+    function buildCard({ product, tagClass, tagText }) {
+      if (!product) return null;
+      const name = String(product.name || "Sem nome").trim();
+      const firstImage = productFirstImage(product);
+      if (!firstImage) return null;
+
+      const card = document.createElement("article");
+      card.className = "card";
+
+      const imgWrap = document.createElement("div");
+      imgWrap.className = "card-img";
+      const img = document.createElement("img");
+      img.src = firstImage;
+      img.alt = name;
+      img.loading = "lazy";
+      img.decoding = "async";
+      imgWrap.appendChild(img);
+
+      const title = document.createElement("h3");
+      title.className = "card-name";
+      title.textContent = name;
+
+      const price = document.createElement("p");
+      price.className = "card-price";
+      price.textContent = PRODUCT_PRICE;
+
+      const tag = document.createElement("span");
+      tag.className = `card-tag ${tagClass || ""}`.trim();
+      tag.textContent = tagText || "";
+
+      card.appendChild(imgWrap);
+      card.appendChild(title);
+      card.appendChild(price);
+      if (tagText) card.appendChild(tag);
+
+      card.addEventListener("click", () => {
         const msg = encodeURIComponent(
-          `Olá! Tenho interesse no ${String(label || "").trim()}${suffix}. Está disponível?`,
+          `Olá! Gostava de encomendar este artigo:\n\n📦 *${name}*\n💰 Preço: ${PRODUCT_PRICE}\n\nEstá disponível?`,
         );
-        return `https://api.whatsapp.com/send?phone=${WHATSAPP_NUM}&text=${msg}`;
-      }
-
-      function getWhatsAppLabelFromCard(card) {
-        if (!card) return "";
-        const cat = String(card.dataset.cat || "").trim();
-        const source = String(card.dataset.source || "").trim();
-        if (source === "telegram" && cat !== "sneakers") {
-          return getCardText(card, ".card-name");
-        }
-        return `${getCardText(card, ".card-cat")} ${getCardText(
-          card,
-          ".card-name",
-        )}`.trim();
-      }
-
-      function updateCardCustomerWhatsAppLink(card, selectedModel) {
-        if (!card) return;
-        const footer = card.querySelector(".card-footer");
-        if (!footer) return;
-        const btn = footer.querySelector("a.card-btn:not(.admin-buy-btn)");
-        if (!btn) return;
-        const activeDot = card.querySelector(".angle-dot.active");
-        const effectiveModel =
-          String(selectedModel || "").trim() ||
-          String(activeDot ? activeDot.textContent || "" : "").trim();
-        btn.href = getCardPrimaryHref(card, effectiveModel);
-        btn.textContent = getPrimaryCtaLabel(card);
-        btn.target = "_blank";
-        btn.rel = "noopener";
-      }
-
-      function buildSneakerCard({
-        brandLabel,
-        brandSlug,
-        modelSlug,
-        modelLabel,
-        images,
-        productSlug,
-        hasBuyLink = false,
-      }) {
-        const card = document.createElement("div");
-        card.className = "card";
-        card.dataset.cat = "sneakers";
-        card.dataset.brand = brandSlug;
-        card.dataset.model = modelSlug;
-        card.dataset.slug = productSlug || `${brandSlug}-${modelSlug}`;
-        card.dataset.hasBuyLink = hasBuyLink ? "true" : "false";
-        card.dataset.selectedModel = "1";
-        try {
-          card.dataset.images = JSON.stringify(images || []);
-        } catch {}
-
-        const imgWrap = document.createElement("div");
-        imgWrap.className = "card-img";
-
-        const imgId = `img-${brandSlug}-${slugify(modelLabel)}-${Math.random()
-          .toString(16)
-          .slice(2)}`;
-        const img = document.createElement("img");
-        img.id = imgId;
-        img.src = images[0];
-        img.loading = "lazy";
-        img.decoding = "async";
-        imgWrap.appendChild(img);
-
-        const badge = document.createElement("span");
-        badge.className = "card-badge";
-        const badgeMeta = { brand: brandSlug, modelLabel };
-        const isPopular = POPULAR_SNEAKERS.some((r) =>
-          matchesRule(badgeMeta, r),
-        );
-        const isNew = NEW_SNEAKERS.some((r) => matchesRule(badgeMeta, r));
-        if (isPopular) {
-          badge.classList.add("popular");
-          badge.textContent = "🔥 Popular";
-        } else if (isNew) {
-          badge.textContent = "Novo";
-        } else {
-          badge.textContent = "Sneaker";
-        }
-        imgWrap.appendChild(badge);
-
-        const body = document.createElement("div");
-        body.className = "card-body";
-
-        const cat = document.createElement("div");
-        cat.className = "card-cat";
-        cat.textContent = brandLabel;
-
-        const name = document.createElement("div");
-        name.className = "card-name";
-        name.textContent = modelLabel;
-
-        const desc = document.createElement("div");
-        desc.className = "card-desc";
-        desc.textContent = "Várias fotos do produto.";
-
-        body.appendChild(cat);
-        body.appendChild(name);
-        body.appendChild(desc);
-
-        const angleLabel = document.createElement("div");
-        angleLabel.style.fontSize = "11px";
-        angleLabel.style.textTransform = "uppercase";
-        angleLabel.style.color = "var(--text3)";
-        angleLabel.textContent = "Ver ângulo:";
-        body.appendChild(angleLabel);
-
-        const angles = document.createElement("div");
-        angles.className = "angle-container";
-
-        images.slice(0, 12).forEach((src, index) => {
-          const btn = document.createElement("button");
-          btn.type = "button";
-          btn.className = `angle-dot${index === 0 ? " active" : ""}`;
-          btn.textContent = String(index + 1);
-          btn.dataset.imgId = imgId;
-          btn.dataset.src = src;
-          angles.appendChild(btn);
-        });
-
-        body.appendChild(angles);
-
-        const footer = document.createElement("div");
-        footer.className = "card-footer";
-
-        const price = document.createElement("div");
-        price.className = "card-price";
-        price.textContent = "40€";
-
-        const btn = document.createElement("a");
-        btn.className = "card-btn";
-        btn.target = "_blank";
-        btn.rel = "noopener";
-        btn.href = getCardPrimaryHref(card, "1");
-        btn.textContent = getPrimaryCtaLabel(card);
-
-        footer.appendChild(price);
-        footer.appendChild(btn);
-        body.appendChild(footer);
-
-        card.appendChild(imgWrap);
-        card.appendChild(body);
-
-        return card;
-      }
-
-      function buildTelegramCard({ name, images, category, slug, hasBuyLink }) {
-        const card = document.createElement("div");
-        card.className = "card";
-        card.dataset.source = "telegram";
-        card.dataset.cat = category || "outros";
-        card.dataset.slug = slug || slugify(name);
-        card.dataset.hasBuyLink = hasBuyLink ? "true" : "false";
-        card.dataset.selectedModel = "1";
-        try {
-          card.dataset.images = JSON.stringify(images || []);
-        } catch {}
-
-        const imgWrap = document.createElement("div");
-        imgWrap.className = "card-img";
-
-        const imgId = `img-telegram-${slugify(name)}-${Math.random()
-          .toString(16)
-          .slice(2)}`;
-        const img = document.createElement("img");
-        img.id = imgId;
-        img.src = images[0];
-        img.loading = "lazy";
-        img.decoding = "async";
-        imgWrap.appendChild(img);
-
-        const badge = document.createElement("span");
-        badge.className = "card-badge";
-        badge.textContent = "Novo";
-        imgWrap.appendChild(badge);
-
-        const body = document.createElement("div");
-        body.className = "card-body";
-
-        const cat = document.createElement("div");
-        cat.className = "card-cat";
-        const categoryLabelMap = {
-          bolsas: "Bolsas",
-          oculos: "Óculos",
-          fones: "Fones",
-          bones: "Bonés",
-          relogios: "Relógios",
-          capas: "Capas",
-          chinelos: "Chinelos",
-          roupas: "Roupas",
-          tecnologia: "Tecnologia",
-          outros: "Outros",
-        };
-        cat.textContent = categoryLabelMap[card.dataset.cat] || "Outros";
-
-        const title = document.createElement("div");
-        title.className = "card-name";
-        title.textContent = name;
-
-        body.appendChild(cat);
-        body.appendChild(title);
-
-        const angleLabel = document.createElement("div");
-        angleLabel.style.fontSize = "11px";
-        angleLabel.style.textTransform = "uppercase";
-        angleLabel.style.color = "var(--text3)";
-        angleLabel.textContent = "Ver ângulo:";
-        body.appendChild(angleLabel);
-
-        const angles = document.createElement("div");
-        angles.className = "angle-container";
-        images.slice(0, 12).forEach((src, index) => {
-          const btn = document.createElement("button");
-          btn.type = "button";
-          btn.className = `angle-dot${index === 0 ? " active" : ""}`;
-          btn.textContent = String(index + 1);
-          btn.dataset.imgId = imgId;
-          btn.dataset.src = src;
-          angles.appendChild(btn);
-        });
-        body.appendChild(angles);
-
-        const footer = document.createElement("div");
-        footer.className = "card-footer";
-
-        const price = document.createElement("div");
-        price.className = "card-price";
-        price.textContent = "40€";
-
-        const btn = document.createElement("a");
-        btn.className = "card-btn";
-        btn.target = "_blank";
-        btn.rel = "noopener";
-        btn.href = getCardPrimaryHref(card, "1");
-        btn.textContent = getPrimaryCtaLabel(card);
-
-        footer.appendChild(price);
-        footer.appendChild(btn);
-        body.appendChild(footer);
-
-        card.appendChild(imgWrap);
-        card.appendChild(body);
-
-        return card;
-      }
-
-      async function hydrateSneakersFromFolders() {
-        const grid = document.getElementById("grid");
-        if (!grid) return;
-
-        const base = "imagens/shoes/";
-        grid
-          .querySelectorAll('.card[data-cat="sneakers"]')
-          .forEach((el) => el.remove());
-        const anchor = grid.querySelector(".card");
-
-        const brandLabelMap = {
-          adidas: "Adidas",
-          asics: "ASICS",
-          converse: "Converse",
-          goldengoose: "Golden Goose",
-          nike: "Nike",
-          newbalance: "New Balance",
-          ralphlauren: "Ralph Lauren",
-          vans: "Vans",
-        };
-
-        function normalizeBrandSlug(brandDir) {
-          return slugify(brandDir).replace(/-/g, "");
-        }
-
-        function modelLabelOverride(brandSlug, modelDir) {
-          const key = `${brandSlug}/${modelDir}`.toLowerCase();
-          const map = {
-            "asics/gelnyc": "Gel NYC",
-            "asics/gelnyc2": "Gel NYC 2.0",
-            "asics/gelnyc2-utility": "Gel NYC 2.0 Utility",
-            "asics/gelnyc2-2055": "Gel NYC 2.0 2055",
-            "asics/metaspeed-edge": "MetaSpeed Edge",
-            "nike/air-max-tn-plus": "Air Max TN Plus",
-          };
-          return map[key] || null;
-        }
-
-        function getModelLabel(brandSlug, modelDir) {
-          const override = modelLabelOverride(brandSlug, modelDir);
-          if (override) return override;
-          return humanizeModel(modelDir);
-        }
-
-        sneakersIndex = { brands: [], modelsByBrand: {} };
-
-        const manifest = window.SNEAKERS_MANIFEST;
-        if (!manifest || !Array.isArray(manifest.brands)) return;
-
-        const brandFilters = document.getElementById("brand-filters");
-        if (brandFilters) {
-          brandFilters.querySelectorAll(".brand-filter").forEach((b) => {
-            if (b.textContent !== "Todas as marcas") b.remove();
-          });
-        }
-
-        for (const brand of manifest.brands) {
-          const brandDir = brand.brandDir;
-          const brandSlug = normalizeBrandSlug(brandDir);
-          const brandLabel =
-            brandLabelMap[brandSlug] ||
-            titleCase(brandDir.replace(/[-_]/g, " "));
-
-          const brandModels = [];
-          const models = Array.isArray(brand.models) ? brand.models : [];
-          for (const model of models) {
-            const modelDir = model.modelDir;
-            const images = Array.isArray(model.images) ? model.images : [];
-            if (images.length === 0) continue;
-
-            const modelSlug = slugify(modelDir);
-            const modelLabel = getModelLabel(brandSlug, modelDir);
-            brandModels.push({ slug: modelSlug, label: modelLabel });
-
-            const card = buildSneakerCard({
-              brandLabel,
-              brandSlug,
-              modelSlug,
-              modelLabel,
-              images,
-              productSlug: `${brandSlug}-${modelSlug}`,
-              hasBuyLink: false,
-            });
-            if (anchor) grid.insertBefore(card, anchor);
-            else grid.appendChild(card);
-          }
-
-          if (brandModels.length > 0) {
-            sneakersIndex.brands.push({ slug: brandSlug, label: brandLabel });
-            sneakersIndex.modelsByBrand[brandSlug] = brandModels.sort((a, b) =>
-              a.label.localeCompare(b.label),
-            );
-          }
-        }
-
-        sneakersIndex.brands.sort((a, b) => a.label.localeCompare(b.label));
-        renderSneakerBrandFilters();
-      }
-
-      document.addEventListener("DOMContentLoaded", async () => {
-        await hydrateTelegramProducts();
-        applyFilters(true);
-        initHomeShowcase();
-        syncAdminState();
-
-        const moreBtn = document.getElementById("catalog-more-btn");
-        if (moreBtn) {
-          moreBtn.addEventListener("click", () => {
-            appendNextBatch({ scrollToNew: true });
-          });
-        }
-
-        const more = document.getElementById("catalog-more");
-        if (more && "IntersectionObserver" in window) {
-          const io = new IntersectionObserver((entries) => {
-            if (!entries || !entries.length) return;
-            if (entries.some((e) => e && e.isIntersecting)) {
-              appendNextBatch();
-            }
-          });
-          io.observe(more);
-        }
-
-        const modelSelect = document.getElementById("model-select");
-        if (modelSelect) {
-          modelSelect.addEventListener("change", function () {
-            if (activeCategory !== "sneakers") return;
-            filterModel(this.value);
-          });
-        }
-
-        const searchInput = document.getElementById("catalog-search");
-        if (searchInput) {
-          searchInput.addEventListener("input", function () {
-            activeSearchQuery = normalizeSearchText(this.value);
-            applyFilters(true);
-          });
-        }
-
-        const fab = document.getElementById("admin-fab");
-        if (fab) {
-          fab.addEventListener("click", () => {
-            ensureAdminAccessAndOpen();
-          });
-        }
-
-        const close = document.getElementById("admin-close");
-        if (close) {
-          close.addEventListener("click", () => setAdminModalOpen(false));
-        }
-        const modal = document.getElementById("admin-modal");
-        if (modal) {
-          modal.addEventListener("click", (e) => {
-            if (e.target === modal) setAdminModalOpen(false);
-          });
-        }
-
-        const logout = document.getElementById("admin-logout");
-        if (logout) {
-          logout.addEventListener("click", () => {
-            setAdminEnabled(false);
-            setAdminModalOpen(false);
-          });
-        }
-
-        const exp = document.getElementById("admin-export");
-        if (exp) {
-          exp.addEventListener("click", () => {
-            if (!isAdminEnabled()) return;
-            const data = JSON.stringify(getAdminLinks());
-            prompt("Copia este JSON (backup dos links):", data);
-          });
-        }
-        const imp = document.getElementById("admin-import");
-        if (imp) {
-          imp.addEventListener("click", () => {
-            if (!isAdminEnabled()) return;
-            const raw = prompt("Cola o JSON para importar:");
-            if (!raw) return;
-            try {
-              const parsed = JSON.parse(raw);
-              if (!parsed || typeof parsed !== "object") {
-                alert("JSON inválido.");
-                return;
-              }
-              setAdminLinks(parsed);
-              refreshAdminButtons();
-              renderAdminList();
-            } catch {
-              alert("JSON inválido.");
-            }
-          });
-        }
-
-        document.addEventListener("keydown", (e) => {
-          const target = e.target;
-          const tag =
-            target && target.tagName ? target.tagName.toLowerCase() : "";
-          if (tag === "input" || tag === "textarea") return;
-          if (e.ctrlKey && e.altKey && (e.key === "a" || e.key === "A")) {
-            e.preventDefault();
-            ensureAdminAccessAndOpen();
-          }
-        });
+        window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`, "_blank", "noopener");
       });
-    </script>
-  </body>
+
+      return card;
+    }
+
+    function appendCardSafe(container, card, pickedSlugs, slug) {
+      if (!container || !card) return false;
+      const clean = String(slug || "").trim().toLowerCase();
+      if (clean && pickedSlugs.has(clean)) return false;
+      container.appendChild(card);
+      if (clean) pickedSlugs.add(clean);
+      return true;
+    }
+
+    function renderSpotlight(products) {
+      const grid = document.getElementById("grid-destaques");
+      if (!grid) return;
+      grid.innerHTML = "";
+      const picked = new Set();
+
+      for (const slug of SPOTLIGHT_SLUGS) {
+        const p = findProductBySlug(products, slug);
+        const card = buildCard({ product: p, tagClass: "tag-pop", tagText: "Popular" });
+        appendCardSafe(grid, card, picked, slug);
+      }
+
+      if (grid.childElementCount < 3 && Array.isArray(products)) {
+        const sneakers = products.filter(p => p && p.category === "sneakers");
+        for (const p of sneakers) {
+          if (grid.childElementCount >= 6) break;
+          const slug = String(p.slug || "").trim().toLowerCase();
+          if (picked.has(slug)) continue;
+          const card = buildCard({ product: p, tagClass: "tag-pop", tagText: "Popular" });
+          appendCardSafe(grid, card, picked, slug);
+        }
+      }
+    }
+
+    function renderNews(products) {
+      const grid = document.getElementById("grid-novidades");
+      if (!grid) return;
+      grid.innerHTML = "";
+      const picked = new Set();
+
+      for (const slug of NEWS_SLUGS) {
+        const p = findProductBySlug(products, slug);
+        const card = buildCard({ product: p, tagClass: "tag-new", tagText: "Novo" });
+        appendCardSafe(grid, card, picked, slug);
+      }
+
+      if (grid.childElementCount < 6 && Array.isArray(products)) {
+        const priority = new Set(["sneakers", "roupas"]);
+        const sorted = products
+          .filter(p => p && priority.has(String(p.category || "").trim().toLowerCase()))
+          .sort((a, b) => Number(b.latestTs || 0) - Number(a.latestTs || 0));
+        for (const p of sorted) {
+          if (grid.childElementCount >= 8) break;
+          const slug = String(p.slug || "").trim().toLowerCase();
+          if (picked.has(slug)) continue;
+          const card = buildCard({ product: p, tagClass: "tag-new", tagText: "Novo" });
+          appendCardSafe(grid, card, picked, slug);
+        }
+      }
+
+      if (grid.childElementCount === 0 && Array.isArray(products)) {
+        const sorted = products.slice().sort((a, b) => Number(b.latestTs || 0) - Number(a.latestTs || 0)).slice(0, 6);
+        for (const p of sorted) {
+          const slug = String(p.slug || "").trim().toLowerCase();
+          if (picked.has(slug)) continue;
+          const card = buildCard({ product: p, tagClass: "tag-new", tagText: "Novo" });
+          appendCardSafe(grid, card, picked, slug);
+        }
+      }
+    }
+
+    function updateCount(count) {
+      const el = document.getElementById("badge-count");
+      if (!el) return;
+      const n = Number(count || 0);
+      el.textContent = n > 0 ? `📦 ${n} produtos` : "📦 Catálogo a carregar…";
+    }
+
+    function renderFallbackGrid(gridId, message) {
+      const g = document.getElementById(gridId);
+      if (!g) return;
+      g.innerHTML = "";
+      const div = document.createElement("div");
+      div.style.gridColumn = "1 / -1";
+      div.style.padding = "16px";
+      div.style.border = "1px dashed var(--border)";
+      div.style.borderRadius = "var(--radius-md)";
+      div.style.color = "var(--text-secondary)";
+      div.style.fontSize = "13px";
+      div.style.textAlign = "center";
+      div.textContent = message || "A carregar catálogo…";
+      g.appendChild(div);
+    }
+
+    async function fetchManifestAndRender() {
+      updateCount(null);
+      renderFallbackGrid("grid-destaques", "A carregar destaques…");
+      renderFallbackGrid("grid-novidades", "A carregar novidades…");
+
+      try {
+        const res = await fetch("imagens/telegram_manifest.json", { cache: "no-store" });
+        if (!res.ok) throw new Error("manifest HTTP " + res.status);
+        const data = await res.json();
+        const products = Array.isArray(data && data.products) ? data.products : [];
+        updateCount(products.length);
+        renderSpotlight(products);
+        renderNews(products);
+      } catch (e) {
+        const err = (e && e.message) ? String(e.message) : "Erro a carregar catálogo";
+        renderFallbackGrid("grid-destaques", "Não foi possível carregar os destaques. " + err);
+        renderFallbackGrid("grid-novidades", "Não foi possível carregar as novidades. " + err);
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      fetchManifestAndRender();
+    });
+  </script>
+
+</body>
 </html>
