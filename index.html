@@ -3023,7 +3023,7 @@
       function orderSneaker(modelName, sizeSelectId) {
         const size = document.getElementById(sizeSelectId).value;
         const message = encodeURIComponent(
-          `Olá! Gostava de encomendar este modelo:\n\n👟 *${modelName}*\n📏 Tamanho: ${size}\n💰 Preço: 35€\n\nEstá disponível?`,
+          `Olá! Gostava de encomendar este modelo:\n\n👟 *${modelName}*\n📏 Tamanho: ${size}\n💰 Preço: 40€\n\nEstá disponível?`,
         );
         window.open(
           `https://api.whatsapp.com/send?phone=${WHATSAPP_NUM}&text=${message}`,
@@ -3201,7 +3201,7 @@
 
         const price = document.createElement("div");
         price.className = "card-price";
-        price.textContent = "35€";
+        price.textContent = "40€";
 
         const btn = document.createElement("a");
         btn.className = "card-btn";
@@ -3299,6 +3299,10 @@
         const footer = document.createElement("div");
         footer.className = "card-footer";
 
+        const price = document.createElement("div");
+        price.className = "card-price";
+        price.textContent = "40€";
+
         const btn = document.createElement("a");
         btn.className = "card-btn";
         btn.target = "_blank";
@@ -3306,6 +3310,7 @@
         btn.href = getCardPrimaryHref(card, "1");
         btn.textContent = getPrimaryCtaLabel(card);
 
+        footer.appendChild(price);
         footer.appendChild(btn);
         body.appendChild(footer);
 
