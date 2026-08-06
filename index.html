@@ -2756,41 +2756,129 @@
         { slug: "asics_gel_nimbus_16", meta: "Tênis" },
       ];
 
-      function addTileBySlug(container, slug, meta, pickedRef) {
-        const card = findCardBySlug(slug);
-        if (!card) return false;
-        if (pickedRef.has(card)) return false;
+      let pendingFocusSlug = null;
+      let pendingFocusBrand = null;
+      let pendingFocusModel = null;
+      let pendingFocusCat = null;
 
-        const brandLabel = getCardText(card, ".card-cat");
-        const modelLabel = getCardText(card, ".card-name");
-        const title = `${brandLabel} ${modelLabel}`.trim();
-        const img = card.querySelector("img");
-        const badgeEl = card.querySelector(".card-badge");
-        const badgeText = badgeEl
-          ? String(badgeEl.textContent || "").trim()
-          : "";
-        const badgeClass = badgeText.toLowerCase().includes("popular")
-          ? "popular"
-          : "";
+      function findProductBySlug(slug) {
+        const clean = String(slug || "").trim().toLowerCase();
+        if (!clean) return null;
+        const pool = Array.isArray(allProductsData) && allProductsData.length
+          ? allProductsData
+          : Array.isArray(filteredProductsData)
+            ? filteredProductsData
+            : [];
+        for (const p of pool) {
+          const pSlug = String((p && p.slug) || "")
+            .trim()
+            .toLowerCase();
+          if (pSlug === clean) return p;
+        }
+        return null;
+      }
+
+      function productFirstImage(p) {
+        if (!p) return "";
+        if (Array.isArray(p.images) && p.images[0]) return p.images[0];
+        return "";
+      }
+
+      function productLabel(p) {
+        if (!p) return "";
+        const name = String(p.name || "").trim();
+        const brand = String(p.brandLabel || "").trim();
+        const model = String(p.modelLabel || "").trim();
+        if (brand && model) return `${brand} ${model}`.trim();
+        return name || "";
+      }
+
+      function productMeta(p, fallbackMeta) {
+        if (!p) return fallbackMeta || "";
+        const cat = String(p.category || "").trim().toLowerCase();
+        if (fallbackMeta) return fallbackMeta;
+        if (cat === "roupas") return "Conjunto";
+        if (cat === "sneakers") return "Tênis";
+        if (cat === "bolsas") return "Bolsa";
+        if (cat === "oculos") return "Óculos";
+        if (cat === "relogios") return "Relógio";
+        return "Novidade";
+      }
+
+      function scrollAndFocusSlug(slug, cat, brand, model) {
+        pendingFocusSlug = slug ? String(slug).toLowerCase() : null;
+        pendingFocusCat = cat || "todos";
+        pendingFocusBrand = brand || "todos";
+        pendingFocusModel = model || "todos";
+
+        if (pendingFocusCat && pendingFocusCat !== "todos") {
+          filter(pendingFocusCat);
+        }
+        if (pendingFocusBrand && pendingFocusBrand !== "todos") {
+          setTimeout(() => filterBrand(pendingFocusBrand), 0);
+        }
+        if (pendingFocusModel && pendingFocusModel !== "todos") {
+          setTimeout(() => filterModel(pendingFocusModel), 30);
+        }
+
+        const tryFocus = () => {
+          const grid = document.getElementById("grid");
+          const card = grid && pendingFocusSlug
+            ? findCardBySlug(pendingFocusSlug)
+            : null;
+          if (card) {
+            focusCard(card);
+            pendingFocusSlug = null;
+            pendingFocusCat = null;
+            pendingFocusBrand = null;
+            pendingFocusModel = null;
+            return true;
+          }
+          return false;
+        };
+
+        if (tryFocus()) return;
+        const start = Date.now();
+        const interval = setInterval(() => {
+          if (tryFocus() || Date.now() - start > 5000) {
+            clearInterval(interval);
+          }
+        }, 120);
+      }
+
+      function addTileByProductData(container, p, meta, pickedRef, options) {
+        if (!p) return false;
+        const slug = String(p.slug || "").trim().toLowerCase();
+        if (!slug) return false;
+        if (pickedRef.has(slug)) return false;
+
+        const title = productLabel(p);
+        const imageSrc = productFirstImage(p);
+        const badgeText = (options && options.badgeText) || "Destaque";
+        const badgeClass = (options && options.badgeClass) || "";
+        const finalMeta = (options && options.metaOverride)
+          ? options.metaOverride
+          : productMeta(p, meta);
+
+        if (!imageSrc) return false;
 
         const tile = buildHomeTile({
-          title: title || modelLabel || brandLabel || "",
-          meta: meta || "",
-          imageSrc: img ? img.src : "",
-          badgeText: badgeText || "Destaque",
+          title,
+          meta: finalMeta,
+          imageSrc,
+          badgeText,
           badgeClass,
         });
+
         tile.addEventListener("click", () => {
-          const cat = card.dataset.cat || "todos";
-          filter(cat);
-          if (cat === "sneakers") {
-            filterBrand(card.dataset.brand || "todos");
-            filterModel(card.dataset.model || "todos");
-          }
-          focusCard(card);
+          const category = String(p.category || "todos").trim().toLowerCase();
+          const brand = p.brandSlug ? String(p.brandSlug).toLowerCase() : "todos";
+          const model = p.modelSlug ? String(p.modelSlug).toLowerCase() : "todos";
+          scrollAndFocusSlug(slug, category, brand, model);
         });
+
         container.appendChild(tile);
-        pickedRef.add(card);
+        pickedRef.add(slug);
         return true;
       }
 
@@ -2800,151 +2888,114 @@
         if (!spotlight || !news) return;
         spotlight.innerHTML = "";
         news.innerHTML = "";
-        const picked = new Set();
+        const pickedSlugs = new Set();
 
         for (const item of SPOTLIGHT_SLUGS) {
-          addTileBySlug(spotlight, item.slug, item.meta, picked);
-        }
-
-        for (const item of NEWS_SLUGS) {
-          addTileBySlug(news, item.slug, item.meta, picked);
+          const p = findProductBySlug(item.slug);
+          addTileByProductData(spotlight, p, item.meta, pickedSlugs, {
+            badgeText: "🔥 Destaque",
+            badgeClass: "popular",
+          });
         }
 
         if (spotlight.childElementCount < 3) {
-          for (const rule of POPULAR_SNEAKERS) {
-            if (spotlight.childElementCount >= 6) break;
-            const card = findSneakerCard(rule);
-            if (!card) continue;
-            if (picked.has(card)) continue;
-
-            const brandLabel = getCardText(card, ".card-cat");
-            const modelLabel = getCardText(card, ".card-name");
-            const title = `${brandLabel} ${modelLabel}`.trim();
-            const img = card.querySelector("img");
-            const tile = buildHomeTile({
-              title: title || modelLabel || brandLabel || "",
-              meta: "Destaque",
-              imageSrc: img ? img.src : "",
-              badgeText: "Destaque",
-              badgeClass: "popular",
-            });
-            tile.addEventListener("click", () => {
-              const cat = card.dataset.cat || "todos";
-              filter(cat);
-              if (cat === "sneakers") {
-                filterBrand(card.dataset.brand || "todos");
-                filterModel(card.dataset.model || "todos");
+          const pool = Array.isArray(allProductsData) && allProductsData.length
+            ? allProductsData
+            : Array.isArray(filteredProductsData)
+              ? filteredProductsData
+              : [];
+          const sneakers = pool.filter((p) => p && p.category === "sneakers");
+          for (let i = 0; i < sneakers.length && spotlight.childElementCount < 6; i += 1) {
+            const p = sneakers[i];
+            const slug = String(p.slug || "").toLowerCase();
+            if (pickedSlugs.has(slug)) continue;
+            let matches = false;
+            for (const rule of POPULAR_SNEAKERS) {
+              const brandOk = !rule.brand
+                || String(p.brandSlug || p.name || "")
+                    .toLowerCase()
+                    .includes(String(rule.brand).toLowerCase());
+              const contentOk = !Array.isArray(rule.contains)
+                || rule.contains.every((kw) =>
+                    String(p.name || "")
+                      .toLowerCase()
+                      .includes(String(kw).toLowerCase()),
+                  );
+              if (brandOk && contentOk) {
+                matches = true;
+                break;
               }
-              focusCard(card);
-            });
-            spotlight.appendChild(tile);
-            picked.add(card);
+            }
+            if (matches) {
+              addTileByProductData(spotlight, p, "Sneakers", pickedSlugs, {
+                badgeText: "🔥 Destaque",
+                badgeClass: "popular",
+              });
+            }
           }
         }
 
         if (spotlight.childElementCount === 0) {
-          const fallback = Array.from(
-            document.querySelectorAll(
-              '.products-grid > .card[data-cat="sneakers"]',
-            ),
-          ).slice(0, 4);
-          fallback.forEach((c) => {
-            if (picked.has(c)) return;
-            const brandLabel = getCardText(c, ".card-cat");
-            const modelLabel = getCardText(c, ".card-name");
-            const title = `${brandLabel} ${modelLabel}`.trim();
-            const img = c.querySelector("img");
-            const tile = buildHomeTile({
-              title: title || modelLabel || brandLabel || "",
-              meta: "Sneakers",
-              imageSrc: img ? img.src : "",
+          const pool = Array.isArray(allProductsData) && allProductsData.length
+            ? allProductsData
+            : Array.isArray(filteredProductsData)
+              ? filteredProductsData
+              : [];
+          const sneakers = pool.filter((p) => p && p.category === "sneakers").slice(0, 4);
+          sneakers.forEach((p) =>
+            addTileByProductData(spotlight, p, "Sneakers", pickedSlugs, {
               badgeText: "Destaque",
               badgeClass: "",
-            });
-            tile.addEventListener("click", () => {
-              const cat = c.dataset.cat || "todos";
-              filter(cat);
-              if (cat === "sneakers") {
-                filterBrand(c.dataset.brand || "todos");
-                filterModel(c.dataset.model || "todos");
-              }
-              focusCard(c);
-            });
-            spotlight.appendChild(tile);
-            picked.add(c);
+            }),
+          );
+        }
+
+        for (const item of NEWS_SLUGS) {
+          const p = findProductBySlug(item.slug);
+          addTileByProductData(news, p, item.meta, pickedSlugs, {
+            badgeText: "Novidade",
+            badgeClass: "",
           });
         }
 
-        const cardsSortedByTs = Array.from(
-          document.querySelectorAll(".products-grid > .card"),
-        ).sort((a, b) => {
-          const ta = Number(a.dataset.latestTs || 0);
-          const tb = Number(b.dataset.latestTs || 0);
-          return tb - ta;
-        });
-
         if (news.childElementCount < 6) {
-          const priorityCategories = new Set([
-            "sneakers",
-            "roupas",
-          ]);
-          for (const c of cardsSortedByTs) {
+          const pool = Array.isArray(allProductsData) && allProductsData.length
+            ? allProductsData
+            : Array.isArray(filteredProductsData)
+              ? filteredProductsData
+              : [];
+          const priorityCategories = new Set(["sneakers", "roupas"]);
+          const sorted = pool
+            .filter((p) => p && priorityCategories.has(String(p.category || "").trim().toLowerCase()))
+            .sort((a, b) => Number(b.latestTs || 0) - Number(a.latestTs || 0));
+          for (const p of sorted) {
             if (news.childElementCount >= 8) break;
-            if (picked.has(c)) continue;
-            const cat = c.dataset.cat || "";
-            if (!priorityCategories.has(cat)) continue;
-            const brandLabel = getCardText(c, ".card-cat");
-            const modelLabel = getCardText(c, ".card-name");
-            const title = `${brandLabel} ${modelLabel}`.trim();
-            const img = c.querySelector("img");
-            const metaText = cat === "roupas" ? "Conjunto" : "Tênis";
-            const tile = buildHomeTile({
-              title: title || modelLabel || brandLabel || "",
-              meta: metaText,
-              imageSrc: img ? img.src : "",
+            const slug = String(p.slug || "").toLowerCase();
+            if (pickedSlugs.has(slug)) continue;
+            const cat = String(p.category || "").toLowerCase();
+            addTileByProductData(news, p, cat === "roupas" ? "Conjunto" : "Tênis", pickedSlugs, {
               badgeText: "Novidade",
               badgeClass: "",
             });
-            tile.addEventListener("click", () => {
-              const catItem = c.dataset.cat || "todos";
-              filter(catItem);
-              if (catItem === "sneakers") {
-                filterBrand(c.dataset.brand || "todos");
-                filterModel(c.dataset.model || "todos");
-              }
-              focusCard(c);
-            });
-            news.appendChild(tile);
-            picked.add(c);
           }
         }
 
         if (news.childElementCount === 0) {
-          cardsSortedByTs.slice(0, 6).forEach((c) => {
-            if (picked.has(c)) return;
-            const brandLabel = getCardText(c, ".card-cat");
-            const modelLabel = getCardText(c, ".card-name");
-            const title = `${brandLabel} ${modelLabel}`.trim();
-            const img = c.querySelector("img");
-            const tile = buildHomeTile({
-              title: title || modelLabel || brandLabel || "",
-              meta: "Novidade",
-              imageSrc: img ? img.src : "",
+          const pool = Array.isArray(allProductsData) && allProductsData.length
+            ? allProductsData
+            : Array.isArray(filteredProductsData)
+              ? filteredProductsData
+              : [];
+          const sorted = pool
+            .slice()
+            .sort((a, b) => Number(b.latestTs || 0) - Number(a.latestTs || 0))
+            .slice(0, 6);
+          sorted.forEach((p) =>
+            addTileByProductData(news, p, "Novidade", pickedSlugs, {
               badgeText: "Novidade",
               badgeClass: "",
-            });
-            tile.addEventListener("click", () => {
-              const catItem = c.dataset.cat || "todos";
-              filter(catItem);
-              if (catItem === "sneakers") {
-                filterBrand(c.dataset.brand || "todos");
-                filterModel(c.dataset.model || "todos");
-              }
-              focusCard(c);
-            });
-            news.appendChild(tile);
-            picked.add(c);
-          });
+            }),
+          );
         }
       }
 
