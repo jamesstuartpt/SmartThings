@@ -138,7 +138,9 @@
       padding: 12px;
       background: var(--bg);
       transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
-      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
     }
     .card:hover {
       border-color: var(--text-primary);
@@ -150,25 +152,88 @@
       aspect-ratio: 1;
       background: var(--bg-muted);
       border-radius: var(--radius-sm);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 40px;
-      margin-bottom: 12px;
+      position: relative;
+      margin-bottom: 2px;
       overflow: hidden;
+      cursor: pointer;
+      flex-shrink: 0;
     }
     .card-img img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      display: block;
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+    .card-angles {
+      position: absolute;
+      left: 10px;
+      right: 10px;
+      bottom: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      padding: 6px;
+      background: rgba(255, 255, 255, 0.72);
+      border-radius: 999px;
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+    }
+    @media (prefers-color-scheme: dark) {
+      .card-angles {
+        background: rgba(0, 0, 0, 0.62);
+      }
+    }
+    .card-angle-dot {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      overflow: hidden;
+      background: var(--bg-muted);
+      cursor: pointer;
+      padding: 0;
+      transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+      flex-shrink: 0;
+    }
+    .card-angle-dot:hover {
+      transform: translateY(-1px);
+    }
+    .card-angle-dot img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      pointer-events: none;
+    }
+    .card-angle-dot.active {
+      border-color: var(--text-primary);
+      box-shadow: 0 0 0 2px var(--bg), 0 0 0 3px var(--text-primary);
+      transform: translateY(-1px);
+    }
+    .card-angle-count {
+      font-size: 11px;
+      color: var(--text-secondary);
+      margin-left: auto;
+      align-self: center;
+      padding-right: 4px;
+      font-weight: 500;
     }
     .card-name {
       font-size: 14px;
       font-weight: 500;
-      margin: 0 0 4px;
+      margin: 0;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+    }
+    .card-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-top: 2px;
     }
     .card-price {
       font-size: 16px;
@@ -181,9 +246,31 @@
       font-size: 11px;
       padding: 3px 8px;
       border-radius: var(--radius-sm);
-      margin-top: 8px;
       font-weight: 500;
       letter-spacing: 0.2px;
+      width: fit-content;
+    }
+    .buy-btn {
+      width: 100%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 14px;
+      background: var(--text-primary);
+      color: var(--bg);
+      border-radius: var(--radius-sm);
+      font-size: 14px;
+      font-weight: 500;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+      transition: opacity 0.2s ease;
+      margin-top: auto;
+      text-decoration: none;
+    }
+    .buy-btn:hover {
+      opacity: 0.85;
     }
     .tag-pop {
       background: var(--bg-muted);
@@ -363,7 +450,7 @@
     <section id="destaques" class="section active" role="tabpanel">
       <div class="grid" id="grid-destaques"></div>
       <div class="cta-wrap">
-        <a href="https://t.me/smartthingspt" target="_blank" class="btn">Ver catálogo completo no Telegram</a>
+        <a href="#novidades" onclick="showTab('novidades', document.querySelector('.tab[onclick^=\"showTab(\\'novidades\\'\"]'))" class="btn btn-outline">Ver todas as novidades</a>
       </div>
     </section>
 
@@ -383,7 +470,7 @@
         <div class="step">
           <div class="step-num">2</div>
           <h3>Contactas</h3>
-          <p>Mandas mensagem no WhatsApp com o teu pedido.</p>
+          <p>Pressionas “Comprar” e envias a tua mensagem pelo WhatsApp.</p>
         </div>
         <div class="step">
           <div class="step-num">3</div>
@@ -392,7 +479,7 @@
         </div>
       </div>
       <div class="cta-wrap">
-        <a href="https://wa.me/351000000000" target="_blank" class="btn">Fazer pedido pelo WhatsApp</a>
+        <a class="btn" id="cta-whatsapp-geral" target="_blank" rel="noopener">Fazer pedido pelo WhatsApp</a>
       </div>
     </section>
 
@@ -426,7 +513,7 @@
 
     <!-- Footer -->
     <footer class="footer">
-      <p>Smart Things PT · Pedidos via <a href="https://t.me/smartthingspt" target="_blank">Telegram</a></p>
+      <p>Smart Things PT · Pedidos via <a id="footer-whatsapp-link" target="_blank" rel="noopener">WhatsApp</a></p>
       <p style="margin-top: 4px; font-size: 12px;">Pedido sob consulta · Entrega média 10–15 dias</p>
     </footer>
 
@@ -440,8 +527,16 @@
         t.classList.remove('active');
         t.setAttribute('aria-selected', 'false');
       });
-      btn.classList.add('active');
-      btn.setAttribute('aria-selected', 'true');
+      if (btn) {
+        btn.classList.add('active');
+        btn.setAttribute('aria-selected', 'true');
+      } else {
+        const match = document.querySelector(`.tab[onclick^="showTab('${id}'"]`);
+        if (match) {
+          match.classList.add('active');
+          match.setAttribute('aria-selected', 'true');
+        }
+      }
     }
 
     function toggleFaq(el) {
@@ -474,59 +569,127 @@
     const WHATSAPP_NUMBER = "351927515217";
     const PRODUCT_PRICE = "40€";
 
+    function buildWhatsAppHref(productName, price) {
+      const msg = encodeURIComponent(
+        `Olá! Gostava de encomendar este artigo:\n\n📦 *${productName}*\n💰 Preço: ${price || PRODUCT_PRICE}\n\nEstá disponível?`,
+      );
+      return `https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`;
+    }
+
     function findProductBySlug(list, slug) {
       if (!Array.isArray(list) || !slug) return null;
       const clean = String(slug).trim().toLowerCase();
       return list.find(p => String(p && p.slug || "").trim().toLowerCase() === clean) || null;
     }
 
-    function productFirstImage(p) {
-      if (!p) return "";
-      if (Array.isArray(p.images) && p.images.length) return p.images[0];
-      return "";
+    function setCardAngle(card, index) {
+      if (!card) return;
+      const images = JSON.parse(card.dataset.images || "[]");
+      const count = Array.isArray(images) ? images.length : 0;
+      if (count === 0) return;
+      const next = ((index % count) + count) % count;
+      const img = card.querySelector(".card-img > img");
+      if (img && images[next]) img.src = images[next];
+      card.dataset.angle = String(next);
+      const dots = card.querySelectorAll(".card-angle-dot");
+      dots.forEach((dot, i) => {
+        dot.classList.toggle("active", i === next);
+        const thumb = dot.querySelector("img");
+        if (thumb && images[next]) thumb.src = images[next];
+      });
+      const countLabel = card.querySelector(".card-angle-count");
+      if (countLabel) countLabel.textContent = `${next + 1}/${count}`;
+    }
+
+    function nextCardAngle(card, direction) {
+      const cur = Number(card && card.dataset.angle || 0);
+      setCardAngle(card, cur + (direction === -1 ? -1 : 1));
     }
 
     function buildCard({ product, tagClass, tagText }) {
       if (!product) return null;
       const name = String(product.name || "Sem nome").trim();
-      const firstImage = productFirstImage(product);
-      if (!firstImage) return null;
+      const images = Array.isArray(product.images) ? product.images.slice() : [];
+      if (!images.length) return null;
 
       const card = document.createElement("article");
       card.className = "card";
+      try { card.dataset.images = JSON.stringify(images); } catch {}
+      card.dataset.angle = "0";
 
       const imgWrap = document.createElement("div");
       imgWrap.className = "card-img";
       const img = document.createElement("img");
-      img.src = firstImage;
+      img.src = images[0];
       img.alt = name;
       img.loading = "lazy";
       img.decoding = "async";
       imgWrap.appendChild(img);
 
+      if (images.length > 1) {
+        const angles = document.createElement("div");
+        angles.className = "card-angles";
+        const maxDots = Math.min(images.length, 6);
+        for (let i = 0; i < maxDots; i += 1) {
+          const btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = "card-angle-dot" + (i === 0 ? " active" : "");
+          btn.title = `Foto ${i + 1}`;
+          const thumb = document.createElement("img");
+          thumb.src = images[i];
+          thumb.alt = "";
+          thumb.loading = "lazy";
+          btn.appendChild(thumb);
+          btn.addEventListener("click", (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            setCardAngle(card, i);
+          });
+          angles.appendChild(btn);
+        }
+        const count = document.createElement("span");
+        count.className = "card-angle-count";
+        count.textContent = `1/${images.length}`;
+        angles.appendChild(count);
+        imgWrap.appendChild(angles);
+
+        imgWrap.addEventListener("click", (e) => {
+          const onDot = e.target.closest && e.target.closest(".card-angle-dot");
+          if (onDot) return;
+          nextCardAngle(card, 1);
+        });
+      }
+
       const title = document.createElement("h3");
       title.className = "card-name";
       title.textContent = name;
+      title.title = name;
 
+      const row = document.createElement("div");
+      row.className = "card-row";
       const price = document.createElement("p");
       price.className = "card-price";
       price.textContent = PRODUCT_PRICE;
-
       const tag = document.createElement("span");
       tag.className = `card-tag ${tagClass || ""}`.trim();
       tag.textContent = tagText || "";
+      row.appendChild(price);
+      if (tagText) row.appendChild(tag);
+
+      const buy = document.createElement("a");
+      buy.className = "buy-btn";
+      buy.target = "_blank";
+      buy.rel = "noopener";
+      buy.href = buildWhatsAppHref(name, PRODUCT_PRICE);
+      buy.textContent = "Comprar";
+      buy.addEventListener("click", (e) => {
+        e.stopPropagation();
+      });
 
       card.appendChild(imgWrap);
       card.appendChild(title);
-      card.appendChild(price);
-      if (tagText) card.appendChild(tag);
-
-      card.addEventListener("click", () => {
-        const msg = encodeURIComponent(
-          `Olá! Gostava de encomendar este artigo:\n\n📦 *${name}*\n💰 Preço: ${PRODUCT_PRICE}\n\nEstá disponível?`,
-        );
-        window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`, "_blank", "noopener");
-      });
+      card.appendChild(row);
+      card.appendChild(buy);
 
       return card;
     }
@@ -624,8 +787,23 @@
       g.appendChild(div);
     }
 
+    function updateStaticWhatsAppLinks() {
+      const geral = document.getElementById("cta-whatsapp-geral");
+      if (geral) {
+        const msg = encodeURIComponent(
+          `Olá! Tenho interesse no vosso catálogo.\n\nPodem ajudar?`,
+        );
+        geral.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`;
+      }
+      const footer = document.getElementById("footer-whatsapp-link");
+      if (footer) {
+        footer.href = `https://wa.me/${WHATSAPP_NUMBER}`;
+      }
+    }
+
     async function fetchManifestAndRender() {
       updateCount(null);
+      updateStaticWhatsAppLinks();
       renderFallbackGrid("grid-destaques", "A carregar destaques…");
       renderFallbackGrid("grid-novidades", "A carregar novidades…");
 
