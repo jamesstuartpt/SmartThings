@@ -409,6 +409,132 @@
     }
     .footer a:hover { color: var(--text-primary); }
 
+    /* Lightbox */
+    .lightbox-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.82);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      padding: 24px 16px 28px;
+      box-sizing: border-box;
+      flex-direction: column;
+      gap: 14px;
+      -webkit-backdrop-filter: blur(4px);
+      backdrop-filter: blur(4px);
+    }
+    .lightbox-modal.open { display: flex; }
+    .lightbox-close {
+      position: absolute;
+      top: 14px;
+      right: 16px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.18);
+      color: #fff;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 20px;
+      line-height: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+    .lightbox-close:hover { background: rgba(255,255,255,0.2); transform: scale(1.04); }
+    .lightbox-stage {
+      position: relative;
+      width: 100%;
+      max-width: 900px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      flex: 1 1 auto;
+      min-height: 0;
+    }
+    .lightbox-arrow {
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.18);
+      color: #fff;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 22px;
+      line-height: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+    .lightbox-arrow:hover { background: rgba(255,255,255,0.2); transform: scale(1.04); }
+    .lightbox-img-wrap {
+      flex: 1 1 auto;
+      max-width: 100%;
+      max-height: 78vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 0;
+    }
+    .lightbox-img-wrap img {
+      max-width: 100%;
+      max-height: 78vh;
+      object-fit: contain;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.05);
+      box-shadow: 0 10px 60px rgba(0,0,0,0.5);
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+    .lightbox-counter {
+      color: #e8e8e8;
+      font-size: 13px;
+      letter-spacing: 0.4px;
+    }
+    .lightbox-dots {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: center;
+      max-width: 100%;
+      padding: 4px 8px 0;
+    }
+    .lightbox-dot {
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.18);
+      overflow: hidden;
+      background: rgba(255,255,255,0.08);
+      cursor: pointer;
+      padding: 0;
+      transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+    }
+    .lightbox-dot:hover { transform: translateY(-1px); }
+    .lightbox-dot img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      pointer-events: none;
+    }
+    .lightbox-dot.active {
+      border-color: #fff;
+      box-shadow: 0 0 0 2px rgba(0,0,0,0.6), 0 0 0 3px #fff;
+      transform: translateY(-1px);
+    }
+    @media (max-width: 600px) {
+      .lightbox-arrow { width: 38px; height: 38px; font-size: 18px; }
+      .lightbox-close { width: 36px; height: 36px; font-size: 18px; }
+      .lightbox-stage { gap: 8px; }
+    }
+
     /* Responsive */
     @media (max-width: 600px) {
       .grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
@@ -416,8 +542,44 @@
       .header { padding: 32px 0 12px; }
       .header h1 { font-size: 20px; }
       .badges { gap: 16px; font-size: 12px; }
-      .tabs { gap: 6px; }
+      .tabs { gap: 6px; flex-wrap: wrap; }
       .tab { padding: 7px 12px; font-size: 13px; }
+      .catalog-head { flex-wrap: wrap; gap: 8px; }
+      .load-more-btn { width: 100%; }
+    }
+
+    /* Catálogo completo */
+    .catalog-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .catalog-count {
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+    .load-more-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 16px;
+      background: var(--text-primary);
+      color: var(--bg);
+      border-radius: var(--radius-md);
+      font-size: 13px;
+      font-weight: 500;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+    .load-more-btn:hover { opacity: 0.88; transform: translateY(-1px); }
+    .load-more-btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      transform: none;
     }
   </style>
 </head>
@@ -442,6 +604,7 @@
     <nav class="tabs" role="tablist">
       <button class="tab active" onclick="showTab('destaques', this)" role="tab" aria-selected="true">Destaques</button>
       <button class="tab" onclick="showTab('novidades', this)" role="tab" aria-selected="false">Novidades</button>
+      <button class="tab" onclick="showTab('catalogo', this)" role="tab" aria-selected="false">Catálogo completo</button>
       <button class="tab" onclick="showTab('comofunciona', this)" role="tab" aria-selected="false">Como funciona</button>
       <button class="tab" onclick="showTab('faq', this)" role="tab" aria-selected="false">FAQ</button>
     </nav>
@@ -457,6 +620,15 @@
     <!-- Novidades -->
     <section id="novidades" class="section" role="tabpanel">
       <div class="grid" id="grid-novidades"></div>
+    </section>
+
+    <!-- Catálogo completo -->
+    <section id="catalogo" class="section" role="tabpanel">
+      <div class="catalog-head">
+        <div class="catalog-count" id="catalog-count">A carregar…</div>
+        <button class="load-more-btn" id="btn-load-more" type="button" onclick="appendNextCatalogBatch()" disabled>Carregar mais</button>
+      </div>
+      <div class="grid" id="grid-catalogo"></div>
     </section>
 
     <!-- Como funciona -->
@@ -594,11 +766,85 @@
       const dots = card.querySelectorAll(".card-angle-dot");
       dots.forEach((dot, i) => {
         dot.classList.toggle("active", i === next);
-        const thumb = dot.querySelector("img");
-        if (thumb && images[next]) thumb.src = images[next];
       });
       const countLabel = card.querySelector(".card-angle-count");
       if (countLabel) countLabel.textContent = `${next + 1}/${count}`;
+    }
+
+    const LIGHTBOX_GALLERY = { images: [], index: 0, cardRef: null };
+
+    function openLightbox({ images, startIndex, cardRef }) {
+      const gallery = Array.isArray(images) ? images.slice() : [];
+      if (!gallery.length) return;
+      const idx = (((startIndex | 0) % gallery.length) + gallery.length) % gallery.length;
+      LIGHTBOX_GALLERY.images = gallery;
+      LIGHTBOX_GALLERY.index = idx;
+      LIGHTBOX_GALLERY.cardRef = cardRef || null;
+      renderLightbox();
+      const modal = document.getElementById("lightbox-modal");
+      if (modal) {
+        modal.classList.add("open");
+        document.body.style.overflow = "hidden";
+      }
+    }
+
+    function closeLightbox() {
+      const modal = document.getElementById("lightbox-modal");
+      if (modal) {
+        modal.classList.remove("open");
+        document.body.style.overflow = "";
+      }
+      LIGHTBOX_GALLERY.images = [];
+      LIGHTBOX_GALLERY.index = 0;
+      LIGHTBOX_GALLERY.cardRef = null;
+    }
+
+    function stepLightbox(direction) {
+      const n = LIGHTBOX_GALLERY.images.length;
+      if (n === 0) return;
+      const cur = Number(LIGHTBOX_GALLERY.index || 0);
+      const next = (((cur + direction) % n) + n) % n;
+      LIGHTBOX_GALLERY.index = next;
+      if (LIGHTBOX_GALLERY.cardRef) {
+        setCardAngle(LIGHTBOX_GALLERY.cardRef, next);
+      }
+      renderLightbox();
+    }
+
+    function renderLightbox() {
+      const image = document.getElementById("lightbox-img");
+      const counter = document.getElementById("lightbox-counter");
+      const dotsWrap = document.getElementById("lightbox-dots");
+      const gallery = LIGHTBOX_GALLERY.images;
+      const idx = Number(LIGHTBOX_GALLERY.index || 0);
+      if (image) {
+        image.src = gallery[idx] || "";
+        image.alt = `Foto ${idx + 1} de ${gallery.length}`;
+      }
+      if (counter) counter.textContent = gallery.length ? `${idx + 1} / ${gallery.length}` : "";
+      if (dotsWrap) {
+        dotsWrap.innerHTML = "";
+        const maxDots = Math.min(gallery.length, 12);
+        for (let i = 0; i < maxDots; i += 1) {
+          const btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = "lightbox-dot" + (i === idx ? " active" : "");
+          btn.title = `Foto ${i + 1}`;
+          const thumb = document.createElement("img");
+          thumb.src = gallery[i];
+          thumb.alt = "";
+          thumb.loading = "lazy";
+          btn.appendChild(thumb);
+          btn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            const curCard = LIGHTBOX_GALLERY.cardRef;
+            LIGHTBOX_GALLERY.index = i;
+            if (curCard) setCardAngle(curCard, i);
+            renderLightbox();
+          });
+          dotsWrap.appendChild(btn);
+        }
+      }
     }
 
     function nextCardAngle(card, direction) {
@@ -656,7 +902,15 @@
         imgWrap.addEventListener("click", (e) => {
           const onDot = e.target.closest && e.target.closest(".card-angle-dot");
           if (onDot) return;
-          nextCardAngle(card, 1);
+          const idx = Number(card.dataset.angle || 0);
+          openLightbox({ images, startIndex: idx, cardRef: card });
+        });
+      } else {
+        imgWrap.addEventListener("click", (e) => {
+          const onDot = e.target.closest && e.target.closest(".card-angle-dot");
+          if (onDot) return;
+          const idx = Number(card.dataset.angle || 0);
+          openLightbox({ images, startIndex: idx, cardRef: card });
         });
       }
 
@@ -801,31 +1055,135 @@
       }
     }
 
+    const ALL_PRODUCTS = { list: [], rendered: 0, batchSize: 18, locked: false };
+
+    function isMobileDevice() {
+      if (typeof window === "undefined") return false;
+      const w = typeof window.innerWidth === "number" ? window.innerWidth : 999;
+      return w < 600 || (typeof navigator !== "undefined" && /Android|iPhone|iPad|Mobile/i.test(navigator.userAgent || ""));
+    }
+
+    function getCatalogBatchSize() {
+      return isMobileDevice() ? 14 : 22;
+    }
+
+    function updateCatalogCount() {
+      const counter = document.getElementById("catalog-count");
+      const btn = document.getElementById("btn-load-more");
+      const total = ALL_PRODUCTS.list.length;
+      const shown = ALL_PRODUCTS.rendered;
+      if (counter) {
+        if (!total) counter.textContent = "A carregar…";
+        else counter.textContent = `Mostrando ${Math.min(shown, total)} de ${total} artigos`;
+      }
+      if (btn) {
+        btn.disabled = !total || shown >= total;
+        btn.textContent = shown >= total ? "Todos os artigos carregados" : `Carregar mais (${total - shown})`;
+      }
+    }
+
+    function renderCatalogHead() {
+      updateCatalogCount();
+    }
+
+    function prepareCatalog(products) {
+      ALL_PRODUCTS.list = Array.isArray(products) ? products.slice() : [];
+      ALL_PRODUCTS.rendered = 0;
+      ALL_PRODUCTS.batchSize = getCatalogBatchSize();
+      const grid = document.getElementById("grid-catalogo");
+      if (grid) grid.innerHTML = "";
+      updateCatalogCount();
+    }
+
+    function raf(fn) {
+      return new Promise((res) => {
+        const r = typeof requestAnimationFrame === "function"
+          ? requestAnimationFrame
+          : (cb) => setTimeout(() => cb(performance.now()), 16);
+        r((t) => { try { fn(t); } finally { res(); } });
+      });
+    }
+
+    async function appendNextCatalogBatch() {
+      if (ALL_PRODUCTS.locked) return;
+      ALL_PRODUCTS.locked = true;
+      try {
+        const grid = document.getElementById("grid-catalogo");
+        if (!grid) return;
+        const batchSize = getCatalogBatchSize();
+        ALL_PRODUCTS.batchSize = batchSize;
+        const start = ALL_PRODUCTS.rendered;
+        const end = Math.min(start + batchSize, ALL_PRODUCTS.list.length);
+        for (let i = start; i < end; i += 1) {
+          const p = ALL_PRODUCTS.list[i];
+          if (!p) continue;
+          const card = buildCard({ product: p, tagClass: "", tagText: "" });
+          if (card) grid.appendChild(card);
+          if ((i - start + 1) % 6 === 0) {
+            await raf(() => {});
+          }
+        }
+        ALL_PRODUCTS.rendered = end;
+        updateCatalogCount();
+      } finally {
+        ALL_PRODUCTS.locked = false;
+      }
+    }
+
     async function fetchManifestAndRender() {
       updateCount(null);
       updateStaticWhatsAppLinks();
       renderFallbackGrid("grid-destaques", "A carregar destaques…");
       renderFallbackGrid("grid-novidades", "A carregar novidades…");
+      renderCatalogHead();
 
       try {
         const res = await fetch("imagens/telegram_manifest.json", { cache: "no-store" });
         if (!res.ok) throw new Error("manifest HTTP " + res.status);
         const data = await res.json();
         const products = Array.isArray(data && data.products) ? data.products : [];
+        const sortedForCatalog = products.slice().sort((a, b) => Number(b.latestTs || 0) - Number(a.latestTs || 0));
         updateCount(products.length);
         renderSpotlight(products);
         renderNews(products);
+        prepareCatalog(sortedForCatalog);
+        appendNextCatalogBatch();
       } catch (e) {
         const err = (e && e.message) ? String(e.message) : "Erro a carregar catálogo";
         renderFallbackGrid("grid-destaques", "Não foi possível carregar os destaques. " + err);
         renderFallbackGrid("grid-novidades", "Não foi possível carregar as novidades. " + err);
+        const counter = document.getElementById("catalog-count");
+        if (counter) counter.textContent = "Falha ao carregar catálogo: " + err;
       }
     }
 
     document.addEventListener("DOMContentLoaded", () => {
       fetchManifestAndRender();
     });
+
+    document.addEventListener("keydown", (e) => {
+      const modal = document.getElementById("lightbox-modal");
+      if (!modal || !modal.classList.contains("open")) return;
+      if (e.key === "Escape") closeLightbox();
+      else if (e.key === "ArrowRight") stepLightbox(1);
+      else if (e.key === "ArrowLeft") stepLightbox(-1);
+    });
   </script>
+
+  <!-- Lightbox Modal -->
+  <div class="lightbox-modal" id="lightbox-modal" role="dialog" aria-modal="true" aria-label="Galeria de imagens">
+    <button type="button" class="lightbox-close" aria-label="Fechar" onclick="closeLightbox()">×</button>
+    <div class="lightbox-stage">
+      <button type="button" class="lightbox-arrow" aria-label="Foto anterior" onclick="event.stopPropagation(); stepLightbox(-1);">‹</button>
+      <div class="lightbox-img-wrap" onclick="event.stopPropagation(); stepLightbox(1);">
+        <img id="lightbox-img" src="" alt="">
+      </div>
+      <button type="button" class="lightbox-arrow" aria-label="Foto seguinte" onclick="event.stopPropagation(); stepLightbox(1);">›</button>
+    </div>
+    <div class="lightbox-counter" id="lightbox-counter"></div>
+    <div class="lightbox-dots" id="lightbox-dots"></div>
+    <div style="position:absolute; inset:0; z-index:-1;" onclick="closeLightbox()"></div>
+  </div>
 
 </body>
 </html>
