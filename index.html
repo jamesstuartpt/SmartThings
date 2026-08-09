@@ -629,6 +629,10 @@
         <button class="load-more-btn" id="btn-load-more" type="button" onclick="appendNextCatalogBatch()" disabled>Carregar mais</button>
       </div>
       <div class="grid" id="grid-catalogo"></div>
+      <div class="catalog-head" style="margin-top: 18px;">
+        <div class="catalog-count" id="catalog-count-bottom"></div>
+        <button class="load-more-btn" id="btn-load-more-bottom" type="button" onclick="appendNextCatalogBatch()" disabled>Carregar mais</button>
+      </div>
     </section>
 
     <!-- Como funciona -->
@@ -741,9 +745,11 @@
     const WHATSAPP_NUMBER = "351927515217";
     const PRODUCT_PRICE = "40€";
 
-    function buildWhatsAppHref(productName, price) {
+    function buildWhatsAppHref(productName, price, itemNumber) {
+      const n = Number(itemNumber || 0);
+      const itemLine = n > 0 ? `\n📸 Item / Cor: ${productName} item ${n} (Foto ${n})` : "";
       const msg = encodeURIComponent(
-        `Olá! Gostava de encomendar este artigo:\n\n📦 *${productName}*\n💰 Preço: ${price || PRODUCT_PRICE}\n\nEstá disponível?`,
+        `Olá! Gostava de encomendar este artigo:\n\n📦 *${productName}*${itemLine}\n💰 Preço: ${price || PRODUCT_PRICE}\n\nEstá disponível?`,
       );
       return `https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`;
     }
@@ -769,6 +775,10 @@
       });
       const countLabel = card.querySelector(".card-angle-count");
       if (countLabel) countLabel.textContent = `${next + 1}/${count}`;
+      const name = String(card.dataset.name || "");
+      const price = String(card.dataset.price || PRODUCT_PRICE);
+      const buy = card.querySelector(".buy-btn");
+      if (buy && name) buy.href = buildWhatsAppHref(name, price, next + 1);
     }
 
     const LIGHTBOX_GALLERY = { images: [], index: 0, cardRef: null };
@@ -862,6 +872,8 @@
       card.className = "card";
       try { card.dataset.images = JSON.stringify(images); } catch {}
       card.dataset.angle = "0";
+      card.dataset.name = name;
+      card.dataset.price = PRODUCT_PRICE;
 
       const imgWrap = document.createElement("div");
       imgWrap.className = "card-img";
@@ -934,7 +946,7 @@
       buy.className = "buy-btn";
       buy.target = "_blank";
       buy.rel = "noopener";
-      buy.href = buildWhatsAppHref(name, PRODUCT_PRICE);
+      buy.href = buildWhatsAppHref(name, PRODUCT_PRICE, 1);
       buy.textContent = "Comprar";
       buy.addEventListener("click", (e) => {
         e.stopPropagation();
@@ -1068,17 +1080,23 @@
     }
 
     function updateCatalogCount() {
-      const counter = document.getElementById("catalog-count");
-      const btn = document.getElementById("btn-load-more");
       const total = ALL_PRODUCTS.list.length;
       const shown = ALL_PRODUCTS.rendered;
-      if (counter) {
-        if (!total) counter.textContent = "A carregar…";
-        else counter.textContent = `Mostrando ${Math.min(shown, total)} de ${total} artigos`;
-      }
-      if (btn) {
-        btn.disabled = !total || shown >= total;
-        btn.textContent = shown >= total ? "Todos os artigos carregados" : `Carregar mais (${total - shown})`;
+      const ids = [
+        ["catalog-count", "btn-load-more"],
+        ["catalog-count-bottom", "btn-load-more-bottom"],
+      ];
+      for (const [counterId, btnId] of ids) {
+        const counter = document.getElementById(counterId);
+        const btn = document.getElementById(btnId);
+        if (counter) {
+          if (!total) counter.textContent = "A carregar…";
+          else counter.textContent = `Mostrando ${Math.min(shown, total)} de ${total} artigos`;
+        }
+        if (btn) {
+          btn.disabled = !total || shown >= total;
+          btn.textContent = shown >= total ? "Todos os artigos carregados" : `Carregar mais (${total - shown})`;
+        }
       }
     }
 
