@@ -694,9 +694,11 @@
     }
     .load-more-btn:hover { opacity: 0.88; transform: translateY(-1px); }
     .load-more-btn:disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
+      opacity: 0;
+      pointer-events: none;
+      cursor: default;
       transform: none;
+      visibility: hidden;
     }
   </style>
 </head>
@@ -1324,7 +1326,7 @@
     };
 
     function applySearchAndFiltersToCatalog() {
-      const base = BRAND_ACTIVE_KEY ? BRAND_STATE._baseSorted : ALL_PRODUCTS.sortedByTs;
+      const base = BRAND_ACTIVE_KEY ? BRANDS_STATE._baseSorted : ALL_PRODUCTS.sortedByTs;
       const pool = Array.isArray(base) ? base : [];
       const q = SEARCH_STATE.query;
       const filtered = pool.filter((p) => productMatchesQuery(p, q));
@@ -1336,7 +1338,7 @@
         renderEmptySearch(grid, q);
       }
       CATALOG_UPDATE_COUNTERS(CATALOG_STATE);
-      if (filtered.length) appendNextBatchGeneric(CATALOG_STATE, "grid-catalogo", CATALOG_UPDATE_COUNTERS);
+      if (filtered.length) renderAllBatches(CATALOG_STATE, "grid-catalogo", CATALOG_UPDATE_COUNTERS);
     }
 
     function renderEmptySearch(grid, query) {
@@ -1396,7 +1398,7 @@
         renderEmptyBrands(grid, q ? `Sem resultados em ${rule.label} para "${q}".` : `Sem artigos publicados para ${rule.label} neste momento.`);
       }
       BRANDS_UPDATE_COUNTERS(BRANDS_STATE);
-      if (withQ.length) appendNextBatchGeneric(BRANDS_STATE, "grid-marcas", BRANDS_UPDATE_COUNTERS);
+      if (withQ.length) renderAllBatches(BRANDS_STATE, "grid-marcas", BRANDS_UPDATE_COUNTERS);
     }
 
     function raf(fn) {
@@ -1421,20 +1423,34 @@
         const batchSize = getCatalogBatchSize();
         const start = state.rendered;
         const end = Math.min(start + batchSize, state.list.length);
+        const frag = document.createDocumentFragment();
         for (let i = start; i < end; i += 1) {
           const p = state.list[i];
           if (!p) continue;
           const card = buildCard({ product: p, tagClass: "", tagText: "" });
-          if (card) grid.appendChild(card);
-          if ((i - start + 1) % 6 === 0) {
+          if (card) frag.appendChild(card);
+          if ((i - start + 1) % 8 === 0) {
+            if (frag.childNodes.length) grid.appendChild(frag);
             await raf(() => {});
           }
         }
+        if (frag.childNodes.length) grid.appendChild(frag);
         state.rendered = end;
         updateCounters(state);
       } finally {
         state.locked = false;
       }
+    }
+
+    async function renderAllBatches(state, gridId, updateCounters) {
+      // Renderiza todos os lotes de uma vez, cedendo frames de 8 em 8 cartoes
+      const safetyMax = 1000;
+      let iterations = 0;
+      while (state && Array.isArray(state.list) && state.rendered < state.list.length && iterations < safetyMax) {
+        iterations += 1;
+        await appendNextBatchGeneric(state, gridId, updateCounters);
+      }
+      updateCounters(state);
     }
 
     function appendNextCatalogBatch() {
@@ -1555,6 +1571,12 @@
         renderNews(products);
         buildBrandChips();
         BRAND_ACTIVE_KEY = null;
+        // Garantir que "Todos" fica ativo (nenhuma marca)
+        const chips = document.querySelectorAll(".brand-chip");
+        chips.forEach((chip) => {
+          chip.classList.toggle("active", chip.dataset.brandKey === "");
+        });
+        BRANDS_STATE._baseSorted = [];
         BRANDS_STATE.list = [];
         BRANDS_STATE.rendered = 0;
         BRANDS_UPDATE_COUNTERS({ list: [], rendered: 0 });
@@ -1564,7 +1586,7 @@
         const gc = document.getElementById("grid-catalogo");
         if (gc) gc.innerHTML = "";
         CATALOG_UPDATE_COUNTERS(CATALOG_STATE);
-        appendNextBatchGeneric(CATALOG_STATE, "grid-catalogo", CATALOG_UPDATE_COUNTERS);
+        renderAllBatches(CATALOG_STATE, "grid-catalogo", CATALOG_UPDATE_COUNTERS);
       } catch (e) {
         const err = (e && e.message) ? String(e.message) : "Erro a carregar catálogo";
         renderFallbackGrid("grid-destaques", "Não foi possível carregar os destaques. " + err);
