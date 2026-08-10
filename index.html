@@ -546,6 +546,123 @@
       .tab { padding: 7px 12px; font-size: 13px; }
       .catalog-head { flex-wrap: wrap; gap: 8px; }
       .load-more-btn { width: 100%; }
+      .search-wrap { margin-top: 16px; }
+      .search-bar { padding: 14px 14px 14px 44px; font-size: 14px; }
+      .brand-chips { gap: 6px; }
+      .brand-chip { padding: 7px 12px; font-size: 12px; }
+    }
+
+    /* Search */
+    .search-wrap {
+      margin: 20px 0 16px;
+      position: relative;
+      width: 100%;
+    }
+    .search-bar {
+      width: 100%;
+      padding: 16px 18px 16px 48px;
+      background: var(--bg);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-lg);
+      color: var(--text-primary);
+      font-size: 15px;
+      font-family: inherit;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+      box-sizing: border-box;
+      outline: none;
+    }
+    .search-bar::placeholder {
+      color: var(--text-tertiary);
+      opacity: 1;
+    }
+    .search-bar:focus {
+      border-color: var(--text-primary);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      transform: translateY(-1px);
+    }
+    .search-icon {
+      position: absolute;
+      left: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 20px;
+      height: 20px;
+      opacity: 0.55;
+      pointer-events: none;
+    }
+    .search-clear {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: transparent;
+      border: none;
+      color: var(--text-secondary);
+      font-size: 18px;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.18s ease, background 0.18s ease;
+      font-family: inherit;
+    }
+    .search-clear:hover { background: rgba(0, 0, 0, 0.05); }
+    .search-wrap.has-value .search-clear { opacity: 1; }
+    .search-empty {
+      grid-column: 1 / -1;
+      padding: 28px 20px;
+      border: 1px dashed var(--border);
+      border-radius: var(--radius-md);
+      color: var(--text-secondary);
+      font-size: 14px;
+      text-align: center;
+      line-height: 1.6;
+    }
+    .search-empty strong { color: var(--text-primary); }
+
+    /* Brands chips */
+    .brand-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+    .brand-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 14px;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      color: var(--text-primary);
+      border-radius: 999px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 500;
+      font-family: inherit;
+      transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease, color 0.2s ease;
+      user-select: none;
+    }
+    .brand-chip:hover {
+      transform: translateY(-1px);
+      border-color: var(--text-primary);
+    }
+    .brand-chip.active {
+      background: var(--text-primary);
+      color: var(--bg);
+      border-color: var(--text-primary);
+    }
+    .brand-chip .count {
+      font-size: 11px;
+      opacity: 0.7;
+      font-weight: 400;
+    }
+    .brand-chip.active .count {
+      opacity: 0.85;
     }
 
     /* Catálogo completo */
@@ -600,10 +717,29 @@
       <span>⭐ 5★ clientes</span>
     </div>
 
+    <!-- Search -->
+    <div class="search-wrap" id="search-wrap">
+      <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="11" cy="11" r="7"></circle>
+        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+      </svg>
+      <input
+        type="search"
+        id="search-input"
+        class="search-bar"
+        placeholder="🔎 Pesquisar produtos, marcas… (ex.: nike, the north face, adidas samba, conjunto)"
+        autocomplete="off"
+        autocapitalize="off"
+        spellcheck="false"
+      >
+      <button type="button" class="search-clear" id="search-clear" title="Limpar pesquisa" aria-label="Limpar pesquisa">×</button>
+    </div>
+
     <!-- Tabs -->
     <nav class="tabs" role="tablist">
       <button class="tab active" onclick="showTab('destaques', this)" role="tab" aria-selected="true">Destaques</button>
       <button class="tab" onclick="showTab('novidades', this)" role="tab" aria-selected="false">Novidades</button>
+      <button class="tab" onclick="showTab('marcas', this)" role="tab" aria-selected="false">Marcas famosas</button>
       <button class="tab" onclick="showTab('catalogo', this)" role="tab" aria-selected="false">Catálogo completo</button>
       <button class="tab" onclick="showTab('comofunciona', this)" role="tab" aria-selected="false">Como funciona</button>
       <button class="tab" onclick="showTab('faq', this)" role="tab" aria-selected="false">FAQ</button>
@@ -620,6 +756,20 @@
     <!-- Novidades -->
     <section id="novidades" class="section" role="tabpanel">
       <div class="grid" id="grid-novidades"></div>
+    </section>
+
+    <!-- Marcas famosas -->
+    <section id="marcas" class="section" role="tabpanel">
+      <div class="brand-chips" id="brand-chips"></div>
+      <div class="catalog-head" style="margin-top: 4px;">
+        <div class="catalog-count" id="brands-count">Escolhe uma marca</div>
+        <button class="load-more-btn" id="btn-brands-load-more" type="button" onclick="appendNextBrandsBatch()" disabled>Carregar mais</button>
+      </div>
+      <div class="grid" id="grid-marcas"></div>
+      <div class="catalog-head" style="margin-top: 18px;">
+        <div class="catalog-count" id="brands-count-bottom"></div>
+        <button class="load-more-btn" id="btn-brands-load-more-bottom" type="button" onclick="appendNextBrandsBatch()" disabled>Carregar mais</button>
+      </div>
     </section>
 
     <!-- Catálogo completo -->
@@ -1067,7 +1217,20 @@
       }
     }
 
-    const ALL_PRODUCTS = { list: [], rendered: 0, batchSize: 18, locked: false };
+    const ALL_PRODUCTS = { raw: [], sorted: [], sortedByTs: [] };
+
+    const BRAND_RULES = [
+      { key: "nike",       label: "Nike",        terms: ["nike"] },
+      { key: "jordan",     label: "Jordan",      terms: ["jordan", "air jordan"] },
+      { key: "adidas",     label: "Adidas",      terms: ["adidas"] },
+      { key: "newbalance", label: "New Balance", terms: ["new balance", "newbalance", "nb "] },
+      { key: "asics",      label: "ASICS",       terms: ["asics"] },
+      { key: "puma",       label: "Puma",        terms: ["puma"] },
+      { key: "tnf",        label: "The North Face", terms: ["the north face", "north face"] },
+      { key: "corteiz",    label: "Corteiz",     terms: ["corteiz"] },
+      { key: "carhartt",   label: "Carhartt",    terms: ["carhartt"] },
+      { key: "ralph",      label: "Ralph Lauren", terms: ["ralph lauren", "polo ralph"] },
+    ];
 
     function isMobileDevice() {
       if (typeof window === "undefined") return false;
@@ -1079,38 +1242,153 @@
       return isMobileDevice() ? 14 : 22;
     }
 
-    function updateCatalogCount() {
-      const total = ALL_PRODUCTS.list.length;
-      const shown = ALL_PRODUCTS.rendered;
-      const ids = [
-        ["catalog-count", "btn-load-more"],
-        ["catalog-count-bottom", "btn-load-more-bottom"],
-      ];
-      for (const [counterId, btnId] of ids) {
-        const counter = document.getElementById(counterId);
-        const btn = document.getElementById(btnId);
-        if (counter) {
-          if (!total) counter.textContent = "A carregar…";
-          else counter.textContent = `Mostrando ${Math.min(shown, total)} de ${total} artigos`;
-        }
-        if (btn) {
-          btn.disabled = !total || shown >= total;
-          btn.textContent = shown >= total ? "Todos os artigos carregados" : `Carregar mais (${total - shown})`;
-        }
-      }
+    function productMatchesName(product, terms) {
+      if (!product || !Array.isArray(terms) || terms.length === 0) return true;
+      const hay = String(product.name || "").trim().toLowerCase();
+      if (!hay) return false;
+      return terms.some((t) => hay.includes(String(t).toLowerCase()));
     }
 
-    function renderCatalogHead() {
-      updateCatalogCount();
+    function productMatchesQuery(product, query) {
+      if (!product) return false;
+      const q = String(query || "").trim().toLowerCase();
+      if (!q) return true;
+      const hayName = String(product.name || "").trim().toLowerCase();
+      const hayCat = String(product.category || "").trim().toLowerCase();
+      const haySlug = String(product.slug || "").trim().toLowerCase();
+      const tokens = q.split(/\s+/).filter(Boolean);
+      if (!tokens.length) return true;
+      const haystack = (hayName + " " + hayCat + " " + haySlug);
+      return tokens.every((t) => haystack.includes(t));
     }
 
-    function prepareCatalog(products) {
-      ALL_PRODUCTS.list = Array.isArray(products) ? products.slice() : [];
-      ALL_PRODUCTS.rendered = 0;
-      ALL_PRODUCTS.batchSize = getCatalogBatchSize();
+    // ============================================================
+    // Generic filtered-state + batch render for catalog & brands
+    // ============================================================
+    function makeFilteredState({ emptyText }) {
+      return {
+        list: [],
+        rendered: 0,
+        locked: false,
+        emptyText: emptyText || "Sem resultados",
+      };
+    }
+
+    function createCountUpdater({ counterIds, btnIds, emptyText }) {
+      return ({ list, rendered }) => {
+        const total = Array.isArray(list) ? list.length : 0;
+        for (let i = 0; i < counterIds.length; i += 1) {
+          const counter = document.getElementById(counterIds[i]);
+          const btn = btnIds[i] ? document.getElementById(btnIds[i]) : null;
+          if (counter) {
+            if (!total) counter.textContent = emptyText || "Sem artigos";
+            else counter.textContent = `Mostrando ${Math.min(rendered, total)} de ${total} artigos`;
+          }
+          if (btn) {
+            btn.disabled = !total || rendered >= total;
+            btn.textContent = total === 0 ? "Sem resultados"
+              : rendered >= total ? "Todos os artigos carregados"
+              : `Carregar mais (${total - rendered})`;
+          }
+        }
+      };
+    }
+
+    const CATALOG_STATE = makeFilteredState({ emptyText: "Sem resultados na pesquisa" });
+    const CATALOG_UPDATE_COUNTERS = createCountUpdater({
+      counterIds: ["catalog-count", "catalog-count-bottom"],
+      btnIds: ["btn-load-more", "btn-load-more-bottom"],
+      emptyText: "Sem resultados na pesquisa",
+    });
+
+    const BRANDS_STATE = makeFilteredState({ emptyText: "Escolhe uma marca" });
+    const BRANDS_UPDATE_COUNTERS = createCountUpdater({
+      counterIds: ["brands-count", "brands-count-bottom"],
+      btnIds: ["btn-brands-load-more", "btn-brands-load-more-bottom"],
+      emptyText: "Escolhe uma marca",
+    });
+    let BRAND_ACTIVE_KEY = null;
+
+    const SEARCH_STATE = {
+      query: "",
+      timer: 0,
+      currentRawInput: "",
+    };
+
+    function applySearchAndFiltersToCatalog() {
+      const base = BRAND_ACTIVE_KEY ? BRAND_STATE._baseSorted : ALL_PRODUCTS.sortedByTs;
+      const pool = Array.isArray(base) ? base : [];
+      const q = SEARCH_STATE.query;
+      const filtered = pool.filter((p) => productMatchesQuery(p, q));
+      CATALOG_STATE.list = filtered;
+      CATALOG_STATE.rendered = 0;
       const grid = document.getElementById("grid-catalogo");
       if (grid) grid.innerHTML = "";
-      updateCatalogCount();
+      if (!filtered.length) {
+        renderEmptySearch(grid, q);
+      }
+      CATALOG_UPDATE_COUNTERS(CATALOG_STATE);
+      if (filtered.length) appendNextBatchGeneric(CATALOG_STATE, "grid-catalogo", CATALOG_UPDATE_COUNTERS);
+    }
+
+    function renderEmptySearch(grid, query) {
+      if (!grid) return;
+      grid.innerHTML = "";
+      const div = document.createElement("div");
+      div.className = "search-empty";
+      if (query) {
+        div.innerHTML = `Sem resultados para <strong>"${String(query).replace(/</g, "&lt;")}"</strong>.<br>Tenta uma pesquisa diferente ou explora as Marcas famosas.`;
+      } else {
+        div.textContent = "A carregar…";
+      }
+      grid.appendChild(div);
+    }
+
+    function renderEmptyBrands(grid, message) {
+      if (!grid) return;
+      grid.innerHTML = "";
+      const div = document.createElement("div");
+      div.className = "search-empty";
+      div.textContent = message || "Escolhe uma marca acima para ver os produtos.";
+      grid.appendChild(div);
+    }
+
+    function setActiveBrand(key) {
+      BRAND_ACTIVE_KEY = key || null;
+      const chips = document.querySelectorAll(".brand-chip");
+      chips.forEach((chip) => {
+        chip.classList.toggle("active", chip.dataset.brandKey === String(key || ""));
+      });
+
+      const rule = key
+        ? BRAND_RULES.find((r) => r.key === key) || null
+        : null;
+
+      if (!rule) {
+        BRANDS_STATE._baseSorted = [];
+        BRANDS_STATE.list = [];
+        BRANDS_STATE.rendered = 0;
+        BRANDS_UPDATE_COUNTERS({ list: [], rendered: 0 });
+        const g = document.getElementById("grid-marcas");
+        renderEmptyBrands(g, "Escolhe uma marca acima para ver os produtos.");
+        return;
+      }
+
+      const filtered = ALL_PRODUCTS.sortedByTs.filter((p) =>
+        productMatchesName(p, rule.terms),
+      );
+      BRANDS_STATE._baseSorted = filtered;
+      const q = SEARCH_STATE.query;
+      const withQ = q ? filtered.filter((p) => productMatchesQuery(p, q)) : filtered;
+      BRANDS_STATE.list = withQ;
+      BRANDS_STATE.rendered = 0;
+      const grid = document.getElementById("grid-marcas");
+      if (grid) grid.innerHTML = "";
+      if (!withQ.length) {
+        renderEmptyBrands(grid, q ? `Sem resultados em ${rule.label} para "${q}".` : `Sem artigos publicados para ${rule.label} neste momento.`);
+      }
+      BRANDS_UPDATE_COUNTERS(BRANDS_STATE);
+      if (withQ.length) appendNextBatchGeneric(BRANDS_STATE, "grid-marcas", BRANDS_UPDATE_COUNTERS);
     }
 
     function raf(fn) {
@@ -1122,18 +1400,21 @@
       });
     }
 
-    async function appendNextCatalogBatch() {
-      if (ALL_PRODUCTS.locked) return;
-      ALL_PRODUCTS.locked = true;
+    async function appendNextBatchGeneric(state, gridId, updateCounters) {
+      if (!state || state.locked) return;
+      state.locked = true;
       try {
-        const grid = document.getElementById("grid-catalogo");
+        const grid = document.getElementById(gridId);
         if (!grid) return;
+        // Remove placeholder de vazio se houver
+        const empty = grid.querySelector(".search-empty");
+        if (empty) empty.remove();
+
         const batchSize = getCatalogBatchSize();
-        ALL_PRODUCTS.batchSize = batchSize;
-        const start = ALL_PRODUCTS.rendered;
-        const end = Math.min(start + batchSize, ALL_PRODUCTS.list.length);
+        const start = state.rendered;
+        const end = Math.min(start + batchSize, state.list.length);
         for (let i = start; i < end; i += 1) {
-          const p = ALL_PRODUCTS.list[i];
+          const p = state.list[i];
           if (!p) continue;
           const card = buildCard({ product: p, tagClass: "", tagText: "" });
           if (card) grid.appendChild(card);
@@ -1141,10 +1422,105 @@
             await raf(() => {});
           }
         }
-        ALL_PRODUCTS.rendered = end;
-        updateCatalogCount();
+        state.rendered = end;
+        updateCounters(state);
       } finally {
-        ALL_PRODUCTS.locked = false;
+        state.locked = false;
+      }
+    }
+
+    function appendNextCatalogBatch() {
+      return appendNextBatchGeneric(CATALOG_STATE, "grid-catalogo", CATALOG_UPDATE_COUNTERS);
+    }
+
+    function appendNextBrandsBatch() {
+      return appendNextBatchGeneric(BRANDS_STATE, "grid-marcas", BRANDS_UPDATE_COUNTERS);
+    }
+
+    function buildBrandChips() {
+      const wrap = document.getElementById("brand-chips");
+      if (!wrap) return;
+      wrap.innerHTML = "";
+
+      const counts = {};
+      for (const rule of BRAND_RULES) counts[rule.key] = 0;
+      const pool = ALL_PRODUCTS.sortedByTs.length ? ALL_PRODUCTS.sortedByTs : ALL_PRODUCTS.raw;
+      for (const p of pool) {
+        for (const rule of BRAND_RULES) {
+          if (productMatchesName(p, rule.terms)) counts[rule.key] += 1;
+        }
+      }
+
+      const allBtn = document.createElement("button");
+      allBtn.type = "button";
+      allBtn.className = "brand-chip" + (BRAND_ACTIVE_KEY === null ? " active" : "");
+      allBtn.dataset.brandKey = "";
+      allBtn.innerHTML = `Todos<span class="count">${pool.length}</span>`;
+      allBtn.addEventListener("click", () => setActiveBrand(null));
+      wrap.appendChild(allBtn);
+
+      for (const rule of BRAND_RULES) {
+        const count = counts[rule.key] || 0;
+        const chip = document.createElement("button");
+        chip.type = "button";
+        chip.className = "brand-chip" + (BRAND_ACTIVE_KEY === rule.key ? " active" : "");
+        chip.dataset.brandKey = rule.key;
+        chip.innerHTML = `${rule.label}<span class="count">${count}</span>`;
+        chip.addEventListener("click", () => {
+          setActiveBrand(rule.key);
+        });
+        wrap.appendChild(chip);
+      }
+    }
+
+    function updateSearchWrapClass() {
+      const wrap = document.getElementById("search-wrap");
+      const input = document.getElementById("search-input");
+      if (!wrap || !input) return;
+      if (String(input.value || "").length) wrap.classList.add("has-value");
+      else wrap.classList.remove("has-value");
+    }
+
+    function setSearchQuery(raw) {
+      const value = String(raw || "").trim();
+      SEARCH_STATE.query = value;
+      applySearchAndFiltersToCatalog();
+      // Also filter brands view if a brand is active
+      if (BRAND_ACTIVE_KEY) setActiveBrand(BRAND_ACTIVE_KEY);
+      else {
+        BRANDS_STATE.list = [];
+        BRANDS_STATE.rendered = 0;
+        BRANDS_UPDATE_COUNTERS({ list: [], rendered: 0 });
+        const g = document.getElementById("grid-marcas");
+        renderEmptyBrands(g, value ? `Pesquisa "${value}" — usa as marcas acima ou abre o Catálogo completo.` : "Escolhe uma marca acima para ver os produtos.");
+      }
+    }
+
+    function initSearch() {
+      const input = document.getElementById("search-input");
+      const clear = document.getElementById("search-clear");
+      if (!input) return;
+
+      updateSearchWrapClass();
+      input.addEventListener("input", (e) => {
+        const raw = String((e && e.target && e.target.value) || "");
+        SEARCH_STATE.currentRawInput = raw;
+        updateSearchWrapClass();
+        if (SEARCH_STATE.timer) clearTimeout(SEARCH_STATE.timer);
+        SEARCH_STATE.timer = setTimeout(() => {
+          setSearchQuery(raw);
+          SEARCH_STATE.timer = 0;
+        }, 140);
+      });
+
+      if (clear) {
+        clear.addEventListener("click", () => {
+          input.value = "";
+          SEARCH_STATE.currentRawInput = "";
+          updateSearchWrapClass();
+          setSearchQuery("");
+          input.focus();
+        });
       }
     }
 
@@ -1153,19 +1529,34 @@
       updateStaticWhatsAppLinks();
       renderFallbackGrid("grid-destaques", "A carregar destaques…");
       renderFallbackGrid("grid-novidades", "A carregar novidades…");
-      renderCatalogHead();
+      const g1 = document.getElementById("grid-catalogo");
+      if (g1) renderEmptySearch(g1, "");
+      const g2 = document.getElementById("grid-marcas");
+      if (g2) renderEmptyBrands(g2, "A carregar marcas…");
 
       try {
         const res = await fetch("imagens/telegram_manifest.json", { cache: "no-store" });
         if (!res.ok) throw new Error("manifest HTTP " + res.status);
         const data = await res.json();
         const products = Array.isArray(data && data.products) ? data.products : [];
-        const sortedForCatalog = products.slice().sort((a, b) => Number(b.latestTs || 0) - Number(a.latestTs || 0));
+        ALL_PRODUCTS.raw = products.slice();
+        ALL_PRODUCTS.sorted = products.slice();
+        ALL_PRODUCTS.sortedByTs = products.slice().sort((a, b) => Number(b.latestTs || 0) - Number(a.latestTs || 0));
         updateCount(products.length);
         renderSpotlight(products);
         renderNews(products);
-        prepareCatalog(sortedForCatalog);
-        appendNextCatalogBatch();
+        buildBrandChips();
+        BRAND_ACTIVE_KEY = null;
+        BRANDS_STATE.list = [];
+        BRANDS_STATE.rendered = 0;
+        BRANDS_UPDATE_COUNTERS({ list: [], rendered: 0 });
+        if (g2) renderEmptyBrands(g2, "Escolhe uma marca acima para ver os produtos.");
+        CATALOG_STATE.list = ALL_PRODUCTS.sortedByTs.slice();
+        CATALOG_STATE.rendered = 0;
+        const gc = document.getElementById("grid-catalogo");
+        if (gc) gc.innerHTML = "";
+        CATALOG_UPDATE_COUNTERS(CATALOG_STATE);
+        appendNextBatchGeneric(CATALOG_STATE, "grid-catalogo", CATALOG_UPDATE_COUNTERS);
       } catch (e) {
         const err = (e && e.message) ? String(e.message) : "Erro a carregar catálogo";
         renderFallbackGrid("grid-destaques", "Não foi possível carregar os destaques. " + err);
@@ -1176,6 +1567,7 @@
     }
 
     document.addEventListener("DOMContentLoaded", () => {
+      initSearch();
       fetchManifestAndRender();
     });
 
