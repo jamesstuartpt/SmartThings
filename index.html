@@ -2,7 +2,7 @@
 <html lang="pt-PT">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=5.0">
   <title>Smart Things PT — Catálogo</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -37,6 +37,11 @@
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
+    html {
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+    }
+
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       font-weight: 400;
@@ -45,14 +50,22 @@
       color: var(--text-primary);
       background: var(--bg);
       -webkit-font-smoothing: antialiased;
+      -webkit-tap-highlight-color: transparent;
+      overflow-x: hidden;
     }
 
-    a { color: inherit; text-decoration: none; }
+    input, button, select, textarea {
+      font-size: 16px;
+    }
+
+    a { color: inherit; text-decoration: none; -webkit-touch-callout: none; }
 
     .container {
       max-width: 720px;
       margin: 0 auto;
       padding: 0 20px;
+      width: 100%;
+      box-sizing: border-box;
     }
 
     /* Header */
@@ -87,18 +100,63 @@
       gap: 6px;
     }
 
+    /* Telegram CTA */
+    .telegram-cta {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin: 4px auto 18px;
+      padding: 10px 14px;
+      background: linear-gradient(135deg, #229ED9 0%, #2AABEE 100%);
+      color: white;
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 14px;
+      max-width: 520px;
+      text-align: center;
+      box-shadow: 0 4px 14px rgba(34, 158, 217, 0.22);
+      transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
+      min-height: 44px;
+      touch-action: manipulation;
+    }
+    .telegram-cta:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 18px rgba(34, 158, 217, 0.32);
+    }
+    .telegram-cta:active { transform: scale(0.99); }
+    .telegram-cta small {
+      opacity: 0.9;
+      font-weight: 500;
+      font-size: 12px;
+    }
+    @media (max-width: 600px) {
+      .telegram-cta {
+        flex-direction: column;
+        gap: 2px;
+        padding: 10px 12px;
+        font-size: 13px;
+      }
+    }
+
     /* Tabs */
     .tabs {
       display: flex;
       gap: 8px;
-      justify-content: center;
-      padding: 8px 0 24px;
+      justify-content: flex-start;
+      padding: 8px 4px 24px;
       border-bottom: 1px solid var(--border);
       margin-bottom: 28px;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      scroll-snap-type: x proximity;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
     }
+    .tabs::-webkit-scrollbar { display: none; }
     .tab {
-      padding: 8px 16px;
+      padding: 10px 18px;
       border-radius: var(--radius-sm);
       font-size: 14px;
       font-weight: 500;
@@ -108,11 +166,21 @@
       border: none;
       transition: all var(--transition);
       font-family: inherit;
+      white-space: nowrap;
+      flex-shrink: 0;
+      scroll-snap-align: start;
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      -webkit-appearance: none;
+      appearance: none;
     }
     .tab:hover {
       background: var(--bg-muted);
       color: var(--text-primary);
     }
+    .tab:active { transform: scale(0.97); }
     .tab.active {
       background: var(--text-primary);
       color: var(--bg);
@@ -167,28 +235,18 @@
       -webkit-user-drag: none;
     }
     .card-angles {
-      position: absolute;
-      left: 10px;
-      right: 10px;
-      bottom: 10px;
+      width: 100%;
       display: flex;
       flex-wrap: wrap;
       gap: 6px;
-      padding: 6px;
-      background: rgba(255, 255, 255, 0.72);
-      border-radius: 999px;
-      backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
-    }
-    @media (prefers-color-scheme: dark) {
-      .card-angles {
-        background: rgba(0, 0, 0, 0.62);
-      }
+      padding: 2px 2px 0;
+      align-items: center;
+      justify-content: center;
     }
     .card-angle-dot {
-      width: 26px;
-      height: 26px;
-      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      border-radius: 8px;
       border: 1px solid var(--border);
       overflow: hidden;
       background: var(--bg-muted);
@@ -196,10 +254,14 @@
       padding: 0;
       transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
       flex-shrink: 0;
+      -webkit-appearance: none;
+      appearance: none;
+      touch-action: manipulation;
     }
     .card-angle-dot:hover {
       transform: translateY(-1px);
     }
+    .card-angle-dot:active { transform: scale(0.92); }
     .card-angle-dot img {
       width: 100%;
       height: 100%;
@@ -209,16 +271,26 @@
     }
     .card-angle-dot.active {
       border-color: var(--text-primary);
-      box-shadow: 0 0 0 2px var(--bg), 0 0 0 3px var(--text-primary);
+      box-shadow: 0 0 0 1px var(--bg), 0 0 0 2px var(--text-primary);
       transform: translateY(-1px);
     }
     .card-angle-count {
       font-size: 11px;
       color: var(--text-secondary);
-      margin-left: auto;
       align-self: center;
       padding-right: 4px;
       font-weight: 500;
+      margin-left: auto;
+    }
+    @media (prefers-color-scheme: dark) {
+      .card-angle-dot.active {
+        box-shadow: 0 0 0 1px var(--bg), 0 0 0 2px var(--text-primary);
+      }
+    }
+    @media (max-width: 600px) {
+      .card-angle-dot { width: 24px; height: 24px; }
+      .card-angles { left: 0; right: 0; bottom: 0; gap: 4px; padding: 2px; }
+      .card-angle-count { font-size: 10px; }
     }
     .card-name {
       font-size: 14px;
@@ -241,6 +313,12 @@
       margin: 0;
       color: var(--text-primary);
     }
+    .card-price-consult {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--accent);
+      letter-spacing: 0.01em;
+    }
     .card-tag {
       display: inline-block;
       font-size: 11px;
@@ -256,7 +334,8 @@
       align-items: center;
       justify-content: center;
       gap: 8px;
-      padding: 10px 14px;
+      padding: 12px 14px;
+      min-height: 44px;
       background: var(--text-primary);
       color: var(--bg);
       border-radius: var(--radius-sm);
@@ -265,13 +344,15 @@
       border: none;
       cursor: pointer;
       font-family: inherit;
-      transition: opacity 0.2s ease;
+      transition: opacity 0.2s ease, transform 0.1s ease;
       margin-top: auto;
       text-decoration: none;
+      -webkit-appearance: none;
+      appearance: none;
+      touch-action: manipulation;
     }
-    .buy-btn:hover {
-      opacity: 0.85;
-    }
+    .buy-btn:hover { opacity: 0.85; }
+    .buy-btn:active { opacity: 0.75; transform: scale(0.98); }
     .tag-pop {
       background: var(--bg-muted);
       color: var(--text-primary);
@@ -293,19 +374,26 @@
       margin-top: 28px;
     }
     .btn {
-      display: inline-block;
-      padding: 11px 28px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 28px;
+      min-height: 44px;
       background: var(--text-primary);
       color: var(--bg);
       border-radius: var(--radius-sm);
       font-size: 14px;
       font-weight: 500;
-      transition: opacity var(--transition);
+      transition: opacity var(--transition), transform 0.1s ease;
       border: none;
       cursor: pointer;
       font-family: inherit;
+      -webkit-appearance: none;
+      appearance: none;
+      touch-action: manipulation;
     }
     .btn:hover { opacity: 0.85; }
+    .btn:active { opacity: 0.75; transform: scale(0.98); }
     .btn-outline {
       background: transparent;
       color: var(--text-primary);
@@ -330,8 +418,8 @@
       border-radius: var(--radius-md);
     }
     .step-num {
-      width: 32px;
-      height: 32px;
+      width: 36px;
+      height: 36px;
       border-radius: 50%;
       background: var(--text-primary);
       color: var(--bg);
@@ -362,20 +450,28 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 18px 0;
+      padding: 20px 0;
+      min-height: 52px;
       font-size: 15px;
       font-weight: 500;
       cursor: pointer;
       user-select: none;
+      -webkit-tap-highlight-color: transparent;
+      gap: 16px;
     }
     .faq-q::after {
       content: '+';
-      font-size: 20px;
+      font-size: 22px;
       color: var(--text-tertiary);
       transition: transform var(--transition);
       font-weight: 400;
-      min-width: 20px;
+      min-width: 32px;
+      min-height: 32px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       text-align: center;
+      flex-shrink: 0;
     }
     .faq-item.open .faq-q::after {
       transform: rotate(45deg);
@@ -386,12 +482,12 @@
       transition: max-height 0.3s ease;
     }
     .faq-item.open .faq-a {
-      max-height: 200px;
+      max-height: 400px;
     }
     .faq-a p {
       font-size: 14px;
       color: var(--text-secondary);
-      margin: 0 0 18px;
+      margin: 0 0 20px;
       line-height: 1.6;
     }
 
@@ -530,26 +626,76 @@
       transform: translateY(-1px);
     }
     @media (max-width: 600px) {
-      .lightbox-arrow { width: 38px; height: 38px; font-size: 18px; }
-      .lightbox-close { width: 36px; height: 36px; font-size: 18px; }
+      .lightbox-arrow { width: 44px; height: 44px; font-size: 22px; }
+      .lightbox-close { width: 44px; height: 44px; font-size: 22px; top: 10px; right: 10px; }
       .lightbox-stage { gap: 8px; }
+      .lightbox-modal { padding: 16px 8px 20px; gap: 12px; }
+      .lightbox-dot { width: 40px; height: 40px; border-radius: 10px; }
     }
 
     /* Responsive */
     @media (max-width: 600px) {
-      .grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-      .steps { grid-template-columns: 1fr; }
-      .header { padding: 32px 0 12px; }
-      .header h1 { font-size: 20px; }
-      .badges { gap: 16px; font-size: 12px; }
-      .tabs { gap: 6px; flex-wrap: wrap; }
-      .tab { padding: 7px 12px; font-size: 13px; }
-      .catalog-head { flex-wrap: wrap; gap: 8px; }
+      .container { padding: 0 14px; max-width: 100%; }
+      .grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+      .card { padding: 10px; gap: 8px; border-radius: var(--radius-sm); }
+      .card-name { font-size: 13px; }
+      .card-price { font-size: 15px; }
+      .card-tag { font-size: 10px; padding: 2px 6px; }
+      .card-angle-dot { width: 24px; height: 24px; }
+      .card-angles { left: 6px; right: 6px; bottom: 6px; padding: 4px; gap: 4px; }
+      .card-angle-count { font-size: 10px; }
+
+      .steps { grid-template-columns: 1fr; gap: 12px; }
+      .step { padding: 18px 12px; }
+
+      .header { padding: 28px 0 10px; }
+      .header h1 { font-size: 20px; letter-spacing: 0.2px; }
+      .header p { font-size: 13px; margin-top: 4px; }
+
+      .badges { gap: 12px; font-size: 12px; padding: 16px 0; }
+      .badges span { gap: 4px; }
+
+      .tabs { gap: 6px; padding: 6px 2px 20px; margin-bottom: 22px; }
+      .tab { padding: 10px 14px; font-size: 13px; min-height: 42px; }
+
+      .catalog-head { flex-wrap: wrap; gap: 10px; flex-direction: column; align-items: stretch; }
+      .catalog-count { text-align: center; font-size: 12px; }
       .load-more-btn { width: 100%; }
-      .search-wrap { margin-top: 16px; }
-      .search-bar { padding: 14px 14px 14px 44px; font-size: 14px; }
-      .brand-chips { gap: 6px; }
-      .brand-chip { padding: 7px 12px; font-size: 12px; }
+
+      .search-wrap { margin-top: 14px; margin-bottom: 14px; }
+      .search-bar { padding: 14px 14px 14px 42px; font-size: 16px; min-height: 48px; border-radius: var(--radius-md); }
+      .search-icon { left: 14px; width: 18px; height: 18px; }
+      .search-clear { width: 40px; height: 40px; right: 6px; }
+
+      .brand-chips { gap: 6px; margin-bottom: 14px; }
+      .brand-chip { padding: 10px 14px; font-size: 12px; min-height: 38px; }
+
+      .faq-q { padding: 16px 0; font-size: 14px; }
+      .faq-a p { font-size: 13px; }
+
+      .cta-wrap { margin-top: 22px; }
+      .btn { width: 100%; }
+
+      .footer { padding: 32px 0 20px; font-size: 12px; }
+
+      .search-empty { padding: 22px 14px; font-size: 13px; }
+    }
+
+    @media (max-width: 380px) {
+      .container { padding: 0 12px; }
+      .grid { gap: 8px; }
+      .card { padding: 8px; }
+      .header h1 { font-size: 18px; }
+      .header p { font-size: 12px; }
+      .tab { padding: 9px 12px; font-size: 12px; }
+      .buy-btn { padding: 11px 12px; font-size: 13px; min-height: 42px; }
+      .card-price { font-size: 14px; }
+      .card-name { font-size: 12px; }
+    }
+
+    @media (min-width: 601px) and (max-width: 900px) {
+      .container { padding: 0 24px; max-width: 100%; }
+      .grid { grid-template-columns: repeat(3, 1fr); }
     }
 
     /* Search */
@@ -561,15 +707,18 @@
     .search-bar {
       width: 100%;
       padding: 16px 18px 16px 48px;
+      min-height: 48px;
       background: var(--bg);
       border: 1.5px solid var(--border);
       border-radius: var(--radius-lg);
       color: var(--text-primary);
-      font-size: 15px;
+      font-size: 16px;
       font-family: inherit;
       transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
       box-sizing: border-box;
       outline: none;
+      -webkit-appearance: none;
+      appearance: none;
     }
     .search-bar::placeholder {
       color: var(--text-tertiary);
@@ -598,9 +747,9 @@
       background: transparent;
       border: none;
       color: var(--text-secondary);
-      font-size: 18px;
-      width: 34px;
-      height: 34px;
+      font-size: 20px;
+      width: 36px;
+      height: 36px;
       border-radius: 50%;
       cursor: pointer;
       display: inline-flex;
@@ -609,8 +758,12 @@
       opacity: 0;
       transition: opacity 0.18s ease, background 0.18s ease;
       font-family: inherit;
+      -webkit-appearance: none;
+      appearance: none;
+      min-width: 36px;
     }
     .search-clear:hover { background: rgba(0, 0, 0, 0.05); }
+    .search-clear:active { background: rgba(0, 0, 0, 0.1); }
     .search-wrap.has-value .search-clear { opacity: 1; }
     .search-empty {
       grid-column: 1 / -1;
@@ -627,15 +780,22 @@
     /* Brands chips */
     .brand-chips {
       display: flex;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
       gap: 8px;
       margin-bottom: 18px;
+      overflow-x: auto;
+      scroll-snap-type: x proximity;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      padding: 4px 2px;
     }
+    .brand-chips::-webkit-scrollbar { display: none; }
     .brand-chip {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      padding: 8px 14px;
+      padding: 10px 16px;
+      min-height: 40px;
       border: 1px solid var(--border);
       background: var(--bg);
       color: var(--text-primary);
@@ -646,11 +806,18 @@
       font-family: inherit;
       transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease, color 0.2s ease;
       user-select: none;
+      white-space: nowrap;
+      flex-shrink: 0;
+      scroll-snap-align: start;
+      -webkit-appearance: none;
+      appearance: none;
+      touch-action: manipulation;
     }
     .brand-chip:hover {
       transform: translateY(-1px);
       border-color: var(--text-primary);
     }
+    .brand-chip:active { transform: scale(0.97); }
     .brand-chip.active {
       background: var(--text-primary);
       color: var(--bg);
@@ -681,18 +848,23 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 10px 16px;
+      padding: 12px 18px;
+      min-height: 44px;
       background: var(--text-primary);
       color: var(--bg);
       border-radius: var(--radius-md);
-      font-size: 13px;
+      font-size: 14px;
       font-weight: 500;
       border: none;
       cursor: pointer;
       font-family: inherit;
       transition: opacity 0.2s ease, transform 0.2s ease;
+      -webkit-appearance: none;
+      appearance: none;
+      touch-action: manipulation;
     }
     .load-more-btn:hover { opacity: 0.88; transform: translateY(-1px); }
+    .load-more-btn:active { opacity: 0.75; transform: scale(0.98); }
     .load-more-btn:disabled {
       opacity: 0;
       pointer-events: none;
@@ -719,6 +891,11 @@
       <span>⭐ 5★ clientes</span>
     </div>
 
+    <!-- Telegram CTA -->
+    <a class="telegram-cta" id="cta-telegram-top" target="_blank" rel="noopener noreferrer">
+      📸 <span>Canal do Telegram <small>— vê fotos e vídeos reais dos produtos</small></span>
+    </a>
+
     <!-- Search -->
     <div class="search-wrap" id="search-wrap">
       <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -741,7 +918,6 @@
     <nav class="tabs" role="tablist">
       <button class="tab active" onclick="showTab('destaques', this)" role="tab" aria-selected="true">Destaques</button>
       <button class="tab" onclick="showTab('novidades', this)" role="tab" aria-selected="false">Novidades</button>
-      <button class="tab" onclick="showTab('marcas', this)" role="tab" aria-selected="false">Marcas famosas</button>
       <button class="tab" onclick="showTab('catalogo', this)" role="tab" aria-selected="false">Catálogo completo</button>
       <button class="tab" onclick="showTab('comofunciona', this)" role="tab" aria-selected="false">Como funciona</button>
       <button class="tab" onclick="showTab('faq', this)" role="tab" aria-selected="false">FAQ</button>
@@ -760,22 +936,9 @@
       <div class="grid" id="grid-novidades"></div>
     </section>
 
-    <!-- Marcas famosas -->
-    <section id="marcas" class="section" role="tabpanel">
-      <div class="brand-chips" id="brand-chips"></div>
-      <div class="catalog-head" style="margin-top: 4px;">
-        <div class="catalog-count" id="brands-count">Escolhe uma marca</div>
-        <button class="load-more-btn" id="btn-brands-load-more" type="button" onclick="appendNextBrandsBatch()" disabled>Carregar mais</button>
-      </div>
-      <div class="grid" id="grid-marcas"></div>
-      <div class="catalog-head" style="margin-top: 18px;">
-        <div class="catalog-count" id="brands-count-bottom"></div>
-        <button class="load-more-btn" id="btn-brands-load-more-bottom" type="button" onclick="appendNextBrandsBatch()" disabled>Carregar mais</button>
-      </div>
-    </section>
-
     <!-- Catálogo completo -->
     <section id="catalogo" class="section" role="tabpanel">
+      <div class="brand-chips" id="brand-chips" style="margin: 4px 0 16px;"></div>
       <div class="catalog-head">
         <div class="catalog-count" id="catalog-count">A carregar…</div>
         <button class="load-more-btn" id="btn-load-more" type="button" onclick="appendNextCatalogBatch()" disabled>Carregar mais</button>
@@ -837,11 +1000,17 @@
           <p>Contacta-nos no WhatsApp em caso de problema. Analisamos cada caso individualmente para te ajudar da melhor forma.</p>
         </div>
       </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Posso ver fotos ou vídeos reais dos produtos?</div>
+        <div class="faq-a">
+          <p>Claro! Junta-te ao nosso <a id="faq-telegram-link" target="_blank" rel="noopener noreferrer" style="color: var(--accent); font-weight: 600; text-decoration: underline;">Canal do Telegram</a> onde publicamos fotos e vídeos reais diariamente.</p>
+        </div>
+      </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
-      <p>Smart Things PT · Pedidos via <a id="footer-whatsapp-link" target="_blank" rel="noopener">WhatsApp</a></p>
+      <p>Smart Things PT · Pedidos via <a id="footer-whatsapp-link" target="_blank" rel="noopener">WhatsApp</a> · <a id="footer-telegram-link" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline;">Telegram</a></p>
       <p style="margin-top: 4px; font-size: 12px;">Pedido sob consulta · Entrega média 10–15 dias</p>
     </footer>
 
@@ -890,7 +1059,7 @@
     const NEWS_SLUGS = [
       "nike_air_max_tn_plus",
       "adidas_campus_x_bad_bunny",
-      "nike_x_nocta_chándal_completo",
+      "nike_x_nocta_chandal_completo",
       "adidas_samba_og",
       "nike_air_jordan_4",
       "carhartt_bordado",
@@ -904,20 +1073,115 @@
 
     const WHATSAPP_NUMBER = "351927515217";
     const PRODUCT_PRICE = "40€";
+    const SNEAKERS_PRICE = "40€";
+    const CONSULT_PRICE = "Consulte o preço";
+    const TELEGRAM_URL = "https://t.me/smartthingspt";
+    function isSneakersProduct(product) {
+      if (!product) return false;
+      const cat = String(product.category || "").trim().toLowerCase();
+      if (cat === "sneakers") return true;
+      const bs = String(product.brandSlug || "").trim().toLowerCase();
+      if (["nike", "jordan", "adidas", "newbalance", "asics", "puma", "vans", "converse"].includes(bs)) return true;
+      const nm = String(product.name || "").toLowerCase();
+      if (/\b(t[êe]nis|sneaker|sapatilha|air ?max|samba|gazelle|campus|jordan|dunk|yeezy|new ?balance|asics|tn|ultraboost|nmd|slip ?on)\b/.test(nm)) return true;
+      return false;
+    }
+    function _priceIsConsult(priceText) {
+      const s = String(priceText == null ? "" : priceText).trim().toLowerCase();
+      if (!s) return true;
+      return /consulte|consultar|pre.z|ask|contact|sem pre.o|—$/.test(s) || !/[0-9]/.test(s);
+    }
+    function getProductPrice(product) {
+      if (product) {
+        const explicit = product.price;
+        if (typeof explicit === "string" && explicit.trim()) {
+          return explicit.trim();
+        }
+      }
+      if (isSneakersProduct(product)) return SNEAKERS_PRICE;
+      return CONSULT_PRICE;
+    }
+    function getPriceClass(product) {
+      const price = getProductPrice(product);
+      if (_priceIsConsult(price)) return "card-price-consult";
+      return "";
+    }
+
+    const MOJIBAKE_MAP = {
+      "ß": "a", "à": "a", "á": "a", "â": "a", "ã": "a", "ä": "a", "å": "a", "æ": "ae",
+      "þ": "c", "ç": "c", "ð": "d",
+      "è": "e", "é": "e", "ê": "e", "ë": "e",
+      "ì": "i", "í": "i", "î": "i", "ï": "i",
+      "±": "n", "ñ": "n",
+      "ò": "o", "ó": "o", "ô": "o", "õ": "o", "ö": "o", "ø": "o", "¾": "o",
+      "·": "u", "ù": "u", "ú": "u", "û": "u", "ü": "u",
+      "Ú": "e", "Ý": "i", "ý": "y", "ÿ": "y",
+    };
+
+    function _fixMojibake(text) {
+      const s = String(text == null ? "" : text);
+      let out = "";
+      for (let i = 0; i < s.length; i++) {
+        const ch = s[i];
+        const low = ch.toLowerCase();
+        const fixed = MOJIBAKE_MAP[low];
+        if (fixed) {
+          if (ch === ch.toUpperCase() && fixed.length === 1 && /[a-z]/.test(fixed)) {
+            out += fixed.toUpperCase();
+          } else {
+            out += fixed;
+          }
+        } else {
+          out += ch;
+        }
+      }
+      return out;
+    }
+
+    function _stripAccents(text) {
+      const s = String(text == null ? "" : text);
+      if (typeof s.normalize !== "function") return s;
+      return s.normalize("NFKD").replace(/[\u0300-\u036f]/g, "");
+    }
+
+    function _normalizeForCompare(text) {
+      const s = _fixMojibake(String(text == null ? "" : text));
+      const stripped = _stripAccents(s).toLowerCase();
+      return stripped.replace(/[^a-z0-9_-]+/g, "_").replace(/_+/g, "_").replace(/^[_-]+|[_-]+$/g, "");
+    }
+
+    function _cleanDisplayName(text) {
+      let s = _fixMojibake(String(text == null ? "" : text));
+      s = s.replace(/\u00a0/g, " ").replace(/\r/g, " ").replace(/\n/g, " ");
+      s = s.replace(/\s+/g, " ").trim();
+      return s;
+    }
 
     function buildWhatsAppHref(productName, price, itemNumber) {
+      const cleanName = _cleanDisplayName(productName) || String(productName || "Produto");
+      const cleanPrice = String(price || PRODUCT_PRICE);
       const n = Number(itemNumber || 0);
-      const itemLine = n > 0 ? `\n📸 Item / Cor: ${productName} item ${n} (Foto ${n})` : "";
+      const itemLine = n > 0 ? `\n📸 Item / Cor: ${cleanName} item ${n} (Foto ${n})` : "";
       const msg = encodeURIComponent(
-        `Olá! Gostava de encomendar este artigo:\n\n📦 *${productName}*${itemLine}\n💰 Preço: ${price || PRODUCT_PRICE}\n\nEstá disponível?`,
+        `Olá! Gostava de encomendar este artigo:\n\n📦 *${cleanName}*${itemLine}\n💰 Preço: ${cleanPrice}\n\nEstá disponível?`,
       );
       return `https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`;
     }
 
     function findProductBySlug(list, slug) {
       if (!Array.isArray(list) || !slug) return null;
-      const clean = String(slug).trim().toLowerCase();
-      return list.find(p => String(p && p.slug || "").trim().toLowerCase() === clean) || null;
+      const needle = String(slug).trim();
+      const low = needle.toLowerCase();
+      const norm = _normalizeForCompare(needle);
+      let fallback = null;
+      for (let i = 0; i < list.length; i++) {
+        const p = list[i];
+        if (!p || p.slug == null) continue;
+        const s = String(p.slug).trim();
+        if (s.toLowerCase() === low) return p;
+        if (!fallback && norm && _normalizeForCompare(s) === norm) fallback = p;
+      }
+      return fallback || null;
     }
 
     function setCardAngle(card, index) {
@@ -1027,13 +1291,15 @@
       const name = String(product.name || "Sem nome").trim();
       const images = Array.isArray(product.images) ? product.images.slice() : [];
       if (!images.length) return null;
+      const priceVal = getProductPrice(product);
+      const priceCls = getPriceClass(product);
 
       const card = document.createElement("article");
       card.className = "card";
       try { card.dataset.images = JSON.stringify(images); } catch {}
       card.dataset.angle = "0";
       card.dataset.name = name;
-      card.dataset.price = PRODUCT_PRICE;
+      card.dataset.price = priceVal;
 
       const imgWrap = document.createElement("div");
       imgWrap.className = "card-img";
@@ -1044,8 +1310,14 @@
       img.decoding = "async";
       imgWrap.appendChild(img);
 
+      imgWrap.addEventListener("click", (e) => {
+        const idx = Number(card.dataset.angle || 0);
+        openLightbox({ images, startIndex: idx, cardRef: card });
+      });
+
+      let angles = null;
       if (images.length > 1) {
-        const angles = document.createElement("div");
+        angles = document.createElement("div");
         angles.className = "card-angles";
         const maxDots = Math.min(images.length, 6);
         for (let i = 0; i < maxDots; i += 1) {
@@ -1069,21 +1341,6 @@
         count.className = "card-angle-count";
         count.textContent = `1/${images.length}`;
         angles.appendChild(count);
-        imgWrap.appendChild(angles);
-
-        imgWrap.addEventListener("click", (e) => {
-          const onDot = e.target.closest && e.target.closest(".card-angle-dot");
-          if (onDot) return;
-          const idx = Number(card.dataset.angle || 0);
-          openLightbox({ images, startIndex: idx, cardRef: card });
-        });
-      } else {
-        imgWrap.addEventListener("click", (e) => {
-          const onDot = e.target.closest && e.target.closest(".card-angle-dot");
-          if (onDot) return;
-          const idx = Number(card.dataset.angle || 0);
-          openLightbox({ images, startIndex: idx, cardRef: card });
-        });
       }
 
       const title = document.createElement("h3");
@@ -1094,25 +1351,36 @@
       const row = document.createElement("div");
       row.className = "card-row";
       const price = document.createElement("p");
-      price.className = "card-price";
-      price.textContent = PRODUCT_PRICE;
+      price.className = "card-price" + (priceCls ? " " + priceCls : "");
+      price.textContent = priceVal;
       const tag = document.createElement("span");
       tag.className = `card-tag ${tagClass || ""}`.trim();
       tag.textContent = tagText || "";
       row.appendChild(price);
       if (tagText) row.appendChild(tag);
 
+      const hasDirectBuy = !!(product && (product.hasBuyLink === true || product.hasBuyLink === "true") &&
+        typeof product.buyLink === "string" && product.buyLink.length >= 8);
+
       const buy = document.createElement("a");
       buy.className = "buy-btn";
       buy.target = "_blank";
-      buy.rel = "noopener";
-      buy.href = buildWhatsAppHref(name, PRODUCT_PRICE, 1);
-      buy.textContent = "Comprar";
+      buy.rel = "noopener noreferrer";
+      if (hasDirectBuy) {
+        buy.href = product.buyLink;
+        buy.dataset.buyMode = "direct";
+        buy.textContent = "Comprar";
+      } else {
+        buy.href = buildWhatsAppHref(name, priceVal, 1);
+        buy.dataset.buyMode = "whatsapp";
+        buy.textContent = "Comprar";
+      }
       buy.addEventListener("click", (e) => {
         e.stopPropagation();
       });
 
       card.appendChild(imgWrap);
+      if (angles) card.appendChild(angles);
       card.appendChild(title);
       card.appendChild(row);
       card.appendChild(buy);
@@ -1225,6 +1493,12 @@
       if (footer) {
         footer.href = `https://wa.me/${WHATSAPP_NUMBER}`;
       }
+      const tgTop = document.getElementById("cta-telegram-top");
+      if (tgTop && TELEGRAM_URL) tgTop.href = TELEGRAM_URL;
+      const tgFooter = document.getElementById("footer-telegram-link");
+      if (tgFooter && TELEGRAM_URL) tgFooter.href = TELEGRAM_URL;
+      const tgFaq = document.getElementById("faq-telegram-link");
+      if (tgFaq && TELEGRAM_URL) tgFaq.href = TELEGRAM_URL;
     }
 
     const ALL_PRODUCTS = { raw: [], sorted: [], sortedByTs: [] };
@@ -1252,24 +1526,61 @@
       return isMobileDevice() ? 14 : 22;
     }
 
-    function productMatchesName(product, terms) {
-      if (!product || !Array.isArray(terms) || terms.length === 0) return true;
+    function productMatchesName(product, terms, ruleKey, ruleLabel) {
+      if (!product) return false;
+      if (!Array.isArray(terms) || terms.length === 0) return true;
+
+      if (ruleKey) {
+        const pBrand = String(product.brandSlug || "").trim().toLowerCase();
+        if (pBrand === String(ruleKey).toLowerCase()) return true;
+        const pBrand2 = _normalizeForCompare(product.brandSlug);
+        const rk2 = _normalizeForCompare(ruleKey);
+        if (pBrand2 && rk2 && pBrand2 === rk2) return true;
+      }
+      if (ruleLabel) {
+        const pBrandLab = _normalizeForCompare(product.brandLabel);
+        const rl2 = _normalizeForCompare(ruleLabel);
+        if (pBrandLab && rl2 && pBrandLab === rl2) return true;
+      }
+
       const hay = String(product.name || "").trim().toLowerCase();
-      if (!hay) return false;
-      return terms.some((t) => hay.includes(String(t).toLowerCase()));
+      const haySlug = String(product.slug || "").trim().toLowerCase();
+      const combined = hay + " " + haySlug;
+      if (!combined.trim()) return false;
+      return terms.some((t) => combined.includes(String(t).toLowerCase()));
     }
 
     function productMatchesQuery(product, query) {
       if (!product) return false;
-      const q = String(query || "").trim().toLowerCase();
-      if (!q) return true;
-      const hayName = String(product.name || "").trim().toLowerCase();
-      const hayCat = String(product.category || "").trim().toLowerCase();
-      const haySlug = String(product.slug || "").trim().toLowerCase();
-      const tokens = q.split(/\s+/).filter(Boolean);
+      const rawQ = String(query || "").trim();
+      if (!rawQ) return true;
+      const qNorm = _normalizeForCompare(rawQ);
+      const tokensRaw = rawQ.split(/\s+/).filter(Boolean);
+      const tokensNorm = qNorm ? qNorm.split(/_+/).filter(Boolean) : [];
+      const tokens = Array.from(new Set([...tokensRaw, ...tokensNorm]));
       if (!tokens.length) return true;
-      const haystack = (hayName + " " + hayCat + " " + haySlug);
-      return tokens.every((t) => haystack.includes(t));
+
+      const hayParts = [];
+      hayParts.push(String(product.name || ""));
+      hayParts.push(String(product.category || ""));
+      hayParts.push(String(product.slug || ""));
+      hayParts.push(String(product.brandSlug || ""));
+      hayParts.push(String(product.brandLabel || ""));
+      hayParts.push(String(product.modelSlug || ""));
+      hayParts.push(String(product.modelLabel || ""));
+      const rawHay = hayParts.join(" ");
+      const normHay = _normalizeForCompare(rawHay);
+      const hayLow = rawHay.toLowerCase();
+      const hay = (hayLow + " " + normHay).replace(/_+/g, " ");
+
+      return tokens.every((t) => {
+        const needle = String(t).toLowerCase();
+        if (!needle) return true;
+        const n2 = _normalizeForCompare(needle).replace(/_+/g, " ");
+        if (hay.includes(needle)) return true;
+        if (n2 && n2 !== needle && hay.includes(n2)) return true;
+        return false;
+      });
     }
 
     // ============================================================
@@ -1326,28 +1637,42 @@
     };
 
     function applySearchAndFiltersToCatalog() {
-      const base = BRAND_ACTIVE_KEY ? BRANDS_STATE._baseSorted : ALL_PRODUCTS.sortedByTs;
-      const pool = Array.isArray(base) ? base : [];
+      const pool = ALL_PRODUCTS.sortedByTs && ALL_PRODUCTS.sortedByTs.length ? ALL_PRODUCTS.sortedByTs : (ALL_PRODUCTS.raw || []);
+      const rule = BRAND_ACTIVE_KEY
+        ? (BRAND_RULES.find((r) => r.key === BRAND_ACTIVE_KEY) || null)
+        : null;
+      let list = pool;
+      if (rule) {
+        list = pool.filter((p) => productMatchesName(p, rule.terms, rule.key, rule.label));
+      }
       const q = SEARCH_STATE.query;
-      const filtered = pool.filter((p) => productMatchesQuery(p, q));
+      const filtered = q ? list.filter((p) => productMatchesQuery(p, q)) : list;
       CATALOG_STATE.list = filtered;
       CATALOG_STATE.rendered = 0;
       const grid = document.getElementById("grid-catalogo");
       if (grid) grid.innerHTML = "";
       if (!filtered.length) {
-        renderEmptySearch(grid, q);
+        renderEmptySearch(grid, q, rule ? rule.label : null);
       }
       CATALOG_UPDATE_COUNTERS(CATALOG_STATE);
-      if (filtered.length) renderAllBatches(CATALOG_STATE, "grid-catalogo", CATALOG_UPDATE_COUNTERS);
+      if (filtered.length) {
+        renderAllBatches(CATALOG_STATE, "grid-catalogo", CATALOG_UPDATE_COUNTERS);
+        if (!CATALOG_STATE.rendered) {
+          appendNextCatalogBatch();
+        }
+      }
     }
 
-    function renderEmptySearch(grid, query) {
+    function renderEmptySearch(grid, query, brandLabel) {
       if (!grid) return;
       grid.innerHTML = "";
       const div = document.createElement("div");
       div.className = "search-empty";
       if (query) {
-        div.innerHTML = `Sem resultados para <strong>"${String(query).replace(/</g, "&lt;")}"</strong>.<br>Tenta uma pesquisa diferente ou explora as Marcas famosas.`;
+        const scope = brandLabel ? ` em ${brandLabel}` : "";
+        div.innerHTML = `Sem resultados para <strong>"${String(query).replace(/</g, "&lt;")}"</strong>${scope}.<br>Tenta uma pesquisa diferente ou usa os filtros de marca acima.`;
+      } else if (brandLabel) {
+        div.textContent = `Sem artigos publicados para ${brandLabel} neste momento.`;
       } else {
         div.textContent = "A carregar…";
       }
@@ -1369,36 +1694,7 @@
       chips.forEach((chip) => {
         chip.classList.toggle("active", chip.dataset.brandKey === String(key || ""));
       });
-
-      const rule = key
-        ? BRAND_RULES.find((r) => r.key === key) || null
-        : null;
-
-      if (!rule) {
-        BRANDS_STATE._baseSorted = [];
-        BRANDS_STATE.list = [];
-        BRANDS_STATE.rendered = 0;
-        BRANDS_UPDATE_COUNTERS({ list: [], rendered: 0 });
-        const g = document.getElementById("grid-marcas");
-        renderEmptyBrands(g, "Escolhe uma marca acima para ver os produtos.");
-        return;
-      }
-
-      const filtered = ALL_PRODUCTS.sortedByTs.filter((p) =>
-        productMatchesName(p, rule.terms),
-      );
-      BRANDS_STATE._baseSorted = filtered;
-      const q = SEARCH_STATE.query;
-      const withQ = q ? filtered.filter((p) => productMatchesQuery(p, q)) : filtered;
-      BRANDS_STATE.list = withQ;
-      BRANDS_STATE.rendered = 0;
-      const grid = document.getElementById("grid-marcas");
-      if (grid) grid.innerHTML = "";
-      if (!withQ.length) {
-        renderEmptyBrands(grid, q ? `Sem resultados em ${rule.label} para "${q}".` : `Sem artigos publicados para ${rule.label} neste momento.`);
-      }
-      BRANDS_UPDATE_COUNTERS(BRANDS_STATE);
-      if (withQ.length) renderAllBatches(BRANDS_STATE, "grid-marcas", BRANDS_UPDATE_COUNTERS);
+      applySearchAndFiltersToCatalog();
     }
 
     function raf(fn) {
@@ -1471,7 +1767,7 @@
       const pool = ALL_PRODUCTS.sortedByTs.length ? ALL_PRODUCTS.sortedByTs : ALL_PRODUCTS.raw;
       for (const p of pool) {
         for (const rule of BRAND_RULES) {
-          if (productMatchesName(p, rule.terms)) counts[rule.key] += 1;
+          if (productMatchesName(p, rule.terms, rule.key, rule.label)) counts[rule.key] += 1;
         }
       }
 
@@ -1505,19 +1801,25 @@
       else wrap.classList.remove("has-value");
     }
 
-    function setSearchQuery(raw) {
+    function setSearchQuery(raw, opts) {
       const value = String(raw || "").trim();
       SEARCH_STATE.query = value;
-      applySearchAndFiltersToCatalog();
-      // Also filter brands view if a brand is active
-      if (BRAND_ACTIVE_KEY) setActiveBrand(BRAND_ACTIVE_KEY);
-      else {
-        BRANDS_STATE.list = [];
-        BRANDS_STATE.rendered = 0;
-        BRANDS_UPDATE_COUNTERS({ list: [], rendered: 0 });
-        const g = document.getElementById("grid-marcas");
-        renderEmptyBrands(g, value ? `Pesquisa "${value}" — usa as marcas acima ou abre o Catálogo completo.` : "Escolhe uma marca acima para ver os produtos.");
+      const options = opts || {};
+      const shouldJump = !!options.jumpToCatalog;
+      if (shouldJump) {
+        const currentActive = document.querySelector('.tab[aria-selected="true"]');
+        const activeId = currentActive ? String(currentActive.getAttribute("onclick") || "") : "";
+        const alreadyOnCatalog = activeId.includes("showTab('catalogo'");
+        if (!alreadyOnCatalog) {
+          const tabBtn = document.querySelector('.tab[onclick^="showTab(\'catalogo\'"]');
+          if (tabBtn) showTab("catalogo", tabBtn);
+        }
+        const grid = document.getElementById("catalogo");
+        if (grid && typeof grid.scrollIntoView === "function") {
+          try { grid.scrollIntoView({ behavior: "smooth", block: "start" }); } catch {}
+        }
       }
+      applySearchAndFiltersToCatalog();
     }
 
     function initSearch() {
@@ -1526,6 +1828,13 @@
       if (!input) return;
 
       updateSearchWrapClass();
+      const fireNow = (jump) => {
+        const raw = String(input.value || "");
+        SEARCH_STATE.currentRawInput = raw;
+        updateSearchWrapClass();
+        if (SEARCH_STATE.timer) { clearTimeout(SEARCH_STATE.timer); SEARCH_STATE.timer = 0; }
+        setSearchQuery(raw, jump ? { jumpToCatalog: true } : undefined);
+      };
       input.addEventListener("input", (e) => {
         const raw = String((e && e.target && e.target.value) || "");
         SEARCH_STATE.currentRawInput = raw;
@@ -1536,12 +1845,29 @@
           SEARCH_STATE.timer = 0;
         }, 140);
       });
+      input.addEventListener("keydown", (e) => {
+        if (!e) return;
+        const k = e.key || "";
+        if (k === "Enter") {
+          e.preventDefault();
+          fireNow(true);
+        } else if (k === "Escape") {
+          e.preventDefault();
+          input.value = "";
+          SEARCH_STATE.currentRawInput = "";
+          updateSearchWrapClass();
+          if (SEARCH_STATE.timer) { clearTimeout(SEARCH_STATE.timer); SEARCH_STATE.timer = 0; }
+          setSearchQuery("");
+          input.focus();
+        }
+      });
 
       if (clear) {
         clear.addEventListener("click", () => {
           input.value = "";
           SEARCH_STATE.currentRawInput = "";
           updateSearchWrapClass();
+          if (SEARCH_STATE.timer) { clearTimeout(SEARCH_STATE.timer); SEARCH_STATE.timer = 0; }
           setSearchQuery("");
           input.focus();
         });
@@ -1554,9 +1880,7 @@
       renderFallbackGrid("grid-destaques", "A carregar destaques…");
       renderFallbackGrid("grid-novidades", "A carregar novidades…");
       const g1 = document.getElementById("grid-catalogo");
-      if (g1) renderEmptySearch(g1, "");
-      const g2 = document.getElementById("grid-marcas");
-      if (g2) renderEmptyBrands(g2, "A carregar marcas…");
+      if (g1) renderEmptySearch(g1, "", null);
 
       try {
         const res = await fetch("imagens/telegram_manifest.json", { cache: "no-store" });
@@ -1571,22 +1895,17 @@
         renderNews(products);
         buildBrandChips();
         BRAND_ACTIVE_KEY = null;
-        // Garantir que "Todos" fica ativo (nenhuma marca)
         const chips = document.querySelectorAll(".brand-chip");
         chips.forEach((chip) => {
           chip.classList.toggle("active", chip.dataset.brandKey === "");
         });
-        BRANDS_STATE._baseSorted = [];
-        BRANDS_STATE.list = [];
-        BRANDS_STATE.rendered = 0;
-        BRANDS_UPDATE_COUNTERS({ list: [], rendered: 0 });
-        if (g2) renderEmptyBrands(g2, "Escolhe uma marca acima para ver os produtos.");
         CATALOG_STATE.list = ALL_PRODUCTS.sortedByTs.slice();
         CATALOG_STATE.rendered = 0;
         const gc = document.getElementById("grid-catalogo");
         if (gc) gc.innerHTML = "";
         CATALOG_UPDATE_COUNTERS(CATALOG_STATE);
         renderAllBatches(CATALOG_STATE, "grid-catalogo", CATALOG_UPDATE_COUNTERS);
+        if (!CATALOG_STATE.rendered) appendNextCatalogBatch();
       } catch (e) {
         const err = (e && e.message) ? String(e.message) : "Erro a carregar catálogo";
         renderFallbackGrid("grid-destaques", "Não foi possível carregar os destaques. " + err);

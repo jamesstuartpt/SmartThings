@@ -9,3 +9,8 @@ telegram_prices.csv
 telegram_publish_config.json
 manifest-imagens.csv
 telegram_prices.example.csv
+# Tmp scripts:
+_audit_*.py
+_chat_analise.py
+rollback_import.py
+_logs/
