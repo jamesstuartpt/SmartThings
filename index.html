@@ -353,6 +353,49 @@
     }
     .buy-btn:hover { opacity: 0.85; }
     .buy-btn:active { opacity: 0.75; transform: scale(0.98); }
+
+    /* ===== TAMANHO (input text simples - opção D) ===== */
+    .card-size {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-top: 2px;
+    }
+    .card-size-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      letter-spacing: 0.2px;
+    }
+    .card-size-input {
+      -webkit-appearance: none;
+      appearance: none;
+      min-height: 40px;
+      padding: 9px 12px;
+      border: 1.5px solid var(--border);
+      background: var(--bg);
+      color: var(--text-primary);
+      border-radius: var(--radius-sm);
+      font-size: 14px;
+      font-family: inherit;
+      outline: none;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+    .card-size-input::placeholder {
+      color: var(--text-tertiary);
+      opacity: 1;
+    }
+    .card-size-input:focus {
+      border-color: var(--text-primary);
+      box-shadow: 0 0 0 3px rgba(0,0,0,0.06);
+    }
+    @media (max-width: 640px) {
+      .card-size-input {
+        min-height: 44px;
+        padding: 10px 12px;
+        font-size: 15px;
+      }
+    }
     .tag-pop {
       background: var(--bg-muted);
       color: var(--text-primary);
@@ -1076,6 +1119,46 @@
     const SNEAKERS_PRICE = "40€";
     const CONSULT_PRICE = "Consulte o preço";
     const TELEGRAM_URL = "https://t.me/smartthingspt";
+
+    // ===== TAMANHOS por categoria (mobile-first) =====
+    const SIZES_SHOES_EU = [
+      "27","28","29","30","31","32","33","34","35",
+      "36","37","38","39","40","41","42","43","44","45","46","47"
+    ];
+    const SIZES_CLOTHING_SML = ["XS","S","M","L","XL","XXL"];
+    const _CLOTH_TOP_KEYWORDS = [
+      "camisola","camisa","camiseta","t-shirt","tshirt","tee",
+      "sweatshirt","hoodie","casaco","jacket","jaqueta","blusa","polo",
+      "sudadera","sueter","pull","pullover","top","cropped","crop"
+    ];
+    const _CLOTH_BOTTOM_KEYWORDS = [
+      "calca","calças","pantalon","pantalones","chandal","conjunto",
+      "fato de treino","treino","terno","shorts","calções","bermuda","jeans"
+    ];
+    const _SIZE_SHOES_NAME_HINTS = [
+      "tenis","sapatilha","sapato","bota","boot","sandalia","slipper",
+      "slip on","slip-on","air max","samba","gazelle","campus","spezial",
+      "jordan","force","dunk","pegasus","alphafly","vaporfly","clifton",
+      "bondi","nimbus","kayano","old skool","knu skool"
+    ];
+    function getSizesForProduct(product) {
+      if (!product) return { label: "", sizes: [] };
+      const cat = String(product.category || "").trim().toLowerCase();
+      if (cat === "sneakers") {
+        return { label: "Tamanho", sizes: SIZES_SHOES_EU.slice() };
+      }
+      const name = String(product.name || "").toLowerCase();
+      if (isSneakersProduct(product) || _SIZE_SHOES_NAME_HINTS.some(k => name.includes(k))) {
+        return { label: "Tamanho", sizes: SIZES_SHOES_EU.slice() };
+      }
+      const hasTop = _CLOTH_TOP_KEYWORDS.some(k => name.includes(k));
+      const hasBot = _CLOTH_BOTTOM_KEYWORDS.some(k => name.includes(k));
+      if (hasTop || hasBot) {
+        return { label: "Tamanho", sizes: SIZES_CLOTHING_SML.slice() };
+      }
+      return { label: "", sizes: [] };
+    }
+
     function isSneakersProduct(product) {
       if (!product) return false;
       const cat = String(product.category || "").trim().toLowerCase();
@@ -1157,13 +1240,17 @@
       return s;
     }
 
-    function buildWhatsAppHref(productName, price, itemNumber) {
+    function buildWhatsAppHref(productName, price, itemNumber, size) {
       const cleanName = _cleanDisplayName(productName) || String(productName || "Produto");
       const cleanPrice = String(price || PRODUCT_PRICE);
       const n = Number(itemNumber || 0);
       const itemLine = n > 0 ? `\n📸 Item / Cor: ${cleanName} item ${n} (Foto ${n})` : "";
+      const sz = typeof size === "string" ? size.trim() : "";
+      const sizeLine = sz
+        ? `\n📏 Tamanho: ${sz}`
+        : "\n📏 Tamanho: (a preencher)";
       const msg = encodeURIComponent(
-        `Olá! Gostava de encomendar este artigo:\n\n📦 *${cleanName}*${itemLine}\n💰 Preço: ${cleanPrice}\n\nEstá disponível?`,
+        `Olá! Gostava de encomendar este artigo:\n\n📦 *${cleanName}*${itemLine}\n💰 Preço: ${cleanPrice}${sizeLine}\n\nEstá disponível?`,
       );
       return `https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`;
     }
@@ -1359,30 +1446,53 @@
       row.appendChild(price);
       if (tagText) row.appendChild(tag);
 
-      const hasDirectBuy = !!(product && (product.hasBuyLink === true || product.hasBuyLink === "true") &&
-        typeof product.buyLink === "string" && product.buyLink.length >= 8);
+      // ===== TAMANHOS (input TEXT simples, opcional - opção D) =====
+      let sizesWrap = null;
+      const sizeCtx = getSizesForProduct(product);
+      if (sizeCtx && Array.isArray(sizeCtx.sizes) && sizeCtx.sizes.length) {
+        sizesWrap = document.createElement("div");
+        sizesWrap.className = "card-size";
 
+        const lab = document.createElement("label");
+        lab.className = "card-size-label";
+        lab.textContent = (sizeCtx.label || "Tamanho") + " (opcional)";
+        sizesWrap.appendChild(lab);
+
+        const input = document.createElement("input");
+        input.type = "text";
+        input.className = "card-size-input";
+        input.placeholder = "Ex.: 42 ou M";
+        input.autocomplete = "off";
+        input.maxLength = 12;
+        input.addEventListener("input", (e) => {
+          const val = String(e.target && e.target.value || "").trim();
+          card.dataset.size = val;
+          // Atualiza href imediatamente
+          const buy = card.querySelector(".buy-btn");
+          if (buy) buy.href = buildWhatsAppHref(name, priceVal, 1, val || "");
+        });
+        input.addEventListener("click", (e) => e.stopPropagation());
+        sizesWrap.appendChild(input);
+      }
+
+      // ===== BOTÃO COMPRAR: SEMPRE WhatsApp (segredo total) =====
       const buy = document.createElement("a");
       buy.className = "buy-btn";
       buy.target = "_blank";
       buy.rel = "noopener noreferrer";
-      if (hasDirectBuy) {
-        buy.href = product.buyLink;
-        buy.dataset.buyMode = "direct";
-        buy.textContent = "Comprar";
-      } else {
-        buy.href = buildWhatsAppHref(name, priceVal, 1);
-        buy.dataset.buyMode = "whatsapp";
-        buy.textContent = "Comprar";
-      }
+      buy.dataset.buyMode = "whatsapp";
+      buy.textContent = "Comprar";
+      buy.href = buildWhatsAppHref(name, priceVal, 1, "");
       buy.addEventListener("click", (e) => {
         e.stopPropagation();
+        // Não bloqueia mais (opção D): se estiver vazio, texto vai "(a preencher)"
       });
 
       card.appendChild(imgWrap);
       if (angles) card.appendChild(angles);
       card.appendChild(title);
       card.appendChild(row);
+      if (sizesWrap) card.appendChild(sizesWrap);
       card.appendChild(buy);
 
       return card;
