@@ -13,4 +13,5 @@ telegram_prices.example.csv
 _audit_*.py
 _chat_analise.py
 rollback_import.py
+limpar_buylinks.py
 _logs/
