@@ -3,7 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=5.0">
-  <title>Smart Things PT — Catálogo</title>
+  <title>Smart Things PT — Catálogo de sneakers premium 40€</title>
+  <meta name="description" content="Smart Things PT. Catálogo 1276 artigos premium a preços imbatíveis. Sneakers, roupa e acessórios. Envio 10-15 dias para PT. Pedidos via WhatsApp.">
+  <meta name="theme-color" content="#111111">
+
+  <!-- Open Graph / Facebook + Telegram -->
+  <meta property="og:type" content="website" id="og-type">
+  <meta property="og:site_name" content="Smart Things PT">
+  <meta property="og:locale" content="pt_PT">
+  <meta property="og:url" content="https://smartthingspt.com/" id="og-url">
+  <meta property="og:title" content="Smart Things PT — Catálogo sneakers 40€" id="og-title">
+  <meta property="og:description" content="Sneakers Nike, Adidas, New Balance, ASICS, Yeezy e muito mais. Preço único 40€, envio 10-15 dias para todo o país." id="og-description">
+  <meta property="og:image" content="https://smartthingspt.com/imagens/og-default.png" id="og-image">
+
+  <!-- Twitter/X -->
+  <meta name="twitter:card" content="summary_large_image" id="twitter-card">
+  <meta name="twitter:title" content="Smart Things PT — Catálogo sneakers 40€" id="twitter-title">
+  <meta name="twitter:description" content="Sneakers Nike Adidas ASICS Yeezy + roupa. Preço 40€ + envio PT 10-15d." id="twitter-description">
+  <meta name="twitter:image" content="https://smartthingspt.com/imagens/og-default.png" id="twitter-image">
+  <meta name="twitter:site" content="@smartthingspt">
+  <meta name="twitter:creator" content="@smartthingspt">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
@@ -442,6 +462,11 @@
       font-size: 20px;
       display: none; /* só aparece quando favs >= 2 (updateFavBadge) */
     }
+    .fab-stock {
+      background: #7c3aed; /* roxo, diferente dos outros para destaque rápido */
+      color: #fff;
+    }
+    .fab-stock:hover { background: #6d28d9; }
     .fab-multi .fab-badge-num {
       position: absolute;
       top: -4px;
@@ -550,6 +575,8 @@
       opacity: 1;
       transform: translateX(-50%) translateY(-6px);
     }
+    .toast-share.bg-ok   { background: #16a34a; color: #fff; }
+    .toast-share.bg-warn { background: #d97706; color: #fff; }
 
     /* Empty fav visual */
     .fav-empty {
@@ -1577,27 +1604,80 @@
       return `https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`;
     }
 
-    // ===== FAVORITOS (localStorage) =====
-    const FAV_STORAGE_KEY = "smartthings_favoritos_v1";
-    function _loadFavSet() {
+    // ===== FAVORITOS (localStorage: Object { slug: {size: "", ts: 1234} }) =====
+    // v1 (antigo smartthings_favoritos_v1): Array<string> slugs → v2 com tamanhos
+    const FAV_STORAGE_KEY = "smartthings_favoritos_v2";
+    function _migrateOldFavsIfNeeded() {
+      try {
+        const KEY_OLD = "smartthings_favoritos_v1";
+        const rawOld = localStorage.getItem(KEY_OLD);
+        if (!rawOld) return {};
+        const arr = JSON.parse(rawOld);
+        if (!Array.isArray(arr)) return {};
+        const obj = {};
+        arr.forEach(s => {
+          const k = String(s || "").trim();
+          if (k) obj[k] = { size: "", ts: Date.now() };
+        });
+        localStorage.removeItem(KEY_OLD);
+        return obj;
+      } catch (_) { return {}; }
+    }
+    function _loadFavMap() {
       try {
         const raw = localStorage.getItem(FAV_STORAGE_KEY);
-        if (!raw) return new Set();
-        const arr = JSON.parse(raw);
-        if (!Array.isArray(arr)) return new Set();
-        return new Set(arr.map(x => String(x).trim()).filter(Boolean));
-      } catch (_) { return new Set(); }
+        if (!raw) return _migrateOldFavsIfNeeded();
+        const obj = JSON.parse(raw);
+        if (typeof obj !== "object" || Array.isArray(obj) || obj == null) {
+          return _migrateOldFavsIfNeeded();
+        }
+        // Garantir formato { slug: { size: string, ts: number } }
+        const out = _migrateOldFavsIfNeeded();
+        Object.keys(obj).forEach(k => {
+          const v = obj[k];
+          if (v == null) return;
+          if (typeof v === "string") {
+            out[String(k)] = { size: v, ts: Date.now() };
+          } else if (typeof v === "object") {
+            out[String(k)] = {
+              size: typeof v.size === "string" ? v.size : "",
+              ts: typeof v.ts === "number" ? v.ts : Date.now(),
+            };
+          }
+        });
+        return out;
+      } catch (_) { return _migrateOldFavsIfNeeded(); }
     }
-    function _saveFavSet(set) {
+    function _saveFavMap(map) {
       try {
-        const arr = Array.from(set);
-        localStorage.setItem(FAV_STORAGE_KEY, JSON.stringify(arr));
+        localStorage.setItem(FAV_STORAGE_KEY, JSON.stringify(map));
       } catch (_) {}
     }
-    let FAVS_SET = _loadFavSet();
+    let FAVS_MAP = _loadFavMap();
+    function _favsSize() {
+      return typeof FAVS_MAP === "object" ? Object.keys(FAVS_MAP).length : 0;
+    }
+    function _favsKeys() {
+      return typeof FAVS_MAP === "object" ? Object.keys(FAVS_MAP) : [];
+    }
+    function _favsGetSize(slug) {
+      try {
+        const k = String(slug || "").trim();
+        return (FAVS_MAP[k] && typeof FAVS_MAP[k].size === "string") ? FAVS_MAP[k].size : "";
+      } catch (_) { return ""; }
+    }
+    function _favsSetSize(slug, size) {
+      try {
+        const k = String(slug || "").trim();
+        if (!k) return;
+        const prev = FAVS_MAP[k] || { size: "", ts: Date.now() };
+        FAVS_MAP[k] = { size: String(size || "").trim(), ts: Number(prev.ts) || Date.now() };
+        _saveFavMap(FAVS_MAP);
+      } catch (_) {}
+    }
 
     function updateFavBadge() {
-      const n = FAVS_SET.size;
+      const n = _favsSize();
       const badgeHead = document.getElementById("fav-badge-head");
       const badgeTab = document.getElementById("fav-badge-tab");
       const tabFav = document.querySelector(".tab-fav");
@@ -1607,7 +1687,6 @@
         if (n > 0) tabFav.classList.add("has-favs");
         else tabFav.classList.remove("has-favs");
       }
-      // FAB multi-produto (📦 encomendar selecionados): mostra apenas se >= 2
       const fabMulti = document.getElementById("fab-multi");
       if (fabMulti) {
         if (n >= 2) {
@@ -1631,32 +1710,88 @@
       return n;
     }
 
-    function isFav(slug) { return FAVS_SET.has(String(slug || "").trim()); }
+    function isFav(slug) { return typeof FAVS_MAP === "object" && Object.prototype.hasOwnProperty.call(FAVS_MAP, String(slug || "").trim()); }
 
     function toggleFav(slug) {
       const s = String(slug || "").trim();
       if (!s) return false;
-      if (FAVS_SET.has(s)) FAVS_SET.delete(s);
-      else FAVS_SET.add(s);
-      _saveFavSet(FAVS_SET);
-      const agoraTem = FAVS_SET.has(s);
+      let wasFav = isFav(s);
+
+      // 🔍 UX: se a favoritar (novo), verificar se há tamanho preenchido no card
+      if (!wasFav) {
+        let sizeFound = "";
+        const firstCard = document.querySelector(`.card[data-slug="${CSS.escape(s)}"]`);
+        if (firstCard && firstCard.dataset && firstCard.dataset.size) {
+          sizeFound = String(firstCard.dataset.size || "").trim();
+        }
+        // 💡 Dica amarela se tamanho vazio; verde confirm se tem tamanho
+        if (!sizeFound) {
+          showToastWarn("💡 Dica: preenche o tamanho agora (ex: 42) para encomendar mais rápido depois!");
+        } else {
+          showToastOK(`✅ Adicionado aos favoritos (tamanho ${sizeFound})`);
+        }
+        // Guardar novo fav com tamanho encontrado (ou vazio)
+        FAVS_MAP[s] = { size: sizeFound, ts: Date.now() };
+        _saveFavMap(FAVS_MAP);
+      } else {
+        // Remover favorito
+        delete FAVS_MAP[s];
+        _saveFavMap(FAVS_MAP);
+      }
+      const agoraTem = isFav(s);
       // Atualiza TODOS os cards com o mesmo slug em toda a página (destaques, novidades, catalogo, favoritos)
-      document.querySelectorAll(`.card[data-slug="${s}"]`).forEach(cardEl => {
+      document.querySelectorAll(`.card[data-slug="${CSS.escape(s)}"]`).forEach(cardEl => {
         const btn = cardEl.querySelector(".card-fav");
         if (btn) {
           if (agoraTem) btn.classList.add("active");
           else btn.classList.remove("active");
         }
+        // Se favoritou com size salvo E input existe vazio → preenche automaticamente
+        if (agoraTem) {
+          const favSize = _favsGetSize(s);
+          if (favSize) {
+            const inp = cardEl.querySelector(".card-size-input");
+            if (inp && !String(inp.value || "").trim()) {
+              inp.value = favSize;
+              // Atualiza o estado do card (verde + href buy)
+              cardEl.dataset.size = favSize;
+              cardEl.setAttribute("data-size-filled", "1");
+              const buy = cardEl.querySelector(".buy-btn");
+              if (buy) {
+                const name = _cleanDisplayName(cardEl.dataset.name) || "Produto";
+                const price = String(cardEl.dataset.price || PRODUCT_PRICE);
+                buy.href = buildWhatsAppHref(name, price, 1, favSize);
+              }
+            }
+          }
+        }
       });
       updateFavBadge();
-      // Re-render do tab favoritos (apenas se existir)
       const favGrid = document.getElementById("grid-favoritos");
       if (favGrid && window.__MANIFEST__) renderFavGrid(window.__MANIFEST__);
       const emptyEl = document.getElementById("fav-empty");
-      if (emptyEl) emptyEl.style.display = FAVS_SET.size === 0 ? "" : "none";
-      // Atualiza FAB multi href
+      if (emptyEl) emptyEl.style.display = _favsSize() === 0 ? "" : "none";
       _refreshMultiFavHref();
       return agoraTem;
+    }
+
+    // Variações do toast (OK verde, WARN amarelo) compartilham o elemento
+    function showToastOK(text) { _showToastBase(text, "bg-ok"); }
+    function showToastWarn(text) { _showToastBase(text, "bg-warn"); }
+    function _showToastBase(text, cls) {
+      let t = document.getElementById("toast-share");
+      if (!t) {
+        t = document.createElement("div");
+        t.id = "toast-share";
+        t.className = "toast-share";
+        document.body.appendChild(t);
+      }
+      t.classList.remove("bg-ok", "bg-warn");
+      if (cls) t.classList.add(cls);
+      t.textContent = text;
+      t.classList.add("show");
+      clearTimeout(_showToastBase._tid);
+      _showToastBase._tid = setTimeout(() => t.classList.remove("show"), 2200);
     }
 
     function buildMultiFavWhatsAppHref(products) {
@@ -1667,8 +1802,10 @@
       products.forEach((p, idx) => {
         const name = _cleanDisplayName(p && p.name) || "Produto";
         const price = getProductPrice(p);
-        const size = typeof p.__size === "string" && p.__size.trim() ? p.__size.trim() : "(a preencher)";
-        body += `${idx + 1}) 📦 *${name}*\n💰 ${price}\n📏 Tamanho: ${size}\n\n`;
+        const saved = (p && p.slug) ? _favsGetSize(p.slug) : "";
+        let sz = (typeof p.__size === "string" && p.__size.trim()) ? p.__size.trim() : saved;
+        if (!sz) sz = "(a preencher)";
+        body += `${idx + 1}) 📦 *${name}*\n💰 ${price}\n📏 Tamanho: ${sz}\n\n`;
       });
       body += "Podes confirmar disponibilidade e valor total? Obrigado!";
       return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(body)}`;
@@ -1678,21 +1815,39 @@
       const grid = document.getElementById("grid-favoritos");
       if (!grid) return;
       grid.innerHTML = "";
-      const slugs = Array.from(FAVS_SET);
+      const slugs = _favsKeys();
       if (slugs.length === 0) return;
       const slugToProd = new Map();
       manifest.forEach(p => { if (p && p.slug) slugToProd.set(String(p.slug), p); });
-      const ordered = slugs.map(s => slugToProd.get(s)).filter(Boolean);
+      // Ordenar por ts decrescente (últimos favoritos primeiro)
+      const orderedKeys = slugs.slice().sort((a, b) => Number(((FAVS_MAP[b] || {}).ts || 0) - Number(((FAVS_MAP[a] || {}).ts || 0)));
+      const ordered = orderedKeys.map(s => slugToProd.get(s)).filter(Boolean);
       const picked = new Set();
       ordered.forEach(prod => {
         const card = buildCard({ product: prod });
+        // Se favorito com size salvo → preencher input imediatamente
+        const sizeFromMap = _favsGetSize(prod.slug);
+        if (sizeFromMap && card) {
+          const inp = card.querySelector(".card-size-input");
+          if (inp) {
+            inp.value = sizeFromMap;
+            card.dataset.size = sizeFromMap;
+            card.setAttribute("data-size-filled", "1");
+            const buy = card.querySelector(".buy-btn");
+            if (buy) {
+              const name = _cleanDisplayName(card.dataset.name || prod.name) || "Produto";
+              const price = String(card.dataset.price || PRODUCT_PRICE);
+              buy.href = buildWhatsAppHref(name, price, 1, sizeFromMap);
+            }
+          }
+        }
         appendCardSafe(grid, card, picked, prod.slug);
       });
     }
 
     function _refreshMultiFavHref() {
       if (!window.__MANIFEST__) return;
-      const slugs = Array.from(FAVS_SET);
+      const slugs = _favsKeys();
       if (slugs.length < 2) {
         const fabMulti = document.getElementById("fab-multi");
         if (fabMulti) fabMulti.href = "#";
@@ -1700,10 +1855,13 @@
       }
       const slugToProd = new Map();
       window.__MANIFEST__.forEach(p => { if (p && p.slug) slugToProd.set(String(p.slug), p); });
-      const ordered = slugs.map(s => slugToProd.get(s)).filter(Boolean);
-      // Ler tamanhos preenchidos pelos utilizadores (se houver cards com dataset.size preenchido)
+      const ordered = slugs.slice()
+        .sort((a, b) => Number(((FAVS_MAP[b] || {}).ts || 0) - Number(((FAVS_MAP[a] || {}).ts || 0)))
+        .map(s => slugToProd.get(s)).filter(Boolean);
+      // Size priority: (1) card.dataset.size atual, (2) salvo no FAVS_MAP
       ordered.forEach(p => {
-        const cardEl = document.querySelector(`.card[data-slug="${p.slug}"]`);
+        if (!p || !p.slug) return;
+        const cardEl = document.querySelector(`.card[data-slug="${CSS.escape(p.slug)}"]`);
         if (cardEl && cardEl.dataset && cardEl.dataset.size) p.__size = cardEl.dataset.size;
       });
       const href = buildMultiFavWhatsAppHref(ordered);
@@ -2015,13 +2173,14 @@
         input.addEventListener("input", (e) => {
           const val = String(e.target && e.target.value || "").trim();
           card.dataset.size = val;
-          // T1#1: verde se tamanho preenchido
+          // Verde se tamanho preenchido
           if (val) card.setAttribute("data-size-filled", "1");
           else card.removeAttribute("data-size-filled");
+          // Gravar tamanho no FAVS_MAP se já for favorito
+          if (slug && isFav(slug)) _favsSetSize(slug, val);
           // Atualiza href imediatamente
           const buy = card.querySelector(".buy-btn");
           if (buy) buy.href = buildWhatsAppHref(name, priceVal, 1, val || "");
-          // Tambem atualiza FAB multi e botao encomendar todos (em caso de tamanho preenchido no favorito)
           _refreshMultiFavHref();
         });
         input.addEventListener("click", (e) => e.stopPropagation());
@@ -2544,7 +2703,7 @@
       // Inicializar favs logo antes de render (para os cards já nascerem com o estado correto)
       updateFavBadge();
       const favEmptyEl = document.getElementById("fav-empty");
-      if (favEmptyEl) favEmptyEl.style.display = FAVS_SET.size === 0 ? "" : "none";
+      if (favEmptyEl) favEmptyEl.style.display = _favsSize() === 0 ? "" : "none";
       renderFallbackGrid("grid-destaques", "A carregar destaques…");
       renderFallbackGrid("grid-novidades", "A carregar novidades…");
       const g1 = document.getElementById("grid-catalogo");
@@ -2560,6 +2719,9 @@
         ALL_PRODUCTS.sorted = products.slice();
         ALL_PRODUCTS.sortedByTs = products.slice().sort((a, b) => Number(b.latestTs || 0) - Number(a.latestTs || 0));
         updateCount(products.length);
+        // OG tags por #slug (se abriu #algum produto)
+        updateMetaForHashMaybe();
+        initFabLinks();
         renderSpotlight(products);
         renderNews(products);
         buildBrandChips();
@@ -2596,7 +2758,54 @@
       }
       const tg = document.querySelector(".fab-telegram");
       if (tg) tg.href = TELEGRAM_URL;
+      // v3 WhatsApp Business "Stock?" pergunta prefeita:
+      const stock = document.getElementById("fab-stock");
+      if (stock) {
+        const hash = String(window.location.hash || "").replace(/^#/, "").trim();
+        let extra = hash ? `\n(Link do produto: ${window.location.origin}${window.location.pathname}#${hash})` : "";
+        const texto = encodeURIComponent(`Olá! Queria saber se este modelo está disponível e qual o prazo de envio atual?${extra}\n\nObrigado!`);
+        stock.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${texto}`;
+      }
     }
+
+    // ===== Meta Tags OG dinâmicas por #slug (quando user partilha link do produto) =====
+    function updateMetaForHashMaybe() {
+      try {
+        const hash = String(window.location.hash || "").replace(/^#/, "").trim();
+        if (!hash || !window.__MANIFEST__) return;
+        const prod = window.__MANIFEST__.find(p => String(p && p.slug || "") === hash);
+        if (!prod) return;
+        const name = _cleanDisplayName(prod.name) || "Produto Smart Things PT";
+        const price = getProductPrice(prod);
+        const desc = `${name} · ${price} · Smart Things PT. Catálogo 1276 artigos premium, envio para todo o país 10-15 dias.`;
+        const img = Array.isArray(prod.images) && prod.images[0] ? String(prod.images[0]) : "";
+        const absoluteImg = img.startsWith("http") ? img : String(window.location.origin) + String(window.location.pathname).replace(/\/[^/]*$/, "/") + img;
+        const url = String(window.location.origin) + String(window.location.pathname) + `#${encodeURIComponent(hash)}`;
+        // Title
+        document.title = `${name} — ${price} · Smart Things PT`;
+        const setMeta = (selector, attr, content) => {
+          const el = document.querySelector(selector);
+          if (el && attr && content) el.setAttribute(attr, String(content));
+        };
+        setMeta('meta[property="og:title"]', "content", name);
+        setMeta('meta[property="og:description"]', "content", desc);
+        setMeta('meta[property="og:url"]', "content", url);
+        setMeta('meta[property="og:image"]', "content", absoluteImg);
+        setMeta('meta[name="twitter:title"]', "content", name);
+        setMeta('meta[name="twitter:description"]', "content", desc);
+        setMeta('meta[name="twitter:image"]', "content", absoluteImg);
+        setMeta('meta[name="description"]', "content", desc);
+      } catch (_) {}
+    }
+
+    // ===== WhatsApp Business (comentário WABA Cloud API) =====
+    // ⚠️ Para automatizar respostas no WhatsApp Business:
+    // 1. Criar app em developers.facebook.com → Produtos → WhatsApp Business Platform (Cloud API)
+    // 2. Criar Cloudflare Worker (ex.: `waba-smartthings`) que recebe POST de /webhook do FB
+    // 3. Responder automaticamente a "tem stock?" → pesquisar manifest pelo nome do produto e devolver "Temos envio 10-15 dias! 40€"
+    // 4. Mensagens automáticas quando cliente escreve "olá" → template "Obrigado por contactar Smart Things PT. 📦 Catálogo: https://smartthingspt.com"
+    // 5. Código worker exemplo: https://developers.facebook.com/docs/whatsapp/cloud-api/guides/set-up-webhooks
+    // (não implementamos aqui pois requer backend, mas a integração inicial está 100% na UI do site.)
 
     // ===== Tier2: Ordenar + Filtrar Catálogo =====
     function applyCatalogSortFilter() {
@@ -2706,6 +2915,11 @@
       initSearch();
       fetchManifestAndRender();
       initTelegramPopup();
+      // Atualizar meta OG quando user navega #slug
+      window.addEventListener("hashchange", () => {
+        updateMetaForHashMaybe();
+        initFabLinks(); // atualiza o botao stock? com o novo link que contem hash atual
+      });
     });
 
     document.addEventListener("keydown", (e) => {
@@ -2745,6 +2959,11 @@
 
   <!-- FAB flutuante WhatsApp + Telegram (canto inferior direito) -->
   <div class="fab-wrap" aria-label="Atalhos rápidos">
+    <a class="fab fab-stock" id="fab-stock" href="#" target="_blank" rel="noopener" title="Perguntar se um produto está disponível / Stock" aria-label="Perguntar disponibilidade / Stock">
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path fill="#fff" fill-rule="evenodd" d="M12 2.25a9.75 9.75 0 100 19.5 9.75 9.75 0 000-19.5zM3.75 12a8.25 8.25 0 1116.5 0 8.25 8.25 0 01-16.5 0zm8.25-3.75a.75.75 0 01.75.75v1.81l1.13.61a.75.75 0 01-.76 1.3l-1.56-.84a.75.75 0 01-.56-.72V9a.75.75 0 01.75-.75zM12 18a1.125 1.125 0 100-2.25A1.125 1.125 0 0012 18z" clip-rule="evenodd"/>
+      </svg>
+    </a>
     <a id="fab-multi" class="fab fab-multi" href="#" target="_blank" rel="noopener" title="Encomendar os teus favoritos" data-fab-role="multi">
       <span id="fab-multi-label" aria-hidden="true" style="font-size:22px;">📦</span>
     </a>
