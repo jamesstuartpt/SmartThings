@@ -396,6 +396,165 @@
         font-size: 15px;
       }
     }
+
+    /* ===== (1) Comprar VERDE quando tamanho preenchido ===== */
+    .card[data-size-filled="1"] .buy-btn {
+      background: #16a34a;
+      color: #fff;
+    }
+    .card[data-size-filled="1"] .buy-btn:hover {
+      background: #15803d;
+      opacity: 1;
+    }
+
+    /* ===== (2) FAB flutuante WhatsApp + Telegram ===== */
+    .fab-wrap {
+      position: fixed;
+      right: 16px;
+      bottom: 18px;
+      z-index: 50;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .fab {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 52px;
+      height: 52px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-size: 24px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+      transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
+    }
+    .fab:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(0,0,0,0.22); }
+    .fab:active { transform: scale(0.94); }
+    .fab-whatsapp { background: #25D366; color: #fff; }
+    .fab-telegram { background: #229ED9; color: #fff; }
+    .fab-multi {
+      background: #111;
+      color: #fff;
+      position: relative;
+      font-size: 20px;
+      display: none; /* só aparece quando favs >= 2 (updateFavBadge) */
+    }
+    .fab-multi .fab-badge-num {
+      position: absolute;
+      top: -4px;
+      right: -4px;
+      background: #f59e0b;
+      color: #111;
+      min-width: 22px;
+      height: 22px;
+      padding: 0 6px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 800;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+
+    /* ===== (3) Coração + Partilha cantos do card ===== */
+    .card {
+      position: relative;
+    }
+    .card-corner {
+      position: absolute;
+      top: 8px;
+      width: 34px;
+      height: 34px;
+      min-width: 34px;
+      min-height: 34px;
+      border-radius: 999px;
+      border: 0;
+      background: rgba(255,255,255,0.92);
+      color: #111;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      font-family: inherit;
+      cursor: pointer;
+      z-index: 3;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      backdrop-filter: blur(4px);
+      -webkit-tap-highlight-color: transparent;
+      transition: transform 0.15s ease, background 0.15s ease, color 0.15s ease;
+    }
+    .card-corner:hover { transform: scale(1.08); }
+    .card-corner:active { transform: scale(0.92); }
+    .card-fav { left: 8px; }
+    .card-share { right: 8px; color: #2563eb; }
+    .card-corner.card-fav.active {
+      background: #dc2626;
+      color: #fff;
+    }
+    .card-corner.card-fav.active .hollow { display: none; }
+    .card-corner.card-fav:not(.active) .filled { display: none; }
+    .card .card-corner .hollow,
+    .card .card-corner .filled { line-height: 1; display: inline-block; }
+    @media (max-width: 640px) {
+      .card-corner {
+        width: 38px; height: 38px; font-size: 17px; top: 10px;
+      }
+      .card-fav { left: 10px; }
+      .card-share { right: 10px; }
+      .fab { width: 56px; height: 56px; font-size: 26px; }
+    }
+
+    /* ===== (5) Badge Favoritos contador ===== */
+    .fav-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 20px;
+      height: 20px;
+      padding: 0 7px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 800;
+      line-height: 1;
+      margin-left: 6px;
+      background: #dc2626;
+      color: #fff;
+      vertical-align: middle;
+    }
+    .tab-fav .fav-badge { display: none; }
+    .tab-fav.has-favs .fav-badge { display: inline-flex; }
+
+    /* Share toast copiado */
+    .toast-share {
+      position: fixed;
+      bottom: 100px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #111;
+      color: #fff;
+      padding: 10px 16px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      z-index: 80;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+    .toast-share.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(-6px);
+    }
+
+    /* Empty fav visual */
+    .fav-empty {
+      user-select: none;
+    }
     .tag-pop {
       background: var(--bg-muted);
       color: var(--text-primary);
@@ -962,6 +1121,9 @@
       <button class="tab active" onclick="showTab('destaques', this)" role="tab" aria-selected="true">Destaques</button>
       <button class="tab" onclick="showTab('novidades', this)" role="tab" aria-selected="false">Novidades</button>
       <button class="tab" onclick="showTab('catalogo', this)" role="tab" aria-selected="false">Catálogo completo</button>
+      <button class="tab tab-fav" onclick="showTab('favoritos', this)" role="tab" aria-selected="false">
+        ❤️ Os Meus Favoritos <span class="fav-badge" id="fav-badge-tab" style="display:none">0</span>
+      </button>
       <button class="tab" onclick="showTab('comofunciona', this)" role="tab" aria-selected="false">Como funciona</button>
       <button class="tab" onclick="showTab('faq', this)" role="tab" aria-selected="false">FAQ</button>
     </nav>
@@ -991,6 +1153,22 @@
         <div class="catalog-count" id="catalog-count-bottom"></div>
         <button class="load-more-btn" id="btn-load-more-bottom" type="button" onclick="appendNextCatalogBatch()" disabled>Carregar mais</button>
       </div>
+    </section>
+
+    <!-- Os Meus Favoritos (Tier 3) -->
+    <section id="favoritos" class="section" role="tabpanel">
+      <div class="fav-head" style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px; margin-bottom:14px;">
+        <div style="display:flex; align-items:center; gap:8px;">
+          <h2 style="margin:0; font-size:18px;">❤️ Os Meus Favoritos</h2>
+          <span class="fav-badge" id="fav-badge-head" style="background:#111; color:#fff;">0</span>
+        </div>
+        <a class="btn" id="fav-encomendar-todos" target="_blank" rel="noopener" style="display:none;">📦 Encomendar selecionados via WhatsApp</a>
+      </div>
+      <div class="fav-empty" id="fav-empty" style="padding:40px 16px; text-align:center; border:2px dashed var(--border); border-radius:var(--radius-md); color:var(--text-secondary);">
+        <p style="font-size:15px; margin:0 0 8px 0;">Ainda não tens favoritos.</p>
+        <p style="font-size:13px; margin:0;">Carrega no 🤍 no canto superior esquerdo dos produtos que gostas para os guardar aqui.</p>
+      </div>
+      <div class="grid" id="grid-favoritos"></div>
     </section>
 
     <!-- Como funciona -->
@@ -1100,18 +1278,24 @@
     ];
 
     const NEWS_SLUGS = [
-      "nike_air_max_tn_plus",
-      "adidas_campus_x_bad_bunny",
-      "nike_x_nocta_chandal_completo",
-      "adidas_samba_og",
-      "nike_air_jordan_4",
-      "carhartt_bordado",
-      "corteiz",
-      "adidas_gazelle_x_bad_bunny",
-      "the_north_face",
-      "adidas_samba_lt_x_wales_bonner",
-      "miu_miu_conjunto",
-      "adidas_spezial",
+      "nike_nike_jordan_1_x_travis_scott_nuevos_colores",
+      "nike_nike_air_liquid_max",
+      "nike_nike_vomero_premium_muchos_colores",
+      "nike_nike_x_corteiz",
+      "adidas_adidas_gazelle_x_bad_bunny_11_colores",
+      "adidas_adidas_samba_27_colores_precio_irresistible",
+      "adidas_adidas_x_coca_cola",
+      "adidas_adidas_x_carolina_hu_x_clot",
+      "adidas_adidas_adizero_adios_pro_4_7_colores",
+      "adidas_adidas_sambae_putty",
+      "yeezy_yeezy_350v2_21_colores",
+      "asics_asics_gel_kayano_20_22_colores",
+      "asics_asics_gel_kayano_12_1_30_colores",
+      "asics_asics_gel_nimbus_16_13_colores",
+      "new_balance_new_balance_9060_18_colores",
+      "new_balance_new_balance_rebel_v4_muchos_colores",
+      "converse_converse_x_madhappy",
+      "vans_vans_knu_skool_15_colores",
     ];
 
     const WHATSAPP_NUMBER = "351927515217";
@@ -1255,6 +1439,197 @@
       return `https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`;
     }
 
+    // ===== FAVORITOS (localStorage) =====
+    const FAV_STORAGE_KEY = "smartthings_favoritos_v1";
+    function _loadFavSet() {
+      try {
+        const raw = localStorage.getItem(FAV_STORAGE_KEY);
+        if (!raw) return new Set();
+        const arr = JSON.parse(raw);
+        if (!Array.isArray(arr)) return new Set();
+        return new Set(arr.map(x => String(x).trim()).filter(Boolean));
+      } catch (_) { return new Set(); }
+    }
+    function _saveFavSet(set) {
+      try {
+        const arr = Array.from(set);
+        localStorage.setItem(FAV_STORAGE_KEY, JSON.stringify(arr));
+      } catch (_) {}
+    }
+    let FAVS_SET = _loadFavSet();
+
+    function updateFavBadge() {
+      const n = FAVS_SET.size;
+      const badgeHead = document.getElementById("fav-badge-head");
+      const badgeTab = document.getElementById("fav-badge-tab");
+      const tabFav = document.querySelector(".tab-fav");
+      if (badgeHead) badgeHead.textContent = String(n);
+      if (badgeTab) badgeTab.textContent = String(n);
+      if (tabFav) {
+        if (n > 0) tabFav.classList.add("has-favs");
+        else tabFav.classList.remove("has-favs");
+      }
+      // FAB multi-produto (📦 encomendar selecionados): mostra apenas se >= 2
+      const fabMulti = document.getElementById("fab-multi");
+      if (fabMulti) {
+        if (n >= 2) {
+          fabMulti.style.display = "inline-flex";
+          const prevBadge = fabMulti.querySelector(".fab-badge-num");
+          if (prevBadge) prevBadge.remove();
+          const b = document.createElement("span");
+          b.className = "fab-badge-num";
+          b.textContent = String(n);
+          fabMulti.appendChild(b);
+        } else {
+          fabMulti.style.display = "none";
+          const prevBadge = fabMulti.querySelector(".fab-badge-num");
+          if (prevBadge) prevBadge.remove();
+        }
+      }
+      const btnEncTodos = document.getElementById("fav-encomendar-todos");
+      if (btnEncTodos) {
+        btnEncTodos.style.display = n >= 1 ? "inline-flex" : "none";
+      }
+      return n;
+    }
+
+    function isFav(slug) { return FAVS_SET.has(String(slug || "").trim()); }
+
+    function toggleFav(slug) {
+      const s = String(slug || "").trim();
+      if (!s) return false;
+      if (FAVS_SET.has(s)) FAVS_SET.delete(s);
+      else FAVS_SET.add(s);
+      _saveFavSet(FAVS_SET);
+      const agoraTem = FAVS_SET.has(s);
+      // Atualiza TODOS os cards com o mesmo slug em toda a página (destaques, novidades, catalogo, favoritos)
+      document.querySelectorAll(`.card[data-slug="${s}"]`).forEach(cardEl => {
+        const btn = cardEl.querySelector(".card-fav");
+        if (btn) {
+          if (agoraTem) btn.classList.add("active");
+          else btn.classList.remove("active");
+        }
+      });
+      updateFavBadge();
+      // Re-render do tab favoritos (apenas se existir)
+      const favGrid = document.getElementById("grid-favoritos");
+      if (favGrid && window.__MANIFEST__) renderFavGrid(window.__MANIFEST__);
+      const emptyEl = document.getElementById("fav-empty");
+      if (emptyEl) emptyEl.style.display = FAVS_SET.size === 0 ? "" : "none";
+      // Atualiza FAB multi href
+      _refreshMultiFavHref();
+      return agoraTem;
+    }
+
+    function buildMultiFavWhatsAppHref(products) {
+      if (!Array.isArray(products) || products.length === 0) {
+        return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Olá! Queria fazer um pedido, obrigado.")}`;
+      }
+      let body = "Olá! Gostava de encomendar estes artigos:\n\n";
+      products.forEach((p, idx) => {
+        const name = _cleanDisplayName(p && p.name) || "Produto";
+        const price = getProductPrice(p);
+        const size = typeof p.__size === "string" && p.__size.trim() ? p.__size.trim() : "(a preencher)";
+        body += `${idx + 1}) 📦 *${name}*\n💰 ${price}\n📏 Tamanho: ${size}\n\n`;
+      });
+      body += "Podes confirmar disponibilidade e valor total? Obrigado!";
+      return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(body)}`;
+    }
+
+    function renderFavGrid(manifest) {
+      const grid = document.getElementById("grid-favoritos");
+      if (!grid) return;
+      grid.innerHTML = "";
+      const slugs = Array.from(FAVS_SET);
+      if (slugs.length === 0) return;
+      const slugToProd = new Map();
+      manifest.forEach(p => { if (p && p.slug) slugToProd.set(String(p.slug), p); });
+      const ordered = slugs.map(s => slugToProd.get(s)).filter(Boolean);
+      const picked = new Set();
+      ordered.forEach(prod => {
+        const card = buildCard({ product: prod });
+        appendCardSafe(grid, card, picked, prod.slug);
+      });
+    }
+
+    function _refreshMultiFavHref() {
+      if (!window.__MANIFEST__) return;
+      const slugs = Array.from(FAVS_SET);
+      if (slugs.length < 2) {
+        const fabMulti = document.getElementById("fab-multi");
+        if (fabMulti) fabMulti.href = "#";
+        return;
+      }
+      const slugToProd = new Map();
+      window.__MANIFEST__.forEach(p => { if (p && p.slug) slugToProd.set(String(p.slug), p); });
+      const ordered = slugs.map(s => slugToProd.get(s)).filter(Boolean);
+      // Ler tamanhos preenchidos pelos utilizadores (se houver cards com dataset.size preenchido)
+      ordered.forEach(p => {
+        const cardEl = document.querySelector(`.card[data-slug="${p.slug}"]`);
+        if (cardEl && cardEl.dataset && cardEl.dataset.size) p.__size = cardEl.dataset.size;
+      });
+      const href = buildMultiFavWhatsAppHref(ordered);
+      const fabMulti = document.getElementById("fab-multi");
+      if (fabMulti) fabMulti.href = href;
+      const btnEncTodos = document.getElementById("fav-encomendar-todos");
+      if (btnEncTodos) btnEncTodos.href = href;
+    }
+
+    // ===== PARTILHAR produto ↗️ =====
+    function _showToast(text) {
+      let t = document.getElementById("toast-share");
+      if (!t) {
+        t = document.createElement("div");
+        t.className = "toast-share";
+        t.id = "toast-share";
+        document.body.appendChild(t);
+      }
+      t.textContent = text;
+      t.classList.add("show");
+      clearTimeout(_showToast._tid);
+      _showToast._tid = setTimeout(() => t.classList.remove("show"), 1600);
+    }
+    function shareProduct(product) {
+      if (!product) return;
+      const slug = String(product.slug || "").trim();
+      const name = _cleanDisplayName(product.name) || "Produto";
+      const base = String(window.location.origin || "") + String(window.location.pathname || "");
+      const link = slug ? `${base}#${slug}` : String(window.location.href);
+      const text = `Vê este produto na Smart Things PT: ${name}\n${link}`;
+      // Tentar API Web Share (mobile nativo)
+      if (navigator && typeof navigator.share === "function") {
+        try {
+          navigator.share({ title: name, text, url: link }).catch(() => _copyLinkFallback(link));
+          return;
+        } catch (_) { /* fallback */ }
+      }
+      // Fallback: copiar + abrir WhatsApp "partilhar" com um amigo
+      _copyLinkFallback(link);
+    }
+    function _copyLinkFallback(link) {
+      try {
+        if (navigator && navigator.clipboard && typeof navigator.clipboard.writeText === "function") {
+          navigator.clipboard.writeText(link).then(
+            () => _showToast("✅ Link copiado!"),
+            () => _fallbackInputCopy(link),
+          );
+        } else {
+          _fallbackInputCopy(link);
+        }
+      } catch (_) {
+        _fallbackInputCopy(link);
+      }
+    }
+    function _fallbackInputCopy(link) {
+      try {
+        const ta = document.createElement("textarea");
+        ta.value = link; ta.style.position = "fixed"; ta.style.opacity = "0";
+        document.body.appendChild(ta); ta.focus(); ta.select();
+        document.execCommand("copy"); document.body.removeChild(ta);
+        _showToast("✅ Link copiado!");
+      } catch (_) { _showToast("Abre para partilhar"); }
+    }
+
     function findProductBySlug(list, slug) {
       if (!Array.isArray(list) || !slug) return null;
       const needle = String(slug).trim();
@@ -1376,6 +1751,7 @@
     function buildCard({ product, tagClass, tagText }) {
       if (!product) return null;
       const name = String(product.name || "Sem nome").trim();
+      const slug = String(product.slug || "").trim();
       const images = Array.isArray(product.images) ? product.images.slice() : [];
       if (!images.length) return null;
       const priceVal = getProductPrice(product);
@@ -1387,6 +1763,7 @@
       card.dataset.angle = "0";
       card.dataset.name = name;
       card.dataset.price = priceVal;
+      if (slug) card.dataset.slug = slug;
 
       const imgWrap = document.createElement("div");
       imgWrap.className = "card-img";
@@ -1401,6 +1778,39 @@
         const idx = Number(card.dataset.angle || 0);
         openLightbox({ images, startIndex: idx, cardRef: card });
       });
+
+      // ===== Cantos: Coração Favorito (esq) + Partilhar (dir) =====
+      if (slug) {
+        const fav = document.createElement("button");
+        fav.type = "button";
+        fav.className = "card-corner card-fav" + (isFav(slug) ? " active" : "");
+        fav.title = "Guardar em favoritos";
+        fav.setAttribute("aria-label", "Guardar em favoritos");
+        const sp = document.createElement("span");
+        sp.className = "hollow"; sp.textContent = "🤍";
+        const sf = document.createElement("span");
+        sf.className = "filled"; sf.textContent = "❤️";
+        fav.appendChild(sp); fav.appendChild(sf);
+        fav.addEventListener("click", (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          toggleFav(slug);
+        });
+        card.appendChild(fav);
+
+        const share = document.createElement("button");
+        share.type = "button";
+        share.className = "card-corner card-share";
+        share.title = "Partilhar link do produto";
+        share.setAttribute("aria-label", "Partilhar produto");
+        share.textContent = "↗️";
+        share.addEventListener("click", (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          shareProduct(product);
+        });
+        card.appendChild(share);
+      }
 
       let angles = null;
       if (images.length > 1) {
@@ -1467,9 +1877,14 @@
         input.addEventListener("input", (e) => {
           const val = String(e.target && e.target.value || "").trim();
           card.dataset.size = val;
+          // T1#1: verde se tamanho preenchido
+          if (val) card.setAttribute("data-size-filled", "1");
+          else card.removeAttribute("data-size-filled");
           // Atualiza href imediatamente
           const buy = card.querySelector(".buy-btn");
           if (buy) buy.href = buildWhatsAppHref(name, priceVal, 1, val || "");
+          // Tambem atualiza FAB multi e botao encomendar todos (em caso de tamanho preenchido no favorito)
+          _refreshMultiFavHref();
         });
         input.addEventListener("click", (e) => e.stopPropagation());
         sizesWrap.appendChild(input);
@@ -1987,6 +2402,11 @@
     async function fetchManifestAndRender() {
       updateCount(null);
       updateStaticWhatsAppLinks();
+      initFabLinks();
+      // Inicializar favs logo antes de render (para os cards já nascerem com o estado correto)
+      updateFavBadge();
+      const favEmptyEl = document.getElementById("fav-empty");
+      if (favEmptyEl) favEmptyEl.style.display = FAVS_SET.size === 0 ? "" : "none";
       renderFallbackGrid("grid-destaques", "A carregar destaques…");
       renderFallbackGrid("grid-novidades", "A carregar novidades…");
       const g1 = document.getElementById("grid-catalogo");
@@ -1997,6 +2417,7 @@
         if (!res.ok) throw new Error("manifest HTTP " + res.status);
         const data = await res.json();
         const products = Array.isArray(data && data.products) ? data.products : [];
+        window.__MANIFEST__ = products;
         ALL_PRODUCTS.raw = products.slice();
         ALL_PRODUCTS.sorted = products.slice();
         ALL_PRODUCTS.sortedByTs = products.slice().sort((a, b) => Number(b.latestTs || 0) - Number(a.latestTs || 0));
@@ -2016,6 +2437,9 @@
         CATALOG_UPDATE_COUNTERS(CATALOG_STATE);
         renderAllBatches(CATALOG_STATE, "grid-catalogo", CATALOG_UPDATE_COUNTERS);
         if (!CATALOG_STATE.rendered) appendNextCatalogBatch();
+        // Render do tab favoritos (mesmo que vazio)
+        renderFavGrid(products);
+        _refreshMultiFavHref();
       } catch (e) {
         const err = (e && e.message) ? String(e.message) : "Erro a carregar catálogo";
         renderFallbackGrid("grid-destaques", "Não foi possível carregar os destaques. " + err);
@@ -2023,6 +2447,17 @@
         const counter = document.getElementById("catalog-count");
         if (counter) counter.textContent = "Falha ao carregar catálogo: " + err;
       }
+    }
+
+    function initFabLinks() {
+      // WhatsApp geral (mensagem generica)
+      const wpp = document.getElementById("fab-whatsapp");
+      if (wpp) {
+        const texto = encodeURIComponent(`Olá! Queria fazer um pedido. Site: ${window.location.href}`);
+        wpp.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${texto}`;
+      }
+      const tg = document.querySelector(".fab-telegram");
+      if (tg) tg.href = TELEGRAM_URL;
     }
 
     document.addEventListener("DOMContentLoaded", () => {
@@ -2052,6 +2487,19 @@
     <div class="lightbox-counter" id="lightbox-counter"></div>
     <div class="lightbox-dots" id="lightbox-dots"></div>
     <div style="position:absolute; inset:0; z-index:-1;" onclick="closeLightbox()"></div>
+  </div>
+
+  <!-- FAB flutuante WhatsApp + Telegram (canto inferior direito) -->
+  <div class="fab-wrap" aria-label="Atalhos rápidos">
+    <a id="fab-multi" class="fab fab-multi" href="#" target="_blank" rel="noopener" title="Encomendar os teus favoritos" data-fab-role="multi">
+      <span id="fab-multi-label">📦</span>
+    </a>
+    <a class="fab fab-whatsapp" id="fab-whatsapp" href="#" target="_blank" rel="noopener" title="WhatsApp Smart Things PT">
+      💬
+    </a>
+    <a class="fab fab-telegram" href="#" target="_blank" rel="noopener" title="Canal Telegram">
+      ✈️
+    </a>
   </div>
 
 </body>
