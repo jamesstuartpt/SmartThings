@@ -1221,6 +1221,10 @@
       visibility: hidden;
     }
   </style>
+  <!-- Configuração do site (número WhatsApp, URLs, etc) -->
+  <script src="site_config.js"></script>
+  <!-- Fallback inline do manifest: garante que o site funciona mesmo abrindo index.html diretamente via file:// (onde fetch CORS é bloqueado) -->
+  <script defer src="imagens/manifest.js"></script>
   <!-- Analytics Plausible (privacidade 1a, sem cookies, sem banner obrigatório) — Troca o data-domain pelo teu domínio final quando publicares -->
   <script defer data-domain="smartthingspt.com" src="https://plausible.io/js/script.js"></script>
 </head>
@@ -1414,7 +1418,7 @@
         btn.classList.add('active');
         btn.setAttribute('aria-selected', 'true');
       } else {
-        const match = document.querySelector(`.tab[onclick^="showTab('${id}'"]`);
+        const match = document.querySelector(`.tab[onclick^="showTab('${id}')"]`);
         if (match) {
           match.classList.add('active');
           match.setAttribute('aria-selected', 'true');
@@ -1820,7 +1824,7 @@
       const slugToProd = new Map();
       manifest.forEach(p => { if (p && p.slug) slugToProd.set(String(p.slug), p); });
       // Ordenar por ts decrescente (últimos favoritos primeiro)
-      const orderedKeys = slugs.slice().sort((a, b) => Number(((FAVS_MAP[b] || {}).ts || 0) - Number(((FAVS_MAP[a] || {}).ts || 0)));
+      const orderedKeys = slugs.slice().sort((a, b) => (Number((FAVS_MAP[b] || {}).ts || 0) - Number((FAVS_MAP[a] || {}).ts || 0)));
       const ordered = orderedKeys.map(s => slugToProd.get(s)).filter(Boolean);
       const picked = new Set();
       ordered.forEach(prod => {
@@ -1856,7 +1860,7 @@
       const slugToProd = new Map();
       window.__MANIFEST__.forEach(p => { if (p && p.slug) slugToProd.set(String(p.slug), p); });
       const ordered = slugs.slice()
-        .sort((a, b) => Number(((FAVS_MAP[b] || {}).ts || 0) - Number(((FAVS_MAP[a] || {}).ts || 0)))
+        .sort((a, b) => (Number((FAVS_MAP[b] || {}).ts || 0) - Number((FAVS_MAP[a] || {}).ts || 0)))
         .map(s => slugToProd.get(s)).filter(Boolean);
       // Size priority: (1) card.dataset.size atual, (2) salvo no FAVS_MAP
       ordered.forEach(p => {
@@ -2709,17 +2713,30 @@
       const g1 = document.getElementById("grid-catalogo");
       if (g1) renderEmptySearch(g1, "", null);
 
+      let products = [];
+      let loadErr = null;
+      // 1) Primeiro tenta fetch (HTTP — recomendado para GitHub Pages/local server)
       try {
         const res = await fetch("imagens/telegram_manifest.json", { cache: "no-store" });
         if (!res.ok) throw new Error("manifest HTTP " + res.status);
         const data = await res.json();
-        const products = Array.isArray(data && data.products) ? data.products : [];
+        products = Array.isArray(data && data.products) ? data.products : [];
+      } catch (e) {
+        loadErr = (e && e.message) ? String(e.message) : "Erro a carregar catálogo";
+        // 2) Fallback inline (funciona mesmo abrindo index.html via file://, onde fetch CORS é bloqueado)
+        const fallback = Array.isArray(window.__EMBEDDED_MANIFEST__) ? window.__EMBEDDED_MANIFEST__ : [];
+        if (fallback.length > 0) {
+          products = fallback.slice();
+          loadErr = null;
+        }
+      }
+
+      if (products.length > 0) {
         window.__MANIFEST__ = products;
         ALL_PRODUCTS.raw = products.slice();
         ALL_PRODUCTS.sorted = products.slice();
         ALL_PRODUCTS.sortedByTs = products.slice().sort((a, b) => Number(b.latestTs || 0) - Number(a.latestTs || 0));
         updateCount(products.length);
-        // OG tags por #slug (se abriu #algum produto)
         updateMetaForHashMaybe();
         initFabLinks();
         renderSpotlight(products);
@@ -2737,11 +2754,10 @@
         CATALOG_UPDATE_COUNTERS(CATALOG_STATE);
         renderAllBatches(CATALOG_STATE, "grid-catalogo", CATALOG_UPDATE_COUNTERS);
         if (!CATALOG_STATE.rendered) appendNextCatalogBatch();
-        // Render do tab favoritos (mesmo que vazio)
         renderFavGrid(products);
         _refreshMultiFavHref();
-      } catch (e) {
-        const err = (e && e.message) ? String(e.message) : "Erro a carregar catálogo";
+      } else {
+        const err = loadErr || "Catálogo vazio";
         renderFallbackGrid("grid-destaques", "Não foi possível carregar os destaques. " + err);
         renderFallbackGrid("grid-novidades", "Não foi possível carregar as novidades. " + err);
         const counter = document.getElementById("catalog-count");
