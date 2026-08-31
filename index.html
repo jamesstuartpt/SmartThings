@@ -1611,6 +1611,11 @@
     // ===== FAVORITOS (localStorage: Object { slug: {size: "", ts: 1234} }) =====
     // v1 (antigo smartthings_favoritos_v1): Array<string> slugs → v2 com tamanhos
     const FAV_STORAGE_KEY = "smartthings_favoritos_v2";
+    function _favsNormAngle(x) {
+      const n = Number(x || 0);
+      if (!isFinite(n) || n < 1) return 1;
+      return Math.floor(n);
+    }
     function _migrateOldFavsIfNeeded() {
       try {
         const KEY_OLD = "smartthings_favoritos_v1";
@@ -1621,7 +1626,7 @@
         const obj = {};
         arr.forEach(s => {
           const k = String(s || "").trim();
-          if (k) obj[k] = { size: "", ts: Date.now() };
+          if (k) obj[k] = { size: "", angle: 1, ts: Date.now() };
         });
         localStorage.removeItem(KEY_OLD);
         return obj;
@@ -1635,16 +1640,17 @@
         if (typeof obj !== "object" || Array.isArray(obj) || obj == null) {
           return _migrateOldFavsIfNeeded();
         }
-        // Garantir formato { slug: { size: string, ts: number } }
+        // Garantir formato { slug: { size: string, angle: number(1-based), ts: number } }
         const out = _migrateOldFavsIfNeeded();
         Object.keys(obj).forEach(k => {
           const v = obj[k];
           if (v == null) return;
           if (typeof v === "string") {
-            out[String(k)] = { size: v, ts: Date.now() };
+            out[String(k)] = { size: v, angle: 1, ts: Date.now() };
           } else if (typeof v === "object") {
             out[String(k)] = {
               size: typeof v.size === "string" ? v.size : "",
+              angle: _favsNormAngle(typeof v.angle === "number" ? v.angle : 1),
               ts: typeof v.ts === "number" ? v.ts : Date.now(),
             };
           }
@@ -1674,8 +1680,34 @@
       try {
         const k = String(slug || "").trim();
         if (!k) return;
-        const prev = FAVS_MAP[k] || { size: "", ts: Date.now() };
-        FAVS_MAP[k] = { size: String(size || "").trim(), ts: Number(prev.ts) || Date.now() };
+        const prev = FAVS_MAP[k] || { size: "", angle: 1, ts: Date.now() };
+        FAVS_MAP[k] = {
+          size: String(size || "").trim(),
+          angle: _favsNormAngle(prev.angle || 1),
+          ts: Number(prev.ts) || Date.now(),
+        };
+        _saveFavMap(FAVS_MAP);
+      } catch (_) {}
+    }
+    function _favsGetAngle(slug) {
+      try {
+        const k = String(slug || "").trim();
+        return _favsNormAngle(FAVS_MAP[k] && FAVS_MAP[k].angle);
+      } catch (_) { return 1; }
+    }
+    function _favsSetAngle(slug, angle) {
+      try {
+        const k = String(slug || "").trim();
+        if (!k) return;
+        const a = _favsNormAngle(angle);
+        const prev = FAVS_MAP[k] || { size: "", angle: 1, ts: Date.now() };
+        // Se o angle for o mesmo, não faz write para não sobrecarregar
+        if (FAVS_MAP[k] && FAVS_MAP[k].angle === a) return;
+        FAVS_MAP[k] = {
+          size: typeof prev.size === "string" ? prev.size : "",
+          angle: a,
+          ts: Number(prev.ts) || Date.now(),
+        };
         _saveFavMap(FAVS_MAP);
       } catch (_) {}
     }
@@ -1721,51 +1753,54 @@
       if (!s) return false;
       let wasFav = isFav(s);
 
-      // 🔍 UX: se a favoritar (novo), verificar se há tamanho preenchido no card
       if (!wasFav) {
         let sizeFound = "";
+        let angleFound = 1;
         const firstCard = document.querySelector(`.card[data-slug="${CSS.escape(s)}"]`);
-        if (firstCard && firstCard.dataset && firstCard.dataset.size) {
-          sizeFound = String(firstCard.dataset.size || "").trim();
+        if (firstCard && firstCard.dataset) {
+          if (firstCard.dataset.size) sizeFound = String(firstCard.dataset.size || "").trim();
+          const a = Number(firstCard.dataset.angle || 0);
+          if (isFinite(a) && a >= 0) angleFound = Math.floor(a) + 1;
         }
-        // 💡 Dica amarela se tamanho vazio; verde confirm se tem tamanho
         if (!sizeFound) {
           showToastWarn("💡 Dica: preenche o tamanho agora (ex: 42) para encomendar mais rápido depois!");
         } else {
-          showToastOK(`✅ Adicionado aos favoritos (tamanho ${sizeFound})`);
+          showToastOK(`✅ Adicionado aos favoritos (tamanho ${sizeFound}, modelo ${angleFound})`);
         }
-        // Guardar novo fav com tamanho encontrado (ou vazio)
-        FAVS_MAP[s] = { size: sizeFound, ts: Date.now() };
+        FAVS_MAP[s] = { size: sizeFound, angle: _favsNormAngle(angleFound), ts: Date.now() };
         _saveFavMap(FAVS_MAP);
       } else {
-        // Remover favorito
         delete FAVS_MAP[s];
         _saveFavMap(FAVS_MAP);
       }
       const agoraTem = isFav(s);
-      // Atualiza TODOS os cards com o mesmo slug em toda a página (destaques, novidades, catalogo, favoritos)
       document.querySelectorAll(`.card[data-slug="${CSS.escape(s)}"]`).forEach(cardEl => {
         const btn = cardEl.querySelector(".card-fav");
         if (btn) {
           if (agoraTem) btn.classList.add("active");
           else btn.classList.remove("active");
         }
-        // Se favoritou com size salvo E input existe vazio → preenche automaticamente
         if (agoraTem) {
           const favSize = _favsGetSize(s);
+          const favAngle = _favsGetAngle(s);
           if (favSize) {
             const inp = cardEl.querySelector(".card-size-input");
             if (inp && !String(inp.value || "").trim()) {
               inp.value = favSize;
-              // Atualiza o estado do card (verde + href buy)
               cardEl.dataset.size = favSize;
               cardEl.setAttribute("data-size-filled", "1");
-              const buy = cardEl.querySelector(".buy-btn");
-              if (buy) {
-                const name = _cleanDisplayName(cardEl.dataset.name) || "Produto";
-                const price = String(cardEl.dataset.price || PRODUCT_PRICE);
-                buy.href = buildWhatsAppHref(name, price, 1, favSize);
-              }
+            }
+          }
+          const cur = Number(cardEl.dataset.angle || 0);
+          if (isFinite(favAngle) && favAngle >= 1 && (Math.floor(cur) + 1) !== favAngle) {
+            setCardAngle(cardEl, favAngle - 1);
+          } else {
+            const buy = cardEl.querySelector(".buy-btn");
+            if (buy) {
+              const name = _cleanDisplayName(cardEl.dataset.name) || "Produto";
+              const price = String(cardEl.dataset.price || PRODUCT_PRICE);
+              const n = Math.floor(cur) + 1;
+              buy.href = buildWhatsAppHref(name, price, n, favSize);
             }
           }
         }
@@ -1806,10 +1841,12 @@
       products.forEach((p, idx) => {
         const name = _cleanDisplayName(p && p.name) || "Produto";
         const price = getProductPrice(p);
-        const saved = (p && p.slug) ? _favsGetSize(p.slug) : "";
-        let sz = (typeof p.__size === "string" && p.__size.trim()) ? p.__size.trim() : saved;
+        const savedSize = (p && p.slug) ? _favsGetSize(p.slug) : "";
+        const savedAngle = (p && p.slug) ? _favsGetAngle(p.slug) : 1;
+        let sz = (typeof p.__size === "string" && p.__size.trim()) ? p.__size.trim() : savedSize;
         if (!sz) sz = "(a preencher)";
-        body += `${idx + 1}) 📦 *${name}*\n💰 ${price}\n📏 Tamanho: ${sz}\n\n`;
+        let ang = typeof p.__angle === "number" ? _favsNormAngle(p.__angle) : _favsNormAngle(savedAngle || 1);
+        body += `${idx + 1}) 📦 *${name}* (modelo ${ang})\n💰 ${price}\n📏 Tamanho: ${sz}\n📸 Foto/Item: ${ang}\n\n`;
       });
       body += "Podes confirmar disponibilidade e valor total? Obrigado!";
       return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(body)}`;
@@ -1823,25 +1860,30 @@
       if (slugs.length === 0) return;
       const slugToProd = new Map();
       manifest.forEach(p => { if (p && p.slug) slugToProd.set(String(p.slug), p); });
-      // Ordenar por ts decrescente (últimos favoritos primeiro)
       const orderedKeys = slugs.slice().sort((a, b) => (Number((FAVS_MAP[b] || {}).ts || 0) - Number((FAVS_MAP[a] || {}).ts || 0)));
       const ordered = orderedKeys.map(s => slugToProd.get(s)).filter(Boolean);
       const picked = new Set();
       ordered.forEach(prod => {
         const card = buildCard({ product: prod });
-        // Se favorito com size salvo → preencher input imediatamente
         const sizeFromMap = _favsGetSize(prod.slug);
-        if (sizeFromMap && card) {
-          const inp = card.querySelector(".card-size-input");
-          if (inp) {
-            inp.value = sizeFromMap;
-            card.dataset.size = sizeFromMap;
-            card.setAttribute("data-size-filled", "1");
+        const angleFromMap = _favsGetAngle(prod.slug);
+        if (card) {
+          if (sizeFromMap) {
+            const inp = card.querySelector(".card-size-input");
+            if (inp) {
+              inp.value = sizeFromMap;
+              card.dataset.size = sizeFromMap;
+              card.setAttribute("data-size-filled", "1");
+            }
+          }
+          if (angleFromMap && angleFromMap > 1) {
+            setCardAngle(card, angleFromMap - 1);
+          } else {
             const buy = card.querySelector(".buy-btn");
             if (buy) {
               const name = _cleanDisplayName(card.dataset.name || prod.name) || "Produto";
               const price = String(card.dataset.price || PRODUCT_PRICE);
-              buy.href = buildWhatsAppHref(name, price, 1, sizeFromMap);
+              buy.href = buildWhatsAppHref(name, price, 1, sizeFromMap || "");
             }
           }
         }
@@ -1852,9 +1894,11 @@
     function _refreshMultiFavHref() {
       if (!window.__MANIFEST__) return;
       const slugs = _favsKeys();
-      if (slugs.length < 2) {
-        const fabMulti = document.getElementById("fab-multi");
+      const fabMulti = document.getElementById("fab-multi");
+      const btnEncTodos = document.getElementById("fav-encomendar-todos");
+      if (slugs.length === 0) {
         if (fabMulti) fabMulti.href = "#";
+        if (btnEncTodos) btnEncTodos.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Olá! Queria fazer um pedido, obrigado.")}`;
         return;
       }
       const slugToProd = new Map();
@@ -1862,17 +1906,31 @@
       const ordered = slugs.slice()
         .sort((a, b) => (Number((FAVS_MAP[b] || {}).ts || 0) - Number((FAVS_MAP[a] || {}).ts || 0)))
         .map(s => slugToProd.get(s)).filter(Boolean);
-      // Size priority: (1) card.dataset.size atual, (2) salvo no FAVS_MAP
       ordered.forEach(p => {
         if (!p || !p.slug) return;
         const cardEl = document.querySelector(`.card[data-slug="${CSS.escape(p.slug)}"]`);
-        if (cardEl && cardEl.dataset && cardEl.dataset.size) p.__size = cardEl.dataset.size;
+        if (cardEl && cardEl.dataset) {
+          if (cardEl.dataset.size) p.__size = cardEl.dataset.size;
+          const a = Number(cardEl.dataset.angle || 0);
+          if (isFinite(a) && a >= 0) p.__angle = Math.floor(a) + 1;
+        }
       });
       const href = buildMultiFavWhatsAppHref(ordered);
-      const fabMulti = document.getElementById("fab-multi");
-      if (fabMulti) fabMulti.href = href;
-      const btnEncTodos = document.getElementById("fav-encomendar-todos");
-      if (btnEncTodos) btnEncTodos.href = href;
+      if (slugs.length >= 2) {
+        if (fabMulti) fabMulti.href = href;
+      } else {
+        if (fabMulti) fabMulti.href = "#";
+      }
+      if (btnEncTodos) {
+        if (ordered.length === 1) {
+          const p = ordered[0];
+          const n = (typeof p.__angle === "number" && p.__angle > 0) ? _favsNormAngle(p.__angle) : _favsGetAngle(p.slug);
+          const sz = (typeof p.__size === "string" && p.__size.trim()) ? p.__size.trim() : _favsGetSize(p.slug);
+          btnEncTodos.href = buildWhatsAppHref(_cleanDisplayName(p.name) || "Produto", getProductPrice(p), n, sz || "");
+        } else {
+          btnEncTodos.href = href;
+        }
+      }
     }
 
     // ===== PARTILHAR produto ↗️ =====
@@ -1963,8 +2021,15 @@
       if (countLabel) countLabel.textContent = `${next + 1}/${count}`;
       const name = String(card.dataset.name || "");
       const price = String(card.dataset.price || PRODUCT_PRICE);
+      const sz = String(card.dataset.size || "").trim();
       const buy = card.querySelector(".buy-btn");
-      if (buy && name) buy.href = buildWhatsAppHref(name, price, next + 1);
+      const itemN = next + 1;
+      if (buy && name) buy.href = buildWhatsAppHref(name, price, itemN, sz);
+      const slug = String(card.dataset.slug || "").trim();
+      if (slug && isFav(slug)) {
+        _favsSetAngle(slug, itemN);
+        _refreshMultiFavHref();
+      }
     }
 
     const LIGHTBOX_GALLERY = { images: [], index: 0, cardRef: null };
@@ -2177,14 +2242,14 @@
         input.addEventListener("input", (e) => {
           const val = String(e.target && e.target.value || "").trim();
           card.dataset.size = val;
-          // Verde se tamanho preenchido
           if (val) card.setAttribute("data-size-filled", "1");
           else card.removeAttribute("data-size-filled");
-          // Gravar tamanho no FAVS_MAP se já for favorito
           if (slug && isFav(slug)) _favsSetSize(slug, val);
-          // Atualiza href imediatamente
           const buy = card.querySelector(".buy-btn");
-          if (buy) buy.href = buildWhatsAppHref(name, priceVal, 1, val || "");
+          if (buy) {
+            const n = Math.floor(Number(card.dataset.angle || 0)) + 1;
+            buy.href = buildWhatsAppHref(name, priceVal, n, val || "");
+          }
           _refreshMultiFavHref();
         });
         input.addEventListener("click", (e) => e.stopPropagation());
@@ -2198,7 +2263,10 @@
       buy.rel = "noopener noreferrer";
       buy.dataset.buyMode = "whatsapp";
       buy.textContent = "Comprar";
-      buy.href = buildWhatsAppHref(name, priceVal, 1, "");
+      {
+        const n0 = Math.floor(Number(card.dataset.angle || 0));
+        buy.href = buildWhatsAppHref(name, priceVal, n0 + 1, "");
+      }
       buy.addEventListener("click", (e) => {
         e.stopPropagation();
         // Não bloqueia mais (opção D): se estiver vazio, texto vai "(a preencher)"
