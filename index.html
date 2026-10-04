@@ -72,6 +72,7 @@
       -webkit-font-smoothing: antialiased;
       -webkit-tap-highlight-color: transparent;
       overflow-x: hidden;
+      padding-bottom: 190px;
     }
 
     input, button, select, textarea {
@@ -1408,6 +1409,24 @@
     @media (min-width: 900px) {
       .added-modal { max-width: 520px; }
     }
+    @media (max-width: 700px) {
+      .added-modal-backdrop { padding: 10px; }
+      .added-modal {
+        padding: 16px 14px 14px;
+        gap: 12px;
+        border-radius: 14px;
+        max-height: calc(100vh - 20px);
+      }
+      .added-list { max-height: min(58vh, 440px); }
+      .added-item { padding: 9px; gap: 9px; }
+      .added-item-img { width: 48px; height: 48px; }
+      .added-title { font-size: 14px; }
+      .added-sub { font-size: 12px; }
+      .added-check { width: 40px; height: 40px; font-size: 20px; }
+    }
+    @media (max-width: 420px) {
+      body { padding-bottom: 170px; }
+    }
     @keyframes addedPop {
       from { opacity: 0; transform: translateY(10px) scale(0.96); }
       to   { opacity: 1; transform: translateY(0)    scale(1); }
@@ -1871,13 +1890,32 @@
       closeAddedModal();
       showTab("favoritos");
       setTimeout(() => {
+        if (!window.__MANIFEST__) {
+          showToastWarn("⏳ A carregar catálogo… tenta novamente.");
+          return;
+        }
         const favs = _loadFavMap();
         const entries = Object.entries(favs);
         if (entries.length === 0) {
           showToastWarn("🛒 Carrinho vazio. Adiciona um artigo primeiro.");
           return;
         }
-        const href = buildMultiFavWhatsAppHref();
+        const slugs = _favsKeys();
+        const slugToProd = new Map();
+        window.__MANIFEST__.forEach(p => { if (p && p.slug) slugToProd.set(String(p.slug), p); });
+        const ordered = slugs.slice()
+          .sort((a, b) => (Number((FAVS_MAP[b] || {}).ts || 0) - Number((FAVS_MAP[a] || {}).ts || 0)))
+          .map(s => slugToProd.get(s)).filter(Boolean);
+        ordered.forEach(p => {
+          if (!p || !p.slug) return;
+          const cardEl = document.querySelector(`.card[data-slug="${CSS.escape(p.slug)}"]`);
+          if (cardEl && cardEl.dataset) {
+            if (cardEl.dataset.size) p.__size = cardEl.dataset.size;
+            const a = Number(cardEl.dataset.angle || 0);
+            if (isFinite(a) && a >= 0) p.__angle = Math.floor(a) + 1;
+          }
+        });
+        const href = buildMultiFavWhatsAppHref(ordered);
         if (!href) return;
         if (href && href.startsWith("http")) {
           window.open(href, "_blank", "noopener");
