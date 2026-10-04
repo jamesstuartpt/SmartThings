@@ -2,7 +2,7 @@
 <html lang="pt-PT">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=5.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1.0, user-scalable=no">
   <title>Smart Things PT — Catálogo de sneakers premium 40€</title>
   <meta name="description" content="Smart Things PT. Catálogo 1276 artigos premium a preços imbatíveis. Sneakers, roupa e acessórios. Envio 10-15 dias para PT. Pedidos via WhatsApp.">
   <meta name="theme-color" content="#111111">
@@ -81,11 +81,23 @@
     a { color: inherit; text-decoration: none; -webkit-touch-callout: none; }
 
     .container {
-      max-width: 720px;
+      max-width: 1120px;
       margin: 0 auto;
-      padding: 0 20px;
+      padding: 0 16px;
       width: 100%;
       box-sizing: border-box;
+    }
+    @media (max-width: 700px) {
+      .container {
+        max-width: 520px;
+        padding: 0 14px;
+      }
+    }
+    @media (max-width: 420px) {
+      .container {
+        max-width: 100%;
+        padding: 0 12px;
+      }
     }
 
     /* Header */
@@ -217,8 +229,20 @@
     /* Product Grid */
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-      gap: 16px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+    @media (max-width: 960px) {
+      .grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+      }
+    }
+    @media (max-width: 700px) {
+      .grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
     }
     .card {
       border: 1px solid var(--border);
@@ -409,6 +433,18 @@
       border-color: var(--text-primary);
       box-shadow: 0 0 0 3px rgba(0,0,0,0.06);
     }
+    .card-size-input.error {
+      border-color: #dc2626;
+      box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+      animation: shakeErr 0.32s ease;
+    }
+    @keyframes shakeErr {
+      0%,100% { transform: translateX(0); }
+      20% { transform: translateX(-4px); }
+      40% { transform: translateX(4px); }
+      60% { transform: translateX(-3px); }
+      80% { transform: translateX(3px); }
+    }
     @media (max-width: 640px) {
       .card-size-input {
         min-height: 44px;
@@ -427,7 +463,7 @@
       opacity: 1;
     }
 
-    /* ===== (2) FAB flutuante WhatsApp + Telegram ===== */
+    /* ===== (2) FABs flutuantes (Carrinho + WhatsApp) ===== */
     .fab-wrap {
       position: fixed;
       right: 16px;
@@ -437,42 +473,44 @@
       flex-direction: column;
       gap: 10px;
     }
+    @media (min-width: 700px) {
+      .fab-wrap {
+        right: 24px;
+        bottom: 24px;
+        gap: 12px;
+      }
+    }
     .fab {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 52px;
-      height: 52px;
+      width: 56px;
+      height: 56px;
       border-radius: 999px;
       text-decoration: none;
-      font-size: 24px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.22);
       transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
       -webkit-tap-highlight-color: transparent;
       touch-action: manipulation;
+      cursor: pointer;
+      border: none;
     }
-    .fab:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(0,0,0,0.22); }
+    .fab:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(0,0,0,0.28); }
     .fab:active { transform: scale(0.94); }
-    .fab-whatsapp { background: #25D366; color: #fff; }
-    .fab-telegram { background: #229ED9; color: #fff; }
-    .fab-multi {
-      background: #111;
+    .fab-cart {
+      background: #0f766e; /* teal 700 — carrinho */
       color: #fff;
       position: relative;
-      font-size: 20px;
-      display: none; /* só aparece quando favs >= 2 (updateFavBadge) */
     }
-    .fab-stock {
-      background: #7c3aed; /* roxo, diferente dos outros para destaque rápido */
-      color: #fff;
-    }
-    .fab-stock:hover { background: #6d28d9; }
-    .fab-multi .fab-badge-num {
+    .fab-cart:hover { background: #0d6960; }
+    .fab-whatsapp { background: #10b981; /* verde WhatsApp limpo */ color: #fff; }
+    .fab-whatsapp:hover { background: #059669; }
+    .fab-cart .fab-badge-num {
       position: absolute;
       top: -4px;
       right: -4px;
-      background: #f59e0b;
-      color: #111;
+      background: #ef4444;
+      color: #fff;
       min-width: 22px;
       height: 22px;
       padding: 0 6px;
@@ -517,7 +555,7 @@
     .card-fav { left: 8px; }
     .card-share { right: 8px; color: #2563eb; }
     .card-corner.card-fav.active {
-      background: #dc2626;
+      background: #16a34a;
       color: #fff;
     }
     .card-corner.card-fav.active .hollow { display: none; }
@@ -983,67 +1021,65 @@
 
     /* Responsive */
     @media (max-width: 600px) {
-      .container { padding: 0 14px; max-width: 100%; }
-      .grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+      .container { padding: 0 12px; max-width: 100%; }
+      .grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
       .card { padding: 10px; gap: 8px; border-radius: var(--radius-sm); }
       .card-name { font-size: 13px; }
-      .card-price { font-size: 15px; }
+      .card-price { font-size: 14px; }
       .card-tag { font-size: 10px; padding: 2px 6px; }
       .card-angle-dot { width: 24px; height: 24px; }
-      .card-angles { left: 6px; right: 6px; bottom: 6px; padding: 4px; gap: 4px; }
+      .card-angles { gap: 4px; }
       .card-angle-count { font-size: 10px; }
 
       .steps { grid-template-columns: 1fr; gap: 12px; }
       .step { padding: 18px 12px; }
 
-      .header { padding: 28px 0 10px; }
-      .header h1 { font-size: 20px; letter-spacing: 0.2px; }
-      .header p { font-size: 13px; margin-top: 4px; }
+      .header { padding: 24px 0 10px; }
+      .header h1 { font-size: 19px; letter-spacing: 0.2px; }
+      .header p { font-size: 12px; margin-top: 4px; }
 
-      .badges { gap: 12px; font-size: 12px; padding: 16px 0; }
+      .badges { gap: 12px; font-size: 12px; padding: 14px 0; }
       .badges span { gap: 4px; }
 
-      .tabs { gap: 6px; padding: 6px 2px 20px; margin-bottom: 22px; }
+      .tabs { gap: 6px; padding: 6px 2px 18px; margin-bottom: 20px; }
       .tab { padding: 10px 14px; font-size: 13px; min-height: 42px; }
 
       .catalog-head { flex-wrap: wrap; gap: 10px; flex-direction: column; align-items: stretch; }
       .catalog-count { text-align: center; font-size: 12px; }
       .load-more-btn { width: 100%; }
 
-      .search-wrap { margin-top: 14px; margin-bottom: 14px; }
-      .search-bar { padding: 14px 14px 14px 42px; font-size: 16px; min-height: 48px; border-radius: var(--radius-md); }
+      .search-wrap { margin-top: 12px; margin-bottom: 12px; }
+      .search-bar { padding: 13px 14px 13px 40px; font-size: 15px; min-height: 46px; border-radius: var(--radius-md); }
       .search-icon { left: 14px; width: 18px; height: 18px; }
       .search-clear { width: 40px; height: 40px; right: 6px; }
 
-      .brand-chips { gap: 6px; margin-bottom: 14px; }
+      .brand-chips { gap: 6px; margin-bottom: 12px; }
       .brand-chip { padding: 10px 14px; font-size: 12px; min-height: 38px; }
 
       .faq-q { padding: 16px 0; font-size: 14px; }
       .faq-a p { font-size: 13px; }
 
-      .cta-wrap { margin-top: 22px; }
+      .cta-wrap { margin-top: 20px; }
       .btn { width: 100%; }
 
-      .footer { padding: 32px 0 20px; font-size: 12px; }
+      .footer { padding: 28px 0 20px; font-size: 12px; }
 
       .search-empty { padding: 22px 14px; font-size: 13px; }
+
+      .fab-wrap { right: 12px; bottom: 16px; gap: 8px; }
+      .fab { width: 52px; height: 52px; }
     }
 
     @media (max-width: 380px) {
-      .container { padding: 0 12px; }
-      .grid { gap: 8px; }
-      .card { padding: 8px; }
-      .header h1 { font-size: 18px; }
-      .header p { font-size: 12px; }
-      .tab { padding: 9px 12px; font-size: 12px; }
-      .buy-btn { padding: 11px 12px; font-size: 13px; min-height: 42px; }
-      .card-price { font-size: 14px; }
+      .container { padding: 0 10px; }
+      .grid { gap: 7px; }
+      .card { padding: 8px; gap: 7px; }
+      .header h1 { font-size: 17px; }
+      .header p { font-size: 11px; }
+      .tab { padding: 9px 11px; font-size: 12px; }
+      .buy-btn { padding: 11px 10px; font-size: 13px; min-height: 42px; gap: 6px; }
+      .card-price { font-size: 13px; }
       .card-name { font-size: 12px; }
-    }
-
-    @media (min-width: 601px) and (max-width: 900px) {
-      .container { padding: 0 24px; max-width: 100%; }
-      .grid { grid-template-columns: repeat(3, 1fr); }
     }
 
     /* Search */
@@ -1220,6 +1256,327 @@
       transform: none;
       visibility: hidden;
     }
+
+    /* ===== Header minimalista ===== */
+    .header {
+      text-align: left;
+      padding: 22px 0 10px;
+    }
+    .header h1 {
+      font-size: 20px;
+      letter-spacing: 0.15px;
+    }
+    .header p {
+      font-size: 12px;
+      margin-top: 2px;
+    }
+    .badges {
+      gap: 14px;
+      padding: 10px 0 14px;
+      font-size: 12px;
+    }
+    .telegram-cta {
+      margin: 0 auto 14px;
+      padding: 10px 12px;
+      font-size: 13px;
+      min-height: 40px;
+    }
+
+    /* ===== Card minimal e direto ao ponto ===== */
+    .card {
+      padding: 8px;
+      gap: 7px;
+      border-radius: 10px;
+    }
+    .card-img {
+      margin-bottom: 0;
+      border-radius: 8px;
+    }
+    .card-name {
+      font-size: 12.5px;
+      line-height: 1.25;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      white-space: normal;
+      text-overflow: ellipsis;
+      min-height: 32px;
+    }
+    .card-row {
+      margin-top: 0;
+      gap: 6px;
+    }
+    .card-price {
+      font-size: 14px;
+      font-weight: 600;
+    }
+    .card-tag {
+      font-size: 9.5px;
+      padding: 2px 6px;
+    }
+    .card-angles {
+      gap: 4px;
+      padding: 2px 0 0;
+    }
+    .card-angle-dot {
+      width: 22px;
+      height: 22px;
+      border-radius: 6px;
+    }
+    .card-angle-count {
+      font-size: 10px;
+    }
+    .card-size {
+      margin-top: 0;
+      gap: 4px;
+    }
+    .card-size-label {
+      font-size: 11.5px;
+      letter-spacing: 0.1px;
+    }
+    .card-size-input {
+      min-height: 42px;
+      padding: 9px 12px;
+      font-size: 15px;
+      border-radius: 8px;
+    }
+    .buy-btn {
+      padding: 10px 12px;
+      min-height: 42px;
+      font-size: 13px;
+      font-weight: 600;
+      border-radius: 8px;
+      gap: 6px;
+      letter-spacing: 0.15px;
+    }
+    .card-corner {
+      width: 32px;
+      height: 32px;
+      font-size: 15px;
+      top: 6px;
+      min-width: 32px;
+      min-height: 32px;
+    }
+    .card-fav { left: 6px; }
+    .card-share { right: 6px; }
+
+    @media (max-width: 380px) {
+      .card { padding: 7px; gap: 6px; border-radius: 8px; }
+      .card-img { border-radius: 6px; }
+      .card-name { font-size: 11.5px; min-height: 30px; }
+      .card-price { font-size: 13px; }
+      .card-angle-dot { width: 20px; height: 20px; }
+      .card-size-input { min-height: 40px; font-size: 14px; padding: 8px 10px; }
+      .buy-btn { min-height: 40px; padding: 9px 10px; font-size: 12.5px; }
+      .card-corner { width: 30px; height: 30px; font-size: 14px; top: 5px; }
+      .card-fav { left: 5px; }
+      .card-share { right: 5px; }
+    }
+
+    /* ===== Modal: "Adicionado ao Carrinho" com 2 ações ===== */
+    .added-modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.46);
+      z-index: 2000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+      -webkit-backdrop-filter: blur(3px);
+      backdrop-filter: blur(3px);
+      animation: fadeIn 0.18s ease;
+    }
+    .added-modal-backdrop.open { display: flex; }
+    .added-modal {
+      width: 100%;
+      max-width: 440px;
+      background: var(--bg);
+      border-radius: 16px;
+      padding: 20px 18px 16px;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.28);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      animation: addedPop 0.28s cubic-bezier(0.2, 0.8, 0.2, 1);
+      border: 1px solid var(--border);
+      max-height: calc(100vh - 36px);
+      overflow: hidden;
+    }
+    @media (min-width: 900px) {
+      .added-modal { max-width: 520px; }
+    }
+    @keyframes addedPop {
+      from { opacity: 0; transform: translateY(10px) scale(0.96); }
+      to   { opacity: 1; transform: translateY(0)    scale(1); }
+    }
+    .added-modal-head {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+    .added-check {
+      flex-shrink: 0;
+      width: 44px;
+      height: 44px;
+      border-radius: 999px;
+      background: #16a34a;
+      color: #fff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      box-shadow: 0 6px 14px rgba(22, 163, 74, 0.3);
+    }
+    .added-title {
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 1.3;
+      color: var(--text-primary);
+    }
+    .added-sub {
+      font-size: 13px;
+      color: var(--text-secondary);
+      margin-top: 2px;
+    }
+    .added-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      overflow-y: auto;
+      padding-right: 2px;
+      max-height: min(46vh, 360px);
+    }
+    .added-list::-webkit-scrollbar { width: 6px; }
+    .added-list::-webkit-scrollbar-thumb {
+      background: var(--border);
+      border-radius: 6px;
+    }
+    .added-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px;
+      background: var(--bg-muted);
+      border-radius: 10px;
+      border: 1px solid var(--border);
+    }
+    .added-item.new {
+      border-color: rgba(22, 163, 74, 0.5);
+      background: rgba(22, 163, 74, 0.07);
+      box-shadow: 0 0 0 1px rgba(22, 163, 74, 0.14);
+    }
+    .added-item-img {
+      width: 52px;
+      height: 52px;
+      border-radius: 8px;
+      background: var(--bg);
+      overflow: hidden;
+      flex-shrink: 0;
+      border: 1px solid var(--border);
+    }
+    .added-item-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .added-item-info {
+      min-width: 0;
+      flex: 1 1 auto;
+    }
+    .added-item-name {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-primary);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .added-item-meta {
+      margin-top: 3px;
+      font-size: 12px;
+      color: var(--text-secondary);
+      font-weight: 500;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .added-item-new-badge {
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      padding: 2px 7px;
+      background: #16a34a;
+      color: #fff;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+      border-radius: 999px;
+      align-self: flex-start;
+      margin-top: 4px;
+    }
+    .added-summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 12px;
+      background: var(--bg-muted);
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+    .added-summary small {
+      font-weight: 500;
+      color: var(--text-secondary);
+      font-size: 12px;
+      font-weight: normal;
+    }
+    .added-btns {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 2px;
+    }
+    @media (min-width: 640px) {
+      .added-btns { flex-direction: row; }
+      .added-btn { flex: 1 1 0; }
+    }
+    .added-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 46px;
+      padding: 11px 14px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 600;
+      -webkit-appearance: none;
+      appearance: none;
+      touch-action: manipulation;
+      transition: opacity 0.15s ease, transform 0.1s ease, background 0.15s ease;
+    }
+    .added-btn:active { transform: scale(0.98); opacity: 0.9; }
+    .added-btn-primary {
+      background: #16a34a;
+      color: #fff;
+      box-shadow: 0 4px 12px rgba(22, 163, 74, 0.22);
+    }
+    .added-btn-primary:hover { background: #15803d; }
+    .added-btn-secondary {
+      background: var(--bg-muted);
+      color: var(--text-primary);
+      border: 1px solid var(--border);
+    }
+    .added-btn-secondary:hover { border-color: var(--text-tertiary); }
   </style>
   <!-- Configuração do site (número WhatsApp, URLs, etc) -->
   <script src="site_config.js"></script>
@@ -1274,7 +1631,7 @@
       <button class="tab" onclick="showTab('novidades', this)" role="tab" aria-selected="false">Novidades</button>
       <button class="tab" onclick="showTab('catalogo', this)" role="tab" aria-selected="false">Catálogo completo</button>
       <button class="tab tab-fav" onclick="showTab('favoritos', this)" role="tab" aria-selected="false">
-        ❤️ Os Meus Favoritos <span class="fav-badge" id="fav-badge-tab" style="display:none">0</span>
+        🛒 Carrinho <span class="fav-badge" id="fav-badge-tab" style="display:none">0</span>
       </button>
       <button class="tab" onclick="showTab('comofunciona', this)" role="tab" aria-selected="false">Como funciona</button>
       <button class="tab" onclick="showTab('faq', this)" role="tab" aria-selected="false">FAQ</button>
@@ -1324,18 +1681,18 @@
       </div>
     </section>
 
-    <!-- Os Meus Favoritos (Tier 3) -->
+    <!-- Carrinho -->
     <section id="favoritos" class="section" role="tabpanel">
       <div class="fav-head" style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px; margin-bottom:14px;">
         <div style="display:flex; align-items:center; gap:8px;">
-          <h2 style="margin:0; font-size:18px;">❤️ Os Meus Favoritos</h2>
+          <h2 style="margin:0; font-size:18px;">🛒 Carrinho</h2>
           <span class="fav-badge" id="fav-badge-head" style="background:#111; color:#fff;">0</span>
         </div>
-        <a class="btn" id="fav-encomendar-todos" target="_blank" rel="noopener" style="display:none;">📦 Encomendar selecionados via WhatsApp</a>
+        <a class="btn" id="fav-encomendar-todos" target="_blank" rel="noopener" style="display:none; background:#16a34a; color:#fff;">💬 Finalizar Compra via WhatsApp</a>
       </div>
       <div class="fav-empty" id="fav-empty" style="padding:40px 16px; text-align:center; border:2px dashed var(--border); border-radius:var(--radius-md); color:var(--text-secondary);">
-        <p style="font-size:15px; margin:0 0 8px 0;">Ainda não tens favoritos.</p>
-        <p style="font-size:13px; margin:0;">Carrega no 🤍 no canto superior esquerdo dos produtos que gostas para os guardar aqui.</p>
+        <p style="font-size:15px; margin:0 0 8px 0;">O carrinho está vazio.</p>
+        <p style="font-size:13px; margin:0;">Escolhe um produto, preenche o tamanho e carrega em “Adicionar ao Carrinho”.</p>
       </div>
       <div class="grid" id="grid-favoritos"></div>
     </section>
@@ -1345,22 +1702,22 @@
       <div class="steps">
         <div class="step">
           <div class="step-num">1</div>
-          <h3>Escolhes</h3>
-          <p>Navegas no catálogo e escolhes o que queres.</p>
+          <h3>Escolhes + tamanho</h3>
+          <p>Navegas no catálogo, escolhes o modelo (foto) e preenches o tamanho.</p>
         </div>
         <div class="step">
           <div class="step-num">2</div>
-          <h3>Contactas</h3>
-          <p>Pressionas “Comprar” e envias a tua mensagem pelo WhatsApp.</p>
+          <h3>Adicionas ao carrinho</h3>
+          <p>Pressionas “Adicionar ao Carrinho” e podes adicionar mais artigos.</p>
         </div>
         <div class="step">
           <div class="step-num">3</div>
-          <h3>Recebes</h3>
-          <p>Pagas por MB Way e recebes em 10–15 dias em casa.</p>
+          <h3>Finalizas a compra</h3>
+          <p>Vais ao 🛒 Carrinho e carregas em “Finalizar Compra via WhatsApp”. Pagas por MB Way e recebes em 10–15 dias.</p>
         </div>
       </div>
       <div class="cta-wrap">
-        <a class="btn" id="cta-whatsapp-geral" target="_blank" rel="noopener">Fazer pedido pelo WhatsApp</a>
+        <button class="btn btn-outline" onclick="showTab('destaques', document.querySelector('.tab[onclick^=\\'showTab(\\'destaques\\'\\']))')">Começar a escolher</button>
       </div>
     </section>
 
@@ -1431,6 +1788,104 @@
         if (item !== el) item.classList.remove('open');
       });
       el.classList.toggle('open');
+    }
+
+    // ===== Modal: Adicionado ao Carrinho =====
+    let _addedModalPendingCheckout = false;
+    let _lastAddedSlug = null;
+    function _getImageForProduct(product, fav) {
+      const images = Array.isArray(product && product.images) ? product.images : [];
+      let img = "";
+      const angle = Number(fav && fav.angle) || 1;
+      if (images[angle - 1]) img = images[angle - 1];
+      else if (images[0]) img = images[0];
+      if (!img) {
+        const cat = String(product.category || "");
+        const slug = String(product.slug || "");
+        const imgs = product.images || [];
+        img = Array.isArray(imgs) ? (imgs[0] || "") : "";
+      }
+      return img;
+    }
+    function openAddedModal({ name, size, price, angle, angleTotal, image, hrefWhatsapp, slug }) {
+      const backdrop = document.getElementById("added-modal-backdrop");
+      const list = document.getElementById("added-modal-list");
+      const summary = document.getElementById("added-modal-summary");
+      if (!backdrop || !list) return;
+      _lastAddedSlug = slug || null;
+      const favs = _loadFavMap();
+      const products = window.__MANIFEST__ || [];
+      const slugs = Object.keys(favs).sort((a, b) => {
+        const fa = favs[a] || {};
+        const fb = favs[b] || {};
+        return Number(fb.ts || 0) - Number(fa.ts || 0);
+      });
+      list.innerHTML = "";
+      let totalCount = 0;
+      let totalValidSize = 0;
+      for (const s of slugs) {
+        const prod = findProductBySlug(products, s);
+        const fav = favs[s] || {};
+        if (!prod) continue;
+        totalCount += 1;
+        const szRaw = String(fav.size || "").trim();
+        const isNew = s === _lastAddedSlug;
+        const pImg = _getImageForProduct(prod, fav);
+        const pName = _cleanDisplayName(prod.name) || "Produto";
+        const pPrice = getProductPrice(prod);
+        const pAng = Number(fav.angle || 1);
+        const imgs = Array.isArray(prod.images) ? prod.images.length : 0;
+        const parts = [];
+        if (szRaw) parts.push("Tamanho " + szRaw);
+        if (imgs > 0) parts.push("Modelo " + pAng + "/" + imgs);
+        else parts.push("Modelo " + pAng);
+        if (pPrice) parts.push(pPrice);
+        const row = document.createElement("div");
+        row.className = "added-item" + (isNew ? " new" : "");
+        row.innerHTML =
+          '<div class="added-item-img"><img alt="" src="' + (pImg || "data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==") + '"></div>' +
+          '<div class="added-item-info"><div class="added-item-name"></div><div class="added-item-meta"></div></div>' +
+          (isNew ? '<div class="added-item-new-badge">NOVO</div>' : "");
+        row.querySelector(".added-item-name").textContent = pName;
+        row.querySelector(".added-item-meta").textContent = parts.join(" · ");
+        list.appendChild(row);
+      }
+      if (summary) {
+        const plural = totalCount === 1 ? "artigo" : "artigos";
+        summary.innerHTML = '<div><small>Total no Carrinho</small><div>' + totalCount + " " + plural + '</div></div>';
+      }
+      backdrop.classList.add("open");
+      _addedModalPendingCheckout = true;
+      setTimeout(() => {
+        const prim = document.getElementById("added-btn-checkout");
+        if (prim) prim.focus();
+      }, 80);
+    }
+    function closeAddedModal() {
+      const backdrop = document.getElementById("added-modal-backdrop");
+      if (!backdrop) return;
+      backdrop.classList.remove("open");
+      _addedModalPendingCheckout = false;
+    }
+    function goToCheckout() {
+      closeAddedModal();
+      showTab("favoritos");
+      setTimeout(() => {
+        const favs = _loadFavMap();
+        const entries = Object.entries(favs);
+        if (entries.length === 0) {
+          showToastWarn("🛒 Carrinho vazio. Adiciona um artigo primeiro.");
+          return;
+        }
+        const href = buildMultiFavWhatsAppHref();
+        if (!href) return;
+        if (href && href.startsWith("http")) {
+          window.open(href, "_blank", "noopener");
+          showToastOk("💬 A abrir WhatsApp…");
+        } else if (typeof href === "string") {
+          window.location.href = href;
+        }
+      }, 260);
     }
 
     const SPOTLIGHT_SLUGS = [
@@ -1725,23 +2180,23 @@
       }
       const fabMulti = document.getElementById("fab-multi");
       if (fabMulti) {
-        if (n >= 2) {
-          fabMulti.style.display = "inline-flex";
-          const prevBadge = fabMulti.querySelector(".fab-badge-num");
-          if (prevBadge) prevBadge.remove();
+        fabMulti.style.display = "inline-flex";
+        const prevBadge = fabMulti.querySelector(".fab-badge-num");
+        if (prevBadge) prevBadge.remove();
+        if (n >= 1) {
           const b = document.createElement("span");
           b.className = "fab-badge-num";
           b.textContent = String(n);
           fabMulti.appendChild(b);
-        } else {
-          fabMulti.style.display = "none";
-          const prevBadge = fabMulti.querySelector(".fab-badge-num");
-          if (prevBadge) prevBadge.remove();
         }
       }
       const btnEncTodos = document.getElementById("fav-encomendar-todos");
       if (btnEncTodos) {
         btnEncTodos.style.display = n >= 1 ? "inline-flex" : "none";
+        if (n >= 1) {
+          if (n === 1) btnEncTodos.textContent = "💬 Finalizar Compra (1 artigo) via WhatsApp";
+          else btnEncTodos.textContent = `💬 Finalizar Compra (${n} artigos) via WhatsApp`;
+        }
       }
       return n;
     }
@@ -1761,11 +2216,6 @@
           if (firstCard.dataset.size) sizeFound = String(firstCard.dataset.size || "").trim();
           const a = Number(firstCard.dataset.angle || 0);
           if (isFinite(a) && a >= 0) angleFound = Math.floor(a) + 1;
-        }
-        if (!sizeFound) {
-          showToastWarn("💡 Dica: preenche o tamanho agora (ex: 42) para encomendar mais rápido depois!");
-        } else {
-          showToastOK(`✅ Adicionado aos favoritos (tamanho ${sizeFound}, modelo ${angleFound})`);
         }
         FAVS_MAP[s] = { size: sizeFound, angle: _favsNormAngle(angleFound), ts: Date.now() };
         _saveFavMap(FAVS_MAP);
@@ -1794,14 +2244,6 @@
           const cur = Number(cardEl.dataset.angle || 0);
           if (isFinite(favAngle) && favAngle >= 1 && (Math.floor(cur) + 1) !== favAngle) {
             setCardAngle(cardEl, favAngle - 1);
-          } else {
-            const buy = cardEl.querySelector(".buy-btn");
-            if (buy) {
-              const name = _cleanDisplayName(cardEl.dataset.name) || "Produto";
-              const price = String(cardEl.dataset.price || PRODUCT_PRICE);
-              const n = Math.floor(cur) + 1;
-              buy.href = buildWhatsAppHref(name, price, n, favSize);
-            }
           }
         }
       });
@@ -1878,14 +2320,25 @@
           }
           if (angleFromMap && angleFromMap > 1) {
             setCardAngle(card, angleFromMap - 1);
-          } else {
-            const buy = card.querySelector(".buy-btn");
-            if (buy) {
-              const name = _cleanDisplayName(card.dataset.name || prod.name) || "Produto";
-              const price = String(card.dataset.price || PRODUCT_PRICE);
-              buy.href = buildWhatsAppHref(name, price, 1, sizeFromMap || "");
-            }
           }
+
+          // ==== Estamos no CARRINHO: botão passa a "Remover" ====
+          const buy = card.querySelector(".buy-btn");
+          if (buy) {
+            buy.textContent = "🗑️ Remover do Carrinho";
+            buy.style.background = "#dc2626";
+            buy.onclick = null;
+            buy.addEventListener("click", (e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              toggleFav(prod.slug);
+              showToastOK("🗑️ Removido do carrinho");
+            });
+          }
+
+          // Bloquear re-edição do coração para não confundir: o mesmo botão remove
+          const favC = card.querySelector(".card-fav");
+          if (favC) { favC.style.display = "none"; }
         }
         appendCardSafe(grid, card, picked, prod.slug);
       });
@@ -2019,12 +2472,7 @@
       });
       const countLabel = card.querySelector(".card-angle-count");
       if (countLabel) countLabel.textContent = `${next + 1}/${count}`;
-      const name = String(card.dataset.name || "");
-      const price = String(card.dataset.price || PRODUCT_PRICE);
-      const sz = String(card.dataset.size || "").trim();
-      const buy = card.querySelector(".buy-btn");
       const itemN = next + 1;
-      if (buy && name) buy.href = buildWhatsAppHref(name, price, itemN, sz);
       const slug = String(card.dataset.slug || "").trim();
       if (slug && isFav(slug)) {
         _favsSetAngle(slug, itemN);
@@ -2144,22 +2592,57 @@
         openLightbox({ images, startIndex: idx, cardRef: card });
       });
 
-      // ===== Cantos: Coração Favorito (esq) + Partilhar (dir) =====
+      // ===== Cantos: Coração Carrinho (esq) + Partilhar (dir) =====
       if (slug) {
         const fav = document.createElement("button");
         fav.type = "button";
         fav.className = "card-corner card-fav" + (isFav(slug) ? " active" : "");
-        fav.title = "Guardar em favoritos";
-        fav.setAttribute("aria-label", "Guardar em favoritos");
+        fav.title = "Adicionar ao Carrinho";
+        fav.setAttribute("aria-label", "Adicionar ao Carrinho");
         const sp = document.createElement("span");
-        sp.className = "hollow"; sp.textContent = "🤍";
+        sp.className = "hollow"; sp.textContent = "🛒";
         const sf = document.createElement("span");
-        sf.className = "filled"; sf.textContent = "❤️";
+        sf.className = "filled"; sf.textContent = "✅";
         fav.appendChild(sp); fav.appendChild(sf);
         fav.addEventListener("click", (e) => {
           e.preventDefault();
           e.stopPropagation();
+          if (isFav(slug)) {
+            toggleFav(slug);
+            showToastOK("🗑️ Removido do carrinho");
+            return;
+          }
+          // Valida tamanho obrigatório (mesmo que por atalho carrinho)
+          if (hasSizeField) {
+            const inp = card.querySelector(".card-size-input");
+            const sz = String(card.dataset.size || "").trim();
+            if (!sz) {
+              if (inp) {
+                inp.classList.remove("error");
+                void inp.offsetWidth;
+                inp.classList.add("error");
+                try { inp.focus(); } catch (_) {}
+              }
+              showToastWarn("⚠️ Preenche o tamanho antes de adicionar");
+              return;
+            }
+          }
           toggleFav(slug);
+          const sz = String(card.dataset.size || "").trim();
+          const ang = Math.floor(Number(card.dataset.angle || 0)) + 1;
+          const images = JSON.parse(card.dataset.images || "[]");
+          const image = Array.isArray(images) && images[ang - 1] ? images[ang - 1] : (images && images[0] || "");
+          const h = buildWhatsAppHref({ slug, size: sz, angle: ang, count: images.length || 0 });
+          openAddedModal({
+            name,
+            size: sz,
+            price: priceVal,
+            angle: ang,
+            angleTotal: images.length || 0,
+            image,
+            hrefWhatsapp: h || "",
+            slug,
+          });
         });
         card.appendChild(fav);
 
@@ -2221,55 +2704,89 @@
       row.appendChild(price);
       if (tagText) row.appendChild(tag);
 
-      // ===== TAMANHOS (input TEXT simples, opcional - opção D) =====
+      // ===== TAMANHOS (input TEXT simples, OBRIGATÓRIO) =====
       let sizesWrap = null;
+      let hasSizeField = false;
       const sizeCtx = getSizesForProduct(product);
       if (sizeCtx && Array.isArray(sizeCtx.sizes) && sizeCtx.sizes.length) {
+        hasSizeField = true;
         sizesWrap = document.createElement("div");
         sizesWrap.className = "card-size";
 
         const lab = document.createElement("label");
         lab.className = "card-size-label";
-        lab.textContent = (sizeCtx.label || "Tamanho") + " (opcional)";
+        lab.textContent = (sizeCtx.label || "Tamanho") + " *";
         sizesWrap.appendChild(lab);
 
         const input = document.createElement("input");
         input.type = "text";
         input.className = "card-size-input";
-        input.placeholder = "Ex.: 42 ou M";
+        input.placeholder = "Ex.: 42 ou M (obrigatório)";
         input.autocomplete = "off";
         input.maxLength = 12;
         input.addEventListener("input", (e) => {
           const val = String(e.target && e.target.value || "").trim();
           card.dataset.size = val;
-          if (val) card.setAttribute("data-size-filled", "1");
-          else card.removeAttribute("data-size-filled");
-          if (slug && isFav(slug)) _favsSetSize(slug, val);
-          const buy = card.querySelector(".buy-btn");
-          if (buy) {
-            const n = Math.floor(Number(card.dataset.angle || 0)) + 1;
-            buy.href = buildWhatsAppHref(name, priceVal, n, val || "");
+          if (val) {
+            card.setAttribute("data-size-filled", "1");
+            input.classList.remove("error");
+          } else {
+            card.removeAttribute("data-size-filled");
           }
+          if (slug && isFav(slug)) _favsSetSize(slug, val);
           _refreshMultiFavHref();
         });
         input.addEventListener("click", (e) => e.stopPropagation());
         sizesWrap.appendChild(input);
       }
 
-      // ===== BOTÃO COMPRAR: SEMPRE WhatsApp (segredo total) =====
-      const buy = document.createElement("a");
+      // ===== BOTÃO: ADICIONAR AO CARRINHO (válida tamanho + modelo) =====
+      const buy = document.createElement("button");
+      buy.type = "button";
       buy.className = "buy-btn";
-      buy.target = "_blank";
-      buy.rel = "noopener noreferrer";
-      buy.dataset.buyMode = "whatsapp";
-      buy.textContent = "Comprar";
-      {
-        const n0 = Math.floor(Number(card.dataset.angle || 0));
-        buy.href = buildWhatsAppHref(name, priceVal, n0 + 1, "");
-      }
+      buy.dataset.buyMode = "cart";
+      buy.textContent = "🛒 Adicionar ao Carrinho";
       buy.addEventListener("click", (e) => {
+        e.preventDefault();
         e.stopPropagation();
-        // Não bloqueia mais (opção D): se estiver vazio, texto vai "(a preencher)"
+
+        if (hasSizeField) {
+          const inp = card.querySelector(".card-size-input");
+          const sz = String(card.dataset.size || "").trim();
+          if (!sz) {
+            if (inp) {
+              inp.classList.remove("error");
+              void inp.offsetWidth;
+              inp.classList.add("error");
+              try { inp.focus(); } catch (_) {}
+            }
+            showToastWarn("⚠️ Preenche o tamanho antes de adicionar ao carrinho");
+            return;
+          }
+        }
+
+        if (!isFav(slug)) {
+          toggleFav(slug);
+          const sz = String(card.dataset.size || "").trim();
+          const ang = Math.floor(Number(card.dataset.angle || 0)) + 1;
+          const images = JSON.parse(card.dataset.images || "[]");
+          const image = Array.isArray(images) && images[ang - 1] ? images[ang - 1] : (images && images[0] || "");
+          const h = buildWhatsAppHref({ slug, size: sz, angle: ang, count: images.length || 0 });
+          openAddedModal({
+            name,
+            size: sz,
+            price: priceVal,
+            angle: ang,
+            angleTotal: images.length || 0,
+            image,
+            hrefWhatsapp: h || "",
+            slug,
+          });
+        } else {
+          const cartTab = document.querySelector('.tab[onclick^="showTab(\'favoritos\'"]');
+          if (cartTab) showTab("favoritos", cartTab);
+          showToastWarn("ℹ️ Já está no carrinho");
+        }
       });
 
       card.appendChild(imgWrap);
@@ -2834,21 +3351,30 @@
     }
 
     function initFabLinks() {
-      // WhatsApp geral (mensagem generica)
+      // WhatsApp geral (mensagem genérica)
       const wpp = document.getElementById("fab-whatsapp");
       if (wpp) {
         const texto = encodeURIComponent(`Olá! Queria fazer um pedido. Site: ${window.location.href}`);
         wpp.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${texto}`;
       }
-      const tg = document.querySelector(".fab-telegram");
-      if (tg) tg.href = TELEGRAM_URL;
-      // v3 WhatsApp Business "Stock?" pergunta prefeita:
-      const stock = document.getElementById("fab-stock");
-      if (stock) {
-        const hash = String(window.location.hash || "").replace(/^#/, "").trim();
-        let extra = hash ? `\n(Link do produto: ${window.location.origin}${window.location.pathname}#${hash})` : "";
-        const texto = encodeURIComponent(`Olá! Queria saber se este modelo está disponível e qual o prazo de envio atual?${extra}\n\nObrigado!`);
-        stock.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${texto}`;
+      const cartFab = document.getElementById("fab-multi");
+      if (cartFab) {
+        cartFab.addEventListener("click", (e) => {
+          const favs = _loadFavMap();
+          const tem = Object.keys(favs).length > 0;
+          if (tem) {
+            // Se tem artigos: abre a aba do carrinho (onde está o botão para finalizar via WPP)
+            e.preventDefault();
+            const cartTab = document.querySelector('.tab[onclick^="showTab(\'favoritos\'"]');
+            if (cartTab) showTab("favoritos", cartTab);
+            else showTab("favoritos");
+            try { window.scrollTo({ top: 0, behavior: "smooth" }); } catch (_) {}
+          } else {
+            // Se vazio: avisa (não redireciona WPP)
+            e.preventDefault();
+            showToastWarn("🛒 Carrinho vazio. Adiciona um produto primeiro.");
+          }
+        });
       }
     }
 
@@ -3015,6 +3541,25 @@
     });
   </script>
 
+  <!-- Modal: Adicionado ao Carrinho (2 opções) -->
+  <div class="added-modal-backdrop" id="added-modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="added-modal-title" onclick="if(event.target===this) closeAddedModal()">
+    <div class="added-modal">
+      <div class="added-modal-head">
+        <div class="added-check" aria-hidden="true">✓</div>
+        <div>
+          <div id="added-modal-title" class="added-title">Adicionado ao Carrinho!</div>
+          <div class="added-sub" id="added-modal-sub">Verifica os teus artigos antes de finalizar.</div>
+        </div>
+      </div>
+      <div class="added-list" id="added-modal-list"></div>
+      <div class="added-summary" id="added-modal-summary"></div>
+      <div class="added-btns">
+        <button type="button" class="added-btn added-btn-primary" id="added-btn-checkout" onclick="goToCheckout()">💬 Finalizar Compra</button>
+        <button type="button" class="added-btn added-btn-secondary" id="added-btn-continue" onclick="closeAddedModal()">🛍️ Continuar Comprando</button>
+      </div>
+    </div>
+  </div>
+
   <!-- Lightbox Modal -->
   <div class="lightbox-modal" id="lightbox-modal" role="dialog" aria-modal="true" aria-label="Galeria de imagens">
     <button type="button" class="lightbox-close" aria-label="Fechar" onclick="closeLightbox()">×</button>
@@ -3041,25 +3586,17 @@
     </div>
   </div>
 
-  <!-- FAB flutuante WhatsApp + Telegram (canto inferior direito) -->
-  <div class="fab-wrap" aria-label="Atalhos rápidos">
-    <a class="fab fab-stock" id="fab-stock" href="#" target="_blank" rel="noopener" title="Perguntar se um produto está disponível / Stock" aria-label="Perguntar disponibilidade / Stock">
+  <!-- FABs flutuantes (Carrinho + WhatsApp) -->
+  <div class="fab-wrap" aria-label="Atalhos">
+    <a id="fab-multi" class="fab fab-cart" href="#" title="Abrir Carrinho" aria-label="Carrinho" data-fab-role="multi">
       <svg viewBox="0 0 24 24" width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <path fill="#fff" fill-rule="evenodd" d="M12 2.25a9.75 9.75 0 100 19.5 9.75 9.75 0 000-19.5zM3.75 12a8.25 8.25 0 1116.5 0 8.25 8.25 0 01-16.5 0zm8.25-3.75a.75.75 0 01.75.75v1.81l1.13.61a.75.75 0 01-.76 1.3l-1.56-.84a.75.75 0 01-.56-.72V9a.75.75 0 01.75-.75zM12 18a1.125 1.125 0 100-2.25A1.125 1.125 0 0012 18z" clip-rule="evenodd"/>
+        <path fill="#fff" d="M7.5 20.5a1.75 1.75 0 100-3.5 1.75 1.75 0 000 3.5zm8.25 0a1.75 1.75 0 100-3.5 1.75 1.75 0 000 3.5zM3 4.75A.75.75 0 013.75 4h2.858l.267 1.44c.108.584.597 1.055 1.257 1.055h10.09c.71 0 1.334-.47 1.52-1.155L20.337 3H21.75a.75.75 0 010 1.5h-1.873l-1.213 4.362a1.748 1.748 0 01-1.694 1.288h-.36l1.183 6.184a.75.75 0 11-1.474.282L15.12 10h-7.152L7.1 16.62a.75.75 0 11-1.474-.282l1.29-6.756H3.75A.75.75 0 013 8.838V4.75z"/>
       </svg>
-    </a>
-    <a id="fab-multi" class="fab fab-multi" href="#" target="_blank" rel="noopener" title="Encomendar os teus favoritos" data-fab-role="multi">
-      <span id="fab-multi-label" aria-hidden="true" style="font-size:22px;">📦</span>
     </a>
     <a class="fab fab-whatsapp" id="fab-whatsapp" href="#" target="_blank" rel="noopener" title="WhatsApp Smart Things PT" aria-label="WhatsApp Smart Things PT">
-      <svg viewBox="0 0 32 32" width="26" height="26" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <svg viewBox="0 0 32 32" width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <path fill="#fff" d="M19.11 17.205c-.372 0-1.088 1.39-1.518 1.39a.63.63 0 00-.315-.082c-.185 0-.577-.178-1.1-.609-2.235-1.834-3.7-4.109-4.244-5.544-.27-.71-.043-1.1.172-1.458a.72.72 0 01.583-.372c.092 0 .184.016.268.044.103.037.257.087.432.256.32.32.51.77.578 1.205.07.435.022.924-.14 1.454a4.5 4.5 0 01-.285.724c-.415 1.037 1.188 2.406 2.333 3.363.897.742 1.978 1.32 2.667 1.69.99.53 1.284.566 1.762.478.298-.053.804-.275 1.115-.592a.955.955 0 00.21-1.01c-.132-.312-.352-.352-.557-.433-.247-.1-1.014-.35-1.466-.495z"/>
         <path fill="#fff" fill-rule="evenodd" d="M16.003 3.5C9.102 3.5 3.5 9.102 3.5 16.003c0 2.242.588 4.33 1.613 6.13L3.5 28.5l6.503-1.612a12.45 12.45 0 006.002 1.544c6.9 0 12.502-5.6 12.502-12.5C28.505 9.102 22.904 3.5 16.003 3.5zm-9.505 18.466l-2.4 1.275 1.28-2.397a10.46 10.46 0 01-1.03-5.34C4.35 10.22 9.72 4.85 16.003 4.85c6.28 0 11.652 5.37 11.652 12.003 0 6.28-5.372 11.652-11.652 11.652a10.44 10.44 0 01-5.322-1.433l-.872-.517-2.482-.589z" clip-rule="evenodd"/>
-      </svg>
-    </a>
-    <a class="fab fab-telegram" href="#" target="_blank" rel="noopener" title="Canal Telegram" aria-label="Canal Telegram">
-      <svg viewBox="0 0 24 24" width="26" height="26" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <path fill="#fff" d="M21.503 3.035L2.944 10.31c-1.33.513-1.335 1.284-.244 1.625l5.195 1.607L10.6 20.038c.165.718.537.9.983.573l2.72-2.438 3.92 2.858c.71.411 1.223.193 1.414-.655l2.818-16.55c.293-1.317-.484-1.83-1.452-1.391zM8.57 13.186L18.17 6.96c.488-.33.927-.153.57.165l-11.252 9.94-.592-2.32c-.102-.427-.105-.43.28-.642 0 0 3.33-2.93 3.6-3.196.31-.325.128-.473-.335-.22L8.57 13.186z"/>
       </svg>
     </a>
   </div>
