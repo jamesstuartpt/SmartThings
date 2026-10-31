@@ -57,11 +57,17 @@
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
+    /* ✅ CORRIGIDO: scroll vertical suave + sem overflow-x */
     html {
       -webkit-text-size-adjust: 100%;
       text-size-adjust: 100%;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      width: 100%;
+      max-width: 100%;
     }
 
+    /* ✅ CORRIGIDO: body com scroll vertical explícito, sem corte */
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       font-weight: 400;
@@ -71,8 +77,12 @@
       background: var(--bg);
       -webkit-font-smoothing: antialiased;
       -webkit-tap-highlight-color: transparent;
+      width: 100%;
+      max-width: 100%;
       overflow-x: hidden;
-      padding-bottom: 190px;
+      overflow-y: auto;
+      min-height: 100vh;
+      padding-bottom: calc(108px + env(safe-area-inset-bottom, 0px));
     }
 
     input, button, select, textarea {
@@ -81,23 +91,27 @@
 
     a { color: inherit; text-decoration: none; -webkit-touch-callout: none; }
 
+    /* ✅ CORRIGIDO: container sempre 100% em mobile, nunca largura fixa */
     .container {
-      max-width: 1120px;
+      max-width: 1240px;
       margin: 0 auto;
-      padding: 0 16px;
+      padding: 0 24px;
       width: 100%;
       box-sizing: border-box;
     }
+    @media (max-width: 960px) {
+      .container { padding: 0 20px; }
+    }
     @media (max-width: 700px) {
       .container {
-        max-width: 520px;
+        max-width: 100%;
         padding: 0 14px;
       }
     }
     @media (max-width: 420px) {
       .container {
         max-width: 100%;
-        padding: 0 12px;
+        padding: 0 10px;
       }
     }
 
@@ -227,46 +241,50 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* Product Grid */
+    /* ✅ CORRIGIDO: Grid estilo Nike — lado a lado, sem corte, scroll vertical */
     .grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 24px 20px;
+      width: 100%;
     }
-    @media (max-width: 960px) {
-      .grid {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 12px;
-      }
+    @media (min-width: 1024px) {
+      .grid { grid-template-columns: repeat(4, 1fr); }
     }
-    @media (max-width: 700px) {
-      .grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
-      }
+    @media (min-width: 768px) and (max-width: 1023px) {
+      .grid { grid-template-columns: repeat(3, 1fr); gap: 20px 16px; }
     }
+    @media (max-width: 767px) {
+      .grid { grid-template-columns: repeat(2, 1fr); gap: 16px 12px; }
+    }
+    @media (max-width: 380px) {
+      .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 8px; }
+    }
+
+    /* ✅ CORRIGIDO: card blindado contra corte */
     .card {
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      padding: 12px;
-      background: var(--bg);
-      transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
+      border: none;
+      border-radius: 0;
+      padding: 0;
+      background: transparent;
+      transition: transform var(--transition);
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 8px;
+      position: relative;
+      min-width: 0;
+      max-width: 100%;
+      overflow: visible;
     }
-    .card:hover {
-      border-color: var(--text-primary);
-      transform: translateY(-2px);
-      box-shadow: var(--shadow);
-    }
+    .card:hover { transform: translateY(-2px); }
+    .card:active { transform: translateY(0); }
     .card-img {
       width: 100%;
-      aspect-ratio: 1;
+      aspect-ratio: 4 / 5;
       background: var(--bg-muted);
-      border-radius: var(--radius-sm);
+      border-radius: 4px;
       position: relative;
-      margin-bottom: 2px;
+      margin-bottom: 0;
       overflow: hidden;
       cursor: pointer;
       flex-shrink: 0;
@@ -278,6 +296,7 @@
       display: block;
       user-select: none;
       -webkit-user-drag: none;
+      max-width: 100%;
     }
     .card-angles {
       width: 100%;
@@ -287,6 +306,7 @@
       padding: 2px 2px 0;
       align-items: center;
       justify-content: center;
+      max-width: 100%;
     }
     .card-angle-dot {
       width: 30px;
@@ -338,31 +358,40 @@
       .card-angle-count { font-size: 10px; }
     }
     .card-name {
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 500;
       margin: 0;
-      white-space: nowrap;
+      line-height: 1.35;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
       overflow: hidden;
       text-overflow: ellipsis;
+      max-height: calc(13px * 1.35 * 2 + 2px);
+      min-height: calc(13px * 1.35 * 2 + 2px);
+      max-width: 100%;
     }
     .card-row {
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 10px;
-      margin-top: 2px;
+      margin-top: 0;
+      max-width: 100%;
     }
     .card-price {
-      font-size: 16px;
-      font-weight: 500;
+      font-size: 15px;
+      font-weight: 700;
       margin: 0;
       color: var(--text-primary);
+      letter-spacing: 0.01em;
     }
     .card-price-consult {
-      font-size: 13px;
-      font-weight: 500;
+      font-size: 12px;
+      font-weight: 600;
       color: var(--accent);
-      letter-spacing: 0.01em;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
     }
     .card-tag {
       display: inline-block;
@@ -425,6 +454,8 @@
       font-family: inherit;
       outline: none;
       transition: border-color 0.15s ease, box-shadow 0.15s ease;
+      width: 100%;
+      max-width: 100%;
     }
     .card-size-input::placeholder {
       color: var(--text-tertiary);
@@ -464,52 +495,109 @@
       opacity: 1;
     }
 
-    /* ===== (2) FABs flutuantes (Carrinho + WhatsApp) ===== */
+    /* ===== (2) FABs flutuantes (Carrinho + WhatsApp) → Bottom Dock (Nike-style) ===== */
     .fab-wrap {
       position: fixed;
-      right: 16px;
-      bottom: 18px;
-      z-index: 50;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 60;
       display: flex;
-      flex-direction: column;
+      flex-direction: row-reverse;
+      align-items: center;
+      justify-content: space-between;
       gap: 10px;
+      padding: 12px 16px calc(12px + env(safe-area-inset-bottom, 0px)) 16px;
+      background: rgba(255,255,255,0.88);
+      -webkit-backdrop-filter: saturate(180%) blur(16px);
+      backdrop-filter: saturate(180%) blur(16px);
+      border-top: 0.5px solid var(--border);
+      box-shadow: 0 -4px 24px rgba(0,0,0,0.04);
+    }
+    @media (prefers-color-scheme: dark) {
+      .fab-wrap {
+        background: rgba(17,17,17,0.9);
+        border-top: 0.5px solid rgba(255,255,255,0.08);
+      }
     }
     @media (min-width: 700px) {
       .fab-wrap {
+        left: auto;
         right: 24px;
         bottom: 24px;
+        width: auto;
+        padding: 12px;
+        flex-direction: column;
+        justify-content: flex-start;
         gap: 12px;
+        background: transparent;
+        -webkit-backdrop-filter: none;
+        backdrop-filter: none;
+        border-top: none;
+        box-shadow: none;
       }
     }
     .fab {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 56px;
-      height: 56px;
+      flex: 1 1 0;
+      width: 100%;
+      min-height: 54px;
       border-radius: 999px;
       text-decoration: none;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.22);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.12);
       transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
       -webkit-tap-highlight-color: transparent;
       touch-action: manipulation;
       cursor: pointer;
       border: none;
+      font-size: 14px;
+      font-weight: 600;
+      gap: 8px;
+      padding: 0 18px;
     }
-    .fab:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(0,0,0,0.28); }
-    .fab:active { transform: scale(0.94); }
+    .fab svg { flex-shrink: 0; }
+    .fab:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(0,0,0,0.18); }
+    .fab:active { transform: scale(0.98); }
+    @media (min-width: 700px) {
+      .fab {
+        width: 56px;
+        min-width: 56px;
+        min-height: 56px;
+        padding: 0;
+        flex: 0 0 56px;
+        border-radius: 999px;
+        font-size: 0;
+      }
+      .fab svg { display: inline-block; }
+    }
     .fab-cart {
-      background: #0f766e; /* teal 700 — carrinho */
+      background: #0f766e;
       color: #fff;
       position: relative;
     }
     .fab-cart:hover { background: #0d6960; }
-    .fab-whatsapp { background: #10b981; /* verde WhatsApp limpo */ color: #fff; }
+    .fab-cart-text,
+    .fab-whatsapp-text {
+      display: inline-block;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-size: 15px;
+      line-height: 1;
+      letter-spacing: 0.01em;
+    }
+    .fab-cart-text::before { content: "Carrinho"; }
+    @media (min-width: 700px) { .fab-cart-text::before { content: ""; } }
+    .fab-whatsapp { background: #10b981; color: #fff; }
     .fab-whatsapp:hover { background: #059669; }
+    .fab-whatsapp-text::before { content: "WhatsApp"; }
+    @media (min-width: 700px) { .fab-whatsapp-text::before { content: ""; } }
     .fab-cart .fab-badge-num {
       position: absolute;
       top: -4px;
-      right: -4px;
+      right: calc(50% - 34px);
       background: #ef4444;
       color: #fff;
       min-width: 22px;
@@ -523,11 +611,11 @@
       justify-content: center;
       box-shadow: 0 2px 6px rgba(0,0,0,0.2);
     }
+    @media (min-width: 700px) {
+      .fab-cart .fab-badge-num { right: -4px; top: -4px; }
+    }
 
     /* ===== (3) Coração + Partilha cantos do card ===== */
-    .card {
-      position: relative;
-    }
     .card-corner {
       position: absolute;
       top: 8px;
@@ -569,7 +657,17 @@
       }
       .card-fav { left: 10px; }
       .card-share { right: 10px; }
-      .fab { width: 56px; height: 56px; font-size: 26px; }
+      .fab {
+        width: 100%;
+        min-height: 56px;
+        height: auto;
+        font-size: 14px;
+        padding: 0 14px;
+        gap: 6px;
+      }
+      .fab-wrap { gap: 8px; padding-left: 12px; padding-right: 12px; }
+      .fab-cart-text,
+      .fab-whatsapp-text { font-size: 14px; }
     }
 
     /* ===== (5) Badge Favoritos contador ===== */
@@ -1023,9 +1121,9 @@
     /* Responsive */
     @media (max-width: 600px) {
       .container { padding: 0 12px; max-width: 100%; }
-      .grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
-      .card { padding: 10px; gap: 8px; border-radius: var(--radius-sm); }
-      .card-name { font-size: 13px; }
+      .grid { grid-template-columns: repeat(2, 1fr); gap: 14px 10px; }
+      .card { gap: 8px; }
+      .card-name { font-size: 12.5px; }
       .card-price { font-size: 14px; }
       .card-tag { font-size: 10px; padding: 2px 6px; }
       .card-angle-dot { width: 24px; height: 24px; }
@@ -1066,21 +1164,21 @@
       .footer { padding: 28px 0 20px; font-size: 12px; }
 
       .search-empty { padding: 22px 14px; font-size: 13px; }
-
-      .fab-wrap { right: 12px; bottom: 16px; gap: 8px; }
-      .fab { width: 52px; height: 52px; }
     }
 
     @media (max-width: 380px) {
       .container { padding: 0 10px; }
-      .grid { gap: 7px; }
-      .card { padding: 8px; gap: 7px; }
+      .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 6px; }
+      .card { gap: 6px; }
       .header h1 { font-size: 17px; }
       .header p { font-size: 11px; }
       .tab { padding: 9px 11px; font-size: 12px; }
       .buy-btn { padding: 11px 10px; font-size: 13px; min-height: 42px; gap: 6px; }
       .card-price { font-size: 13px; }
       .card-name { font-size: 12px; }
+      .fab { min-height: 50px; font-size: 13px; padding: 0 12px; }
+      .fab-cart-text,
+      .fab-whatsapp-text { font-size: 13px; }
     }
 
     /* Search */
@@ -1364,7 +1462,7 @@
     .card-share { right: 6px; }
 
     @media (max-width: 380px) {
-      .card { padding: 7px; gap: 6px; border-radius: 8px; }
+      .card { padding: 0; gap: 6px; border-radius: 0; }
       .card-img { border-radius: 6px; }
       .card-name { font-size: 11.5px; min-height: 30px; }
       .card-price { font-size: 13px; }
@@ -1410,22 +1508,33 @@
       .added-modal { max-width: 520px; }
     }
     @media (max-width: 700px) {
-      .added-modal-backdrop { padding: 10px; }
+      .added-modal-backdrop { padding: 6px 6px 0 6px; }
       .added-modal {
-        padding: 16px 14px 14px;
-        gap: 12px;
+        padding: 14px 12px 12px;
+        gap: 10px;
         border-radius: 14px;
-        max-height: calc(100vh - 20px);
+        max-height: calc(100vh - 6px);
+        overflow-y: auto;
       }
-      .added-list { max-height: min(58vh, 440px); }
+      .added-modal-head { gap: 10px; }
+      .added-check { width: 38px; height: 38px; font-size: 18px; }
+      .added-title { font-size: 13.5px; line-height: 1.25; }
+      .added-sub { font-size: 11.5px; margin-top: 1px; }
+      .added-list {
+        max-height: none;
+        min-height: 160px;
+        flex: 0 0 auto;
+        overflow-y: visible;
+      }
       .added-item { padding: 9px; gap: 9px; }
-      .added-item-img { width: 48px; height: 48px; }
-      .added-title { font-size: 14px; }
-      .added-sub { font-size: 12px; }
-      .added-check { width: 40px; height: 40px; font-size: 20px; }
-    }
-    @media (max-width: 420px) {
-      body { padding-bottom: 170px; }
+      .added-item-img { width: 46px; height: 46px; }
+      .added-item-name { font-size: 12.5px; }
+      .added-item-meta { margin-top: 2px; font-size: 11.5px; }
+      .added-item-new-badge { padding: 1.5px 6px; font-size: 9.5px; margin-top: 2px; }
+      .added-summary { padding: 8px 10px; font-size: 12.5px; }
+      .added-summary small { font-size: 11.5px; }
+      .added-btns { gap: 6px; }
+      .added-btn { min-height: 42px; font-size: 13px; padding: 10px 12px; border-radius: 9px; }
     }
     @keyframes addedPop {
       from { opacity: 0; transform: translateY(10px) scale(0.96); }
@@ -1466,7 +1575,10 @@
       gap: 8px;
       overflow-y: auto;
       padding-right: 2px;
-      max-height: min(46vh, 360px);
+      max-height: min(52vh, 380px);
+      min-height: 200px;
+      flex: 1 1 auto;
+      min-height: 0;
     }
     .added-list::-webkit-scrollbar { width: 6px; }
     .added-list::-webkit-scrollbar-thumb {
@@ -1711,7 +1823,7 @@
       </div>
       <div class="fav-empty" id="fav-empty" style="padding:40px 16px; text-align:center; border:2px dashed var(--border); border-radius:var(--radius-md); color:var(--text-secondary);">
         <p style="font-size:15px; margin:0 0 8px 0;">O carrinho está vazio.</p>
-        <p style="font-size:13px; margin:0;">Escolhe um produto, preenche o tamanho e carrega em “Adicionar ao Carrinho”.</p>
+        <p style="font-size:13px; margin:0;">Escolhe um produto, preenche o tamanho e carrega em "Adicionar ao Carrinho".</p>
       </div>
       <div class="grid" id="grid-favoritos"></div>
     </section>
@@ -1727,12 +1839,12 @@
         <div class="step">
           <div class="step-num">2</div>
           <h3>Adicionas ao carrinho</h3>
-          <p>Pressionas “Adicionar ao Carrinho” e podes adicionar mais artigos.</p>
+          <p>Pressionas "Adicionar ao Carrinho" e podes adicionar mais artigos.</p>
         </div>
         <div class="step">
           <div class="step-num">3</div>
           <h3>Finalizas a compra</h3>
-          <p>Vais ao 🛒 Carrinho e carregas em “Finalizar Compra via WhatsApp”. Pagas por MB Way e recebes em 10–15 dias.</p>
+          <p>Vais ao 🛒 Carrinho e carregas em "Finalizar Compra via WhatsApp". Pagas por MB Way e recebes em 10–15 dias.</p>
         </div>
       </div>
       <div class="cta-wrap">
@@ -2133,7 +2245,6 @@
         if (typeof obj !== "object" || Array.isArray(obj) || obj == null) {
           return _migrateOldFavsIfNeeded();
         }
-        // Garantir formato { slug: { size: string, angle: number(1-based), ts: number } }
         const out = _migrateOldFavsIfNeeded();
         Object.keys(obj).forEach(k => {
           const v = obj[k];
@@ -2194,7 +2305,6 @@
         if (!k) return;
         const a = _favsNormAngle(angle);
         const prev = FAVS_MAP[k] || { size: "", angle: 1, ts: Date.now() };
-        // Se o angle for o mesmo, não faz write para não sobrecarregar
         if (FAVS_MAP[k] && FAVS_MAP[k].angle === a) return;
         FAVS_MAP[k] = {
           size: typeof prev.size === "string" ? prev.size : "",
@@ -2294,7 +2404,6 @@
       return agoraTem;
     }
 
-    // Variações do toast (OK verde, WARN amarelo) compartilham o elemento
     function showToastOK(text) { _showToastBase(text, "bg-ok"); }
     function showToastWarn(text) { _showToastBase(text, "bg-warn"); }
     function _showToastBase(text, cls) {
@@ -2360,7 +2469,6 @@
             setCardAngle(card, angleFromMap - 1);
           }
 
-          // ==== Estamos no CARRINHO: botão passa a "Remover" ====
           const buy = card.querySelector(".buy-btn");
           if (buy) {
             buy.textContent = "🗑️ Remover do Carrinho";
@@ -2374,7 +2482,6 @@
             });
           }
 
-          // Bloquear re-edição do coração para não confundir: o mesmo botão remove
           const favC = card.querySelector(".card-fav");
           if (favC) { favC.style.display = "none"; }
         }
@@ -2424,7 +2531,6 @@
       }
     }
 
-    // ===== PARTILHAR produto ↗️ =====
     function _showToast(text) {
       let t = document.getElementById("toast-share");
       if (!t) {
@@ -2445,14 +2551,12 @@
       const base = String(window.location.origin || "") + String(window.location.pathname || "");
       const link = slug ? `${base}#${slug}` : String(window.location.href);
       const text = `Vê este produto na Smart Things PT: ${name}\n${link}`;
-      // Tentar API Web Share (mobile nativo)
       if (navigator && typeof navigator.share === "function") {
         try {
           navigator.share({ title: name, text, url: link }).catch(() => _copyLinkFallback(link));
           return;
-        } catch (_) { /* fallback */ }
+        } catch (_) { }
       }
-      // Fallback: copiar + abrir WhatsApp "partilhar" com um amigo
       _copyLinkFallback(link);
     }
     function _copyLinkFallback(link) {
@@ -2630,7 +2734,6 @@
         openLightbox({ images, startIndex: idx, cardRef: card });
       });
 
-      // ===== Cantos: Coração Carrinho (esq) + Partilhar (dir) =====
       if (slug) {
         const fav = document.createElement("button");
         fav.type = "button";
@@ -2650,7 +2753,6 @@
             showToastOK("🗑️ Removido do carrinho");
             return;
           }
-          // Valida tamanho obrigatório (mesmo que por atalho carrinho)
           if (hasSizeField) {
             const inp = card.querySelector(".card-size-input");
             const sz = String(card.dataset.size || "").trim();
@@ -2742,7 +2844,6 @@
       row.appendChild(price);
       if (tagText) row.appendChild(tag);
 
-      // ===== TAMANHOS (input TEXT simples, OBRIGATÓRIO) =====
       let sizesWrap = null;
       let hasSizeField = false;
       const sizeCtx = getSizesForProduct(product);
@@ -2778,7 +2879,6 @@
         sizesWrap.appendChild(input);
       }
 
-      // ===== BOTÃO: ADICIONAR AO CARRINHO (válida tamanho + modelo) =====
       const buy = document.createElement("button");
       buy.type = "button";
       buy.className = "buy-btn";
@@ -3032,9 +3132,6 @@
       });
     }
 
-    // ============================================================
-    // Generic filtered-state + batch render for catalog & brands
-    // ============================================================
     function makeFilteredState({ emptyText }) {
       return {
         list: [],
@@ -3161,7 +3258,6 @@
       try {
         const grid = document.getElementById(gridId);
         if (!grid) return;
-        // Remove placeholder de vazio se houver
         const empty = grid.querySelector(".search-empty");
         if (empty) empty.remove();
 
@@ -3188,7 +3284,6 @@
     }
 
     async function renderAllBatches(state, gridId, updateCounters) {
-      // Renderiza todos os lotes de uma vez, cedendo frames de 8 em 8 cartoes
       const safetyMax = 1000;
       let iterations = 0;
       while (state && Array.isArray(state.list) && state.rendered < state.list.length && iterations < safetyMax) {
@@ -3327,7 +3422,6 @@
       updateCount(null);
       updateStaticWhatsAppLinks();
       initFabLinks();
-      // Inicializar favs logo antes de render (para os cards já nascerem com o estado correto)
       updateFavBadge();
       const favEmptyEl = document.getElementById("fav-empty");
       if (favEmptyEl) favEmptyEl.style.display = _favsSize() === 0 ? "" : "none";
@@ -3338,7 +3432,6 @@
 
       let products = [];
       let loadErr = null;
-      // 1) Primeiro tenta fetch (HTTP — recomendado para GitHub Pages/local server)
       try {
         const res = await fetch("imagens/telegram_manifest.json", { cache: "no-store" });
         if (!res.ok) throw new Error("manifest HTTP " + res.status);
@@ -3346,7 +3439,6 @@
         products = Array.isArray(data && data.products) ? data.products : [];
       } catch (e) {
         loadErr = (e && e.message) ? String(e.message) : "Erro a carregar catálogo";
-        // 2) Fallback inline (funciona mesmo abrindo index.html via file://, onde fetch CORS é bloqueado)
         const fallback = Array.isArray(window.__EMBEDDED_MANIFEST__) ? window.__EMBEDDED_MANIFEST__ : [];
         if (fallback.length > 0) {
           products = fallback.slice();
@@ -3389,7 +3481,6 @@
     }
 
     function initFabLinks() {
-      // WhatsApp geral (mensagem genérica)
       const wpp = document.getElementById("fab-whatsapp");
       if (wpp) {
         const texto = encodeURIComponent(`Olá! Queria fazer um pedido. Site: ${window.location.href}`);
@@ -3401,14 +3492,12 @@
           const favs = _loadFavMap();
           const tem = Object.keys(favs).length > 0;
           if (tem) {
-            // Se tem artigos: abre a aba do carrinho (onde está o botão para finalizar via WPP)
             e.preventDefault();
             const cartTab = document.querySelector('.tab[onclick^="showTab(\'favoritos\'"]');
             if (cartTab) showTab("favoritos", cartTab);
             else showTab("favoritos");
             try { window.scrollTo({ top: 0, behavior: "smooth" }); } catch (_) {}
           } else {
-            // Se vazio: avisa (não redireciona WPP)
             e.preventDefault();
             showToastWarn("🛒 Carrinho vazio. Adiciona um produto primeiro.");
           }
@@ -3416,7 +3505,6 @@
       }
     }
 
-    // ===== Meta Tags OG dinâmicas por #slug (quando user partilha link do produto) =====
     function updateMetaForHashMaybe() {
       try {
         const hash = String(window.location.hash || "").replace(/^#/, "").trim();
@@ -3429,7 +3517,6 @@
         const img = Array.isArray(prod.images) && prod.images[0] ? String(prod.images[0]) : "";
         const absoluteImg = img.startsWith("http") ? img : String(window.location.origin) + String(window.location.pathname).replace(/\/[^/]*$/, "/") + img;
         const url = String(window.location.origin) + String(window.location.pathname) + `#${encodeURIComponent(hash)}`;
-        // Title
         document.title = `${name} — ${price} · Smart Things PT`;
         const setMeta = (selector, attr, content) => {
           const el = document.querySelector(selector);
@@ -3446,22 +3533,10 @@
       } catch (_) {}
     }
 
-    // ===== WhatsApp Business (comentário WABA Cloud API) =====
-    // ⚠️ Para automatizar respostas no WhatsApp Business:
-    // 1. Criar app em developers.facebook.com → Produtos → WhatsApp Business Platform (Cloud API)
-    // 2. Criar Cloudflare Worker (ex.: `waba-smartthings`) que recebe POST de /webhook do FB
-    // 3. Responder automaticamente a "tem stock?" → pesquisar manifest pelo nome do produto e devolver "Temos envio 10-15 dias! 40€"
-    // 4. Mensagens automáticas quando cliente escreve "olá" → template "Obrigado por contactar Smart Things PT. 📦 Catálogo: https://smartthingspt.com"
-    // 5. Código worker exemplo: https://developers.facebook.com/docs/whatsapp/cloud-api/guides/set-up-webhooks
-    // (não implementamos aqui pois requer backend, mas a integração inicial está 100% na UI do site.)
-
-    // ===== Tier2: Ordenar + Filtrar Catálogo =====
     function applyCatalogSortFilter() {
       if (!window.__MANIFEST__) return;
-      // Primeiro, obter lista base (por filtros de preço + marca chip ativo)
       let list = window.__MANIFEST__.slice();
 
-      // 1) Marca ativa (se houver)
       if (BRAND_ACTIVE_KEY) {
         const keyNorm = String(BRAND_ACTIVE_KEY || "").trim();
         const allKeys = Array.from(BRAND_KEY_TO_PRODUCTS.keys());
@@ -3470,7 +3545,6 @@
         else list = list.filter(p => productMatchesBrand(p, keyNorm));
       }
 
-      // 2) Filtros de preço
       const only40 = document.getElementById("filter-only40");
       const onlyConsult = document.getElementById("filter-onlyconsult");
       const want40 = only40 && only40.checked;
@@ -3487,7 +3561,6 @@
         });
       }
 
-      // 3) Ordenar
       const sel = document.getElementById("sort-select");
       const mode = sel ? String(sel.value || "default") : "default";
       switch (mode) {
@@ -3512,11 +3585,9 @@
           });
           break;
         default:
-          // relevancia = sortedByTs (mais recentes primeiro, como antes)
           list.sort((a, b) => Number(b.latestTs || 0) - Number(a.latestTs || 0));
       }
 
-      // 4) Atualizar estado catalogo e re-render
       CATALOG_STATE.list = list;
       CATALOG_STATE.rendered = 0;
       const gc = document.getElementById("grid-catalogo");
@@ -3526,7 +3597,6 @@
       if (!CATALOG_STATE.rendered) appendNextCatalogBatch();
     }
 
-    // ===== Popup Telegram 1x (após 6s de scroll) =====
     function initTelegramPopup() {
       const KEY = "smartthings_telegram_popup_shown_v1";
       try {
@@ -3544,7 +3614,6 @@
         try { pop.style.display = ""; } catch (_) {}
         try { localStorage.setItem(KEY, "1"); } catch (_) {}
       };
-      // Depois de 6 segundos OU scroll > 300px (o que chegar primeiro)
       setTimeout(fire, 6000);
       const onScroll = () => {
         try {
@@ -3563,10 +3632,9 @@
       initSearch();
       fetchManifestAndRender();
       initTelegramPopup();
-      // Atualizar meta OG quando user navega #slug
       window.addEventListener("hashchange", () => {
         updateMetaForHashMaybe();
-        initFabLinks(); // atualiza o botao stock? com o novo link que contem hash atual
+        initFabLinks();
       });
     });
 
@@ -3627,15 +3695,17 @@
   <!-- FABs flutuantes (Carrinho + WhatsApp) -->
   <div class="fab-wrap" aria-label="Atalhos">
     <a id="fab-multi" class="fab fab-cart" href="#" title="Abrir Carrinho" aria-label="Carrinho" data-fab-role="multi">
-      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <path fill="#fff" d="M7.5 20.5a1.75 1.75 0 100-3.5 1.75 1.75 0 000 3.5zm8.25 0a1.75 1.75 0 100-3.5 1.75 1.75 0 000 3.5zM3 4.75A.75.75 0 013.75 4h2.858l.267 1.44c.108.584.597 1.055 1.257 1.055h10.09c.71 0 1.334-.47 1.52-1.155L20.337 3H21.75a.75.75 0 010 1.5h-1.873l-1.213 4.362a1.748 1.748 0 01-1.694 1.288h-.36l1.183 6.184a.75.75 0 11-1.474.282L15.12 10h-7.152L7.1 16.62a.75.75 0 11-1.474-.282l1.29-6.756H3.75A.75.75 0 013 8.838V4.75z"/>
       </svg>
+      <span class="fab-cart-text" aria-hidden="true"></span>
     </a>
     <a class="fab fab-whatsapp" id="fab-whatsapp" href="#" target="_blank" rel="noopener" title="WhatsApp Smart Things PT" aria-label="WhatsApp Smart Things PT">
-      <svg viewBox="0 0 32 32" width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <svg viewBox="0 0 32 32" width="22" height="22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <path fill="#fff" d="M19.11 17.205c-.372 0-1.088 1.39-1.518 1.39a.63.63 0 00-.315-.082c-.185 0-.577-.178-1.1-.609-2.235-1.834-3.7-4.109-4.244-5.544-.27-.71-.043-1.1.172-1.458a.72.72 0 01.583-.372c.092 0 .184.016.268.044.103.037.257.087.432.256.32.32.51.77.578 1.205.07.435.022.924-.14 1.454a4.5 4.5 0 01-.285.724c-.415 1.037 1.188 2.406 2.333 3.363.897.742 1.978 1.32 2.667 1.69.99.53 1.284.566 1.762.478.298-.053.804-.275 1.115-.592a.955.955 0 00.21-1.01c-.132-.312-.352-.352-.557-.433-.247-.1-1.014-.35-1.466-.495z"/>
         <path fill="#fff" fill-rule="evenodd" d="M16.003 3.5C9.102 3.5 3.5 9.102 3.5 16.003c0 2.242.588 4.33 1.613 6.13L3.5 28.5l6.503-1.612a12.45 12.45 0 006.002 1.544c6.9 0 12.502-5.6 12.502-12.5C28.505 9.102 22.904 3.5 16.003 3.5zm-9.505 18.466l-2.4 1.275 1.28-2.397a10.46 10.46 0 01-1.03-5.34C4.35 10.22 9.72 4.85 16.003 4.85c6.28 0 11.652 5.37 11.652 12.003 0 6.28-5.372 11.652-11.652 11.652a10.44 10.44 0 01-5.322-1.433l-.872-.517-2.482-.589z" clip-rule="evenodd"/>
       </svg>
+      <span class="fab-whatsapp-text" aria-hidden="true"></span>
     </a>
   </div>
 
