@@ -1,0 +1,79 @@
+:root {
+  color-scheme: light dark;
+  --font-sans: "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --bg: #f5f5f2;
+  --bg-elevated: #ffffff;
+  --bg-strong: #111111;
+  --bg-soft: #ecece6;
+  --surface: rgba(255, 255, 255, 0.9);
+  --surface-strong: rgba(255, 255, 255, 0.96);
+  --text: #111111;
+  --text-muted: #5f5f57;
+  --text-soft: #7e7e74;
+  --border: rgba(17, 17, 17, 0.12);
+  --border-strong: rgba(17, 17, 17, 0.22);
+  --accent: #c7ff3d;
+  --accent-strong: #a8e700;
+  --accent-ink: #111111;
+  --success: #22c55e;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+  --shadow-sm: 0 10px 30px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 18px 50px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 24px 80px rgba(0, 0, 0, 0.16);
+  --radius-sm: 12px;
+  --radius-md: 18px;
+  --radius-lg: 28px;
+  --radius-xl: 40px;
+  --content-width: 1280px;
+  --page-gutter: 16px;
+  --transition-fast: 160ms ease;
+  --transition-base: 240ms ease;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --page-gutter: 24px;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0d0d0d;
+    --bg-elevated: #151515;
+    --bg-strong: #ffffff;
+    --bg-soft: #1b1b1b;
+    --surface: rgba(21, 21, 21, 0.88);
+    --surface-strong: rgba(21, 21, 21, 0.96);
+    --text: #f5f5f2;
+    --text-muted: #c1c1b7;
+    --text-soft: #8b8b81;
+    --border: rgba(255, 255, 255, 0.12);
+    --border-strong: rgba(255, 255, 255, 0.22);
+    --shadow-sm: 0 10px 30px rgba(0, 0, 0, 0.25);
+    --shadow-md: 0 18px 50px rgba(0, 0, 0, 0.32);
+    --shadow-lg: 0 24px 80px rgba(0, 0, 0, 0.45);
+  }
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #0d0d0d;
+  --bg-elevated: #151515;
+  --bg-strong: #ffffff;
+  --bg-soft: #1b1b1b;
+  --surface: rgba(21, 21, 21, 0.88);
+  --surface-strong: rgba(21, 21, 21, 0.96);
+  --text: #f5f5f2;
+  --text-muted: #c1c1b7;
+  --text-soft: #8b8b81;
+  --border: rgba(255, 255, 255, 0.12);
+  --border-strong: rgba(255, 255, 255, 0.22);
+  --shadow-sm: 0 10px 30px rgba(0, 0, 0, 0.25);
+  --shadow-md: 0 18px 50px rgba(0, 0, 0, 0.32);
+  --shadow-lg: 0 24px 80px rgba(0, 0, 0, 0.45);
+}

@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://jamesstuartpt.github.io/SmartThings/sitemap.xml

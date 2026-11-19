@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#111111" />
+  <circle cx="970" cy="140" r="110" fill="#c7ff3d" opacity="0.9" />
+  <text x="90" y="255" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="86" font-weight="700">Smart Things PT</text>
+  <text x="90" y="345" fill="#d0d0cb" font-family="Inter, Arial, sans-serif" font-size="38">Catálogo estático com pedido por WhatsApp</text>
+  <text x="90" y="430" fill="#c7ff3d" font-family="Inter, Arial, sans-serif" font-size="34">Sneakers · Roupa · Acessórios</text>
+</svg>
