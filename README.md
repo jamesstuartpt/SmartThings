@@ -39,6 +39,14 @@ npm run build
 npm run check
 ```
 
+Para desenvolvimento local:
+
+```bash
+npm run dev
+```
+
+Depois abrir `http://127.0.0.1:8000/SmartThings/`.
+
 ## Como marcar artigos esgotados
 
 Editar `data/estado.json`.

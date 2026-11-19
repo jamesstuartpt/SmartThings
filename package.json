@@ -5,6 +5,6 @@
   "scripts": {
     "build": "node ./scripts/build-site.mjs",
     "check": "node ./scripts/check-site.mjs",
-    "dev": "node ./scripts/build-site.mjs && python -m http.server 8000"
+    "dev": "node ./scripts/build-site.mjs && python -m http.server 8000 --directory .."
   }
 }
