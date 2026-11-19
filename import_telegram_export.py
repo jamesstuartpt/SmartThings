@@ -2,7 +2,7 @@
 import_telegram_export.py
 =========================
 
-Importa o ChatExport_2026-08-27 para o telegram_manifest.json.
+Importa um ChatExport do Telegram para o telegram_manifest.json.
 
 MODOS:
   (sem flags)      = DRY-RUN: relatório completo, NENHUMA GRAVAÇÃO
@@ -40,7 +40,8 @@ PROJECT_ROOT = Path(__file__).resolve().parent
 IMG_DIR = PROJECT_ROOT / "imagens" / "telegram"
 MANIFEST_PATH = PROJECT_ROOT / "imagens" / "telegram_manifest.json"
 
-EXPORT_DIR = Path(r"C:\Users\James Stuart\Downloads\Telegram Desktop\ChatExport_2026-08-27")
+DEFAULT_EXPORT_DIR = Path(r"C:\Users\James Stuart\Downloads\Telegram Desktop\ChatExport_2026-08-27")
+EXPORT_DIR = DEFAULT_EXPORT_DIR
 EXPORT_JSON = EXPORT_DIR / "result.json"
 EXPORT_PHOTOS = EXPORT_DIR / "photos"
 
@@ -964,7 +965,14 @@ def save_probables_json(stats: dict, out_path: Path) -> Path:
 # ============================================================
 
 def main():
+    global EXPORT_DIR, EXPORT_JSON, EXPORT_PHOTOS
     parser = argparse.ArgumentParser(description="Import ChatExport Telegram para manifest SmartThings PT")
+    parser.add_argument(
+        "--export-dir",
+        type=Path,
+        default=DEFAULT_EXPORT_DIR,
+        help="Pasta do ChatExport do Telegram (contendo result.json e /photos).",
+    )
     parser.add_argument("--apply", action="store_true", help="Aplicar alterações (default = DRY-RUN)")
     parser.add_argument("--limit", type=int, default=None, help="Processar apenas N mensagens (debug)")
     parser.add_argument("--json", action="store_true", help="Imprimir também JSON final de stats")
@@ -989,14 +997,21 @@ def main():
 
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
-    if not EXPORT_JSON.exists():
-        print(f"ERRO: não encontrei {EXPORT_JSON}")
+    export_dir = args.export_dir.resolve()
+    export_json = export_dir / "result.json"
+    export_photos = export_dir / "photos"
+    EXPORT_DIR = export_dir
+    EXPORT_JSON = export_json
+    EXPORT_PHOTOS = export_photos
+
+    if not export_json.exists():
+        print(f"ERRO: não encontrei {export_json}")
         sys.exit(1)
-    if not EXPORT_PHOTOS.exists():
-        print(f"ERRO: não encontrei pasta fotos em {EXPORT_PHOTOS}")
+    if not export_photos.exists():
+        print(f"ERRO: não encontrei pasta fotos em {export_photos}")
         sys.exit(1)
 
-    with open(EXPORT_JSON, "r", encoding="utf-8") as f:
+    with open(export_json, "r", encoding="utf-8") as f:
         export_data = json.load(f)
     msgs = export_data.get("messages", [])
     if args.limit:
@@ -1008,7 +1023,8 @@ def main():
 
     print(f"[setup] mensagens chat export: {len(msgs)}")
     print(f"[setup] produtos no manifest: {manifest_count_before}")
-    print(f"[setup] fotos na pasta export: {len(list(EXPORT_PHOTOS.glob('*.jpg')))}")
+    print(f"[setup] export_dir: {export_dir}")
+    print(f"[setup] fotos na pasta export: {len(list(export_photos.glob('*.jpg')))}")
     print(f"[setup] modo = {'APLICAR' if args.apply else 'DRY-RUN (sem gravações)'}")
     print(f"[setup] modo B (skip provável): {args.skip_probable}  (--include-probable para desligar)")
     print(f"[setup] modo X (agrupar fotos extra por horário): {args.group_photos}")

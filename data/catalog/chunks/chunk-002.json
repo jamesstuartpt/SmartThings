@@ -2,81 +2,15 @@
   "chunk": "002",
   "products": [
     {
-      "slug": "asics_gel_nimbus_16",
-      "name": "ASICS Gel Nimbus 16",
-      "brandLabel": "ASICS",
-      "brandSlug": "asics",
-      "category": "sneakers",
-      "categoryLabel": "Sneakers",
-      "gender": "Unissexo",
-      "genderSlug": "unissexo",
-      "latestTs": 1787425073,
-      "sizes": [
-        "36",
-        "37",
-        "38",
-        "39",
-        "40",
-        "41",
-        "42",
-        "43",
-        "44",
-        "45",
-        "46"
-      ],
-      "priceLabel": "40€",
-      "priceValue": 40,
-      "priceType": "fixed",
-      "badges": [],
-      "coverImage": "/SmartThings/imagens/telegram/asics_gel_nimbus_16/4.jpg",
-      "coverWidth": 1206,
-      "coverHeight": 943,
-      "url": "/SmartThings/produto/asics_gel_nimbus_16/",
-      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/asics_gel_nimbus_16/"
-    },
-    {
-      "slug": "nike_nike_air_liquid_max",
-      "name": "NIKE Air Liquid Max",
-      "brandLabel": "NIKE",
-      "brandSlug": "nike",
-      "category": "sneakers",
-      "categoryLabel": "Sneakers",
-      "gender": "Unissexo",
-      "genderSlug": "unissexo",
-      "latestTs": 1787424736,
-      "sizes": [
-        "36",
-        "37",
-        "38",
-        "39",
-        "40",
-        "41",
-        "42",
-        "43",
-        "44",
-        "45",
-        "46"
-      ],
-      "priceLabel": "40€",
-      "priceValue": 40,
-      "priceType": "fixed",
-      "badges": [],
-      "coverImage": "/SmartThings/imagens/telegram/nike_nike_air_liquid_max/1.jpg",
-      "coverWidth": 1280,
-      "coverHeight": 990,
-      "url": "/SmartThings/produto/nike_nike_air_liquid_max/",
-      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/nike_nike_air_liquid_max/"
-    },
-    {
-      "slug": "adidas_adidas_superstar_ii",
-      "name": "ADIDAS \"Superstar II\"",
+      "slug": "adidas_adidas_spezial_16_nuevos_colores_2",
+      "name": "ADIDAS \"Spezial\" / 16 Nuevos Colores",
       "brandLabel": "ADIDAS",
       "brandSlug": "adidas",
       "category": "sneakers",
       "categoryLabel": "Sneakers",
       "gender": "Unissexo",
       "genderSlug": "unissexo",
-      "latestTs": 1787424023,
+      "latestTs": 1794696619,
       "sizes": [
         "36",
         "37",
@@ -93,56 +27,140 @@
       "priceLabel": "40€",
       "priceValue": 40,
       "priceType": "fixed",
-      "badges": [],
-      "coverImage": "/SmartThings/imagens/telegram/adidas_adidas_superstar_ii/1.jpg",
-      "coverWidth": 1206,
-      "coverHeight": 1208,
-      "url": "/SmartThings/produto/adidas_adidas_superstar_ii/",
-      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/adidas_adidas_superstar_ii/"
+      "badges": [
+        {
+          "label": "Novo",
+          "tone": "accent"
+        }
+      ],
+      "coverImage": "/SmartThings/1.jpg",
+      "coverWidth": 1200,
+      "coverHeight": 1500,
+      "url": "/SmartThings/produto/adidas_adidas_spezial_16_nuevos_colores_2/",
+      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/adidas_adidas_spezial_16_nuevos_colores_2/"
     },
     {
-      "slug": "converse_converse_x_madhappy",
-      "name": "CONVERSE x MadHappy",
-      "brandLabel": "CONVERSE",
-      "brandSlug": "converse",
-      "category": "sneakers",
-      "categoryLabel": "Sneakers",
+      "slug": "canada_canada_goose_4_colores",
+      "name": "CANADA GOOSE / 4 Colores",
+      "brandLabel": "CANADA",
+      "brandSlug": "canada",
+      "category": "outros",
+      "categoryLabel": "Outros",
       "gender": "Unissexo",
       "genderSlug": "unissexo",
-      "latestTs": 1787423440,
+      "latestTs": 1794674342,
       "sizes": [
-        "36",
-        "37",
-        "38",
-        "39",
-        "40",
-        "41",
-        "42",
-        "43",
-        "44",
-        "45",
-        "46"
+        "Único"
       ],
       "priceLabel": "40€",
       "priceValue": 40,
       "priceType": "fixed",
-      "badges": [],
-      "coverImage": "/SmartThings/imagens/telegram/converse_converse_x_madhappy/1.jpg",
-      "coverWidth": 1024,
-      "coverHeight": 1280,
-      "url": "/SmartThings/produto/converse_converse_x_madhappy/",
-      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/converse_converse_x_madhappy/"
+      "badges": [
+        {
+          "label": "Novo",
+          "tone": "accent"
+        }
+      ],
+      "coverImage": "/SmartThings/1.jpg",
+      "coverWidth": 1200,
+      "coverHeight": 1500,
+      "url": "/SmartThings/produto/canada_canada_goose_4_colores/",
+      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/canada_canada_goose_4_colores/"
     },
     {
-      "slug": "adidas_adidas_espana_entrenamiento_retro_2026",
-      "name": "ADIDAS Espana Entrenamiento Retro 2026",
+      "slug": "marshall_emberton",
+      "name": "Marshall Emberton",
+      "brandLabel": "Sem marca",
+      "brandSlug": "sem-marca",
+      "category": "tecnologia",
+      "categoryLabel": "Tecnologia",
+      "gender": "Unissexo",
+      "genderSlug": "unissexo",
+      "latestTs": 1794659421,
+      "sizes": [
+        "Único"
+      ],
+      "priceLabel": "40€",
+      "priceValue": 40,
+      "priceType": "fixed",
+      "badges": [
+        {
+          "label": "Novo",
+          "tone": "accent"
+        }
+      ],
+      "coverImage": "/SmartThings/imagens/telegram/marshall_emberton/marshall_emberton_01.jpg",
+      "coverWidth": 1206,
+      "coverHeight": 834,
+      "url": "/SmartThings/produto/marshall_emberton/",
+      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/marshall_emberton/"
+    },
+    {
+      "slug": "marshall_marshall_acton_iii_con_nuestra_promo_del_90_se_os_queda_por_menos_de_7",
+      "name": "MARSHALL \"Acton III\" / ¡Con nuestra promo del 90% se os queda por menos de 7€!",
+      "brandLabel": "MARSHALL",
+      "brandSlug": "marshall",
+      "category": "outros",
+      "categoryLabel": "Outros",
+      "gender": "Homem",
+      "genderSlug": "homem",
+      "latestTs": 1794657328,
+      "sizes": [
+        "Único"
+      ],
+      "priceLabel": "40€",
+      "priceValue": 40,
+      "priceType": "fixed",
+      "badges": [
+        {
+          "label": "Novo",
+          "tone": "accent"
+        }
+      ],
+      "coverImage": "/SmartThings/1.jpg",
+      "coverWidth": 1200,
+      "coverHeight": 1500,
+      "url": "/SmartThings/produto/marshall_marshall_acton_iii_con_nuestra_promo_del_90_se_os_queda_por_menos_de_7/",
+      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/marshall_marshall_acton_iii_con_nuestra_promo_del_90_se_os_queda_por_menos_de_7/"
+    },
+    {
+      "slug": "saucony_saucony_omni_9_12_colores",
+      "name": "SAUCONY \"Omni 9\" / 12 Colores",
+      "brandLabel": "SAUCONY",
+      "brandSlug": "saucony",
+      "category": "outros",
+      "categoryLabel": "Outros",
+      "gender": "Unissexo",
+      "genderSlug": "unissexo",
+      "latestTs": 1794607207,
+      "sizes": [
+        "Único"
+      ],
+      "priceLabel": "40€",
+      "priceValue": 40,
+      "priceType": "fixed",
+      "badges": [
+        {
+          "label": "Novo",
+          "tone": "accent"
+        }
+      ],
+      "coverImage": "/SmartThings/1.jpg",
+      "coverWidth": 1200,
+      "coverHeight": 1500,
+      "url": "/SmartThings/produto/saucony_saucony_omni_9_12_colores/",
+      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/saucony_saucony_omni_9_12_colores/"
+    },
+    {
+      "slug": "adidas_adidas_adizero_boston_13_2",
+      "name": "ADIDAS \"Adizero Boston 13\"",
       "brandLabel": "ADIDAS",
       "brandSlug": "adidas",
       "category": "sneakers",
       "categoryLabel": "Sneakers",
       "gender": "Unissexo",
       "genderSlug": "unissexo",
-      "latestTs": 1787421522,
+      "latestTs": 1794607203,
       "sizes": [
         "36",
         "37",
@@ -159,491 +177,112 @@
       "priceLabel": "40€",
       "priceValue": 40,
       "priceType": "fixed",
-      "badges": [],
-      "coverImage": "/SmartThings/imagens/telegram/adidas_adidas_espana_entrenamiento_retro_2026/1.jpg",
-      "coverWidth": 1254,
-      "coverHeight": 1254,
-      "url": "/SmartThings/produto/adidas_adidas_espana_entrenamiento_retro_2026/",
-      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/adidas_adidas_espana_entrenamiento_retro_2026/"
+      "badges": [
+        {
+          "label": "Novo",
+          "tone": "accent"
+        }
+      ],
+      "coverImage": "/SmartThings/1.jpg",
+      "coverWidth": 1200,
+      "coverHeight": 1500,
+      "url": "/SmartThings/produto/adidas_adidas_adizero_boston_13_2/",
+      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/adidas_adidas_adizero_boston_13_2/"
     },
     {
-      "slug": "on_cloud_vista_2",
-      "name": "On Cloud Vista 2",
+      "slug": "under_armour",
+      "name": "UNDER ARMOUR",
       "brandLabel": "Sem marca",
       "brandSlug": "sem-marca",
       "category": "outros",
       "categoryLabel": "Outros",
       "gender": "Unissexo",
       "genderSlug": "unissexo",
-      "latestTs": 1787410426,
+      "latestTs": 1794607192,
       "sizes": [
         "Único"
       ],
       "priceLabel": "40€",
       "priceValue": 40,
       "priceType": "fixed",
-      "badges": [],
-      "coverImage": "/SmartThings/imagens/telegram/on_cloud_vista_2/5.jpg",
-      "coverWidth": 1206,
-      "coverHeight": 1017,
-      "url": "/SmartThings/produto/on_cloud_vista_2/",
-      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/on_cloud_vista_2/"
-    },
-    {
-      "slug": "ap_ap_x_swatch_16_colores",
-      "name": "AP x SWATCH / 16 Colores",
-      "brandLabel": "AP",
-      "brandSlug": "ap",
-      "category": "relogios",
-      "categoryLabel": "Relógios",
-      "gender": "Unissexo",
-      "genderSlug": "unissexo",
-      "latestTs": 1787405751,
-      "sizes": [
-        "Único"
+      "badges": [
+        {
+          "label": "Novo",
+          "tone": "accent"
+        }
       ],
-      "priceLabel": "40€",
-      "priceValue": 40,
-      "priceType": "fixed",
-      "badges": [],
-      "coverImage": "/SmartThings/imagens/telegram/ap_ap_x_swatch_16_colores/1.jpg",
-      "coverWidth": 1280,
-      "coverHeight": 1280,
-      "url": "/SmartThings/produto/ap_ap_x_swatch_16_colores/",
-      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/ap_ap_x_swatch_16_colores/"
-    },
-    {
-      "slug": "ap_ap_x_swatch_se_van_a_agotar_rapidisimo",
-      "name": "AP x SWATCH / Se van a agotar RAPIDISIMO",
-      "brandLabel": "AP",
-      "brandSlug": "ap",
-      "category": "relogios",
-      "categoryLabel": "Relógios",
-      "gender": "Unissexo",
-      "genderSlug": "unissexo",
-      "latestTs": 1787405609,
-      "sizes": [
-        "Único"
-      ],
-      "priceLabel": "40€",
-      "priceValue": 40,
-      "priceType": "fixed",
-      "badges": [],
-      "coverImage": "/SmartThings/imagens/telegram/ap_ap_x_swatch_se_van_a_agotar_rapidisimo/1.jpg",
-      "coverWidth": 1059,
-      "coverHeight": 1280,
-      "url": "/SmartThings/produto/ap_ap_x_swatch_se_van_a_agotar_rapidisimo/",
-      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/ap_ap_x_swatch_se_van_a_agotar_rapidisimo/"
-    },
-    {
-      "slug": "adidas_adidas_espana_entrenamiento",
-      "name": "ADIDAS Espana Entrenamiento",
-      "brandLabel": "ADIDAS",
-      "brandSlug": "adidas",
-      "category": "sneakers",
-      "categoryLabel": "Sneakers",
-      "gender": "Unissexo",
-      "genderSlug": "unissexo",
-      "latestTs": 1787397848,
-      "sizes": [
-        "36",
-        "37",
-        "38",
-        "39",
-        "40",
-        "41",
-        "42",
-        "43",
-        "44",
-        "45",
-        "46"
-      ],
-      "priceLabel": "40€",
-      "priceValue": 40,
-      "priceType": "fixed",
-      "badges": [],
-      "coverImage": "/SmartThings/imagens/telegram/adidas_adidas_espana_entrenamiento/1.jpg",
+      "coverImage": "/SmartThings/imagens/telegram/under_armour/7.jpg",
       "coverWidth": 1254,
       "coverHeight": 1254,
-      "url": "/SmartThings/produto/adidas_adidas_espana_entrenamiento/",
-      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/adidas_adidas_espana_entrenamiento/"
+      "url": "/SmartThings/produto/under_armour/",
+      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/under_armour/"
     },
     {
-      "slug": "adidas_response_cl_x_bad_bunny",
-      "name": "ADIDAS Response CL x BAD BUNNY",
-      "brandLabel": "Adidas",
-      "brandSlug": "adidas",
-      "category": "sneakers",
-      "categoryLabel": "Sneakers",
-      "gender": "Unissexo",
-      "genderSlug": "unissexo",
-      "latestTs": 1787346082,
-      "sizes": [
-        "36",
-        "37",
-        "38",
-        "39",
-        "40",
-        "41",
-        "42",
-        "43",
-        "44",
-        "45",
-        "46"
-      ],
-      "priceLabel": "40€",
-      "priceValue": 40,
-      "priceType": "fixed",
-      "badges": [],
-      "coverImage": "/SmartThings/imagens/telegram/adidas_response_cl_x_bad_bunny/6.jpg",
-      "coverWidth": 1066,
-      "coverHeight": 811,
-      "url": "/SmartThings/produto/adidas_response_cl_x_bad_bunny/",
-      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/adidas_response_cl_x_bad_bunny/"
-    },
-    {
-      "slug": "crocs_crocs_se_agotan_muy_rapido",
-      "name": "CROCS / Se agotan MUY rapido",
-      "brandLabel": "CROCS",
-      "brandSlug": "crocs",
+      "slug": "marshails_marshails_nautilus_6_colores_3",
+      "name": "MARSHAILS \"Nautilus\" / 6 Colores",
+      "brandLabel": "MARSHAILS",
+      "brandSlug": "marshails",
       "category": "outros",
       "categoryLabel": "Outros",
       "gender": "Unissexo",
       "genderSlug": "unissexo",
-      "latestTs": 1787317343,
+      "latestTs": 1794607191,
       "sizes": [
         "Único"
       ],
       "priceLabel": "40€",
       "priceValue": 40,
       "priceType": "fixed",
-      "badges": [],
-      "coverImage": "/SmartThings/imagens/telegram/crocs_crocs_se_agotan_muy_rapido/1.jpg",
-      "coverWidth": 1206,
-      "coverHeight": 1195,
-      "url": "/SmartThings/produto/crocs_crocs_se_agotan_muy_rapido/",
-      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/crocs_crocs_se_agotan_muy_rapido/"
-    },
-    {
-      "slug": "adidas_adidas_superstar_13_colores",
-      "name": "ADIDAS \"Superstar\" / 13 Colores",
-      "brandLabel": "ADIDAS",
-      "brandSlug": "adidas",
-      "category": "sneakers",
-      "categoryLabel": "Sneakers",
-      "gender": "Unissexo",
-      "genderSlug": "unissexo",
-      "latestTs": 1787305410,
-      "sizes": [
-        "36",
-        "37",
-        "38",
-        "39",
-        "40",
-        "41",
-        "42",
-        "43",
-        "44",
-        "45",
-        "46"
+      "badges": [
+        {
+          "label": "Novo",
+          "tone": "accent"
+        }
       ],
-      "priceLabel": "40€",
-      "priceValue": 40,
-      "priceType": "fixed",
-      "badges": [],
-      "coverImage": "/SmartThings/imagens/telegram/adidas_adidas_superstar_13_colores/1.jpg",
-      "coverWidth": 1131,
-      "coverHeight": 1280,
-      "url": "/SmartThings/produto/adidas_adidas_superstar_13_colores/",
-      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/adidas_adidas_superstar_13_colores/"
+      "coverImage": "/SmartThings/1.jpg",
+      "coverWidth": 1200,
+      "coverHeight": 1500,
+      "url": "/SmartThings/produto/marshails_marshails_nautilus_6_colores_3/",
+      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/marshails_marshails_nautilus_6_colores_3/"
     },
     {
-      "slug": "the_north_face_the_north_face_pedir_una_talla_mas",
-      "name": "THE NORTH FACE / Pedir una talla mas",
+      "slug": "the_north_face_the_north_face_16_colores_2",
+      "name": "THE NORTH FACE / 16 Colores",
       "brandLabel": "The North Face",
-      "brandSlug": "the-north-face",
+      "brandSlug": "the_north_face",
       "category": "outros",
       "categoryLabel": "Outros",
       "gender": "Unissexo",
       "genderSlug": "unissexo",
-      "latestTs": 1787305196,
+      "latestTs": 1794599274,
       "sizes": [
         "Único"
       ],
       "priceLabel": "40€",
       "priceValue": 40,
       "priceType": "fixed",
-      "badges": [],
-      "coverImage": "/SmartThings/imagens/telegram/the_north_face_the_north_face_pedir_una_talla_mas/1.jpg",
-      "coverWidth": 1254,
-      "coverHeight": 1254,
-      "url": "/SmartThings/produto/the_north_face_the_north_face_pedir_una_talla_mas/",
-      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/the_north_face_the_north_face_pedir_una_talla_mas/"
-    },
-    {
-      "slug": "adidas_adidas_x_coca_cola",
-      "name": "ADIDAS x COCA COLA",
-      "brandLabel": "ADIDAS",
-      "brandSlug": "adidas",
-      "category": "sneakers",
-      "categoryLabel": "Sneakers",
-      "gender": "Unissexo",
-      "genderSlug": "unissexo",
-      "latestTs": 1787304924,
-      "sizes": [
-        "36",
-        "37",
-        "38",
-        "39",
-        "40",
-        "41",
-        "42",
-        "43",
-        "44",
-        "45",
-        "46"
+      "badges": [
+        {
+          "label": "Novo",
+          "tone": "accent"
+        }
       ],
-      "priceLabel": "40€",
-      "priceValue": 40,
-      "priceType": "fixed",
-      "badges": [],
-      "coverImage": "/SmartThings/imagens/telegram/adidas_adidas_x_coca_cola/1.jpg",
-      "coverWidth": 1254,
-      "coverHeight": 1254,
-      "url": "/SmartThings/produto/adidas_adidas_x_coca_cola/",
-      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/adidas_adidas_x_coca_cola/"
+      "coverImage": "/SmartThings/1.jpg",
+      "coverWidth": 1200,
+      "coverHeight": 1500,
+      "url": "/SmartThings/produto/the_north_face_the_north_face_16_colores_2/",
+      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/the_north_face_the_north_face_16_colores_2/"
     },
     {
-      "slug": "asics_asics_gel_nyc_17_colores",
-      "name": "ASICS \"Gel NYC\" / 17 Colores",
-      "brandLabel": "ASICS",
-      "brandSlug": "asics",
-      "category": "sneakers",
-      "categoryLabel": "Sneakers",
-      "gender": "Unissexo",
-      "genderSlug": "unissexo",
-      "latestTs": 1787260633,
-      "sizes": [
-        "36",
-        "37",
-        "38",
-        "39",
-        "40",
-        "41",
-        "42",
-        "43",
-        "44",
-        "45",
-        "46"
-      ],
-      "priceLabel": "40€",
-      "priceValue": 40,
-      "priceType": "fixed",
-      "badges": [],
-      "coverImage": "/SmartThings/imagens/telegram/asics_asics_gel_nyc_17_colores/1.jpg",
-      "coverWidth": 1024,
-      "coverHeight": 1280,
-      "url": "/SmartThings/produto/asics_asics_gel_nyc_17_colores/",
-      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/asics_asics_gel_nyc_17_colores/"
-    },
-    {
-      "slug": "nike_nike_vomero_premium_muchos_colores",
-      "name": "NIKE \"Vomero Premium\" / Muchos Colores",
-      "brandLabel": "NIKE",
-      "brandSlug": "nike",
-      "category": "sneakers",
-      "categoryLabel": "Sneakers",
-      "gender": "Unissexo",
-      "genderSlug": "unissexo",
-      "latestTs": 1787258889,
-      "sizes": [
-        "36",
-        "37",
-        "38",
-        "39",
-        "40",
-        "41",
-        "42",
-        "43",
-        "44",
-        "45",
-        "46"
-      ],
-      "priceLabel": "40€",
-      "priceValue": 40,
-      "priceType": "fixed",
-      "badges": [],
-      "coverImage": "/SmartThings/imagens/telegram/nike_nike_vomero_premium_muchos_colores/1.jpg",
-      "coverWidth": 1130,
-      "coverHeight": 1280,
-      "url": "/SmartThings/produto/nike_nike_vomero_premium_muchos_colores/",
-      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/nike_nike_vomero_premium_muchos_colores/"
-    },
-    {
-      "slug": "dayson_dayson_muy_recomendado",
-      "name": "DAYSON / Muy recomendado",
-      "brandLabel": "DAYSON",
-      "brandSlug": "dayson",
-      "category": "outros",
-      "categoryLabel": "Outros",
-      "gender": "Homem",
-      "genderSlug": "homem",
-      "latestTs": 1787258060,
-      "sizes": [
-        "Único"
-      ],
-      "priceLabel": "40€",
-      "priceValue": 40,
-      "priceType": "fixed",
-      "badges": [],
-      "coverImage": "/SmartThings/imagens/telegram/dayson_dayson_muy_recomendado/1.jpg",
-      "coverWidth": 1000,
-      "coverHeight": 1000,
-      "url": "/SmartThings/produto/dayson_dayson_muy_recomendado/",
-      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/dayson_dayson_muy_recomendado/"
-    },
-    {
-      "slug": "adidas_adidas_tokyo_18_colores",
-      "name": "ADIDAS Tokyo / 18 Colores",
-      "brandLabel": "ADIDAS",
-      "brandSlug": "adidas",
-      "category": "sneakers",
-      "categoryLabel": "Sneakers",
-      "gender": "Unissexo",
-      "genderSlug": "unissexo",
-      "latestTs": 1787256989,
-      "sizes": [
-        "36",
-        "37",
-        "38",
-        "39",
-        "40",
-        "41",
-        "42",
-        "43",
-        "44",
-        "45",
-        "46"
-      ],
-      "priceLabel": "40€",
-      "priceValue": 40,
-      "priceType": "fixed",
-      "badges": [],
-      "coverImage": "/SmartThings/imagens/telegram/adidas_adidas_tokyo_18_colores/1.jpg",
-      "coverWidth": 1206,
-      "coverHeight": 1181,
-      "url": "/SmartThings/produto/adidas_adidas_tokyo_18_colores/",
-      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/adidas_adidas_tokyo_18_colores/"
-    },
-    {
-      "slug": "new_balance_new_balance_9060_18_colores",
-      "name": "NEW BALANCE 9060 / 18 Colores",
-      "brandLabel": "New Balance",
-      "brandSlug": "new-balance",
-      "category": "sneakers",
-      "categoryLabel": "Sneakers",
-      "gender": "Unissexo",
-      "genderSlug": "unissexo",
-      "latestTs": 1787253196,
-      "sizes": [
-        "36",
-        "37",
-        "38",
-        "39",
-        "40",
-        "41",
-        "42",
-        "43",
-        "44",
-        "45",
-        "46"
-      ],
-      "priceLabel": "40€",
-      "priceValue": 40,
-      "priceType": "fixed",
-      "badges": [],
-      "coverImage": "/SmartThings/imagens/telegram/new_balance_new_balance_9060_18_colores/1.jpg",
-      "coverWidth": 1206,
-      "coverHeight": 1169,
-      "url": "/SmartThings/produto/new_balance_new_balance_9060_18_colores/",
-      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/new_balance_new_balance_9060_18_colores/"
-    },
-    {
-      "slug": "adidas_adidas_samba_27_colores_precio_irresistible",
-      "name": "ADIDAS \"Samba\" / 27 Colores / Precio Irresistible",
-      "brandLabel": "ADIDAS",
-      "brandSlug": "adidas",
-      "category": "sneakers",
-      "categoryLabel": "Sneakers",
-      "gender": "Unissexo",
-      "genderSlug": "unissexo",
-      "latestTs": 1787252354,
-      "sizes": [
-        "36",
-        "37",
-        "38",
-        "39",
-        "40",
-        "41",
-        "42",
-        "43",
-        "44",
-        "45",
-        "46"
-      ],
-      "priceLabel": "40€",
-      "priceValue": 40,
-      "priceType": "fixed",
-      "badges": [],
-      "coverImage": "/SmartThings/imagens/telegram/adidas_adidas_samba_27_colores_precio_irresistible/1.jpg",
-      "coverWidth": 1254,
-      "coverHeight": 1254,
-      "url": "/SmartThings/produto/adidas_adidas_samba_27_colores_precio_irresistible/",
-      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/adidas_adidas_samba_27_colores_precio_irresistible/"
-    },
-    {
-      "slug": "adidas_japan",
-      "name": "Adidas Japan",
-      "brandLabel": "Adidas",
-      "brandSlug": "adidas",
-      "category": "sneakers",
-      "categoryLabel": "Sneakers",
-      "gender": "Unissexo",
-      "genderSlug": "unissexo",
-      "latestTs": 1787241367,
-      "sizes": [
-        "36",
-        "37",
-        "38",
-        "39",
-        "40",
-        "41",
-        "42",
-        "43",
-        "44",
-        "45",
-        "46"
-      ],
-      "priceLabel": "40€",
-      "priceValue": 40,
-      "priceType": "fixed",
-      "badges": [],
-      "coverImage": "/SmartThings/imagens/telegram/adidas_japan/5.jpg",
-      "coverWidth": 1206,
-      "coverHeight": 898,
-      "url": "/SmartThings/produto/adidas_japan/",
-      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/adidas_japan/"
-    },
-    {
-      "slug": "carhartt_carhartt_muchos_colores",
-      "name": "CARHARTT / Muchos Colores",
+      "slug": "carhartt_carhartt_7_colores_5",
+      "name": "CARHARTT / 7 Colores",
       "brandLabel": "CARHARTT",
       "brandSlug": "carhartt",
       "category": "roupas",
       "categoryLabel": "Roupa",
       "gender": "Unissexo",
       "genderSlug": "unissexo",
-      "latestTs": 1787238503,
+      "latestTs": 1794571420,
       "sizes": [
         "XS",
         "S",
@@ -655,361 +294,106 @@
       "priceLabel": "40€",
       "priceValue": 40,
       "priceType": "fixed",
-      "badges": [],
-      "coverImage": "/SmartThings/imagens/telegram/carhartt_carhartt_muchos_colores/1.jpg",
-      "coverWidth": 640,
-      "coverHeight": 960,
-      "url": "/SmartThings/produto/carhartt_carhartt_muchos_colores/",
-      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/carhartt_carhartt_muchos_colores/"
-    },
-    {
-      "slug": "cp_company",
-      "name": "CP COMPANY",
-      "brandLabel": "Sem marca",
-      "brandSlug": "sem-marca",
-      "category": "outros",
-      "categoryLabel": "Outros",
-      "gender": "Unissexo",
-      "genderSlug": "unissexo",
-      "latestTs": 1787223834,
-      "sizes": [
-        "Único"
+      "badges": [
+        {
+          "label": "Novo",
+          "tone": "accent"
+        }
       ],
-      "priceLabel": "40€",
-      "priceValue": 40,
-      "priceType": "fixed",
-      "badges": [],
-      "coverImage": "/SmartThings/imagens/telegram/cp_company/cp_company_01.jpg",
-      "coverWidth": 992,
-      "coverHeight": 992,
-      "url": "/SmartThings/produto/cp_company/",
-      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/cp_company/"
+      "coverImage": "/SmartThings/1.jpg",
+      "coverWidth": 1200,
+      "coverHeight": 1500,
+      "url": "/SmartThings/produto/carhartt_carhartt_7_colores_5/",
+      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/carhartt_carhartt_7_colores_5/"
     },
     {
-      "slug": "miu_miu_miu_8_colores",
-      "name": "MIU MIU / 8 colores",
+      "slug": "miu_miu_miu_6_colores_2",
+      "name": "MIU MIU / 6 Colores",
       "brandLabel": "MIU",
       "brandSlug": "miu",
       "category": "outros",
       "categoryLabel": "Outros",
       "gender": "Unissexo",
       "genderSlug": "unissexo",
-      "latestTs": 1787223676,
+      "latestTs": 1794571078,
       "sizes": [
         "Único"
       ],
       "priceLabel": "40€",
       "priceValue": 40,
       "priceType": "fixed",
-      "badges": [],
-      "coverImage": "/SmartThings/imagens/telegram/miu_miu_miu_8_colores/1.jpg",
-      "coverWidth": 973,
-      "coverHeight": 852,
-      "url": "/SmartThings/produto/miu_miu_miu_8_colores/",
-      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/miu_miu_miu_8_colores/"
+      "badges": [
+        {
+          "label": "Novo",
+          "tone": "accent"
+        }
+      ],
+      "coverImage": "/SmartThings/1.jpg",
+      "coverWidth": 1200,
+      "coverHeight": 1500,
+      "url": "/SmartThings/produto/miu_miu_miu_6_colores_2/",
+      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/miu_miu_miu_6_colores_2/"
     },
     {
-      "slug": "autry_autry_7_colores",
-      "name": "AUTRY / 7 colores",
-      "brandLabel": "AUTRY",
-      "brandSlug": "autry",
+      "slug": "reebok_reebok_c85_23_colores",
+      "name": "REEBOK C85 / 23 Colores",
+      "brandLabel": "REEBOK",
+      "brandSlug": "reebok",
       "category": "outros",
       "categoryLabel": "Outros",
       "gender": "Unissexo",
       "genderSlug": "unissexo",
-      "latestTs": 1787223588,
+      "latestTs": 1794570352,
       "sizes": [
         "Único"
       ],
       "priceLabel": "40€",
       "priceValue": 40,
       "priceType": "fixed",
-      "badges": [],
-      "coverImage": "/SmartThings/imagens/telegram/autry_autry_7_colores/1.jpg",
-      "coverWidth": 1000,
-      "coverHeight": 1011,
-      "url": "/SmartThings/produto/autry_autry_7_colores/",
-      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/autry_autry_7_colores/"
+      "badges": [
+        {
+          "label": "Novo",
+          "tone": "accent"
+        }
+      ],
+      "coverImage": "/SmartThings/1.jpg",
+      "coverWidth": 1200,
+      "coverHeight": 1500,
+      "url": "/SmartThings/produto/reebok_reebok_c85_23_colores/",
+      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/reebok_reebok_c85_23_colores/"
     },
     {
-      "slug": "adidas_adidas_sambae_putty",
-      "name": "ADIDAS Sambae Putty",
-      "brandLabel": "ADIDAS",
-      "brandSlug": "adidas",
-      "category": "sneakers",
-      "categoryLabel": "Sneakers",
+      "slug": "carhartt_carhartt_4_colores_4",
+      "name": "CARHARTT / 4 Colores",
+      "brandLabel": "CARHARTT",
+      "brandSlug": "carhartt",
+      "category": "roupas",
+      "categoryLabel": "Roupa",
       "gender": "Unissexo",
       "genderSlug": "unissexo",
-      "latestTs": 1787223477,
+      "latestTs": 1794569809,
       "sizes": [
-        "36",
-        "37",
-        "38",
-        "39",
-        "40",
-        "41",
-        "42",
-        "43",
-        "44",
-        "45",
-        "46"
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
       ],
       "priceLabel": "40€",
       "priceValue": 40,
       "priceType": "fixed",
-      "badges": [],
-      "coverImage": "/SmartThings/imagens/telegram/adidas_adidas_sambae_putty/1.jpg",
-      "coverWidth": 973,
-      "coverHeight": 895,
-      "url": "/SmartThings/produto/adidas_adidas_sambae_putty/",
-      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/adidas_adidas_sambae_putty/"
-    },
-    {
-      "slug": "casa_blanca",
-      "name": "CASA BLANCA",
-      "brandLabel": "Sem marca",
-      "brandSlug": "sem-marca",
-      "category": "outros",
-      "categoryLabel": "Outros",
-      "gender": "Unissexo",
-      "genderSlug": "unissexo",
-      "latestTs": 1787222960,
-      "sizes": [
-        "Único"
+      "badges": [
+        {
+          "label": "Novo",
+          "tone": "accent"
+        }
       ],
-      "priceLabel": "40€",
-      "priceValue": 40,
-      "priceType": "fixed",
-      "badges": [],
-      "coverImage": "/SmartThings/imagens/telegram/casa_blanca/casa_blanca_01.jpg",
-      "coverWidth": 992,
-      "coverHeight": 992,
-      "url": "/SmartThings/produto/casa_blanca/",
-      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/casa_blanca/"
-    },
-    {
-      "slug": "the_north_face_the_north_face_glenclyffe",
-      "name": "THE NORTH FACE \"Glenclyffe\"",
-      "brandLabel": "The North Face",
-      "brandSlug": "the-north-face",
-      "category": "outros",
-      "categoryLabel": "Outros",
-      "gender": "Unissexo",
-      "genderSlug": "unissexo",
-      "latestTs": 1787168714,
-      "sizes": [
-        "Único"
-      ],
-      "priceLabel": "40€",
-      "priceValue": 40,
-      "priceType": "fixed",
-      "badges": [],
-      "coverImage": "/SmartThings/imagens/telegram/the_north_face_the_north_face_glenclyffe/1.jpg",
-      "coverWidth": 1206,
-      "coverHeight": 838,
-      "url": "/SmartThings/produto/the_north_face_the_north_face_glenclyffe/",
-      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/the_north_face_the_north_face_glenclyffe/"
-    },
-    {
-      "slug": "the_north_face_the_north_face_700_varios_modelos",
-      "name": "THE NORTH FACE 700 / Varios Modelos",
-      "brandLabel": "The North Face",
-      "brandSlug": "the-north-face",
-      "category": "outros",
-      "categoryLabel": "Outros",
-      "gender": "Unissexo",
-      "genderSlug": "unissexo",
-      "latestTs": 1787160101,
-      "sizes": [
-        "Único"
-      ],
-      "priceLabel": "40€",
-      "priceValue": 40,
-      "priceType": "fixed",
-      "badges": [],
-      "coverImage": "/SmartThings/imagens/telegram/the_north_face_the_north_face_700_varios_modelos/1.jpg",
-      "coverWidth": 1043,
-      "coverHeight": 1280,
-      "url": "/SmartThings/produto/the_north_face_the_north_face_700_varios_modelos/",
-      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/the_north_face_the_north_face_700_varios_modelos/"
-    },
-    {
-      "slug": "rayban_rayban_muchos_colores",
-      "name": "RAYBAN / Muchos Colores",
-      "brandLabel": "RAYBAN",
-      "brandSlug": "rayban",
-      "category": "outros",
-      "categoryLabel": "Outros",
-      "gender": "Unissexo",
-      "genderSlug": "unissexo",
-      "latestTs": 1787143044,
-      "sizes": [
-        "Único"
-      ],
-      "priceLabel": "40€",
-      "priceValue": 40,
-      "priceType": "fixed",
-      "badges": [],
-      "coverImage": "/SmartThings/imagens/telegram/rayban_rayban_muchos_colores/1.jpg",
-      "coverWidth": 1206,
-      "coverHeight": 1017,
-      "url": "/SmartThings/produto/rayban_rayban_muchos_colores/",
-      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/rayban_rayban_muchos_colores/"
-    },
-    {
-      "slug": "asics_asics_gel_kayano_12_1_30_colores",
-      "name": "ASICS Gel Kayano 12.1 / 30 Colores",
-      "brandLabel": "ASICS",
-      "brandSlug": "asics",
-      "category": "sneakers",
-      "categoryLabel": "Sneakers",
-      "gender": "Unissexo",
-      "genderSlug": "unissexo",
-      "latestTs": 1787127721,
-      "sizes": [
-        "36",
-        "37",
-        "38",
-        "39",
-        "40",
-        "41",
-        "42",
-        "43",
-        "44",
-        "45",
-        "46"
-      ],
-      "priceLabel": "40€",
-      "priceValue": 40,
-      "priceType": "fixed",
-      "badges": [],
-      "coverImage": "/SmartThings/imagens/telegram/asics_asics_gel_kayano_12_1_30_colores/1.jpg",
-      "coverWidth": 1206,
-      "coverHeight": 1110,
-      "url": "/SmartThings/produto/asics_asics_gel_kayano_12_1_30_colores/",
-      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/asics_asics_gel_kayano_12_1_30_colores/"
-    },
-    {
-      "slug": "nike_nike_jordan_1_x_travis_scott_nuevos_colores",
-      "name": "NIKE Jordan 1 x TRAVIS SCOTT / Nuevos Colores",
-      "brandLabel": "NIKE",
-      "brandSlug": "nike",
-      "category": "sneakers",
-      "categoryLabel": "Sneakers",
-      "gender": "Unissexo",
-      "genderSlug": "unissexo",
-      "latestTs": 1787127017,
-      "sizes": [
-        "36",
-        "37",
-        "38",
-        "39",
-        "40",
-        "41",
-        "42",
-        "43",
-        "44",
-        "45",
-        "46"
-      ],
-      "priceLabel": "40€",
-      "priceValue": 40,
-      "priceType": "fixed",
-      "badges": [],
-      "coverImage": "/SmartThings/imagens/telegram/nike_nike_jordan_1_x_travis_scott_nuevos_colores/1.jpg",
-      "coverWidth": 1280,
-      "coverHeight": 786,
-      "url": "/SmartThings/produto/nike_nike_jordan_1_x_travis_scott_nuevos_colores/",
-      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/nike_nike_jordan_1_x_travis_scott_nuevos_colores/"
-    },
-    {
-      "slug": "adidas_adidas_gazelle_x_bad_bunny_11_colores",
-      "name": "ADIDAS Gazelle x BAD BUNNY / 11 Colores",
-      "brandLabel": "ADIDAS",
-      "brandSlug": "adidas",
-      "category": "sneakers",
-      "categoryLabel": "Sneakers",
-      "gender": "Unissexo",
-      "genderSlug": "unissexo",
-      "latestTs": 1787088679,
-      "sizes": [
-        "36",
-        "37",
-        "38",
-        "39",
-        "40",
-        "41",
-        "42",
-        "43",
-        "44",
-        "45",
-        "46"
-      ],
-      "priceLabel": "40€",
-      "priceValue": 40,
-      "priceType": "fixed",
-      "badges": [],
-      "coverImage": "/SmartThings/imagens/telegram/adidas_adidas_gazelle_x_bad_bunny_11_colores/1.jpg",
-      "coverWidth": 1170,
-      "coverHeight": 952,
-      "url": "/SmartThings/produto/adidas_adidas_gazelle_x_bad_bunny_11_colores/",
-      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/adidas_adidas_gazelle_x_bad_bunny_11_colores/"
-    },
-    {
-      "slug": "the_north_face_the_north_face_700_muy_recomendada",
-      "name": "THE NORTH FACE \"700\" / Muy recomendada",
-      "brandLabel": "The North Face",
-      "brandSlug": "the-north-face",
-      "category": "outros",
-      "categoryLabel": "Outros",
-      "gender": "Homem",
-      "genderSlug": "homem",
-      "latestTs": 1787086431,
-      "sizes": [
-        "Único"
-      ],
-      "priceLabel": "40€",
-      "priceValue": 40,
-      "priceType": "fixed",
-      "badges": [],
-      "coverImage": "/SmartThings/imagens/telegram/the_north_face_the_north_face_700_muy_recomendada/1.jpg",
-      "coverWidth": 1206,
-      "coverHeight": 920,
-      "url": "/SmartThings/produto/the_north_face_the_north_face_700_muy_recomendada/",
-      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/the_north_face_the_north_face_700_muy_recomendada/"
-    },
-    {
-      "slug": "nike_nike_alphafly_3_zoomx",
-      "name": "NIKE AlphaFly 3 ZoomX",
-      "brandLabel": "NIKE",
-      "brandSlug": "nike",
-      "category": "sneakers",
-      "categoryLabel": "Sneakers",
-      "gender": "Unissexo",
-      "genderSlug": "unissexo",
-      "latestTs": 1787086340,
-      "sizes": [
-        "36",
-        "37",
-        "38",
-        "39",
-        "40",
-        "41",
-        "42",
-        "43",
-        "44",
-        "45",
-        "46"
-      ],
-      "priceLabel": "40€",
-      "priceValue": 40,
-      "priceType": "fixed",
-      "badges": [],
-      "coverImage": "/SmartThings/imagens/telegram/nike_nike_alphafly_3_zoomx/1.jpg",
-      "coverWidth": 1170,
-      "coverHeight": 1043,
-      "url": "/SmartThings/produto/nike_nike_alphafly_3_zoomx/",
-      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/nike_nike_alphafly_3_zoomx/"
+      "coverImage": "/SmartThings/1.jpg",
+      "coverWidth": 1200,
+      "coverHeight": 1500,
+      "url": "/SmartThings/produto/carhartt_carhartt_4_colores_4/",
+      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/carhartt_carhartt_4_colores_4/"
     },
     {
       "slug": "adidas_spezial",
@@ -1020,7 +404,7 @@
       "categoryLabel": "Sneakers",
       "gender": "Unissexo",
       "genderSlug": "unissexo",
-      "latestTs": 1787085863,
+      "latestTs": 1794569621,
       "sizes": [
         "36",
         "37",
@@ -1037,7 +421,12 @@
       "priceLabel": "40€",
       "priceValue": 40,
       "priceType": "fixed",
-      "badges": [],
+      "badges": [
+        {
+          "label": "Novo",
+          "tone": "accent"
+        }
+      ],
       "coverImage": "/SmartThings/imagens/telegram/adidas_spezial/11.jpg",
       "coverWidth": 500,
       "coverHeight": 407,
@@ -1045,15 +434,15 @@
       "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/adidas_spezial/"
     },
     {
-      "slug": "nike_nike_air_max_1",
-      "name": "NIKE Air Max 1",
-      "brandLabel": "NIKE",
-      "brandSlug": "nike",
+      "slug": "adidas_adidas_molly_mae",
+      "name": "ADIDAS Molly Mae",
+      "brandLabel": "ADIDAS",
+      "brandSlug": "adidas",
       "category": "sneakers",
       "categoryLabel": "Sneakers",
       "gender": "Unissexo",
       "genderSlug": "unissexo",
-      "latestTs": 1787084964,
+      "latestTs": 1794569493,
       "sizes": [
         "36",
         "37",
@@ -1070,12 +459,83 @@
       "priceLabel": "40€",
       "priceValue": 40,
       "priceType": "fixed",
-      "badges": [],
-      "coverImage": "/SmartThings/imagens/telegram/nike_nike_air_max_1/1.jpg",
-      "coverWidth": 1206,
-      "coverHeight": 915,
-      "url": "/SmartThings/produto/nike_nike_air_max_1/",
-      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/nike_nike_air_max_1/"
+      "badges": [
+        {
+          "label": "Novo",
+          "tone": "accent"
+        }
+      ],
+      "coverImage": "/SmartThings/1.jpg",
+      "coverWidth": 1200,
+      "coverHeight": 1500,
+      "url": "/SmartThings/produto/adidas_adidas_molly_mae/",
+      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/adidas_adidas_molly_mae/"
+    },
+    {
+      "slug": "ugg_ugg_lowmel_3_colores_2",
+      "name": "UGG \"Lowmel\" / 3 Colores",
+      "brandLabel": "UGG",
+      "brandSlug": "ugg",
+      "category": "outros",
+      "categoryLabel": "Outros",
+      "gender": "Unissexo",
+      "genderSlug": "unissexo",
+      "latestTs": 1794568100,
+      "sizes": [
+        "Único"
+      ],
+      "priceLabel": "40€",
+      "priceValue": 40,
+      "priceType": "fixed",
+      "badges": [
+        {
+          "label": "Novo",
+          "tone": "accent"
+        }
+      ],
+      "coverImage": "/SmartThings/1.jpg",
+      "coverWidth": 1200,
+      "coverHeight": 1500,
+      "url": "/SmartThings/produto/ugg_ugg_lowmel_3_colores_2/",
+      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/ugg_ugg_lowmel_3_colores_2/"
+    },
+    {
+      "slug": "asics_asics_gel_cumulus_16_8_colores",
+      "name": "ASICS \"Gel Cumulus 16\" / 8 Colores",
+      "brandLabel": "ASICS",
+      "brandSlug": "asics",
+      "category": "sneakers",
+      "categoryLabel": "Sneakers",
+      "gender": "Unissexo",
+      "genderSlug": "unissexo",
+      "latestTs": 1794568097,
+      "sizes": [
+        "36",
+        "37",
+        "38",
+        "39",
+        "40",
+        "41",
+        "42",
+        "43",
+        "44",
+        "45",
+        "46"
+      ],
+      "priceLabel": "40€",
+      "priceValue": 40,
+      "priceType": "fixed",
+      "badges": [
+        {
+          "label": "Novo",
+          "tone": "accent"
+        }
+      ],
+      "coverImage": "/SmartThings/1.jpg",
+      "coverWidth": 1200,
+      "coverHeight": 1500,
+      "url": "/SmartThings/produto/asics_asics_gel_cumulus_16_8_colores/",
+      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/asics_asics_gel_cumulus_16_8_colores/"
     },
     {
       "slug": "apple_apple_airpods_pro2_articulo_muy_recomendado",
@@ -1086,14 +546,19 @@
       "categoryLabel": "Outros",
       "gender": "Homem",
       "genderSlug": "homem",
-      "latestTs": 1787079694,
+      "latestTs": 1794523118,
       "sizes": [
         "Único"
       ],
       "priceLabel": "40€",
       "priceValue": 40,
       "priceType": "fixed",
-      "badges": [],
+      "badges": [
+        {
+          "label": "Novo",
+          "tone": "accent"
+        }
+      ],
       "coverImage": "/SmartThings/imagens/telegram/apple_apple_airpods_pro2_articulo_muy_recomendado/1.jpg",
       "coverWidth": 1280,
       "coverHeight": 1263,
@@ -1101,61 +566,15 @@
       "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/apple_apple_airpods_pro2_articulo_muy_recomendado/"
     },
     {
-      "slug": "goyard_goyard_muchos_colores_desde_el_iphone_13_al_17",
-      "name": "GOYARD / Muchos Colores / Desde el IPhone 13 al 17",
-      "brandLabel": "GOYARD",
-      "brandSlug": "goyard",
-      "category": "outros",
-      "categoryLabel": "Outros",
-      "gender": "Unissexo",
-      "genderSlug": "unissexo",
-      "latestTs": 1787079669,
-      "sizes": [
-        "Único"
-      ],
-      "priceLabel": "40€",
-      "priceValue": 40,
-      "priceType": "fixed",
-      "badges": [],
-      "coverImage": "/SmartThings/imagens/telegram/goyard_goyard_muchos_colores_desde_el_iphone_13_al_17/1.jpg",
-      "coverWidth": 1280,
-      "coverHeight": 1280,
-      "url": "/SmartThings/produto/goyard_goyard_muchos_colores_desde_el_iphone_13_al_17/",
-      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/goyard_goyard_muchos_colores_desde_el_iphone_13_al_17/"
-    },
-    {
-      "slug": "apple_apple_airpods_max_muchos_colores",
-      "name": "APPLE AirPods Max / Muchos Colores",
-      "brandLabel": "APPLE",
-      "brandSlug": "apple",
-      "category": "outros",
-      "categoryLabel": "Outros",
-      "gender": "Unissexo",
-      "genderSlug": "unissexo",
-      "latestTs": 1787078023,
-      "sizes": [
-        "Único"
-      ],
-      "priceLabel": "40€",
-      "priceValue": 40,
-      "priceType": "fixed",
-      "badges": [],
-      "coverImage": "/SmartThings/imagens/telegram/apple_apple_airpods_max_muchos_colores/1.jpg",
-      "coverWidth": 979,
-      "coverHeight": 1280,
-      "url": "/SmartThings/produto/apple_apple_airpods_max_muchos_colores/",
-      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/apple_apple_airpods_max_muchos_colores/"
-    },
-    {
-      "slug": "adidas_samba_x_liberty_london",
-      "name": "ADIDAS Samba x LIBERTY LONDON",
-      "brandLabel": "Adidas",
-      "brandSlug": "adidas",
+      "slug": "new_balance_new_balance_9060_17_colores",
+      "name": "NEW BALANCE 9060 / 17 Colores",
+      "brandLabel": "New Balance",
+      "brandSlug": "new_balance",
       "category": "sneakers",
       "categoryLabel": "Sneakers",
       "gender": "Unissexo",
       "genderSlug": "unissexo",
-      "latestTs": 1787076863,
+      "latestTs": 1794522979,
       "sizes": [
         "36",
         "37",
@@ -1172,227 +591,122 @@
       "priceLabel": "40€",
       "priceValue": 40,
       "priceType": "fixed",
-      "badges": [],
-      "coverImage": "/SmartThings/imagens/telegram/adidas_samba_x_liberty_london/2.jpg",
-      "coverWidth": 768,
-      "coverHeight": 768,
-      "url": "/SmartThings/produto/adidas_samba_x_liberty_london/",
-      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/adidas_samba_x_liberty_london/"
-    },
-    {
-      "slug": "adidas_samba_x_wales_bonner",
-      "name": "ADIDAS Samba x WALES BONNER",
-      "brandLabel": "Adidas",
-      "brandSlug": "adidas",
-      "category": "sneakers",
-      "categoryLabel": "Sneakers",
-      "gender": "Unissexo",
-      "genderSlug": "unissexo",
-      "latestTs": 1787072313,
-      "sizes": [
-        "36",
-        "37",
-        "38",
-        "39",
-        "40",
-        "41",
-        "42",
-        "43",
-        "44",
-        "45",
-        "46"
+      "badges": [
+        {
+          "label": "Novo",
+          "tone": "accent"
+        }
       ],
-      "priceLabel": "40€",
-      "priceValue": 40,
-      "priceType": "fixed",
-      "badges": [],
-      "coverImage": "/SmartThings/imagens/telegram/adidas_samba_x_wales_bonner/7.jpg",
-      "coverWidth": 1170,
-      "coverHeight": 1055,
-      "url": "/SmartThings/produto/adidas_samba_x_wales_bonner/",
-      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/adidas_samba_x_wales_bonner/"
-    },
-    {
-      "slug": "loewe_loewe_x_on_cloud_muchos_colores_estan_de_vuelta",
-      "name": "LOEWE x ON CLOUD / Muchos Colores / Estan de Vuelta",
-      "brandLabel": "LOEWE",
-      "brandSlug": "loewe",
-      "category": "outros",
-      "categoryLabel": "Outros",
-      "gender": "Unissexo",
-      "genderSlug": "unissexo",
-      "latestTs": 1787063578,
-      "sizes": [
-        "Único"
-      ],
-      "priceLabel": "40€",
-      "priceValue": 40,
-      "priceType": "fixed",
-      "badges": [],
-      "coverImage": "/SmartThings/imagens/telegram/loewe_loewe_x_on_cloud_muchos_colores_estan_de_vuelta/1.jpg",
-      "coverWidth": 1206,
-      "coverHeight": 1120,
-      "url": "/SmartThings/produto/loewe_loewe_x_on_cloud_muchos_colores_estan_de_vuelta/",
-      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/loewe_loewe_x_on_cloud_muchos_colores_estan_de_vuelta/"
-    },
-    {
-      "slug": "gallery_dept",
-      "name": "GALLERY DEPT",
-      "brandLabel": "Sem marca",
-      "brandSlug": "sem-marca",
-      "category": "outros",
-      "categoryLabel": "Outros",
-      "gender": "Unissexo",
-      "genderSlug": "unissexo",
-      "latestTs": 1787048124,
-      "sizes": [
-        "Único"
-      ],
-      "priceLabel": "40€",
-      "priceValue": 40,
-      "priceType": "fixed",
-      "badges": [],
-      "coverImage": "/SmartThings/imagens/telegram/gallery_dept/gallery_dept_01.jpg",
-      "coverWidth": 800,
-      "coverHeight": 800,
-      "url": "/SmartThings/produto/gallery_dept/",
-      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/gallery_dept/"
-    },
-    {
-      "slug": "sevenheavens_sevenheavens",
-      "name": "SEVENHEAVENS",
-      "brandLabel": "SEVENHEAVENS",
-      "brandSlug": "sevenheavens",
-      "category": "outros",
-      "categoryLabel": "Outros",
-      "gender": "Unissexo",
-      "genderSlug": "unissexo",
-      "latestTs": 1787048124,
-      "sizes": [
-        "Único"
-      ],
-      "priceLabel": "40€",
-      "priceValue": 40,
-      "priceType": "fixed",
-      "badges": [],
-      "coverImage": "/SmartThings/imagens/telegram/sevenheavens_sevenheavens/1.jpg",
-      "coverWidth": 853,
-      "coverHeight": 1280,
-      "url": "/SmartThings/produto/sevenheavens_sevenheavens/",
-      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/sevenheavens_sevenheavens/"
-    },
-    {
-      "slug": "asics_asics_superblast_3_15_colores",
-      "name": "ASICS \"SuperBlast 3\" / 15 Colores",
-      "brandLabel": "ASICS",
-      "brandSlug": "asics",
-      "category": "sneakers",
-      "categoryLabel": "Sneakers",
-      "gender": "Unissexo",
-      "genderSlug": "unissexo",
-      "latestTs": 1787041561,
-      "sizes": [
-        "36",
-        "37",
-        "38",
-        "39",
-        "40",
-        "41",
-        "42",
-        "43",
-        "44",
-        "45",
-        "46"
-      ],
-      "priceLabel": "40€",
-      "priceValue": 40,
-      "priceType": "fixed",
-      "badges": [],
-      "coverImage": "/SmartThings/imagens/telegram/asics_asics_superblast_3_15_colores/1.jpg",
-      "coverWidth": 1206,
-      "coverHeight": 1190,
-      "url": "/SmartThings/produto/asics_asics_superblast_3_15_colores/",
-      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/asics_asics_superblast_3_15_colores/"
-    },
-    {
-      "slug": "hoka_cielo_x1",
-      "name": "HOKA Cielo X1",
-      "brandLabel": "Sem marca",
-      "brandSlug": "sem-marca",
-      "category": "outros",
-      "categoryLabel": "Outros",
-      "gender": "Unissexo",
-      "genderSlug": "unissexo",
-      "latestTs": 1787041515,
-      "sizes": [
-        "Único"
-      ],
-      "priceLabel": "40€",
-      "priceValue": 40,
-      "priceType": "fixed",
-      "badges": [],
-      "coverImage": "/SmartThings/imagens/telegram/hoka_cielo_x1/6.jpg",
+      "coverImage": "/SmartThings/1.jpg",
       "coverWidth": 1200,
-      "coverHeight": 1200,
-      "url": "/SmartThings/produto/hoka_cielo_x1/",
-      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/hoka_cielo_x1/"
+      "coverHeight": 1500,
+      "url": "/SmartThings/produto/new_balance_new_balance_9060_17_colores/",
+      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/new_balance_new_balance_9060_17_colores/"
     },
     {
-      "slug": "ugg_ugg_tazz_ii_11_colores",
-      "name": "UGG \"Tazz II\" / 11 Colores",
-      "brandLabel": "UGG",
-      "brandSlug": "ugg",
+      "slug": "adidas_adidas_samba_29_nuevos_colores",
+      "name": "ADIDAS \"Samba\" / 29 Nuevos Colores",
+      "brandLabel": "ADIDAS",
+      "brandSlug": "adidas",
+      "category": "sneakers",
+      "categoryLabel": "Sneakers",
+      "gender": "Unissexo",
+      "genderSlug": "unissexo",
+      "latestTs": 1794522593,
+      "sizes": [
+        "36",
+        "37",
+        "38",
+        "39",
+        "40",
+        "41",
+        "42",
+        "43",
+        "44",
+        "45",
+        "46"
+      ],
+      "priceLabel": "40€",
+      "priceValue": 40,
+      "priceType": "fixed",
+      "badges": [
+        {
+          "label": "Novo",
+          "tone": "accent"
+        }
+      ],
+      "coverImage": "/SmartThings/1.jpg",
+      "coverWidth": 1200,
+      "coverHeight": 1500,
+      "url": "/SmartThings/produto/adidas_adidas_samba_29_nuevos_colores/",
+      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/adidas_adidas_samba_29_nuevos_colores/"
+    },
+    {
+      "slug": "salomon_salomon_xt6_20_colores_os_teneis_que_guiar_por_los_colores_de_las_imagenes_ya_que_son_de_venta_oculta_y_no_se_pa",
+      "name": "SALOMON \"XT6\" / 20 Colores / Os teneis que guiar por los colores de las imagenes ya que son de \"venta oculta\" y no se parecen, pero cuando las comprais os llegan las Salomon / Van a durar MUY pocas horas",
+      "brandLabel": "SALOMON",
+      "brandSlug": "salomon",
       "category": "outros",
       "categoryLabel": "Outros",
       "gender": "Unissexo",
       "genderSlug": "unissexo",
-      "latestTs": 1787041515,
+      "latestTs": 1794520993,
       "sizes": [
         "Único"
       ],
       "priceLabel": "40€",
       "priceValue": 40,
       "priceType": "fixed",
-      "badges": [],
-      "coverImage": "/SmartThings/imagens/telegram/ugg_ugg_tazz_ii_11_colores/1.jpg",
-      "coverWidth": 1280,
-      "coverHeight": 928,
-      "url": "/SmartThings/produto/ugg_ugg_tazz_ii_11_colores/",
-      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/ugg_ugg_tazz_ii_11_colores/"
+      "badges": [
+        {
+          "label": "Novo",
+          "tone": "accent"
+        }
+      ],
+      "coverImage": "/SmartThings/1.jpg",
+      "coverWidth": 1200,
+      "coverHeight": 1500,
+      "url": "/SmartThings/produto/salomon_salomon_xt6_20_colores_os_teneis_que_guiar_por_los_colores_de_las_imagenes_ya_que_son_de_venta_oculta_y_no_se_pa/",
+      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/salomon_salomon_xt6_20_colores_os_teneis_que_guiar_por_los_colores_de_las_imagenes_ya_que_son_de_venta_oculta_y_no_se_pa/"
     },
     {
-      "slug": "veja_veja_19_colores",
-      "name": "VEJA / 19 Colores",
-      "brandLabel": "VEJA",
-      "brandSlug": "veja",
+      "slug": "acne_studios",
+      "name": "ACNE STUDIOS",
+      "brandLabel": "Sem marca",
+      "brandSlug": "sem-marca",
       "category": "outros",
       "categoryLabel": "Outros",
       "gender": "Unissexo",
       "genderSlug": "unissexo",
-      "latestTs": 1787041515,
+      "latestTs": 1794510547,
       "sizes": [
         "Único"
       ],
       "priceLabel": "40€",
       "priceValue": 40,
       "priceType": "fixed",
-      "badges": [],
-      "coverImage": "/SmartThings/imagens/telegram/veja_veja_19_colores/1.jpg",
-      "coverWidth": 883,
-      "coverHeight": 883,
-      "url": "/SmartThings/produto/veja_veja_19_colores/",
-      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/veja_veja_19_colores/"
+      "badges": [
+        {
+          "label": "Novo",
+          "tone": "accent"
+        }
+      ],
+      "coverImage": "/SmartThings/imagens/telegram/acne_studios/5.jpg",
+      "coverWidth": 833,
+      "coverHeight": 1042,
+      "url": "/SmartThings/produto/acne_studios/",
+      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/acne_studios/"
     },
     {
-      "slug": "corteiz_corteiz_muchos_colores",
-      "name": "CORTEIZ / Muchos Colores",
-      "brandLabel": "CORTEIZ",
-      "brandSlug": "corteiz",
+      "slug": "carhartt_carhartt_5_colores_5",
+      "name": "CARHARTT / 5 Colores",
+      "brandLabel": "CARHARTT",
+      "brandSlug": "carhartt",
       "category": "roupas",
       "categoryLabel": "Roupa",
       "gender": "Unissexo",
       "genderSlug": "unissexo",
-      "latestTs": 1787041441,
+      "latestTs": 1794484691,
       "sizes": [
         "XS",
         "S",
@@ -1404,306 +718,56 @@
       "priceLabel": "40€",
       "priceValue": 40,
       "priceType": "fixed",
-      "badges": [],
-      "coverImage": "/SmartThings/imagens/telegram/corteiz_corteiz_muchos_colores/1.jpg",
-      "coverWidth": 1024,
-      "coverHeight": 1024,
-      "url": "/SmartThings/produto/corteiz_corteiz_muchos_colores/",
-      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/corteiz_corteiz_muchos_colores/"
-    },
-    {
-      "slug": "stanley_stanley_12_colores",
-      "name": "STANLEY / 12 Colores",
-      "brandLabel": "STANLEY",
-      "brandSlug": "stanley",
-      "category": "outros",
-      "categoryLabel": "Outros",
-      "gender": "Unissexo",
-      "genderSlug": "unissexo",
-      "latestTs": 1787041441,
-      "sizes": [
-        "Único"
+      "badges": [
+        {
+          "label": "Novo",
+          "tone": "accent"
+        }
       ],
-      "priceLabel": "40€",
-      "priceValue": 40,
-      "priceType": "fixed",
-      "badges": [],
-      "coverImage": "/SmartThings/imagens/telegram/stanley_stanley_12_colores/1.jpg",
-      "coverWidth": 1280,
-      "coverHeight": 1280,
-      "url": "/SmartThings/produto/stanley_stanley_12_colores/",
-      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/stanley_stanley_12_colores/"
+      "coverImage": "/SmartThings/1.jpg",
+      "coverWidth": 1200,
+      "coverHeight": 1500,
+      "url": "/SmartThings/produto/carhartt_carhartt_5_colores_5/",
+      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/carhartt_carhartt_5_colores_5/"
     },
     {
-      "slug": "tissot_tissot_prx_29_colores_siguen_disponibles",
-      "name": "TISSOT \"PRX\" / 29 Colores / Siguen Disponibles",
-      "brandLabel": "TISSOT",
-      "brandSlug": "tissot",
-      "category": "outros",
-      "categoryLabel": "Outros",
-      "gender": "Unissexo",
-      "genderSlug": "unissexo",
-      "latestTs": 1787040617,
-      "sizes": [
-        "Único"
-      ],
-      "priceLabel": "40€",
-      "priceValue": 40,
-      "priceType": "fixed",
-      "badges": [],
-      "coverImage": "/SmartThings/imagens/telegram/tissot_tissot_prx_29_colores_siguen_disponibles/1.jpg",
-      "coverWidth": 1254,
-      "coverHeight": 1254,
-      "url": "/SmartThings/produto/tissot_tissot_prx_29_colores_siguen_disponibles/",
-      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/tissot_tissot_prx_29_colores_siguen_disponibles/"
-    },
-    {
-      "slug": "brooks_brooks_glycerin_23_11_colores",
-      "name": "BROOKS \"Glycerin 23\" / 11 Colores",
-      "brandLabel": "BROOKS",
-      "brandSlug": "brooks",
-      "category": "outros",
-      "categoryLabel": "Outros",
-      "gender": "Unissexo",
-      "genderSlug": "unissexo",
-      "latestTs": 1786998595,
-      "sizes": [
-        "Único"
-      ],
-      "priceLabel": "40€",
-      "priceValue": 40,
-      "priceType": "fixed",
-      "badges": [],
-      "coverImage": "/SmartThings/imagens/telegram/brooks_brooks_glycerin_23_11_colores/1.jpg",
-      "coverWidth": 1206,
-      "coverHeight": 1248,
-      "url": "/SmartThings/produto/brooks_brooks_glycerin_23_11_colores/",
-      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/brooks_brooks_glycerin_23_11_colores/"
-    },
-    {
-      "slug": "on_on_cloud_muchos_colores_3",
-      "name": "ON CLOUD / Muchos Colores",
-      "brandLabel": "ON",
-      "brandSlug": "on",
-      "category": "outros",
-      "categoryLabel": "Outros",
-      "gender": "Unissexo",
-      "genderSlug": "unissexo",
-      "latestTs": 1786990568,
-      "sizes": [
-        "Único"
-      ],
-      "priceLabel": "40€",
-      "priceValue": 40,
-      "priceType": "fixed",
-      "badges": [],
-      "coverImage": "/SmartThings/imagens/telegram/on_on_cloud_muchos_colores_3/1.jpg",
-      "coverWidth": 992,
-      "coverHeight": 992,
-      "url": "/SmartThings/produto/on_on_cloud_muchos_colores_3/",
-      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/on_on_cloud_muchos_colores_3/"
-    },
-    {
-      "slug": "the_north_face_the_north_face_altamesa_500",
-      "name": "THE NORTH FACE \"Altamesa 500\"",
-      "brandLabel": "The North Face",
-      "brandSlug": "the-north-face",
-      "category": "outros",
-      "categoryLabel": "Outros",
-      "gender": "Unissexo",
-      "genderSlug": "unissexo",
-      "latestTs": 1786986012,
-      "sizes": [
-        "Único"
-      ],
-      "priceLabel": "40€",
-      "priceValue": 40,
-      "priceType": "fixed",
-      "badges": [],
-      "coverImage": "/SmartThings/imagens/telegram/the_north_face_the_north_face_altamesa_500/1.jpg",
-      "coverWidth": 1206,
-      "coverHeight": 943,
-      "url": "/SmartThings/produto/the_north_face_the_north_face_altamesa_500/",
-      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/the_north_face_the_north_face_altamesa_500/"
-    },
-    {
-      "slug": "on_on_cloud_muchos_colores_2",
-      "name": "ON CLOUD / Muchos Colores",
-      "brandLabel": "ON",
-      "brandSlug": "on",
-      "category": "outros",
-      "categoryLabel": "Outros",
-      "gender": "Unissexo",
-      "genderSlug": "unissexo",
-      "latestTs": 1786973801,
-      "sizes": [
-        "Único"
-      ],
-      "priceLabel": "40€",
-      "priceValue": 40,
-      "priceType": "fixed",
-      "badges": [],
-      "coverImage": "/SmartThings/imagens/telegram/on_on_cloud_muchos_colores_2/1.jpg",
-      "coverWidth": 1280,
-      "coverHeight": 1280,
-      "url": "/SmartThings/produto/on_on_cloud_muchos_colores_2/",
-      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/on_on_cloud_muchos_colores_2/"
-    },
-    {
-      "slug": "diesel_diesel_muchos_colores",
-      "name": "DIESEL / Muchos Colores",
-      "brandLabel": "DIESEL",
-      "brandSlug": "diesel",
-      "category": "outros",
-      "categoryLabel": "Outros",
-      "gender": "Unissexo",
-      "genderSlug": "unissexo",
-      "latestTs": 1786973666,
-      "sizes": [
-        "Único"
-      ],
-      "priceLabel": "40€",
-      "priceValue": 40,
-      "priceType": "fixed",
-      "badges": [],
-      "coverImage": "/SmartThings/imagens/telegram/diesel_diesel_muchos_colores/1.jpg",
-      "coverWidth": 992,
-      "coverHeight": 992,
-      "url": "/SmartThings/produto/diesel_diesel_muchos_colores/",
-      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/diesel_diesel_muchos_colores/"
-    },
-    {
-      "slug": "onitsuka_onitsuka_tiger_gymnarina",
-      "name": "Onitsuka Tiger \"GymNarina\"",
-      "brandLabel": "Onitsuka",
+      "slug": "onitsuka_onitsuka_tiger_5_colores_2",
+      "name": "ONITSUKA Tiger / 5 Colores",
+      "brandLabel": "ONITSUKA",
       "brandSlug": "onitsuka",
       "category": "outros",
       "categoryLabel": "Outros",
       "gender": "Unissexo",
       "genderSlug": "unissexo",
-      "latestTs": 1786964488,
+      "latestTs": 1794484677,
       "sizes": [
         "Único"
       ],
       "priceLabel": "40€",
       "priceValue": 40,
       "priceType": "fixed",
-      "badges": [],
-      "coverImage": "/SmartThings/imagens/telegram/onitsuka_onitsuka_tiger_gymnarina/1.jpg",
-      "coverWidth": 850,
-      "coverHeight": 1280,
-      "url": "/SmartThings/produto/onitsuka_onitsuka_tiger_gymnarina/",
-      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/onitsuka_onitsuka_tiger_gymnarina/"
-    },
-    {
-      "slug": "adidas_superstar_x_molly_mae",
-      "name": "Adidas Superstar X Molly Mae",
-      "brandLabel": "Adidas",
-      "brandSlug": "adidas",
-      "category": "sneakers",
-      "categoryLabel": "Sneakers",
-      "gender": "Unissexo",
-      "genderSlug": "unissexo",
-      "latestTs": 1786963352,
-      "sizes": [
-        "36",
-        "37",
-        "38",
-        "39",
-        "40",
-        "41",
-        "42",
-        "43",
-        "44",
-        "45",
-        "46"
+      "badges": [
+        {
+          "label": "Novo",
+          "tone": "accent"
+        }
       ],
-      "priceLabel": "40€",
-      "priceValue": 40,
-      "priceType": "fixed",
-      "badges": [],
-      "coverImage": "/SmartThings/imagens/telegram/adidas_superstar_x_molly_mae/4.jpg",
-      "coverWidth": 1206,
-      "coverHeight": 915,
-      "url": "/SmartThings/produto/adidas_superstar_x_molly_mae/",
-      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/adidas_superstar_x_molly_mae/"
+      "coverImage": "/SmartThings/1.jpg",
+      "coverWidth": 1200,
+      "coverHeight": 1500,
+      "url": "/SmartThings/produto/onitsuka_onitsuka_tiger_5_colores_2/",
+      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/onitsuka_onitsuka_tiger_5_colores_2/"
     },
     {
-      "slug": "adidas_samba_og",
-      "name": "ADIDAS Samba OG",
-      "brandLabel": "Adidas",
-      "brandSlug": "adidas",
-      "category": "sneakers",
-      "categoryLabel": "Sneakers",
-      "gender": "Unissexo",
-      "genderSlug": "unissexo",
-      "latestTs": 1786962467,
-      "sizes": [
-        "36",
-        "37",
-        "38",
-        "39",
-        "40",
-        "41",
-        "42",
-        "43",
-        "44",
-        "45",
-        "46"
-      ],
-      "priceLabel": "40€",
-      "priceValue": 40,
-      "priceType": "fixed",
-      "badges": [],
-      "coverImage": "/SmartThings/imagens/telegram/adidas_samba_og/11.jpg",
-      "coverWidth": 736,
-      "coverHeight": 1199,
-      "url": "/SmartThings/produto/adidas_samba_og/",
-      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/adidas_samba_og/"
-    },
-    {
-      "slug": "converse_chuck_70_plus",
-      "name": "Converse Chuck 70 Plus",
-      "brandLabel": "Converse",
-      "brandSlug": "converse",
-      "category": "sneakers",
-      "categoryLabel": "Sneakers",
-      "gender": "Unissexo",
-      "genderSlug": "unissexo",
-      "latestTs": 1786959163,
-      "sizes": [
-        "36",
-        "37",
-        "38",
-        "39",
-        "40",
-        "41",
-        "42",
-        "43",
-        "44",
-        "45",
-        "46"
-      ],
-      "priceLabel": "40€",
-      "priceValue": 40,
-      "priceType": "fixed",
-      "badges": [],
-      "coverImage": "/SmartThings/imagens/telegram/converse_chuck_70_plus/7.jpg",
-      "coverWidth": 1206,
-      "coverHeight": 1226,
-      "url": "/SmartThings/produto/converse_chuck_70_plus/",
-      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/converse_chuck_70_plus/"
-    },
-    {
-      "slug": "asics_x_the_north_face",
-      "name": "ASICS x The North Face",
+      "slug": "asics_asics_gel_sekiran_10_colores_2",
+      "name": "ASICS Gel Sekiran / 10 Colores",
       "brandLabel": "ASICS",
       "brandSlug": "asics",
       "category": "sneakers",
       "categoryLabel": "Sneakers",
       "gender": "Unissexo",
       "genderSlug": "unissexo",
-      "latestTs": 1786959158,
+      "latestTs": 1794484677,
       "sizes": [
         "36",
         "37",
@@ -1720,58 +784,1314 @@
       "priceLabel": "40€",
       "priceValue": 40,
       "priceType": "fixed",
-      "badges": [],
-      "coverImage": "/SmartThings/imagens/telegram/asics_x_the_north_face/asics_x_the_north_face_01.jpg",
-      "coverWidth": 1206,
-      "coverHeight": 761,
-      "url": "/SmartThings/produto/asics_x_the_north_face/",
-      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/asics_x_the_north_face/"
+      "badges": [
+        {
+          "label": "Novo",
+          "tone": "accent"
+        }
+      ],
+      "coverImage": "/SmartThings/1.jpg",
+      "coverWidth": 1200,
+      "coverHeight": 1500,
+      "url": "/SmartThings/produto/asics_asics_gel_sekiran_10_colores_2/",
+      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/asics_asics_gel_sekiran_10_colores_2/"
     },
     {
-      "slug": "carhat_carhat",
-      "name": "CARHAT",
-      "brandLabel": "CARHAT",
-      "brandSlug": "carhat",
-      "category": "outros",
-      "categoryLabel": "Outros",
+      "slug": "adidas_adidas_adizero_pr_7_colores_2",
+      "name": "ADIDAS Adizero PR / 7 Colores",
+      "brandLabel": "ADIDAS",
+      "brandSlug": "adidas",
+      "category": "sneakers",
+      "categoryLabel": "Sneakers",
       "gender": "Unissexo",
       "genderSlug": "unissexo",
-      "latestTs": 1786959156,
+      "latestTs": 1794484674,
       "sizes": [
-        "Único"
+        "36",
+        "37",
+        "38",
+        "39",
+        "40",
+        "41",
+        "42",
+        "43",
+        "44",
+        "45",
+        "46"
       ],
       "priceLabel": "40€",
       "priceValue": 40,
       "priceType": "fixed",
-      "badges": [],
-      "coverImage": "/SmartThings/imagens/telegram/carhat_carhat/1.jpg",
-      "coverWidth": 1170,
-      "coverHeight": 1110,
-      "url": "/SmartThings/produto/carhat_carhat/",
-      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/carhat_carhat/"
+      "badges": [
+        {
+          "label": "Novo",
+          "tone": "accent"
+        }
+      ],
+      "coverImage": "/SmartThings/1.jpg",
+      "coverWidth": 1200,
+      "coverHeight": 1500,
+      "url": "/SmartThings/produto/adidas_adidas_adizero_pr_7_colores_2/",
+      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/adidas_adidas_adizero_pr_7_colores_2/"
     },
     {
-      "slug": "cold_culture",
-      "name": "COLD CULTURE",
+      "slug": "mizuno_racer_trail",
+      "name": "MIZUNO \"Racer Trail\"",
       "brandLabel": "Sem marca",
       "brandSlug": "sem-marca",
       "category": "outros",
       "categoryLabel": "Outros",
       "gender": "Unissexo",
       "genderSlug": "unissexo",
-      "latestTs": 1786957280,
+      "latestTs": 1794484672,
       "sizes": [
         "Único"
       ],
       "priceLabel": "40€",
       "priceValue": 40,
       "priceType": "fixed",
-      "badges": [],
-      "coverImage": "/SmartThings/imagens/telegram/cold_culture/3.jpg",
-      "coverWidth": 736,
-      "coverHeight": 981,
-      "url": "/SmartThings/produto/cold_culture/",
-      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/cold_culture/"
+      "badges": [
+        {
+          "label": "Novo",
+          "tone": "accent"
+        }
+      ],
+      "coverImage": "/SmartThings/imagens/telegram/mizuno_racer_trail/mizuno_racer_trail_01.jpg",
+      "coverWidth": 750,
+      "coverHeight": 750,
+      "url": "/SmartThings/produto/mizuno_racer_trail/",
+      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/mizuno_racer_trail/"
+    },
+    {
+      "slug": "new_balance_new_balance_20_colores_2",
+      "name": "NEW BALANCE \"\" / 20 Colores",
+      "brandLabel": "New Balance",
+      "brandSlug": "new_balance",
+      "category": "sneakers",
+      "categoryLabel": "Sneakers",
+      "gender": "Unissexo",
+      "genderSlug": "unissexo",
+      "latestTs": 1794437728,
+      "sizes": [
+        "36",
+        "37",
+        "38",
+        "39",
+        "40",
+        "41",
+        "42",
+        "43",
+        "44",
+        "45",
+        "46"
+      ],
+      "priceLabel": "40€",
+      "priceValue": 40,
+      "priceType": "fixed",
+      "badges": [
+        {
+          "label": "Novo",
+          "tone": "accent"
+        }
+      ],
+      "coverImage": "/SmartThings/1.jpg",
+      "coverWidth": 1200,
+      "coverHeight": 1500,
+      "url": "/SmartThings/produto/new_balance_new_balance_20_colores_2/",
+      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/new_balance_new_balance_20_colores_2/"
+    },
+    {
+      "slug": "converse_converse_tambien_las_bajas_4",
+      "name": "CONVERSE / Tambien las bajas",
+      "brandLabel": "CONVERSE",
+      "brandSlug": "converse",
+      "category": "sneakers",
+      "categoryLabel": "Sneakers",
+      "gender": "Unissexo",
+      "genderSlug": "unissexo",
+      "latestTs": 1794437529,
+      "sizes": [
+        "36",
+        "37",
+        "38",
+        "39",
+        "40",
+        "41",
+        "42",
+        "43",
+        "44",
+        "45",
+        "46"
+      ],
+      "priceLabel": "40€",
+      "priceValue": 40,
+      "priceType": "fixed",
+      "badges": [
+        {
+          "label": "Novo",
+          "tone": "accent"
+        }
+      ],
+      "coverImage": "/SmartThings/1.jpg",
+      "coverWidth": 1200,
+      "coverHeight": 1500,
+      "url": "/SmartThings/produto/converse_converse_tambien_las_bajas_4/",
+      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/converse_converse_tambien_las_bajas_4/"
+    },
+    {
+      "slug": "ralph_lauren_polo_ralph_lauren_13_colores",
+      "name": "POLO RALPH LAUREN / 13 Colores",
+      "brandLabel": "Polo Ralph Lauren",
+      "brandSlug": "ralph_lauren",
+      "category": "roupas",
+      "categoryLabel": "Roupa",
+      "gender": "Unissexo",
+      "genderSlug": "unissexo",
+      "latestTs": 1794436889,
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "priceLabel": "40€",
+      "priceValue": 40,
+      "priceType": "fixed",
+      "badges": [
+        {
+          "label": "Novo",
+          "tone": "accent"
+        }
+      ],
+      "coverImage": "/SmartThings/1.jpg",
+      "coverWidth": 1200,
+      "coverHeight": 1500,
+      "url": "/SmartThings/produto/ralph_lauren_polo_ralph_lauren_13_colores/",
+      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/ralph_lauren_polo_ralph_lauren_13_colores/"
+    },
+    {
+      "slug": "goyard_goyard_6_colores_3",
+      "name": "GOYARD / 6 Colores",
+      "brandLabel": "GOYARD",
+      "brandSlug": "goyard",
+      "category": "outros",
+      "categoryLabel": "Outros",
+      "gender": "Unissexo",
+      "genderSlug": "unissexo",
+      "latestTs": 1794436201,
+      "sizes": [
+        "Único"
+      ],
+      "priceLabel": "40€",
+      "priceValue": 40,
+      "priceType": "fixed",
+      "badges": [
+        {
+          "label": "Novo",
+          "tone": "accent"
+        }
+      ],
+      "coverImage": "/SmartThings/1.jpg",
+      "coverWidth": 1200,
+      "coverHeight": 1500,
+      "url": "/SmartThings/produto/goyard_goyard_6_colores_3/",
+      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/goyard_goyard_6_colores_3/"
+    },
+    {
+      "slug": "rhode_rhode_vale_para_cualquier_modelo_de_telefono",
+      "name": "RHODE / Vale para cualquier modelo de telefono",
+      "brandLabel": "RHODE",
+      "brandSlug": "rhode",
+      "category": "outros",
+      "categoryLabel": "Outros",
+      "gender": "Unissexo",
+      "genderSlug": "unissexo",
+      "latestTs": 1794431438,
+      "sizes": [
+        "Único"
+      ],
+      "priceLabel": "40€",
+      "priceValue": 40,
+      "priceType": "fixed",
+      "badges": [
+        {
+          "label": "Novo",
+          "tone": "accent"
+        }
+      ],
+      "coverImage": "/SmartThings/1.jpg",
+      "coverWidth": 1200,
+      "coverHeight": 1500,
+      "url": "/SmartThings/produto/rhode_rhode_vale_para_cualquier_modelo_de_telefono/",
+      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/rhode_rhode_vale_para_cualquier_modelo_de_telefono/"
+    },
+    {
+      "slug": "under_under_armour_4_colores_2",
+      "name": "UNDER ARMOUR / 4 Colores",
+      "brandLabel": "UNDER",
+      "brandSlug": "under",
+      "category": "outros",
+      "categoryLabel": "Outros",
+      "gender": "Unissexo",
+      "genderSlug": "unissexo",
+      "latestTs": 1794430683,
+      "sizes": [
+        "Único"
+      ],
+      "priceLabel": "40€",
+      "priceValue": 40,
+      "priceType": "fixed",
+      "badges": [
+        {
+          "label": "Novo",
+          "tone": "accent"
+        }
+      ],
+      "coverImage": "/SmartThings/1.jpg",
+      "coverWidth": 1200,
+      "coverHeight": 1500,
+      "url": "/SmartThings/produto/under_under_armour_4_colores_2/",
+      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/under_under_armour_4_colores_2/"
+    },
+    {
+      "slug": "ralph_lauren_polo_ralph_lauren_24_prendas_sin_capucha_pantalones_etc_2",
+      "name": "POLO RALPH LAUREN / 24 Prendas, sin capucha, pantalones, etc",
+      "brandLabel": "Polo Ralph Lauren",
+      "brandSlug": "ralph_lauren",
+      "category": "roupas",
+      "categoryLabel": "Roupa",
+      "gender": "Unissexo",
+      "genderSlug": "unissexo",
+      "latestTs": 1794427512,
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "priceLabel": "40€",
+      "priceValue": 40,
+      "priceType": "fixed",
+      "badges": [
+        {
+          "label": "Novo",
+          "tone": "accent"
+        }
+      ],
+      "coverImage": "/SmartThings/1.jpg",
+      "coverWidth": 1200,
+      "coverHeight": 1500,
+      "url": "/SmartThings/produto/ralph_lauren_polo_ralph_lauren_24_prendas_sin_capucha_pantalones_etc_2/",
+      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/ralph_lauren_polo_ralph_lauren_24_prendas_sin_capucha_pantalones_etc_2/"
+    },
+    {
+      "slug": "adidas_adidas_forum_19_colores_3",
+      "name": "ADIDAS Forum / 19 Colores",
+      "brandLabel": "ADIDAS",
+      "brandSlug": "adidas",
+      "category": "sneakers",
+      "categoryLabel": "Sneakers",
+      "gender": "Unissexo",
+      "genderSlug": "unissexo",
+      "latestTs": 1794404223,
+      "sizes": [
+        "36",
+        "37",
+        "38",
+        "39",
+        "40",
+        "41",
+        "42",
+        "43",
+        "44",
+        "45",
+        "46"
+      ],
+      "priceLabel": "40€",
+      "priceValue": 40,
+      "priceType": "fixed",
+      "badges": [
+        {
+          "label": "Novo",
+          "tone": "accent"
+        }
+      ],
+      "coverImage": "/SmartThings/1.jpg",
+      "coverWidth": 1200,
+      "coverHeight": 1500,
+      "url": "/SmartThings/produto/adidas_adidas_forum_19_colores_3/",
+      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/adidas_adidas_forum_19_colores_3/"
+    },
+    {
+      "slug": "adidas_adidas_barreda_3_colores",
+      "name": "ADIDAS \"Barreda\" / 3 Colores",
+      "brandLabel": "ADIDAS",
+      "brandSlug": "adidas",
+      "category": "sneakers",
+      "categoryLabel": "Sneakers",
+      "gender": "Unissexo",
+      "genderSlug": "unissexo",
+      "latestTs": 1794403759,
+      "sizes": [
+        "36",
+        "37",
+        "38",
+        "39",
+        "40",
+        "41",
+        "42",
+        "43",
+        "44",
+        "45",
+        "46"
+      ],
+      "priceLabel": "40€",
+      "priceValue": 40,
+      "priceType": "fixed",
+      "badges": [
+        {
+          "label": "Novo",
+          "tone": "accent"
+        }
+      ],
+      "coverImage": "/SmartThings/1.jpg",
+      "coverWidth": 1200,
+      "coverHeight": 1500,
+      "url": "/SmartThings/produto/adidas_adidas_barreda_3_colores/",
+      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/adidas_adidas_barreda_3_colores/"
+    },
+    {
+      "slug": "adidas_adidas_puffylette",
+      "name": "ADIDAS PuffyLette",
+      "brandLabel": "ADIDAS",
+      "brandSlug": "adidas",
+      "category": "sneakers",
+      "categoryLabel": "Sneakers",
+      "gender": "Unissexo",
+      "genderSlug": "unissexo",
+      "latestTs": 1794403758,
+      "sizes": [
+        "36",
+        "37",
+        "38",
+        "39",
+        "40",
+        "41",
+        "42",
+        "43",
+        "44",
+        "45",
+        "46"
+      ],
+      "priceLabel": "40€",
+      "priceValue": 40,
+      "priceType": "fixed",
+      "badges": [
+        {
+          "label": "Novo",
+          "tone": "accent"
+        }
+      ],
+      "coverImage": "/SmartThings/1.jpg",
+      "coverWidth": 1200,
+      "coverHeight": 1500,
+      "url": "/SmartThings/produto/adidas_adidas_puffylette/",
+      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/adidas_adidas_puffylette/"
+    },
+    {
+      "slug": "adidas_adidas_superstar_ii_9_colores",
+      "name": "ADIDAS Superstar II / 9 Colores",
+      "brandLabel": "ADIDAS",
+      "brandSlug": "adidas",
+      "category": "sneakers",
+      "categoryLabel": "Sneakers",
+      "gender": "Unissexo",
+      "genderSlug": "unissexo",
+      "latestTs": 1794403578,
+      "sizes": [
+        "36",
+        "37",
+        "38",
+        "39",
+        "40",
+        "41",
+        "42",
+        "43",
+        "44",
+        "45",
+        "46"
+      ],
+      "priceLabel": "40€",
+      "priceValue": 40,
+      "priceType": "fixed",
+      "badges": [
+        {
+          "label": "Novo",
+          "tone": "accent"
+        }
+      ],
+      "coverImage": "/SmartThings/1.jpg",
+      "coverWidth": 1200,
+      "coverHeight": 1500,
+      "url": "/SmartThings/produto/adidas_adidas_superstar_ii_9_colores/",
+      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/adidas_adidas_superstar_ii_9_colores/"
+    },
+    {
+      "slug": "nike_nike_mind_001_10_colores_pedir_una_talla_mas_tambien_tallas_de_nino_por_17_2",
+      "name": "NIKE \"Mind 001\" / 10 Colores / Pedir una talla mas / Tambien tallas de nino por 17€",
+      "brandLabel": "NIKE",
+      "brandSlug": "nike",
+      "category": "sneakers",
+      "categoryLabel": "Sneakers",
+      "gender": "Unissexo",
+      "genderSlug": "unissexo",
+      "latestTs": 1794351210,
+      "sizes": [
+        "36",
+        "37",
+        "38",
+        "39",
+        "40",
+        "41",
+        "42",
+        "43",
+        "44",
+        "45",
+        "46"
+      ],
+      "priceLabel": "40€",
+      "priceValue": 40,
+      "priceType": "fixed",
+      "badges": [
+        {
+          "label": "Novo",
+          "tone": "accent"
+        }
+      ],
+      "coverImage": "/SmartThings/1.jpg",
+      "coverWidth": 1200,
+      "coverHeight": 1500,
+      "url": "/SmartThings/produto/nike_nike_mind_001_10_colores_pedir_una_talla_mas_tambien_tallas_de_nino_por_17_2/",
+      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/nike_nike_mind_001_10_colores_pedir_una_talla_mas_tambien_tallas_de_nino_por_17_2/"
+    },
+    {
+      "slug": "nike_nike_air_force_1_x_cpfm",
+      "name": "NIKE \"Air Force 1\" x CPFM",
+      "brandLabel": "NIKE",
+      "brandSlug": "nike",
+      "category": "sneakers",
+      "categoryLabel": "Sneakers",
+      "gender": "Unissexo",
+      "genderSlug": "unissexo",
+      "latestTs": 1794350964,
+      "sizes": [
+        "36",
+        "37",
+        "38",
+        "39",
+        "40",
+        "41",
+        "42",
+        "43",
+        "44",
+        "45",
+        "46"
+      ],
+      "priceLabel": "40€",
+      "priceValue": 40,
+      "priceType": "fixed",
+      "badges": [
+        {
+          "label": "Novo",
+          "tone": "accent"
+        }
+      ],
+      "coverImage": "/SmartThings/1.jpg",
+      "coverWidth": 1200,
+      "coverHeight": 1500,
+      "url": "/SmartThings/produto/nike_nike_air_force_1_x_cpfm/",
+      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/nike_nike_air_force_1_x_cpfm/"
+    },
+    {
+      "slug": "adidas_adidas_campus_9_colores",
+      "name": "ADIDAS \"Campus\" / 9 Colores",
+      "brandLabel": "ADIDAS",
+      "brandSlug": "adidas",
+      "category": "sneakers",
+      "categoryLabel": "Sneakers",
+      "gender": "Unissexo",
+      "genderSlug": "unissexo",
+      "latestTs": 1794348397,
+      "sizes": [
+        "36",
+        "37",
+        "38",
+        "39",
+        "40",
+        "41",
+        "42",
+        "43",
+        "44",
+        "45",
+        "46"
+      ],
+      "priceLabel": "40€",
+      "priceValue": 40,
+      "priceType": "fixed",
+      "badges": [
+        {
+          "label": "Novo",
+          "tone": "accent"
+        }
+      ],
+      "coverImage": "/SmartThings/1.jpg",
+      "coverWidth": 1200,
+      "coverHeight": 1500,
+      "url": "/SmartThings/produto/adidas_adidas_campus_9_colores/",
+      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/adidas_adidas_campus_9_colores/"
+    },
+    {
+      "slug": "new_new_era_15_colores",
+      "name": "NEW ERA / 15 Colores",
+      "brandLabel": "NEW",
+      "brandSlug": "new",
+      "category": "bones",
+      "categoryLabel": "Bonés",
+      "gender": "Unissexo",
+      "genderSlug": "unissexo",
+      "latestTs": 1794348167,
+      "sizes": [
+        "Único"
+      ],
+      "priceLabel": "40€",
+      "priceValue": 40,
+      "priceType": "fixed",
+      "badges": [
+        {
+          "label": "Novo",
+          "tone": "accent"
+        }
+      ],
+      "coverImage": "/SmartThings/1.jpg",
+      "coverWidth": 1200,
+      "coverHeight": 1500,
+      "url": "/SmartThings/produto/new_new_era_15_colores/",
+      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/new_new_era_15_colores/"
+    },
+    {
+      "slug": "asics_asics_gel_1130_18_colores",
+      "name": "ASICS \"Gel 1130\" / 18 Colores",
+      "brandLabel": "ASICS",
+      "brandSlug": "asics",
+      "category": "sneakers",
+      "categoryLabel": "Sneakers",
+      "gender": "Unissexo",
+      "genderSlug": "unissexo",
+      "latestTs": 1794337866,
+      "sizes": [
+        "36",
+        "37",
+        "38",
+        "39",
+        "40",
+        "41",
+        "42",
+        "43",
+        "44",
+        "45",
+        "46"
+      ],
+      "priceLabel": "40€",
+      "priceValue": 40,
+      "priceType": "fixed",
+      "badges": [
+        {
+          "label": "Novo",
+          "tone": "accent"
+        }
+      ],
+      "coverImage": "/SmartThings/1.jpg",
+      "coverWidth": 1200,
+      "coverHeight": 1500,
+      "url": "/SmartThings/produto/asics_asics_gel_1130_18_colores/",
+      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/asics_asics_gel_1130_18_colores/"
+    },
+    {
+      "slug": "golden_golden_goose_15_colores",
+      "name": "GOLDEN GOOSE / 15 Colores",
+      "brandLabel": "GOLDEN",
+      "brandSlug": "golden",
+      "category": "outros",
+      "categoryLabel": "Outros",
+      "gender": "Unissexo",
+      "genderSlug": "unissexo",
+      "latestTs": 1794337703,
+      "sizes": [
+        "Único"
+      ],
+      "priceLabel": "40€",
+      "priceValue": 40,
+      "priceType": "fixed",
+      "badges": [
+        {
+          "label": "Novo",
+          "tone": "accent"
+        }
+      ],
+      "coverImage": "/SmartThings/1.jpg",
+      "coverWidth": 1200,
+      "coverHeight": 1500,
+      "url": "/SmartThings/produto/golden_golden_goose_15_colores/",
+      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/golden_golden_goose_15_colores/"
+    },
+    {
+      "slug": "maison_maison_margiela_8_nuevos_colores",
+      "name": "MAISON MARGIELA / 8 Nuevos Colores",
+      "brandLabel": "MAISON",
+      "brandSlug": "maison",
+      "category": "outros",
+      "categoryLabel": "Outros",
+      "gender": "Unissexo",
+      "genderSlug": "unissexo",
+      "latestTs": 1794337629,
+      "sizes": [
+        "Único"
+      ],
+      "priceLabel": "40€",
+      "priceValue": 40,
+      "priceType": "fixed",
+      "badges": [
+        {
+          "label": "Novo",
+          "tone": "accent"
+        }
+      ],
+      "coverImage": "/SmartThings/1.jpg",
+      "coverWidth": 1200,
+      "coverHeight": 1500,
+      "url": "/SmartThings/produto/maison_maison_margiela_8_nuevos_colores/",
+      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/maison_maison_margiela_8_nuevos_colores/"
+    },
+    {
+      "slug": "coach_coach_5_colores",
+      "name": "COACH / 5 Colores",
+      "brandLabel": "COACH",
+      "brandSlug": "coach",
+      "category": "outros",
+      "categoryLabel": "Outros",
+      "gender": "Unissexo",
+      "genderSlug": "unissexo",
+      "latestTs": 1794336785,
+      "sizes": [
+        "Único"
+      ],
+      "priceLabel": "40€",
+      "priceValue": 40,
+      "priceType": "fixed",
+      "badges": [
+        {
+          "label": "Novo",
+          "tone": "accent"
+        }
+      ],
+      "coverImage": "/SmartThings/1.jpg",
+      "coverWidth": 1200,
+      "coverHeight": 1500,
+      "url": "/SmartThings/produto/coach_coach_5_colores/",
+      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/coach_coach_5_colores/"
+    },
+    {
+      "slug": "coach_coach_4_colores_2",
+      "name": "COACH / 4 Colores",
+      "brandLabel": "COACH",
+      "brandSlug": "coach",
+      "category": "outros",
+      "categoryLabel": "Outros",
+      "gender": "Unissexo",
+      "genderSlug": "unissexo",
+      "latestTs": 1794336448,
+      "sizes": [
+        "Único"
+      ],
+      "priceLabel": "40€",
+      "priceValue": 40,
+      "priceType": "fixed",
+      "badges": [
+        {
+          "label": "Novo",
+          "tone": "accent"
+        }
+      ],
+      "coverImage": "/SmartThings/1.jpg",
+      "coverWidth": 1200,
+      "coverHeight": 1500,
+      "url": "/SmartThings/produto/coach_coach_4_colores_2/",
+      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/coach_coach_4_colores_2/"
+    },
+    {
+      "slug": "miu_miu_miu_7_colores",
+      "name": "MIU MIU / 7 Colores",
+      "brandLabel": "MIU",
+      "brandSlug": "miu",
+      "category": "outros",
+      "categoryLabel": "Outros",
+      "gender": "Unissexo",
+      "genderSlug": "unissexo",
+      "latestTs": 1794336444,
+      "sizes": [
+        "Único"
+      ],
+      "priceLabel": "40€",
+      "priceValue": 40,
+      "priceType": "fixed",
+      "badges": [
+        {
+          "label": "Novo",
+          "tone": "accent"
+        }
+      ],
+      "coverImage": "/SmartThings/1.jpg",
+      "coverWidth": 1200,
+      "coverHeight": 1500,
+      "url": "/SmartThings/produto/miu_miu_miu_7_colores/",
+      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/miu_miu_miu_7_colores/"
+    },
+    {
+      "slug": "under_under_armour_3_colores_3",
+      "name": "UNDER ARMOUR / 3 Colores",
+      "brandLabel": "UNDER",
+      "brandSlug": "under",
+      "category": "outros",
+      "categoryLabel": "Outros",
+      "gender": "Unissexo",
+      "genderSlug": "unissexo",
+      "latestTs": 1794334693,
+      "sizes": [
+        "Único"
+      ],
+      "priceLabel": "40€",
+      "priceValue": 40,
+      "priceType": "fixed",
+      "badges": [
+        {
+          "label": "Novo",
+          "tone": "accent"
+        }
+      ],
+      "coverImage": "/SmartThings/1.jpg",
+      "coverWidth": 1200,
+      "coverHeight": 1500,
+      "url": "/SmartThings/produto/under_under_armour_3_colores_3/",
+      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/under_under_armour_3_colores_3/"
+    },
+    {
+      "slug": "alexander_alexander_mcqueen_13_colores",
+      "name": "ALEXANDER MCQUEEN / 13 Colores",
+      "brandLabel": "ALEXANDER",
+      "brandSlug": "alexander",
+      "category": "outros",
+      "categoryLabel": "Outros",
+      "gender": "Unissexo",
+      "genderSlug": "unissexo",
+      "latestTs": 1794326590,
+      "sizes": [
+        "Único"
+      ],
+      "priceLabel": "40€",
+      "priceValue": 40,
+      "priceType": "fixed",
+      "badges": [
+        {
+          "label": "Novo",
+          "tone": "accent"
+        }
+      ],
+      "coverImage": "/SmartThings/imagens/telegram/alexander_alexander_mcqueen_13_colores/1.jpg",
+      "coverWidth": 1106,
+      "coverHeight": 1280,
+      "url": "/SmartThings/produto/alexander_alexander_mcqueen_13_colores/",
+      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/alexander_alexander_mcqueen_13_colores/"
+    },
+    {
+      "slug": "adidas_adidas_og_2",
+      "name": "ADIDAS \"OG\"",
+      "brandLabel": "ADIDAS",
+      "brandSlug": "adidas",
+      "category": "sneakers",
+      "categoryLabel": "Sneakers",
+      "gender": "Unissexo",
+      "genderSlug": "unissexo",
+      "latestTs": 1794316013,
+      "sizes": [
+        "36",
+        "37",
+        "38",
+        "39",
+        "40",
+        "41",
+        "42",
+        "43",
+        "44",
+        "45",
+        "46"
+      ],
+      "priceLabel": "40€",
+      "priceValue": 40,
+      "priceType": "fixed",
+      "badges": [
+        {
+          "label": "Novo",
+          "tone": "accent"
+        }
+      ],
+      "coverImage": "/SmartThings/1.jpg",
+      "coverWidth": 1200,
+      "coverHeight": 1500,
+      "url": "/SmartThings/produto/adidas_adidas_og_2/",
+      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/adidas_adidas_og_2/"
+    },
+    {
+      "slug": "goyard_goyard_15_colores",
+      "name": "GOYARD / 15 Colores",
+      "brandLabel": "GOYARD",
+      "brandSlug": "goyard",
+      "category": "outros",
+      "categoryLabel": "Outros",
+      "gender": "Unissexo",
+      "genderSlug": "unissexo",
+      "latestTs": 1794315912,
+      "sizes": [
+        "Único"
+      ],
+      "priceLabel": "40€",
+      "priceValue": 40,
+      "priceType": "fixed",
+      "badges": [
+        {
+          "label": "Novo",
+          "tone": "accent"
+        }
+      ],
+      "coverImage": "/SmartThings/1.jpg",
+      "coverWidth": 1200,
+      "coverHeight": 1500,
+      "url": "/SmartThings/produto/goyard_goyard_15_colores/",
+      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/goyard_goyard_15_colores/"
+    },
+    {
+      "slug": "thrasher_thrasher",
+      "name": "THRASHER",
+      "brandLabel": "THRASHER",
+      "brandSlug": "thrasher",
+      "category": "outros",
+      "categoryLabel": "Outros",
+      "gender": "Unissexo",
+      "genderSlug": "unissexo",
+      "latestTs": 1794315758,
+      "sizes": [
+        "Único"
+      ],
+      "priceLabel": "40€",
+      "priceValue": 40,
+      "priceType": "fixed",
+      "badges": [
+        {
+          "label": "Novo",
+          "tone": "accent"
+        }
+      ],
+      "coverImage": "/SmartThings/1.jpg",
+      "coverWidth": 1200,
+      "coverHeight": 1500,
+      "url": "/SmartThings/produto/thrasher_thrasher/",
+      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/thrasher_thrasher/"
+    },
+    {
+      "slug": "reebok_reebok_zignition_7_colores",
+      "name": "REEBOK Zignition / 7 Colores",
+      "brandLabel": "REEBOK",
+      "brandSlug": "reebok",
+      "category": "outros",
+      "categoryLabel": "Outros",
+      "gender": "Unissexo",
+      "genderSlug": "unissexo",
+      "latestTs": 1794315125,
+      "sizes": [
+        "Único"
+      ],
+      "priceLabel": "40€",
+      "priceValue": 40,
+      "priceType": "fixed",
+      "badges": [
+        {
+          "label": "Novo",
+          "tone": "accent"
+        }
+      ],
+      "coverImage": "/SmartThings/1.jpg",
+      "coverWidth": 1200,
+      "coverHeight": 1500,
+      "url": "/SmartThings/produto/reebok_reebok_zignition_7_colores/",
+      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/reebok_reebok_zignition_7_colores/"
+    },
+    {
+      "slug": "adidas_adidas_x_r_madrid_2",
+      "name": "ADIDAS x R Madrid",
+      "brandLabel": "ADIDAS",
+      "brandSlug": "adidas",
+      "category": "sneakers",
+      "categoryLabel": "Sneakers",
+      "gender": "Unissexo",
+      "genderSlug": "unissexo",
+      "latestTs": 1794315118,
+      "sizes": [
+        "36",
+        "37",
+        "38",
+        "39",
+        "40",
+        "41",
+        "42",
+        "43",
+        "44",
+        "45",
+        "46"
+      ],
+      "priceLabel": "40€",
+      "priceValue": 40,
+      "priceType": "fixed",
+      "badges": [
+        {
+          "label": "Novo",
+          "tone": "accent"
+        }
+      ],
+      "coverImage": "/SmartThings/1.jpg",
+      "coverWidth": 1200,
+      "coverHeight": 1500,
+      "url": "/SmartThings/produto/adidas_adidas_x_r_madrid_2/",
+      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/adidas_adidas_x_r_madrid_2/"
+    },
+    {
+      "slug": "adidas_adidas_megaride_22_colores",
+      "name": "ADIDAS Megaride / 22 Colores",
+      "brandLabel": "ADIDAS",
+      "brandSlug": "adidas",
+      "category": "sneakers",
+      "categoryLabel": "Sneakers",
+      "gender": "Unissexo",
+      "genderSlug": "unissexo",
+      "latestTs": 1794315006,
+      "sizes": [
+        "36",
+        "37",
+        "38",
+        "39",
+        "40",
+        "41",
+        "42",
+        "43",
+        "44",
+        "45",
+        "46"
+      ],
+      "priceLabel": "40€",
+      "priceValue": 40,
+      "priceType": "fixed",
+      "badges": [
+        {
+          "label": "Novo",
+          "tone": "accent"
+        }
+      ],
+      "coverImage": "/SmartThings/1.jpg",
+      "coverWidth": 1200,
+      "coverHeight": 1500,
+      "url": "/SmartThings/produto/adidas_adidas_megaride_22_colores/",
+      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/adidas_adidas_megaride_22_colores/"
+    },
+    {
+      "slug": "supreme_x_ducati",
+      "name": "Supreme X Ducati",
+      "brandLabel": "Sem marca",
+      "brandSlug": "sem-marca",
+      "category": "outros",
+      "categoryLabel": "Outros",
+      "gender": "Unissexo",
+      "genderSlug": "unissexo",
+      "latestTs": 1794260252,
+      "sizes": [
+        "Único"
+      ],
+      "priceLabel": "40€",
+      "priceValue": 40,
+      "priceType": "fixed",
+      "badges": [
+        {
+          "label": "Novo",
+          "tone": "accent"
+        }
+      ],
+      "coverImage": "/SmartThings/imagens/telegram/supreme_x_ducati/supreme_x_ducati_01.jpg",
+      "coverWidth": 1156,
+      "coverHeight": 1280,
+      "url": "/SmartThings/produto/supreme_x_ducati/",
+      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/supreme_x_ducati/"
+    },
+    {
+      "slug": "nike_nike_air_max_bw_30_colores",
+      "name": "NIKE Air Max BW / 30 Colores",
+      "brandLabel": "NIKE",
+      "brandSlug": "nike",
+      "category": "sneakers",
+      "categoryLabel": "Sneakers",
+      "gender": "Unissexo",
+      "genderSlug": "unissexo",
+      "latestTs": 1794248381,
+      "sizes": [
+        "36",
+        "37",
+        "38",
+        "39",
+        "40",
+        "41",
+        "42",
+        "43",
+        "44",
+        "45",
+        "46"
+      ],
+      "priceLabel": "40€",
+      "priceValue": 40,
+      "priceType": "fixed",
+      "badges": [
+        {
+          "label": "Novo",
+          "tone": "accent"
+        }
+      ],
+      "coverImage": "/SmartThings/1.jpg",
+      "coverWidth": 1200,
+      "coverHeight": 1500,
+      "url": "/SmartThings/produto/nike_nike_air_max_bw_30_colores/",
+      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/nike_nike_air_max_bw_30_colores/"
+    },
+    {
+      "slug": "hoka_hoka_clifton_11_8_colores",
+      "name": "HOKA \"Clifton 11\" / 8 Colores",
+      "brandLabel": "HOKA",
+      "brandSlug": "hoka",
+      "category": "outros",
+      "categoryLabel": "Outros",
+      "gender": "Unissexo",
+      "genderSlug": "unissexo",
+      "latestTs": 1794245030,
+      "sizes": [
+        "Único"
+      ],
+      "priceLabel": "40€",
+      "priceValue": 40,
+      "priceType": "fixed",
+      "badges": [
+        {
+          "label": "Novo",
+          "tone": "accent"
+        }
+      ],
+      "coverImage": "/SmartThings/1.jpg",
+      "coverWidth": 1200,
+      "coverHeight": 1500,
+      "url": "/SmartThings/produto/hoka_hoka_clifton_11_8_colores/",
+      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/hoka_hoka_clifton_11_8_colores/"
+    },
+    {
+      "slug": "autry_autry_medalist_7_colores_calidad_muy_top",
+      "name": "AUTRY \"Medalist\" / 7 Colores / Calidad muy TOP",
+      "brandLabel": "AUTRY",
+      "brandSlug": "autry",
+      "category": "outros",
+      "categoryLabel": "Outros",
+      "gender": "Unissexo",
+      "genderSlug": "unissexo",
+      "latestTs": 1794244947,
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "priceLabel": "40€",
+      "priceValue": 40,
+      "priceType": "fixed",
+      "badges": [
+        {
+          "label": "Novo",
+          "tone": "accent"
+        }
+      ],
+      "coverImage": "/SmartThings/1.jpg",
+      "coverWidth": 1200,
+      "coverHeight": 1500,
+      "url": "/SmartThings/produto/autry_autry_medalist_7_colores_calidad_muy_top/",
+      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/autry_autry_medalist_7_colores_calidad_muy_top/"
+    },
+    {
+      "slug": "adidas_adidas_spezial_8_colores",
+      "name": "ADIDAS \"Spezial\" / 8 Colores",
+      "brandLabel": "ADIDAS",
+      "brandSlug": "adidas",
+      "category": "sneakers",
+      "categoryLabel": "Sneakers",
+      "gender": "Unissexo",
+      "genderSlug": "unissexo",
+      "latestTs": 1794244830,
+      "sizes": [
+        "36",
+        "37",
+        "38",
+        "39",
+        "40",
+        "41",
+        "42",
+        "43",
+        "44",
+        "45",
+        "46"
+      ],
+      "priceLabel": "40€",
+      "priceValue": 40,
+      "priceType": "fixed",
+      "badges": [
+        {
+          "label": "Novo",
+          "tone": "accent"
+        }
+      ],
+      "coverImage": "/SmartThings/1.jpg",
+      "coverWidth": 1200,
+      "coverHeight": 1500,
+      "url": "/SmartThings/produto/adidas_adidas_spezial_8_colores/",
+      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/adidas_adidas_spezial_8_colores/"
+    },
+    {
+      "slug": "adidas_adidas_samba_nuevos_colores",
+      "name": "ADIDAS \"Samba\" / Nuevos Colores",
+      "brandLabel": "ADIDAS",
+      "brandSlug": "adidas",
+      "category": "sneakers",
+      "categoryLabel": "Sneakers",
+      "gender": "Unissexo",
+      "genderSlug": "unissexo",
+      "latestTs": 1794244536,
+      "sizes": [
+        "36",
+        "37",
+        "38",
+        "39",
+        "40",
+        "41",
+        "42",
+        "43",
+        "44",
+        "45",
+        "46"
+      ],
+      "priceLabel": "40€",
+      "priceValue": 40,
+      "priceType": "fixed",
+      "badges": [
+        {
+          "label": "Novo",
+          "tone": "accent"
+        }
+      ],
+      "coverImage": "/SmartThings/1.jpg",
+      "coverWidth": 1200,
+      "coverHeight": 1500,
+      "url": "/SmartThings/produto/adidas_adidas_samba_nuevos_colores/",
+      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/adidas_adidas_samba_nuevos_colores/"
+    },
+    {
+      "slug": "asics_asics_gel_ammg",
+      "name": "ASICS \"Gel Ammg\"",
+      "brandLabel": "ASICS",
+      "brandSlug": "asics",
+      "category": "sneakers",
+      "categoryLabel": "Sneakers",
+      "gender": "Unissexo",
+      "genderSlug": "unissexo",
+      "latestTs": 1794244176,
+      "sizes": [
+        "36",
+        "37",
+        "38",
+        "39",
+        "40",
+        "41",
+        "42",
+        "43",
+        "44",
+        "45",
+        "46"
+      ],
+      "priceLabel": "40€",
+      "priceValue": 40,
+      "priceType": "fixed",
+      "badges": [
+        {
+          "label": "Novo",
+          "tone": "accent"
+        }
+      ],
+      "coverImage": "/SmartThings/1.jpg",
+      "coverWidth": 1200,
+      "coverHeight": 1500,
+      "url": "/SmartThings/produto/asics_asics_gel_ammg/",
+      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/asics_asics_gel_ammg/"
+    },
+    {
+      "slug": "asics_asics_gel_kahana_8_28_colores",
+      "name": "ASICS Gel Kahana 8 / 28 Colores",
+      "brandLabel": "ASICS",
+      "brandSlug": "asics",
+      "category": "sneakers",
+      "categoryLabel": "Sneakers",
+      "gender": "Unissexo",
+      "genderSlug": "unissexo",
+      "latestTs": 1794224013,
+      "sizes": [
+        "36",
+        "37",
+        "38",
+        "39",
+        "40",
+        "41",
+        "42",
+        "43",
+        "44",
+        "45",
+        "46"
+      ],
+      "priceLabel": "40€",
+      "priceValue": 40,
+      "priceType": "fixed",
+      "badges": [
+        {
+          "label": "Novo",
+          "tone": "accent"
+        }
+      ],
+      "coverImage": "/SmartThings/1.jpg",
+      "coverWidth": 1200,
+      "coverHeight": 1500,
+      "url": "/SmartThings/produto/asics_asics_gel_kahana_8_28_colores/",
+      "absoluteUrl": "https://jamesstuartpt.github.io/SmartThings/produto/asics_asics_gel_kahana_8_28_colores/"
     }
   ]
 }
