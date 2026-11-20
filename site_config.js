@@ -58,6 +58,15 @@ const SMARTTHINGS_CONFIG = {
       "Preço final e envio confirmados no WhatsApp. Obrigado.",
     codePrefix: "ST"
   },
+  privateAdmin: {
+    webAppUrl:
+      "https://script.google.com/macros/s/AKfycbx1hfdnTvmon6-Ek3--ggt13WYTeCRAU805vuBuabKSMVEcfabreoWmk5vlYP9brc2Q7A/exec",
+    spreadsheetId: "1bxN7ClOM1twl4lLWsJyar0wdMsnmn1v2rsA8R0w3Wfs",
+    orderLoggingEnabled: false,
+    authMode: "token",
+    notes:
+      "Não ativar envio direto do frontend público enquanto o endpoint exigir token ou outro segredo."
+  },
   analytics: {
     enabled: false,
     provider: "",

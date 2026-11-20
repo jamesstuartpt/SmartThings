@@ -23,6 +23,7 @@ CLASSIFICAÇÕES FINAIS por mensagem:
 """
 
 import json
+import csv
 import re
 import sys
 import shutil
@@ -39,6 +40,8 @@ from typing import Any, Optional
 PROJECT_ROOT = Path(__file__).resolve().parent
 IMG_DIR = PROJECT_ROOT / "imagens" / "telegram"
 MANIFEST_PATH = PROJECT_ROOT / "imagens" / "telegram_manifest.json"
+PRIVATE_DIR = PROJECT_ROOT / "_local" / "private_admin"
+PRIVATE_LINKS_CSV_PATH = PRIVATE_DIR / "links_sheet_import.csv"
 
 DEFAULT_EXPORT_DIR = Path(r"C:\Users\James Stuart\Downloads\Telegram Desktop\ChatExport_2026-08-27")
 EXPORT_DIR = DEFAULT_EXPORT_DIR
@@ -408,6 +411,51 @@ def save_manifest(products_list: list[dict]) -> None:
     with open(tmp, "w", encoding="utf-8") as f:
         json.dump(wrapper, f, ensure_ascii=False, indent=2)
     tmp.replace(MANIFEST_PATH)
+
+
+def export_private_links_csv(products_list: list[dict], out_path: Path) -> int:
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    rows = []
+    for product in products_list:
+        buy_link = str(product.get("buyLink") or "").strip()
+        if not buy_link:
+            continue
+        rows.append({
+            "slug": str(product.get("slug") or "").strip(),
+            "name": str(product.get("name") or "").strip(),
+            "buyLink": buy_link,
+            "active": "TRUE",
+            "platform": "HACOO",
+            "category": str(product.get("category") or "").strip(),
+            "brand": str(product.get("brandLabel") or product.get("brandSlug") or "").strip(),
+            "updatedAt": str(product.get("latestTs") or ""),
+            "notes": "",
+        })
+
+    rows.sort(key=lambda row: row["slug"])
+    with open(out_path, "w", newline="", encoding="utf-8-sig") as handle:
+        writer = csv.DictWriter(
+            handle,
+            fieldnames=["slug", "name", "buyLink", "active", "platform", "category", "brand", "updatedAt", "notes"],
+        )
+        writer.writeheader()
+        writer.writerows(rows)
+    return len(rows)
+
+
+def strip_public_links(products_list: list[dict]) -> int:
+    stripped = 0
+    for product in products_list:
+        had_link = False
+        if "buyLink" in product:
+            product.pop("buyLink", None)
+            had_link = True
+        if "hasBuyLink" in product:
+            product.pop("hasBuyLink", None)
+            had_link = True
+        if had_link:
+            stripped += 1
+    return stripped
 
 
 def build_manifest_indexes(manifest: list[dict]) -> dict:
@@ -976,6 +1024,12 @@ def main():
     parser.add_argument("--apply", action="store_true", help="Aplicar alterações (default = DRY-RUN)")
     parser.add_argument("--limit", type=int, default=None, help="Processar apenas N mensagens (debug)")
     parser.add_argument("--json", action="store_true", help="Imprimir também JSON final de stats")
+    parser.add_argument(
+        "--private-links-out",
+        type=Path,
+        default=PRIVATE_LINKS_CSV_PATH,
+        help="CSV privado para importar na Google Sheet (mantido fora do Git).",
+    )
 
     # Opção B (modo B default = True): skip probable; incluir só com flag
     parser.add_argument("--include-probable", dest="skip_probable", action="store_false",
@@ -1000,6 +1054,7 @@ def main():
     export_dir = args.export_dir.resolve()
     export_json = export_dir / "result.json"
     export_photos = export_dir / "photos"
+    private_links_out = args.private_links_out.resolve()
     EXPORT_DIR = export_dir
     EXPORT_JSON = export_json
     EXPORT_PHOTOS = export_photos
@@ -1065,8 +1120,12 @@ def main():
         )
         # ordenar manifest por latestTs desc (mantém padrão)
         manifest.sort(key=lambda p: p.get("latestTs", 0), reverse=True)
+        private_links_count = export_private_links_csv(manifest, private_links_out)
+        stripped_links_count = strip_public_links(manifest)
         save_manifest(manifest)
         print(f"\n[apply OK] ✓ manifest gravado em {MANIFEST_PATH}")
+        print(f"          · CSV privado de links: {private_links_out} ({private_links_count} linhas)")
+        print(f"          · Links removidos do manifest público: {stripped_links_count}")
         print(f"          · Atualizados buyLink novo (exato{'' if args.skip_probable else '+prov'}): {atualizados}")
         print(f"          · Produtos NOVOS adicionados: {novos}")
         print(f"          · PROVÁVEIS saltados (modo B): {extra_stats.get('probable_skipped',0)}")

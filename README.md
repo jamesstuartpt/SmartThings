@@ -84,6 +84,7 @@ Campos principais:
 - `support.telegramUrl`: link do canal Telegram
 - `seller.*`: textos de vendedor, prazo, pagamento e devoluções
 - `catalog.*`: hero, preço base e avisos de pedido
+- `privateAdmin.*`: configuração da Google Sheet e do Apps Script privado
 - `analytics.enabled`: desligado por defeito
 
 ## Domínio próprio
@@ -103,6 +104,14 @@ Quando houver domínio próprio:
 - Os links públicos não devem ficar vazios
 - O botão de pedido gera sempre um código curto `ST-AAMMDD-XXXX`
 - O botão "Copiar pedido" serve de fallback quando o WhatsApp não abre
+
+## Admin privado
+
+- Google Sheet privada: `1bxN7ClOM1twl4lLWsJyar0wdMsnmn1v2rsA8R0w3Wfs`
+- Web App do Apps Script:
+  - `https://script.google.com/macros/s/AKfycbx1hfdnTvmon6-Ek3--ggt13WYTeCRAU805vuBuabKSMVEcfabreoWmk5vlYP9brc2Q7A/exec`
+- O endpoint ficou registado em `site_config.js > privateAdmin.webAppUrl`
+- O envio automático a partir do frontend público continua desligado por segurança enquanto depender de token/segredo no cliente
 
 ## Build e deploy
 

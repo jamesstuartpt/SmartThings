@@ -504,18 +504,28 @@ button {
 }
 
 .catalog-card__foot {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 10px;
+  align-items: stretch;
+}
+
+.catalog-card__foot--single {
+  grid-template-columns: 1fr;
 }
 
 .catalog-card__button {
-  flex: 1;
   min-height: 44px;
   border-radius: 999px;
   border: 1px solid var(--border);
   background: var(--bg-elevated);
   color: var(--text);
   padding: 0 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  line-height: 1.15;
 }
 
 .catalog-card__button--primary {
@@ -869,8 +879,12 @@ button {
 
 .zoom-modal {
   inset: 0;
-  width: min(100%, 960px);
-  border-radius: var(--radius-lg);
+  width: 100%;
+  max-width: none;
+  max-height: 100vh;
+  height: 100vh;
+  border-radius: 0;
+  background: rgba(8, 8, 8, 0.96);
 }
 
 .quick-modal.is-open,
@@ -885,8 +899,18 @@ button {
   padding: 18px;
 }
 
+.zoom-modal__content {
+  height: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 12px;
+}
+
 .zoom-modal img {
   width: 100%;
+  height: 100%;
+  max-height: calc(100vh - 96px);
+  object-fit: contain;
   border-radius: var(--radius-md);
 }
 

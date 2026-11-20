@@ -109,3 +109,25 @@ O pedido foi para nao parar o trabalho por duvidas e registar em documentacao.
 
 Impacto:
 O site nao inventa informacao legal/comercial que o dono ainda nao confirmou.
+
+## D011 - Links privados fora do manifest publico
+
+Decisao:
+Os `buyLink` deixam de viver no `imagens/telegram_manifest.json` e passam para uma folha privada/CSV privado de admin.
+
+Motivo:
+O repositorio e o frontend sao publicos. Mesmo que o link nao apareca na interface, manter o `buyLink` no manifest publicado expoe esse dado.
+
+Impacto:
+O importador passa a gerar `_local/private_admin/links_sheet_import.csv` para importar numa Google Sheet privada e remove os links do manifest antes de gravar.
+
+## D012 - Apps Script privado configurado, mas sem envio inseguro no frontend
+
+Decisao:
+Registar o URL real do Google Apps Script na configuracao e documentacao, mantendo desligado o envio automatico a partir do frontend publico.
+
+Motivo:
+O endpoint atual depende de token. Colocar esse segredo no browser quebraria o requisito de nao expor chaves no frontend.
+
+Impacto:
+O projeto fica alinhado com a sheet e o Apps Script reais, mas a integracao automatica so deve ser ativada com uma ponte segura server-side ou outro mecanismo sem segredo no cliente.

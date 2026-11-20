@@ -317,8 +317,9 @@ function pageDocument({ title, description, canonicalPath, imagePath, bodyClass 
 }
 
 function renderCard(product, options = {}) {
-  const quickAction = options.quickAdd === false
-    ? `<a class="catalog-card__button catalog-card__button--primary" href="${product.url}">Abrir artigo</a>`
+  const singleAction = options.quickAdd === false;
+  const quickAction = singleAction
+    ? `<a class="catalog-card__button catalog-card__button--primary" href="${product.url}">Ver artigo</a>`
     : `<button class="catalog-card__button catalog-card__button--primary" type="button" data-quick-add="${escapeHtml(product.slug)}">Adicionar</button>`;
   return `
     <article class="catalog-card">
@@ -340,8 +341,8 @@ function renderCard(product, options = {}) {
           <h3 class="catalog-card__name">${escapeHtml(product.name)}</h3>
         </div>
       </a>
-      <div class="catalog-card__foot">
-        <a class="catalog-card__button" href="${product.url}">Ver artigo</a>
+      <div class="catalog-card__foot${singleAction ? " catalog-card__foot--single" : ""}">
+        ${singleAction ? "" : `<a class="catalog-card__button" href="${product.url}">Ver artigo</a>`}
         ${quickAction}
       </div>
     </article>
@@ -569,24 +570,6 @@ function buildProductPage(product) {
         <div class="hero__actions">
           <button class="button button--primary" id="product-add" type="button">Adicionar ao pedido</button>
           <a class="button" href="${escapeHtml(config.support.telegramUrl)}" target="_blank" rel="noopener">Ver fotos e vídeos reais no Telegram</a>
-        </div>
-        <div class="field-block">
-          <h2 class="drawer-title">Detalhes</h2>
-          <div class="policy-list">
-            <p><strong>Referência:</strong> ${escapeHtml(product.slug)}</p>
-            <p><strong>Marca:</strong> ${escapeHtml(product.brandLabel)}</p>
-            ${product.modelLabel ? `<p><strong>Modelo:</strong> ${escapeHtml(product.modelLabel)}</p>` : ""}
-            <p><strong>Género:</strong> ${escapeHtml(product.gender)}</p>
-            <p><strong>Disponibilidade:</strong> ${product.availability === "esgotado" ? "Esgotado" : "Confirmada no WhatsApp"}</p>
-          </div>
-        </div>
-        <div class="field-block">
-          <h2 class="drawer-title">Como funciona este pedido</h2>
-          <div class="policy-list">
-            <p>1. Escolhes o tamanho e adicionas o artigo ao pedido.</p>
-            <p>2. Envias o pedido pelo WhatsApp com um código curto e legível.</p>
-            <p>3. O vendedor confirma stock, preço final, envio e pagamento por MB Way.</p>
-          </div>
         </div>
       </section>
       <section class="container" style="grid-column:1 / -1; padding-bottom:56px;">
