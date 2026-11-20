@@ -3,6 +3,7 @@
   "products": [
     {
       "slug": "adidas_r_madrid_2026_entrenamiento_conjunto",
+      "refCode": "ST-9A1C17",
       "name": "Adidas R Madrid 2026 Entrenamiento Conjunto",
       "brandLabel": "Sem marca",
       "brandSlug": "sem-marca",
@@ -36,6 +37,7 @@
     },
     {
       "slug": "vans_x_dior",
+      "refCode": "ST-FF2E57",
       "name": "Vans X Dior",
       "brandLabel": "Vans",
       "brandSlug": "vans",
@@ -69,6 +71,7 @@
     },
     {
       "slug": "adidas_samba_mule-2",
+      "refCode": "ST-2881C6",
       "name": "Adidas Samba Mule 2",
       "brandLabel": "Adidas",
       "brandSlug": "adidas",
@@ -102,6 +105,7 @@
     },
     {
       "slug": "saucony_progrid_omni_9-2",
+      "refCode": "ST-D8C610",
       "name": "Saucony Progrid Omni 9 2",
       "brandLabel": "Sem marca",
       "brandSlug": "sem-marca",
@@ -125,6 +129,7 @@
     },
     {
       "slug": "carhartt_detroit-2",
+      "refCode": "ST-1174A1",
       "name": "Carhartt Detroit 2",
       "brandLabel": "Sem marca",
       "brandSlug": "sem-marca",
@@ -153,6 +158,7 @@
     },
     {
       "slug": "nike_air_jordan_3",
+      "refCode": "ST-2C24D7",
       "name": "Nike Air Jordan 3",
       "brandLabel": "Nike",
       "brandSlug": "nike",
@@ -186,6 +192,7 @@
     },
     {
       "slug": "adidas_loafer-2",
+      "refCode": "ST-36F177",
       "name": "Adidas Loafer 2",
       "brandLabel": "Adidas",
       "brandSlug": "adidas",
@@ -219,6 +226,7 @@
     },
     {
       "slug": "converse_run_star-2",
+      "refCode": "ST-FDBDFC",
       "name": "Converse Run Star 2",
       "brandLabel": "Converse",
       "brandSlug": "converse",
@@ -252,6 +260,7 @@
     },
     {
       "slug": "polo_ralph_lauren_pack_6",
+      "refCode": "ST-396EAA",
       "name": "Polo Ralph Lauren Pack 6",
       "brandLabel": "Sem marca",
       "brandSlug": "sem-marca",
@@ -280,6 +289,7 @@
     },
     {
       "slug": "supreme_bandolera",
+      "refCode": "ST-6F1D64",
       "name": "Supreme Bandolera",
       "brandLabel": "Sem marca",
       "brandSlug": "sem-marca",
@@ -303,6 +313,7 @@
     },
     {
       "slug": "beats_x_kim_kardashian",
+      "refCode": "ST-306E92",
       "name": "Beats X Kim Kardashian",
       "brandLabel": "Sem marca",
       "brandSlug": "sem-marca",
@@ -326,6 +337,7 @@
     },
     {
       "slug": "sol_de_janeiro",
+      "refCode": "ST-3955EB",
       "name": "Sol de Janeiro",
       "brandLabel": "Sem marca",
       "brandSlug": "sem-marca",
@@ -349,6 +361,7 @@
     },
     {
       "slug": "adidas_chandal_completo_unisex",
+      "refCode": "ST-AD26C9",
       "name": "Adidas Chandal Completo Unisex",
       "brandLabel": "Sem marca",
       "brandSlug": "sem-marca",
@@ -382,6 +395,7 @@
     },
     {
       "slug": "adidas_animal_print",
+      "refCode": "ST-D8BB5C",
       "name": "Adidas Animal Print",
       "brandLabel": "Adidas",
       "brandSlug": "adidas",
@@ -415,6 +429,7 @@
     },
     {
       "slug": "patagonia_chaqueta_fina",
+      "refCode": "ST-ACA031",
       "name": "Patagonia Chaqueta Fina",
       "brandLabel": "Sem marca",
       "brandSlug": "sem-marca",
@@ -443,6 +458,7 @@
     },
     {
       "slug": "adidas_samba_og_legacy",
+      "refCode": "ST-BF015F",
       "name": "Adidas Samba Og Legacy",
       "brandLabel": "Adidas",
       "brandSlug": "adidas",
@@ -476,6 +492,7 @@
     },
     {
       "slug": "vans_old_skool",
+      "refCode": "ST-F1C2D4",
       "name": "Vans Old Skool",
       "brandLabel": "Vans",
       "brandSlug": "vans",
@@ -509,6 +526,7 @@
     },
     {
       "slug": "ugg_peakmod-2",
+      "refCode": "ST-50D57A",
       "name": "Ugg Peakmod 2",
       "brandLabel": "Sem marca",
       "brandSlug": "sem-marca",
@@ -532,6 +550,7 @@
     },
     {
       "slug": "adidas_campus_collegiate",
+      "refCode": "ST-5E042F",
       "name": "Adidas Campus Collegiate",
       "brandLabel": "Adidas",
       "brandSlug": "adidas",
@@ -565,6 +584,7 @@
     },
     {
       "slug": "nike_blazer_city_low-2",
+      "refCode": "ST-069C17",
       "name": "Nike Blazer City Low 2",
       "brandLabel": "Nike",
       "brandSlug": "nike",
@@ -598,6 +618,7 @@
     },
     {
       "slug": "adidas_terrex_freehiker_sl",
+      "refCode": "ST-656703",
       "name": "Adidas Terrex Freehiker Sl",
       "brandLabel": "Adidas",
       "brandSlug": "adidas",
@@ -631,6 +652,7 @@
     },
     {
       "slug": "dc",
+      "refCode": "ST-3212F5",
       "name": "Dc",
       "brandLabel": "Sem marca",
       "brandSlug": "sem-marca",
@@ -654,6 +676,7 @@
     },
     {
       "slug": "jbl_tune_520bt",
+      "refCode": "ST-410D7B",
       "name": "Jbl Tune 520bt",
       "brandLabel": "Sem marca",
       "brandSlug": "sem-marca",
@@ -677,6 +700,7 @@
     },
     {
       "slug": "ralph_lauren",
+      "refCode": "ST-703074",
       "name": "Ralph Lauren",
       "brandLabel": "Sem marca",
       "brandSlug": "sem-marca",
@@ -705,6 +729,7 @@
     },
     {
       "slug": "adidas_spezial_pana",
+      "refCode": "ST-368BA0",
       "name": "Adidas Spezial Pana",
       "brandLabel": "Adidas",
       "brandSlug": "adidas",
@@ -738,6 +763,7 @@
     },
     {
       "slug": "adidas_spezial_preloved",
+      "refCode": "ST-6A24C9",
       "name": "Adidas Spezial Preloved",
       "brandLabel": "Adidas",
       "brandSlug": "adidas",
@@ -771,6 +797,7 @@
     },
     {
       "slug": "carolina_herrera_reversible",
+      "refCode": "ST-272326",
       "name": "Carolina Herrera Reversible",
       "brandLabel": "Sem marca",
       "brandSlug": "sem-marca",
@@ -794,6 +821,7 @@
     },
     {
       "slug": "veja_rio-2",
+      "refCode": "ST-0AB728",
       "name": "Veja Rio 2",
       "brandLabel": "Sem marca",
       "brandSlug": "sem-marca",
@@ -817,6 +845,7 @@
     },
     {
       "slug": "asics_gel_gt2160",
+      "refCode": "ST-2199D8",
       "name": "Asics Gel Gt2160",
       "brandLabel": "ASICS",
       "brandSlug": "asics",
@@ -850,6 +879,7 @@
     },
     {
       "slug": "new_balance_2002r",
+      "refCode": "ST-E7BA5C",
       "name": "New Balance 2002r",
       "brandLabel": "New Balance",
       "brandSlug": "newbalance",
@@ -883,6 +913,7 @@
     },
     {
       "slug": "adidas_belgica_mundial_2026",
+      "refCode": "ST-600F09",
       "name": "Adidas Belgica Mundial 2026",
       "brandLabel": "Sem marca",
       "brandSlug": "sem-marca",
@@ -916,6 +947,7 @@
     },
     {
       "slug": "adidas_jeans",
+      "refCode": "ST-A1FF59",
       "name": "Adidas Jeans",
       "brandLabel": "Adidas",
       "brandSlug": "adidas",
@@ -949,6 +981,7 @@
     },
     {
       "slug": "alo_pack_5",
+      "refCode": "ST-1E2724",
       "name": "Alo Pack 5",
       "brandLabel": "Sem marca",
       "brandSlug": "sem-marca",
@@ -972,6 +1005,7 @@
     },
     {
       "slug": "alo_bordado",
+      "refCode": "ST-D4E3E1",
       "name": "Alo Bordado",
       "brandLabel": "Sem marca",
       "brandSlug": "sem-marca",
@@ -995,6 +1029,7 @@
     },
     {
       "slug": "trapstar_chandal_completo",
+      "refCode": "ST-E1DC94",
       "name": "Trapstar Chandal Completo",
       "brandLabel": "Sem marca",
       "brandSlug": "sem-marca",
@@ -1023,6 +1058,7 @@
     },
     {
       "slug": "asics_gel_nyc_utility",
+      "refCode": "ST-D13FB6",
       "name": "Asics Gel Nyc Utility",
       "brandLabel": "ASICS",
       "brandSlug": "asics",
@@ -1056,6 +1092,7 @@
     },
     {
       "slug": "bose_ultra",
+      "refCode": "ST-A3D401",
       "name": "Bose Ultra",
       "brandLabel": "Sem marca",
       "brandSlug": "sem-marca",
@@ -1079,6 +1116,7 @@
     },
     {
       "slug": "polo_ralph_lauren_unidad",
+      "refCode": "ST-29E63D",
       "name": "Polo Ralph Lauren Unidad",
       "brandLabel": "Sem marca",
       "brandSlug": "sem-marca",
@@ -1107,6 +1145,7 @@
     },
     {
       "slug": "adidas_adistar_crdy",
+      "refCode": "ST-35E1A8",
       "name": "Adidas Adistar Crdy",
       "brandLabel": "Adidas",
       "brandSlug": "adidas",
@@ -1140,6 +1179,7 @@
     },
     {
       "slug": "guess_pack_3",
+      "refCode": "ST-3C11D1",
       "name": "Guess Pack 3",
       "brandLabel": "Sem marca",
       "brandSlug": "sem-marca",
@@ -1163,6 +1203,7 @@
     },
     {
       "slug": "nike_air_max_95_x_central_cee",
+      "refCode": "ST-510B41",
       "name": "Nike Air Max 95 X Central Cee",
       "brandLabel": "Nike",
       "brandSlug": "nike",
@@ -1196,6 +1237,7 @@
     },
     {
       "slug": "ami_paris_vestido",
+      "refCode": "ST-EDFC75",
       "name": "Ami Paris Vestido",
       "brandLabel": "Sem marca",
       "brandSlug": "sem-marca",
@@ -1219,6 +1261,7 @@
     },
     {
       "slug": "nike_zoom_vomero_plus",
+      "refCode": "ST-C153BE",
       "name": "Nike Zoom Vomero Plus",
       "brandLabel": "Nike",
       "brandSlug": "nike",
@@ -1252,6 +1295,7 @@
     },
     {
       "slug": "adidas_real_madrid_2627",
+      "refCode": "ST-0A2E6F",
       "name": "Adidas Real Madrid 2627",
       "brandLabel": "Adidas",
       "brandSlug": "adidas",
@@ -1285,6 +1329,7 @@
     },
     {
       "slug": "wave_nautilus",
+      "refCode": "ST-545307",
       "name": "Wave Nautilus",
       "brandLabel": "Sem marca",
       "brandSlug": "sem-marca",
@@ -1308,6 +1353,7 @@
     },
     {
       "slug": "on_cloud_nova_rift",
+      "refCode": "ST-7DB1CB",
       "name": "On Cloud Nova Rift",
       "brandLabel": "Sem marca",
       "brandSlug": "sem-marca",
@@ -1331,6 +1377,7 @@
     },
     {
       "slug": "saint_barth",
+      "refCode": "ST-22CA11",
       "name": "Saint Barth",
       "brandLabel": "Sem marca",
       "brandSlug": "sem-marca",
@@ -1354,6 +1401,7 @@
     },
     {
       "slug": "adidas_f50_elite",
+      "refCode": "ST-344FD2",
       "name": "Adidas F50 Elite",
       "brandLabel": "Adidas",
       "brandSlug": "adidas",
@@ -1387,6 +1435,7 @@
     },
     {
       "slug": "alo_rinonera",
+      "refCode": "ST-32F29D",
       "name": "Alo Rinonera",
       "brandLabel": "Sem marca",
       "brandSlug": "sem-marca",
@@ -1410,6 +1459,7 @@
     },
     {
       "slug": "yeti",
+      "refCode": "ST-4E563B",
       "name": "Yeti",
       "brandLabel": "Sem marca",
       "brandSlug": "sem-marca",
@@ -1433,6 +1483,7 @@
     },
     {
       "slug": "keen_jasper",
+      "refCode": "ST-E56E19",
       "name": "Keen Jasper",
       "brandLabel": "Sem marca",
       "brandSlug": "sem-marca",
@@ -1456,6 +1507,7 @@
     },
     {
       "slug": "nike_pro",
+      "refCode": "ST-C24DE7",
       "name": "Nike Pro",
       "brandLabel": "Nike",
       "brandSlug": "nike",
@@ -1489,6 +1541,7 @@
     },
     {
       "slug": "nike_pro_conjunto",
+      "refCode": "ST-B33142",
       "name": "Nike Pro Conjunto",
       "brandLabel": "Sem marca",
       "brandSlug": "sem-marca",
@@ -1522,6 +1575,7 @@
     },
     {
       "slug": "supreme_x_corteiz",
+      "refCode": "ST-D1D559",
       "name": "Supreme X Corteiz",
       "brandLabel": "Sem marca",
       "brandSlug": "sem-marca",
@@ -1550,6 +1604,7 @@
     },
     {
       "slug": "amiri_classic_low",
+      "refCode": "ST-1AC942",
       "name": "Amiri Classic Low",
       "brandLabel": "Sem marca",
       "brandSlug": "sem-marca",
@@ -1573,6 +1628,7 @@
     },
     {
       "slug": "vans_sk8",
+      "refCode": "ST-7EA8DF",
       "name": "Vans Sk8",
       "brandLabel": "Vans",
       "brandSlug": "vans",
@@ -1606,6 +1662,7 @@
     },
     {
       "slug": "fred_perry_banador",
+      "refCode": "ST-758CA6",
       "name": "Fred Perry Banador",
       "brandLabel": "Sem marca",
       "brandSlug": "sem-marca",
@@ -1629,6 +1686,7 @@
     },
     {
       "slug": "adidas_falda",
+      "refCode": "ST-31A4A2",
       "name": "Adidas Falda",
       "brandLabel": "Adidas",
       "brandSlug": "adidas",
@@ -1662,6 +1720,7 @@
     },
     {
       "slug": "nike_nba_x_fear_of_god",
+      "refCode": "ST-B0739A",
       "name": "Nike Nba X Fear Of God",
       "brandLabel": "Nike",
       "brandSlug": "nike",
@@ -1695,6 +1754,7 @@
     },
     {
       "slug": "adidas_argentina_firma_messi",
+      "refCode": "ST-1CB24C",
       "name": "Adidas Argentina Firma Messi",
       "brandLabel": "Adidas",
       "brandSlug": "adidas",
@@ -1728,6 +1788,7 @@
     },
     {
       "slug": "new_balance_990v6",
+      "refCode": "ST-9D2CED",
       "name": "New Balance 990v6",
       "brandLabel": "New Balance",
       "brandSlug": "newbalance",
@@ -1761,6 +1822,7 @@
     },
     {
       "slug": "set_2_microfonos",
+      "refCode": "ST-7B2B38",
       "name": "Set 2 Microfonos",
       "brandLabel": "Sem marca",
       "brandSlug": "sem-marca",
@@ -1784,6 +1846,7 @@
     },
     {
       "slug": "x_geock",
+      "refCode": "ST-962FC4",
       "name": "X Geock",
       "brandLabel": "Sem marca",
       "brandSlug": "sem-marca",
@@ -1807,6 +1870,7 @@
     },
     {
       "slug": "numeris_denim",
+      "refCode": "ST-C60AC6",
       "name": "Numeris Denim",
       "brandLabel": "Sem marca",
       "brandSlug": "sem-marca",

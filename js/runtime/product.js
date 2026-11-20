@@ -1,4 +1,4 @@
-import { $, $all, readJsonScript } from "./helpers.js";
+import { $, $all, readJsonScript, showToast, updateLiveRegion } from "./helpers.js";
 import { OrderStore } from "./order.js";
 
 export function initProductPage(orderStore) {
@@ -8,6 +8,7 @@ export function initProductPage(orderStore) {
   }
   const product = data.product;
   const addButton = $("#product-add");
+  const buyNowButton = $("#product-buy-now");
   const sizeButtons = $all("[data-product-size]");
   const mainImage = $("#product-main-image");
   const thumbButtons = $all("[data-gallery-thumb]");
@@ -98,9 +99,10 @@ export function initProductPage(orderStore) {
     })
   );
 
-  addButton?.addEventListener("click", () => {
+  function addCurrentProduct() {
     orderStore.add({
       slug: product.slug,
+      refCode: product.refCode,
       name: product.name,
       brandLabel: product.brandLabel,
       size: activeSize,
@@ -112,6 +114,19 @@ export function initProductPage(orderStore) {
       image: product.coverImage,
       url: product.absoluteUrl
     });
+  }
+
+  addButton?.addEventListener("click", () => {
+    addCurrentProduct();
+    showToast("Artigo adicionado ao carrinho.");
+    updateLiveRegion("Artigo adicionado ao carrinho.");
+  });
+
+  buyNowButton?.addEventListener("click", () => {
+    addCurrentProduct();
+    showToast("Artigo adicionado. A abrir o carrinho.");
+    updateLiveRegion("Artigo adicionado ao carrinho.");
+    document.querySelector("[data-open-order]")?.dispatchEvent(new MouseEvent("click", { bubbles: true }));
   });
 }
 

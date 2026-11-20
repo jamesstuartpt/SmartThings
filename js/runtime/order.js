@@ -90,6 +90,7 @@ export class OrderStore {
     } else {
       this.items.push({
         slug: item.slug,
+        refCode: item.refCode || "",
         name: item.name,
         brandLabel: item.brandLabel,
         size: item.size,
@@ -143,7 +144,7 @@ export class OrderStore {
 
     this.items.forEach((item, index) => {
       const line = [
-        `${index + 1}) ${item.slug.toUpperCase()}`,
+        `${index + 1}) ${item.refCode || item.slug.toUpperCase()}`,
         item.name,
         `Tam. ${item.size}`,
         `${item.quantity}x`,
@@ -267,7 +268,7 @@ export function mountOrderUI(store) {
           <div class="order-item__media">${item.image ? `<img src="${item.image}" alt="${item.name}" loading="lazy">` : ""}</div>
           <div>
             <p class="order-item__name">${item.name}</p>
-            <p class="order-item__meta">${item.brandLabel || "Sem marca"} · ${item.priceLabel}</p>
+            <p class="order-item__meta">${item.brandLabel || "Sem marca"} · ${item.priceLabel}${item.refCode ? ` · Ref. ${item.refCode}` : ""}</p>
           </div>
         </div>
         <div class="order-item__controls">

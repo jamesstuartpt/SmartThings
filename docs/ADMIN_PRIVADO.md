@@ -142,6 +142,25 @@ Script Properties necessarias:
 4. Importar `_local/private_admin/links_sheet_import.csv` para o separador `LINKS`.
 5. Continuar a usar `Dados` para a operacao principal e `PESSOAL` para emails/senhas/telefone dos perfis novos.
 
+## Se a folha `LINKS` aparecer vazia
+
+Isso significa normalmente que:
+
+- o separador `LINKS` foi criado
+- mas o CSV privado ainda nao foi importado
+
+O ficheiro correto e:
+
+- [links privados para a Google Sheet](computer://c:\SmartThings\_local\private_admin\links_sheet_import.csv)
+
+Estado atual observado:
+
+- o CSV privado tem dados
+- total de linhas: `899` incluindo cabecalho
+- agora inclui tambem a coluna `refCode`, por exemplo `ST-1A2B3C`
+
+Ou seja, a tua folha vazia nao quer dizer que os links se perderam. Quer apenas dizer que ainda falta importar esse CSV para a aba `LINKS`.
+
 ## Nota importante
 
 GitHub Pages nao consegue proteger segredos no frontend. Por isso:

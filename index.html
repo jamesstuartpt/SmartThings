@@ -38,9 +38,9 @@
         <nav class="topbar__nav"><a href="/SmartThings/" aria-current="page">Catálogo</a><a href="/SmartThings/como-funciona/">Como funciona</a><a href="/SmartThings/trocas-devolucoes/">Trocas</a><a href="/SmartThings/privacidade/">Privacidade</a></nav>
         <div class="topbar__actions">
           <button class="theme-toggle" type="button" data-theme-toggle aria-label="Alternar tema">◐</button>
-          <button class="icon-button" type="button" data-open-order aria-label="Abrir pedido">
-            <span aria-hidden="true">🧾</span>
-            <span class="sr-only">Abrir pedido</span>
+          <button class="icon-button" type="button" data-open-order aria-label="Ir para o carrinho">
+            <span aria-hidden="true">🛒</span>
+            <span class="sr-only">Ir para o carrinho</span>
           </button>
         </div>
       </div>
@@ -49,61 +49,12 @@
     <div class="shell">
       
     <main>
-      <section class="hero">
-        <div class="container">
-          <div class="hero__card">
-            <p class="hero__eyebrow">Catálogo estático · Pedido por WhatsApp</p>
-            <h1 class="hero__title">Catálogo streetwear e sneakers, sem complicar o pedido.</h1>
-            <p class="hero__lead">Escolhe os artigos, define os tamanhos e envia tudo num pedido organizado pelo WhatsApp.</p>
-            <p class="hero__support">Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido.</p>
-            <div class="hero__actions">
-              <a class="button button--primary" href="#catalogo">Ver catálogo</a>
-              <button class="button button--secondary" type="button" data-open-order>Abrir pedido</button>
-            </div>
-            <div class="steps">
-              
-                    <article class="step">
-                      <span class="step__num">1</span>
-                      <h2 class="step__title">Escolher os artigos</h2>
-                      <p class="step__text">Escolhe o artigo e o tamanho.</p>
-                    </article>
-                  
-                    <article class="step">
-                      <span class="step__num">2</span>
-                      <h2 class="step__title">Adicionar ao pedido</h2>
-                      <p class="step__text">Guarda tudo num pedido organizado.</p>
-                    </article>
-                  
-                    <article class="step">
-                      <span class="step__num">3</span>
-                      <h2 class="step__title">Enviar no WhatsApp</h2>
-                      <p class="step__text">Envia para o WhatsApp e confirma stock, envio e preço final.</p>
-                    </article>
-                  
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="info-strip">
-        <div class="container" style="display:grid; gap:8px;">
-          <article class="notice-card">
-            <h2 class="notice-card__title">Antes de adicionares ao pedido</h2>
-            <p class="notice-card__text">Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido.</p>
-          </article>
-          <article class="notice-card">
-            <h2 class="notice-card__title">Fotos reais e acompanhamento</h2>
-            <p class="notice-card__text">Quando precisares de mais contexto visual, usa o canal de Telegram com fotos e vídeos reais antes de fechar o pedido.</p>
-          </article>
-        </div>
-      </section>
-
       <section class="catalog-section" id="catalogo">
         <div class="container">
           <div class="section-head">
             <div>
-              <h2>Catálogo</h2>
-              <p>Pesquisa por texto, filtra por marca, categoria, género, tamanho e tipo de preço. O estado dos filtros fica no URL.</p>
+              <h1>Catálogo</h1>
+              <p>Escolhe os artigos, define o tamanho e envia o pedido por WhatsApp. O stock, o preço final e o envio são confirmados depois.</p>
             </div>
             <p id="catalog-count">A carregar catálogo...</p>
           </div>
@@ -113,28 +64,39 @@
               <span aria-hidden="true">⌕</span>
               <input id="filter-search" type="search" placeholder="Pesquisar por marca, modelo ou categoria">
             </label>
-            <div class="filter-grid">
-              <label class="select-field"><span class="sr-only">Marca</span><select id="filter-brand"></select></label>
-              <label class="select-field"><span class="sr-only">Categoria</span><select id="filter-category"></select></label>
-              <label class="select-field"><span class="sr-only">Género</span><select id="filter-gender"></select></label>
-              <label class="select-field"><span class="sr-only">Tamanho</span><select id="filter-size"></select></label>
-              <label class="select-field">
-                <span class="sr-only">Tipo de preço</span>
-                <select id="filter-price">
-                  <option value="">Preço</option>
-                  <option value="fixed">40€</option>
-                  <option value="consult">Só consulta</option>
-                </select>
-              </label>
-              <label class="select-field">
-                <span class="sr-only">Ordenar</span>
-                <select id="filter-sort">
-                  <option value="relevancia">Relevância</option>
-                  <option value="recentes">Mais recentes</option>
-                  <option value="az">A → Z</option>
-                </select>
-              </label>
-            </div>
+            <details class="filter-dropdown" id="filters-disclosure">
+              <summary class="filters-toggle" id="filters-toggle">
+                <span>Filtros</span>
+                <strong id="filters-summary" hidden>0</strong>
+              </summary>
+              <section class="filters-panel" id="filters-panel" aria-label="Opções de filtro">
+                <div class="filters-panel__head">
+                  <h2>Filtros</h2>
+                </div>
+                <div class="filters-panel__grid">
+                  <label class="select-field"><span class="sr-only">Marca</span><select id="filter-brand"></select></label>
+                  <label class="select-field"><span class="sr-only">Categoria</span><select id="filter-category"></select></label>
+                  <label class="select-field"><span class="sr-only">Género</span><select id="filter-gender"></select></label>
+                  <label class="select-field"><span class="sr-only">Tamanho</span><select id="filter-size"></select></label>
+                  <label class="select-field">
+                    <span class="sr-only">Tipo de preço</span>
+                    <select id="filter-price">
+                      <option value="">Preço</option>
+                      <option value="fixed">40€</option>
+                      <option value="consult">Só consulta</option>
+                    </select>
+                  </label>
+                  <label class="select-field">
+                    <span class="sr-only">Ordenar</span>
+                    <select id="filter-sort">
+                      <option value="relevancia">Relevância</option>
+                      <option value="recentes">Mais recentes</option>
+                      <option value="az">A → Z</option>
+                    </select>
+                  </label>
+                </div>
+              </section>
+            </details>
           </div>
 
           <div class="catalog-grid" id="catalog-grid">
@@ -153,11 +115,12 @@
             <span class="catalog-card__price">40€</span>
           </div>
           <h3 class="catalog-card__name">CAROLINA HERRERA / 3 Colores</h3>
+          <p class="catalog-card__ref">Ref. ST-829C5A</p>
         </div>
       </a>
       <div class="catalog-card__foot">
         <a class="catalog-card__button" href="/SmartThings/produto/carolina_carolina_herrera_3_colores_2/">Ver artigo</a>
-        <button class="catalog-card__button catalog-card__button--primary" type="button" data-quick-add="carolina_carolina_herrera_3_colores_2">Adicionar</button>
+        <button class="catalog-card__button catalog-card__button--primary" type="button" data-quick-add="carolina_carolina_herrera_3_colores_2">Adicionar ao carrinho</button>
       </div>
     </article>
   
@@ -176,11 +139,12 @@
             <span class="catalog-card__price">40€</span>
           </div>
           <h3 class="catalog-card__name">JW PEI / 5 Colores</h3>
+          <p class="catalog-card__ref">Ref. ST-4FAE9B</p>
         </div>
       </a>
       <div class="catalog-card__foot">
         <a class="catalog-card__button" href="/SmartThings/produto/jw_jw_pei_5_colores/">Ver artigo</a>
-        <button class="catalog-card__button catalog-card__button--primary" type="button" data-quick-add="jw_jw_pei_5_colores">Adicionar</button>
+        <button class="catalog-card__button catalog-card__button--primary" type="button" data-quick-add="jw_jw_pei_5_colores">Adicionar ao carrinho</button>
       </div>
     </article>
   
@@ -199,11 +163,12 @@
             <span class="catalog-card__price">40€</span>
           </div>
           <h3 class="catalog-card__name">THE NORTH FACE &quot;Glenclyffe&quot; / 7 Colores</h3>
+          <p class="catalog-card__ref">Ref. ST-22FDD5</p>
         </div>
       </a>
       <div class="catalog-card__foot">
         <a class="catalog-card__button" href="/SmartThings/produto/the_north_face_the_north_face_glenclyffe_7_colores_2/">Ver artigo</a>
-        <button class="catalog-card__button catalog-card__button--primary" type="button" data-quick-add="the_north_face_the_north_face_glenclyffe_7_colores_2">Adicionar</button>
+        <button class="catalog-card__button catalog-card__button--primary" type="button" data-quick-add="the_north_face_the_north_face_glenclyffe_7_colores_2">Adicionar ao carrinho</button>
       </div>
     </article>
   
@@ -222,11 +187,12 @@
             <span class="catalog-card__price">40€</span>
           </div>
           <h3 class="catalog-card__name">SAUCONY / 9 Colores</h3>
+          <p class="catalog-card__ref">Ref. ST-3C8A7D</p>
         </div>
       </a>
       <div class="catalog-card__foot">
         <a class="catalog-card__button" href="/SmartThings/produto/saucony_saucony_9_colores/">Ver artigo</a>
-        <button class="catalog-card__button catalog-card__button--primary" type="button" data-quick-add="saucony_saucony_9_colores">Adicionar</button>
+        <button class="catalog-card__button catalog-card__button--primary" type="button" data-quick-add="saucony_saucony_9_colores">Adicionar ao carrinho</button>
       </div>
     </article>
   
@@ -245,11 +211,12 @@
             <span class="catalog-card__price">40€</span>
           </div>
           <h3 class="catalog-card__name">ADIDAS Gazelle x BAD BUNNY</h3>
+          <p class="catalog-card__ref">Ref. ST-AC1744</p>
         </div>
       </a>
       <div class="catalog-card__foot">
         <a class="catalog-card__button" href="/SmartThings/produto/adidas_gazelle_x_bad_bunny/">Ver artigo</a>
-        <button class="catalog-card__button catalog-card__button--primary" type="button" data-quick-add="adidas_gazelle_x_bad_bunny">Adicionar</button>
+        <button class="catalog-card__button catalog-card__button--primary" type="button" data-quick-add="adidas_gazelle_x_bad_bunny">Adicionar ao carrinho</button>
       </div>
     </article>
   
@@ -268,11 +235,12 @@
             <span class="catalog-card__price">40€</span>
           </div>
           <h3 class="catalog-card__name">CONVERSE x Comme des Garcons</h3>
+          <p class="catalog-card__ref">Ref. ST-07BD2A</p>
         </div>
       </a>
       <div class="catalog-card__foot">
         <a class="catalog-card__button" href="/SmartThings/produto/converse_x_comme_des_garcons/">Ver artigo</a>
-        <button class="catalog-card__button catalog-card__button--primary" type="button" data-quick-add="converse_x_comme_des_garcons">Adicionar</button>
+        <button class="catalog-card__button catalog-card__button--primary" type="button" data-quick-add="converse_x_comme_des_garcons">Adicionar ao carrinho</button>
       </div>
     </article>
   
@@ -291,11 +259,12 @@
             <span class="catalog-card__price">40€</span>
           </div>
           <h3 class="catalog-card__name">ADIDAS &quot;Anfu&quot;</h3>
+          <p class="catalog-card__ref">Ref. ST-B9C337</p>
         </div>
       </a>
       <div class="catalog-card__foot">
         <a class="catalog-card__button" href="/SmartThings/produto/adidas_anfu/">Ver artigo</a>
-        <button class="catalog-card__button catalog-card__button--primary" type="button" data-quick-add="adidas_anfu">Adicionar</button>
+        <button class="catalog-card__button catalog-card__button--primary" type="button" data-quick-add="adidas_anfu">Adicionar ao carrinho</button>
       </div>
     </article>
   
@@ -314,11 +283,12 @@
             <span class="catalog-card__price">40€</span>
           </div>
           <h3 class="catalog-card__name">ASICS Gel Phai Z</h3>
+          <p class="catalog-card__ref">Ref. ST-024DFC</p>
         </div>
       </a>
       <div class="catalog-card__foot">
         <a class="catalog-card__button" href="/SmartThings/produto/asics_asics_gel_phai_z/">Ver artigo</a>
-        <button class="catalog-card__button catalog-card__button--primary" type="button" data-quick-add="asics_asics_gel_phai_z">Adicionar</button>
+        <button class="catalog-card__button catalog-card__button--primary" type="button" data-quick-add="asics_asics_gel_phai_z">Adicionar ao carrinho</button>
       </div>
     </article>
   
@@ -337,11 +307,12 @@
             <span class="catalog-card__price">40€</span>
           </div>
           <h3 class="catalog-card__name">COACH / 4 Colores</h3>
+          <p class="catalog-card__ref">Ref. ST-385C17</p>
         </div>
       </a>
       <div class="catalog-card__foot">
         <a class="catalog-card__button" href="/SmartThings/produto/coach_coach_4_colores_3/">Ver artigo</a>
-        <button class="catalog-card__button catalog-card__button--primary" type="button" data-quick-add="coach_coach_4_colores_3">Adicionar</button>
+        <button class="catalog-card__button catalog-card__button--primary" type="button" data-quick-add="coach_coach_4_colores_3">Adicionar ao carrinho</button>
       </div>
     </article>
   
@@ -360,11 +331,12 @@
             <span class="catalog-card__price">40€</span>
           </div>
           <h3 class="catalog-card__name">Rizador / 3 Colores</h3>
+          <p class="catalog-card__ref">Ref. ST-8C6257</p>
         </div>
       </a>
       <div class="catalog-card__foot">
         <a class="catalog-card__button" href="/SmartThings/produto/rizador_rizador_3_colores/">Ver artigo</a>
-        <button class="catalog-card__button catalog-card__button--primary" type="button" data-quick-add="rizador_rizador_3_colores">Adicionar</button>
+        <button class="catalog-card__button catalog-card__button--primary" type="button" data-quick-add="rizador_rizador_3_colores">Adicionar ao carrinho</button>
       </div>
     </article>
   
@@ -383,11 +355,12 @@
             <span class="catalog-card__price">40€</span>
           </div>
           <h3 class="catalog-card__name">CARHARTT / 4 Colores</h3>
+          <p class="catalog-card__ref">Ref. ST-68758E</p>
         </div>
       </a>
       <div class="catalog-card__foot">
         <a class="catalog-card__button" href="/SmartThings/produto/carhartt_carhartt_4_colores_8/">Ver artigo</a>
-        <button class="catalog-card__button catalog-card__button--primary" type="button" data-quick-add="carhartt_carhartt_4_colores_8">Adicionar</button>
+        <button class="catalog-card__button catalog-card__button--primary" type="button" data-quick-add="carhartt_carhartt_4_colores_8">Adicionar ao carrinho</button>
       </div>
     </article>
   
@@ -406,11 +379,12 @@
             <span class="catalog-card__price">40€</span>
           </div>
           <h3 class="catalog-card__name">NIKE Dunk</h3>
+          <p class="catalog-card__ref">Ref. ST-6563FC</p>
         </div>
       </a>
       <div class="catalog-card__foot">
         <a class="catalog-card__button" href="/SmartThings/produto/nike_dunk/">Ver artigo</a>
-        <button class="catalog-card__button catalog-card__button--primary" type="button" data-quick-add="nike_dunk">Adicionar</button>
+        <button class="catalog-card__button catalog-card__button--primary" type="button" data-quick-add="nike_dunk">Adicionar ao carrinho</button>
       </div>
     </article>
   </div>
@@ -424,46 +398,15 @@
         </div>
       </section>
 
-      <section class="catalog-section">
-        <div class="container">
-          <div class="section-head">
-            <div>
-              <h2>Perguntas frequentes</h2>
-              <p>Sem promessas vagas: o pedido é confirmado no WhatsApp e o pagamento por MB Way só acontece depois dessa confirmação.</p>
-            </div>
-          </div>
-          <div class="faq-list">
-            <details><summary>O pedido no site já fecha a compra?</summary><p>Não. O site só organiza os artigos e tamanhos. O stock, o preço final e o envio são confirmados no WhatsApp.</p></details>
-            <details><summary>Como é feito o pagamento?</summary><p>Pagamento por MB Way após confirmação do pedido no WhatsApp.</p></details>
-            <details><summary>Quanto tempo demora?</summary><p>Envio normalmente confirmado no WhatsApp. Prazo médio previsto: 10 a 15 dias.</p></details>
-            <details><summary>Onde vejo mais fotos reais?</summary><p>Podes usar o botão de Telegram para ver o canal com fotos e vídeos reais quando existirem.</p></details>
-          </div>
-        </div>
-      </section>
     </main>
   
     </div>
     
     <footer class="footer">
-      <div class="container footer__grid">
-        <div>
-          <h2 class="drawer-title">Smart Things PT</h2>
-          <p>Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido.</p>
-          <p>Envio normalmente confirmado no WhatsApp. Prazo médio previsto: 10 a 15 dias.</p>
-        </div>
-        <div>
-          <h3>Contacto</h3>
-          <p><a href="https://wa.me/351927515217">+351 927 515 217</a></p>
-          <p><a href="https://t.me/smartthingspt" target="_blank" rel="noopener">@smartthingspt</a></p>
-          <p><strong>NIF:</strong> TODO: confirmar NIF do vendedor</p>
-        </div>
-        <div>
-          <h3>Informação</h3>
-          <p><a href="/SmartThings/como-funciona/">Como funciona</a></p>
-          <p><a href="/SmartThings/trocas-devolucoes/">Trocas e devoluções</a></p>
-          <p><a href="/SmartThings/privacidade/">Privacidade</a></p>
-          <small>O site guarda o pedido apenas neste dispositivo. Não recolhe dados pessoais.</small>
-        </div>
+      <div class="container footer__compact">
+        <p><strong>Smart Things PT</strong></p>
+        <p><a href="https://wa.me/351927515217">+351 927 515 217</a></p>
+        <p><a href="https://t.me/smartthingspt" target="_blank" rel="noopener">@smartthingspt</a></p>
       </div>
     </footer>
   
@@ -473,7 +416,7 @@
       <div class="order-drawer__head">
         <div style="display:flex; align-items:center; justify-content:space-between; gap:12px;">
           <div>
-            <h2 class="drawer-title" id="order-title">Pedido</h2>
+            <h2 class="drawer-title" id="order-title">Carrinho</h2>
             <p class="helper-text">Stock, preço final e envio são confirmados no WhatsApp.</p>
           </div>
           <button class="icon-button" type="button" data-close-order aria-label="Fechar pedido">×</button>
@@ -493,9 +436,9 @@
       <div class="order-drawer__footer">
         <p class="helper-text">Artigos: <strong data-order-count>0</strong> · Total estimado: <strong data-order-total>0€</strong></p>
         <div style="display:grid; gap:10px;">
-          <button class="button button--primary" id="order-send" type="button">Enviar por WhatsApp</button>
+          <button class="button button--primary" id="order-send" type="button">Finalizar compra</button>
           <button class="button" id="order-copy" type="button">Copiar pedido</button>
-          <button class="button" id="order-clear" type="button">Limpar pedido</button>
+          <button class="button" id="order-clear" type="button">Limpar carrinho</button>
         </div>
       </div>
     </aside>
@@ -505,19 +448,20 @@
           <strong><span data-order-count>0</span> artigos no pedido</strong>
           <span>Total estimado <span data-order-total>0€</span></span>
         </div>
-        <button class="button button--primary" type="button" data-open-order>Abrir pedido</button>
+        <button class="button button--primary" type="button" data-open-order>Ir para o carrinho</button>
       </div>
     </div>
     <div class="modal-backdrop" id="modal-backdrop" hidden></div>
     <section class="quick-modal" id="quick-modal" hidden aria-modal="true" role="dialog" aria-labelledby="quick-modal-title">
       <div class="quick-modal__content">
         <div style="display:flex; align-items:center; justify-content:space-between; gap:12px;">
-          <h2 class="drawer-title" id="quick-modal-title">Adicionar ao pedido</h2>
+          <h2 class="drawer-title" id="quick-modal-title">Adicionar ao carrinho</h2>
           <button class="icon-button" type="button" data-close-modal aria-label="Fechar modal">×</button>
         </div>
         <div id="quick-modal-body"></div>
       </div>
     </section>
+    <div class="toast" id="st-toast" hidden role="status" aria-live="polite"></div>
     <div class="sr-only" id="st-live-region" aria-live="polite"></div>
   
     <script id="st-catalog-bootstrap" type="application/json">{"summaryUrl":"/SmartThings/data/catalog/summary.json"}</script>

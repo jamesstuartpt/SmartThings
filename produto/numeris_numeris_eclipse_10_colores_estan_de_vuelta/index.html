@@ -38,9 +38,9 @@
         <nav class="topbar__nav"><a href="/SmartThings/">Catálogo</a><a href="/SmartThings/como-funciona/">Como funciona</a><a href="/SmartThings/trocas-devolucoes/">Trocas</a><a href="/SmartThings/privacidade/">Privacidade</a></nav>
         <div class="topbar__actions">
           <button class="theme-toggle" type="button" data-theme-toggle aria-label="Alternar tema">◐</button>
-          <button class="icon-button" type="button" data-open-order aria-label="Abrir pedido">
-            <span aria-hidden="true">🧾</span>
-            <span class="sr-only">Abrir pedido</span>
+          <button class="icon-button" type="button" data-open-order aria-label="Ir para o carrinho">
+            <span aria-hidden="true">🛒</span>
+            <span class="sr-only">Ir para o carrinho</span>
           </button>
         </div>
       </div>
@@ -66,6 +66,7 @@
       <section class="product-panel">
         <p class="catalog-card__brand">NUMERIS · Outros</p>
         <h1 class="product-title">NUMERIS &quot;Eclipse&quot; / 10 Colores / Estan de vuelta !</h1>
+        <p class="product-ref">Ref. ST-559BB0</p>
         <p class="product-meta">NUMERIS · Outros. Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido.</p>
         <div class="chip-row">
           <span class="badge badge--accent">Novo</span>
@@ -87,8 +88,8 @@
           <p class="inline-note">Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido.</p>
         </div>
         <div class="hero__actions">
-          <button class="button button--primary" id="product-add" type="button">Adicionar ao pedido</button>
-          <a class="button" href="https://t.me/smartthingspt" target="_blank" rel="noopener">Ver fotos e vídeos reais no Telegram</a>
+          <button class="button button--primary" id="product-add" type="button">Adicionar ao carrinho</button>
+          <button class="button" id="product-buy-now" type="button">Comprar agora</button>
         </div>
       </section>
       <section class="container" style="grid-column:1 / -1; padding-bottom:56px;">
@@ -114,6 +115,7 @@
             <span class="catalog-card__price">40€</span>
           </div>
           <h3 class="catalog-card__name">NUMERIS &quot;Athena&quot; / 19 Colores / Novedad</h3>
+          <p class="catalog-card__ref">Ref. ST-BA0B51</p>
         </div>
       </a>
       <div class="catalog-card__foot catalog-card__foot--single">
@@ -137,6 +139,7 @@
             <span class="catalog-card__price">40€</span>
           </div>
           <h3 class="catalog-card__name">NUMERIS &quot;Eclipse&quot; / 7 Colores / Estan de vuelta !</h3>
+          <p class="catalog-card__ref">Ref. ST-7DDE24</p>
         </div>
       </a>
       <div class="catalog-card__foot catalog-card__foot--single">
@@ -160,6 +163,7 @@
             <span class="catalog-card__price">40€</span>
           </div>
           <h3 class="catalog-card__name">NUMERIS / 8 Colores</h3>
+          <p class="catalog-card__ref">Ref. ST-3CCE2F</p>
         </div>
       </a>
       <div class="catalog-card__foot catalog-card__foot--single">
@@ -183,6 +187,7 @@
             <span class="catalog-card__price">40€</span>
           </div>
           <h3 class="catalog-card__name">NUMERIS &quot;Eclipse&quot; / 7 Colores / Estan de vuelta !</h3>
+          <p class="catalog-card__ref">Ref. ST-40BB81</p>
         </div>
       </a>
       <div class="catalog-card__foot catalog-card__foot--single">
@@ -216,25 +221,10 @@
     </div>
     
     <footer class="footer">
-      <div class="container footer__grid">
-        <div>
-          <h2 class="drawer-title">Smart Things PT</h2>
-          <p>Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido.</p>
-          <p>Envio normalmente confirmado no WhatsApp. Prazo médio previsto: 10 a 15 dias.</p>
-        </div>
-        <div>
-          <h3>Contacto</h3>
-          <p><a href="https://wa.me/351927515217">+351 927 515 217</a></p>
-          <p><a href="https://t.me/smartthingspt" target="_blank" rel="noopener">@smartthingspt</a></p>
-          <p><strong>NIF:</strong> TODO: confirmar NIF do vendedor</p>
-        </div>
-        <div>
-          <h3>Informação</h3>
-          <p><a href="/SmartThings/como-funciona/">Como funciona</a></p>
-          <p><a href="/SmartThings/trocas-devolucoes/">Trocas e devoluções</a></p>
-          <p><a href="/SmartThings/privacidade/">Privacidade</a></p>
-          <small>O site guarda o pedido apenas neste dispositivo. Não recolhe dados pessoais.</small>
-        </div>
+      <div class="container footer__compact">
+        <p><strong>Smart Things PT</strong></p>
+        <p><a href="https://wa.me/351927515217">+351 927 515 217</a></p>
+        <p><a href="https://t.me/smartthingspt" target="_blank" rel="noopener">@smartthingspt</a></p>
       </div>
     </footer>
   
@@ -244,7 +234,7 @@
       <div class="order-drawer__head">
         <div style="display:flex; align-items:center; justify-content:space-between; gap:12px;">
           <div>
-            <h2 class="drawer-title" id="order-title">Pedido</h2>
+            <h2 class="drawer-title" id="order-title">Carrinho</h2>
             <p class="helper-text">Stock, preço final e envio são confirmados no WhatsApp.</p>
           </div>
           <button class="icon-button" type="button" data-close-order aria-label="Fechar pedido">×</button>
@@ -264,9 +254,9 @@
       <div class="order-drawer__footer">
         <p class="helper-text">Artigos: <strong data-order-count>0</strong> · Total estimado: <strong data-order-total>0€</strong></p>
         <div style="display:grid; gap:10px;">
-          <button class="button button--primary" id="order-send" type="button">Enviar por WhatsApp</button>
+          <button class="button button--primary" id="order-send" type="button">Finalizar compra</button>
           <button class="button" id="order-copy" type="button">Copiar pedido</button>
-          <button class="button" id="order-clear" type="button">Limpar pedido</button>
+          <button class="button" id="order-clear" type="button">Limpar carrinho</button>
         </div>
       </div>
     </aside>
@@ -276,22 +266,23 @@
           <strong><span data-order-count>0</span> artigos no pedido</strong>
           <span>Total estimado <span data-order-total>0€</span></span>
         </div>
-        <button class="button button--primary" type="button" data-open-order>Abrir pedido</button>
+        <button class="button button--primary" type="button" data-open-order>Ir para o carrinho</button>
       </div>
     </div>
     <div class="modal-backdrop" id="modal-backdrop" hidden></div>
     <section class="quick-modal" id="quick-modal" hidden aria-modal="true" role="dialog" aria-labelledby="quick-modal-title">
       <div class="quick-modal__content">
         <div style="display:flex; align-items:center; justify-content:space-between; gap:12px;">
-          <h2 class="drawer-title" id="quick-modal-title">Adicionar ao pedido</h2>
+          <h2 class="drawer-title" id="quick-modal-title">Adicionar ao carrinho</h2>
           <button class="icon-button" type="button" data-close-modal aria-label="Fechar modal">×</button>
         </div>
         <div id="quick-modal-body"></div>
       </div>
     </section>
+    <div class="toast" id="st-toast" hidden role="status" aria-live="polite"></div>
     <div class="sr-only" id="st-live-region" aria-live="polite"></div>
   
-    <script id="st-product-data" type="application/json">{"product":{"slug":"numeris_numeris_eclipse_10_colores_estan_de_vuelta","name":"NUMERIS \"Eclipse\" / 10 Colores / Estan de vuelta !","brandLabel":"NUMERIS","brandSlug":"numeris","category":"outros","categoryLabel":"Outros","modelLabel":"","latestTs":1792011037,"gender":"Unissexo","genderSlug":"unissexo","sizeType":"unique","sizeLabel":"Tamanho","sizes":["Único"],"availability":"disponivel","isNew":true,"priceLabel":"40€","priceValue":40,"priceType":"fixed","badges":[{"label":"Novo","tone":"accent"}],"coverPath":"imagens/telegram/numeris_numeris_eclipse_10_colores_estan_de_vuelta/1.jpg","coverImage":"/SmartThings/imagens/telegram/numeris_numeris_eclipse_10_colores_estan_de_vuelta/1.jpg","coverWidth":1103,"coverHeight":1280,"url":"/SmartThings/produto/numeris_numeris_eclipse_10_colores_estan_de_vuelta/","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/produto/numeris_numeris_eclipse_10_colores_estan_de_vuelta/","images":[{"path":"imagens/telegram/numeris_numeris_eclipse_10_colores_estan_de_vuelta/1.jpg","url":"/SmartThings/imagens/telegram/numeris_numeris_eclipse_10_colores_estan_de_vuelta/1.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/numeris_numeris_eclipse_10_colores_estan_de_vuelta/1.jpg","width":1103,"height":1280,"alt":"NUMERIS \"Eclipse\" / 10 Colores / Estan de vuelta ! · imagem 1"}],"description":"NUMERIS · Outros. Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido.","related":[{"slug":"numeris_numeris_athena_19_colores_novedad","name":"NUMERIS \"Athena\" / 19 Colores / Novedad","brandLabel":"NUMERIS","brandSlug":"numeris","category":"outros","categoryLabel":"Outros","modelLabel":"","latestTs":1794955347,"gender":"Unissexo","genderSlug":"unissexo","sizeType":"unique","sizeLabel":"Tamanho","sizes":["Único"],"availability":"disponivel","isNew":true,"priceLabel":"40€","priceValue":40,"priceType":"fixed","badges":[{"label":"Novo","tone":"accent"}],"coverPath":"imagens/telegram/numeris_numeris_athena_19_colores_novedad/1.jpg","coverImage":"/SmartThings/imagens/telegram/numeris_numeris_athena_19_colores_novedad/1.jpg","coverWidth":1206,"coverHeight":1172,"url":"/SmartThings/produto/numeris_numeris_athena_19_colores_novedad/","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/produto/numeris_numeris_athena_19_colores_novedad/","images":[{"path":"imagens/telegram/numeris_numeris_athena_19_colores_novedad/1.jpg","url":"/SmartThings/imagens/telegram/numeris_numeris_athena_19_colores_novedad/1.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/numeris_numeris_athena_19_colores_novedad/1.jpg","width":1206,"height":1172,"alt":"NUMERIS \"Athena\" / 19 Colores / Novedad · imagem 1"}],"description":"NUMERIS · Outros. Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido."},{"slug":"numeris_numeris_eclipse_7_colores_estan_de_vuelta_2","name":"NUMERIS \"Eclipse\" / 7 Colores / Estan de vuelta !","brandLabel":"NUMERIS","brandSlug":"numeris","category":"outros","categoryLabel":"Outros","modelLabel":"","latestTs":1793808695,"gender":"Unissexo","genderSlug":"unissexo","sizeType":"unique","sizeLabel":"Tamanho","sizes":["Único"],"availability":"disponivel","isNew":true,"priceLabel":"40€","priceValue":40,"priceType":"fixed","badges":[{"label":"Novo","tone":"accent"}],"coverPath":"imagens/telegram/numeris_numeris_eclipse_7_colores_estan_de_vuelta_2/1.jpg","coverImage":"/SmartThings/imagens/telegram/numeris_numeris_eclipse_7_colores_estan_de_vuelta_2/1.jpg","coverWidth":1103,"coverHeight":1280,"url":"/SmartThings/produto/numeris_numeris_eclipse_7_colores_estan_de_vuelta_2/","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/produto/numeris_numeris_eclipse_7_colores_estan_de_vuelta_2/","images":[{"path":"imagens/telegram/numeris_numeris_eclipse_7_colores_estan_de_vuelta_2/1.jpg","url":"/SmartThings/imagens/telegram/numeris_numeris_eclipse_7_colores_estan_de_vuelta_2/1.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/numeris_numeris_eclipse_7_colores_estan_de_vuelta_2/1.jpg","width":1103,"height":1280,"alt":"NUMERIS \"Eclipse\" / 7 Colores / Estan de vuelta ! · imagem 1"}],"description":"NUMERIS · Outros. Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido."},{"slug":"numeris_numeris_8_colores","name":"NUMERIS / 8 Colores","brandLabel":"NUMERIS","brandSlug":"numeris","category":"outros","categoryLabel":"Outros","modelLabel":"","latestTs":1792936861,"gender":"Unissexo","genderSlug":"unissexo","sizeType":"unique","sizeLabel":"Tamanho","sizes":["Único"],"availability":"disponivel","isNew":true,"priceLabel":"40€","priceValue":40,"priceType":"fixed","badges":[{"label":"Novo","tone":"accent"}],"coverPath":"imagens/telegram/numeris_numeris_8_colores/1.jpg","coverImage":"/SmartThings/imagens/telegram/numeris_numeris_8_colores/1.jpg","coverWidth":1254,"coverHeight":1254,"url":"/SmartThings/produto/numeris_numeris_8_colores/","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/produto/numeris_numeris_8_colores/","images":[{"path":"imagens/telegram/numeris_numeris_8_colores/1.jpg","url":"/SmartThings/imagens/telegram/numeris_numeris_8_colores/1.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/numeris_numeris_8_colores/1.jpg","width":1254,"height":1254,"alt":"NUMERIS / 8 Colores · imagem 1"}],"description":"NUMERIS · Outros. Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido."},{"slug":"numeris_numeris_eclipse_7_colores_estan_de_vuelta","name":"NUMERIS \"Eclipse\" / 7 Colores / Estan de vuelta !","brandLabel":"NUMERIS","brandSlug":"numeris","category":"outros","categoryLabel":"Outros","modelLabel":"","latestTs":1792748566,"gender":"Unissexo","genderSlug":"unissexo","sizeType":"unique","sizeLabel":"Tamanho","sizes":["Único"],"availability":"disponivel","isNew":true,"priceLabel":"40€","priceValue":40,"priceType":"fixed","badges":[{"label":"Novo","tone":"accent"}],"coverPath":"imagens/telegram/numeris_numeris_eclipse_7_colores_estan_de_vuelta/1.jpg","coverImage":"/SmartThings/imagens/telegram/numeris_numeris_eclipse_7_colores_estan_de_vuelta/1.jpg","coverWidth":1103,"coverHeight":1280,"url":"/SmartThings/produto/numeris_numeris_eclipse_7_colores_estan_de_vuelta/","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/produto/numeris_numeris_eclipse_7_colores_estan_de_vuelta/","images":[{"path":"imagens/telegram/numeris_numeris_eclipse_7_colores_estan_de_vuelta/1.jpg","url":"/SmartThings/imagens/telegram/numeris_numeris_eclipse_7_colores_estan_de_vuelta/1.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/numeris_numeris_eclipse_7_colores_estan_de_vuelta/1.jpg","width":1103,"height":1280,"alt":"NUMERIS \"Eclipse\" / 7 Colores / Estan de vuelta ! · imagem 1"}],"description":"NUMERIS · Outros. Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido."}]}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"NUMERIS \"Eclipse\" / 10 Colores / Estan de vuelta !","image":["https://jamesstuartpt.github.io/SmartThings/imagens/telegram/numeris_numeris_eclipse_10_colores_estan_de_vuelta/1.jpg"],"description":"NUMERIS · Outros. Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido.","brand":{"@type":"Brand","name":"NUMERIS"},"sku":"numeris_numeris_eclipse_10_colores_estan_de_vuelta","category":"Outros","url":"https://jamesstuartpt.github.io/SmartThings/produto/numeris_numeris_eclipse_10_colores_estan_de_vuelta/","offers":{"@type":"Offer","priceCurrency":"EUR","price":40,"availability":"https://schema.org/InStock","url":"https://jamesstuartpt.github.io/SmartThings/produto/numeris_numeris_eclipse_10_colores_estan_de_vuelta/"}}</script>
+    <script id="st-product-data" type="application/json">{"product":{"slug":"numeris_numeris_eclipse_10_colores_estan_de_vuelta","refCode":"ST-559BB0","name":"NUMERIS \"Eclipse\" / 10 Colores / Estan de vuelta !","brandLabel":"NUMERIS","brandSlug":"numeris","category":"outros","categoryLabel":"Outros","modelLabel":"","latestTs":1792011037,"gender":"Unissexo","genderSlug":"unissexo","sizeType":"unique","sizeLabel":"Tamanho","sizes":["Único"],"availability":"disponivel","isNew":true,"priceLabel":"40€","priceValue":40,"priceType":"fixed","badges":[{"label":"Novo","tone":"accent"}],"coverPath":"imagens/telegram/numeris_numeris_eclipse_10_colores_estan_de_vuelta/1.jpg","coverImage":"/SmartThings/imagens/telegram/numeris_numeris_eclipse_10_colores_estan_de_vuelta/1.jpg","coverWidth":1103,"coverHeight":1280,"url":"/SmartThings/produto/numeris_numeris_eclipse_10_colores_estan_de_vuelta/","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/produto/numeris_numeris_eclipse_10_colores_estan_de_vuelta/","images":[{"path":"imagens/telegram/numeris_numeris_eclipse_10_colores_estan_de_vuelta/1.jpg","url":"/SmartThings/imagens/telegram/numeris_numeris_eclipse_10_colores_estan_de_vuelta/1.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/numeris_numeris_eclipse_10_colores_estan_de_vuelta/1.jpg","width":1103,"height":1280,"alt":"NUMERIS \"Eclipse\" / 10 Colores / Estan de vuelta ! · imagem 1"}],"description":"NUMERIS · Outros. Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido.","related":[{"slug":"numeris_numeris_athena_19_colores_novedad","refCode":"ST-BA0B51","name":"NUMERIS \"Athena\" / 19 Colores / Novedad","brandLabel":"NUMERIS","brandSlug":"numeris","category":"outros","categoryLabel":"Outros","modelLabel":"","latestTs":1794955347,"gender":"Unissexo","genderSlug":"unissexo","sizeType":"unique","sizeLabel":"Tamanho","sizes":["Único"],"availability":"disponivel","isNew":true,"priceLabel":"40€","priceValue":40,"priceType":"fixed","badges":[{"label":"Novo","tone":"accent"}],"coverPath":"imagens/telegram/numeris_numeris_athena_19_colores_novedad/1.jpg","coverImage":"/SmartThings/imagens/telegram/numeris_numeris_athena_19_colores_novedad/1.jpg","coverWidth":1206,"coverHeight":1172,"url":"/SmartThings/produto/numeris_numeris_athena_19_colores_novedad/","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/produto/numeris_numeris_athena_19_colores_novedad/","images":[{"path":"imagens/telegram/numeris_numeris_athena_19_colores_novedad/1.jpg","url":"/SmartThings/imagens/telegram/numeris_numeris_athena_19_colores_novedad/1.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/numeris_numeris_athena_19_colores_novedad/1.jpg","width":1206,"height":1172,"alt":"NUMERIS \"Athena\" / 19 Colores / Novedad · imagem 1"}],"description":"NUMERIS · Outros. Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido."},{"slug":"numeris_numeris_eclipse_7_colores_estan_de_vuelta_2","refCode":"ST-7DDE24","name":"NUMERIS \"Eclipse\" / 7 Colores / Estan de vuelta !","brandLabel":"NUMERIS","brandSlug":"numeris","category":"outros","categoryLabel":"Outros","modelLabel":"","latestTs":1793808695,"gender":"Unissexo","genderSlug":"unissexo","sizeType":"unique","sizeLabel":"Tamanho","sizes":["Único"],"availability":"disponivel","isNew":true,"priceLabel":"40€","priceValue":40,"priceType":"fixed","badges":[{"label":"Novo","tone":"accent"}],"coverPath":"imagens/telegram/numeris_numeris_eclipse_7_colores_estan_de_vuelta_2/1.jpg","coverImage":"/SmartThings/imagens/telegram/numeris_numeris_eclipse_7_colores_estan_de_vuelta_2/1.jpg","coverWidth":1103,"coverHeight":1280,"url":"/SmartThings/produto/numeris_numeris_eclipse_7_colores_estan_de_vuelta_2/","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/produto/numeris_numeris_eclipse_7_colores_estan_de_vuelta_2/","images":[{"path":"imagens/telegram/numeris_numeris_eclipse_7_colores_estan_de_vuelta_2/1.jpg","url":"/SmartThings/imagens/telegram/numeris_numeris_eclipse_7_colores_estan_de_vuelta_2/1.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/numeris_numeris_eclipse_7_colores_estan_de_vuelta_2/1.jpg","width":1103,"height":1280,"alt":"NUMERIS \"Eclipse\" / 7 Colores / Estan de vuelta ! · imagem 1"}],"description":"NUMERIS · Outros. Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido."},{"slug":"numeris_numeris_8_colores","refCode":"ST-3CCE2F","name":"NUMERIS / 8 Colores","brandLabel":"NUMERIS","brandSlug":"numeris","category":"outros","categoryLabel":"Outros","modelLabel":"","latestTs":1792936861,"gender":"Unissexo","genderSlug":"unissexo","sizeType":"unique","sizeLabel":"Tamanho","sizes":["Único"],"availability":"disponivel","isNew":true,"priceLabel":"40€","priceValue":40,"priceType":"fixed","badges":[{"label":"Novo","tone":"accent"}],"coverPath":"imagens/telegram/numeris_numeris_8_colores/1.jpg","coverImage":"/SmartThings/imagens/telegram/numeris_numeris_8_colores/1.jpg","coverWidth":1254,"coverHeight":1254,"url":"/SmartThings/produto/numeris_numeris_8_colores/","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/produto/numeris_numeris_8_colores/","images":[{"path":"imagens/telegram/numeris_numeris_8_colores/1.jpg","url":"/SmartThings/imagens/telegram/numeris_numeris_8_colores/1.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/numeris_numeris_8_colores/1.jpg","width":1254,"height":1254,"alt":"NUMERIS / 8 Colores · imagem 1"}],"description":"NUMERIS · Outros. Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido."},{"slug":"numeris_numeris_eclipse_7_colores_estan_de_vuelta","refCode":"ST-40BB81","name":"NUMERIS \"Eclipse\" / 7 Colores / Estan de vuelta !","brandLabel":"NUMERIS","brandSlug":"numeris","category":"outros","categoryLabel":"Outros","modelLabel":"","latestTs":1792748566,"gender":"Unissexo","genderSlug":"unissexo","sizeType":"unique","sizeLabel":"Tamanho","sizes":["Único"],"availability":"disponivel","isNew":true,"priceLabel":"40€","priceValue":40,"priceType":"fixed","badges":[{"label":"Novo","tone":"accent"}],"coverPath":"imagens/telegram/numeris_numeris_eclipse_7_colores_estan_de_vuelta/1.jpg","coverImage":"/SmartThings/imagens/telegram/numeris_numeris_eclipse_7_colores_estan_de_vuelta/1.jpg","coverWidth":1103,"coverHeight":1280,"url":"/SmartThings/produto/numeris_numeris_eclipse_7_colores_estan_de_vuelta/","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/produto/numeris_numeris_eclipse_7_colores_estan_de_vuelta/","images":[{"path":"imagens/telegram/numeris_numeris_eclipse_7_colores_estan_de_vuelta/1.jpg","url":"/SmartThings/imagens/telegram/numeris_numeris_eclipse_7_colores_estan_de_vuelta/1.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/numeris_numeris_eclipse_7_colores_estan_de_vuelta/1.jpg","width":1103,"height":1280,"alt":"NUMERIS \"Eclipse\" / 7 Colores / Estan de vuelta ! · imagem 1"}],"description":"NUMERIS · Outros. Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido."}]}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"NUMERIS \"Eclipse\" / 10 Colores / Estan de vuelta !","image":["https://jamesstuartpt.github.io/SmartThings/imagens/telegram/numeris_numeris_eclipse_10_colores_estan_de_vuelta/1.jpg"],"description":"NUMERIS · Outros. Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido.","brand":{"@type":"Brand","name":"NUMERIS"},"sku":"numeris_numeris_eclipse_10_colores_estan_de_vuelta","category":"Outros","url":"https://jamesstuartpt.github.io/SmartThings/produto/numeris_numeris_eclipse_10_colores_estan_de_vuelta/","offers":{"@type":"Offer","priceCurrency":"EUR","price":40,"availability":"https://schema.org/InStock","url":"https://jamesstuartpt.github.io/SmartThings/produto/numeris_numeris_eclipse_10_colores_estan_de_vuelta/"}}</script>
     <script type="module" src="/SmartThings/site_config.js"></script>
     <script type="module" src="/SmartThings/js/product-page.js"></script>
   </body>

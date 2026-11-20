@@ -11,7 +11,7 @@ const PRIVATE_SHEETS = {
 };
 
 const PRIVATE_HEADERS = {
-  links: ["slug", "name", "buyLink", "active", "platform", "category", "brand", "updatedAt", "notes"],
+  links: ["refCode", "slug", "name", "buyLink", "active", "platform", "category", "brand", "updatedAt", "notes"],
   orders: [
     "createdAt",
     "orderCode",
@@ -139,6 +139,7 @@ function upsertPrivateLink(linkData) {
   const headers = values[0].map(String);
   const slugIndex = headers.indexOf("slug");
   const rowValues = [
+    payload.refCode || "",
     payload.slug || "",
     payload.name || "",
     payload.buyLink || "",
@@ -202,6 +203,7 @@ function ensureSheet_(ss, name, headers) {
     sheet.getRange(1, 1, 1, headers.length).setValues([headers]);
     sheet.setFrozenRows(1);
   }
+  formatPrivateSheet_(sheet, name, headers);
   return sheet;
 }
 
@@ -221,6 +223,32 @@ function ensureExistingSheet_(ss, name, expectedHeaders) {
     }
   }
   return sheet;
+}
+
+function formatPrivateSheet_(sheet, name, headers) {
+  if (!sheet || !headers || !headers.length) {
+    return;
+  }
+
+  sheet.setFrozenRows(1);
+  sheet.getRange(1, 1, 1, headers.length).setFontWeight("bold");
+
+  const range = sheet.getDataRange();
+  if (range.getNumRows() > 0 && !sheet.getFilter()) {
+    range.createFilter();
+  }
+
+  try {
+    sheet.autoResizeColumns(1, headers.length);
+  } catch (_error) {
+    // Auto resize may fail on some sheet states; formatting should remain optional.
+  }
+
+  if (name === PRIVATE_SHEETS.links) {
+    sheet.setColumnWidths(1, headers.length, 160);
+    sheet.setColumnWidth(3, 280);
+    sheet.setColumnWidth(4, 320);
+  }
 }
 
 function appendRow_(sheetName, headers, row) {

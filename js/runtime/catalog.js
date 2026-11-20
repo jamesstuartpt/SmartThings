@@ -116,11 +116,12 @@ function cardMarkup(product) {
             <span class="catalog-card__price">${product.priceLabel}</span>
           </div>
           <h3 class="catalog-card__name">${product.name}</h3>
+          <p class="catalog-card__ref">Ref. ${product.refCode || product.slug}</p>
         </div>
       </a>
       <div class="catalog-card__foot">
         <a class="catalog-card__button" href="${product.url}">Ver artigo</a>
-        <button class="catalog-card__button catalog-card__button--primary" type="button" data-quick-add="${product.slug}">Adicionar</button>
+        <button class="catalog-card__button catalog-card__button--primary" type="button" data-quick-add="${product.slug}">Adicionar ao carrinho</button>
       </div>
     </article>
   `;
@@ -145,6 +146,7 @@ export async function initCatalogPage(orderStore) {
   const emptyState = $("#catalog-empty");
   const count = $("#catalog-count");
   const loadMore = $("#catalog-load-more");
+  const filtersSummary = $("#filters-summary");
   const quickModal = $("#quick-modal");
   const quickBackdrop = $("#modal-backdrop");
   const quickBody = $("#quick-modal-body");
@@ -173,6 +175,16 @@ export async function initCatalogPage(orderStore) {
     }
   });
 
+  function updateFilterSummary() {
+    const activeCount = [state.brand, state.category, state.gender, state.size, state.price]
+      .filter(Boolean)
+      .length;
+    if (filtersSummary) {
+      filtersSummary.textContent = String(activeCount);
+      filtersSummary.hidden = activeCount === 0;
+    }
+  }
+
   function closeQuickModal() {
     if (!quickModal || !quickBackdrop) {
       return;
@@ -191,7 +203,7 @@ export async function initCatalogPage(orderStore) {
     }
     quickBody.innerHTML = `
       <h2 class="drawer-title">${product.name}</h2>
-      <p class="helper-text">${product.brandLabel} · ${product.priceLabel}</p>
+      <p class="helper-text">${product.brandLabel} · ${product.priceLabel} · Ref. ${product.refCode || product.slug}</p>
       <div class="selector">
         <div class="selector__label"><strong>Tamanho</strong><span>Obrigatório</span></div>
         <div class="selector__chips">
@@ -201,7 +213,7 @@ export async function initCatalogPage(orderStore) {
         </div>
       </div>
       <div class="field-block">
-        <button class="button button--primary" type="button" data-confirm-add>Adicionar ao pedido</button>
+        <button class="button button--primary" type="button" data-confirm-add>Adicionar ao carrinho</button>
       </div>
       <p class="inline-note">${getConfig().catalog?.shippingNotice || ""}</p>
     `;
@@ -216,6 +228,7 @@ export async function initCatalogPage(orderStore) {
     $("[data-confirm-add]", quickBody)?.addEventListener("click", () => {
       orderStore.add({
         slug: product.slug,
+        refCode: product.refCode,
         name: product.name,
         brandLabel: product.brandLabel,
         size: activeSize,
@@ -271,6 +284,7 @@ export async function initCatalogPage(orderStore) {
     if (loadMore) {
       loadMore.hidden = visible >= filtered.length;
     }
+    updateFilterSummary();
     updateLiveRegion(`${filtered.length} artigos filtrados.`);
   }
 
@@ -279,8 +293,8 @@ export async function initCatalogPage(orderStore) {
       return;
     }
     const handler = key === "q"
-      ? debounce((event) => {
-          state = { ...state, [key]: event.currentTarget.value };
+      ? debounce((value) => {
+          state = { ...state, [key]: value };
           visible = PAGE_SIZE;
           syncUrl(state);
           render();
@@ -291,7 +305,13 @@ export async function initCatalogPage(orderStore) {
           syncUrl(state);
           render();
         };
-    input.addEventListener(key === "q" ? "input" : "change", handler);
+    if (key === "q") {
+      input.addEventListener("input", (event) => {
+        handler(event.currentTarget.value);
+      });
+    } else {
+      input.addEventListener("change", handler);
+    }
   });
 
   loadMore?.addEventListener("click", () => {

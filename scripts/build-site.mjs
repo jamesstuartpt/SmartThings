@@ -1,5 +1,6 @@
 import fs from "node:fs/promises";
 import path from "node:path";
+import crypto from "node:crypto";
 import { fileURLToPath } from "node:url";
 import config from "../site_config.js";
 import {
@@ -28,6 +29,16 @@ const ROOT = path.resolve(__dirname, "..");
 const MANIFEST_PATH = path.join(ROOT, "imagens", "telegram_manifest.json");
 const STATE_PATH = path.join(ROOT, "data", "estado.json");
 const CHUNK_SIZE = 64;
+
+function buildProductRef(slug) {
+  const digest = crypto
+    .createHash("md5")
+    .update(String(slug || "").trim().toLowerCase())
+    .digest("hex")
+    .slice(0, 6)
+    .toUpperCase();
+  return `ST-${digest}`;
+}
 
 function getBasePath() {
   try {
@@ -173,8 +184,8 @@ function topbarMarkup(currentPath) {
         <div class="topbar__actions">
           <button class="theme-toggle" type="button" data-theme-toggle aria-label="${escapeHtml(config.ui.themeToggleLabel)}">◐</button>
           <button class="icon-button" type="button" data-open-order aria-label="${escapeHtml(config.catalog.orderCtaLabel)}">
-            <span aria-hidden="true">🧾</span>
-            <span class="sr-only">Abrir pedido</span>
+            <span aria-hidden="true">🛒</span>
+            <span class="sr-only">Ir para o carrinho</span>
           </button>
         </div>
       </div>
@@ -183,31 +194,12 @@ function topbarMarkup(currentPath) {
 }
 
 function footerMarkup() {
-  const taxId = config.seller.taxId
-    ? `<p><strong>NIF:</strong> ${escapeHtml(config.seller.taxId)}</p>`
-    : `<p><strong>NIF:</strong> ${escapeHtml(config.seller.taxIdTodo || "TODO: confirmar NIF do vendedor")}</p>`;
-
   return `
     <footer class="footer">
-      <div class="container footer__grid">
-        <div>
-          <h2 class="drawer-title">${escapeHtml(config.seller.displayName || config.siteName)}</h2>
-          <p>${escapeHtml(config.catalog.shippingNotice)}</p>
-          <p>${escapeHtml(config.seller.shippingPolicy)}</p>
-        </div>
-        <div>
-          <h3>Contacto</h3>
-          <p><a href="https://wa.me/${escapeHtml(config.support.whatsappNumber)}">${escapeHtml(config.support.whatsappLabel)}</a></p>
-          <p><a href="${escapeHtml(config.support.telegramUrl)}" target="_blank" rel="noopener">${escapeHtml(config.support.telegramLabel)}</a></p>
-          ${taxId}
-        </div>
-        <div>
-          <h3>Informação</h3>
-          <p><a href="${assetUrl("como-funciona/")}">Como funciona</a></p>
-          <p><a href="${assetUrl("trocas-devolucoes/")}">Trocas e devoluções</a></p>
-          <p><a href="${assetUrl("privacidade/")}">Privacidade</a></p>
-          <small>O site guarda o pedido apenas neste dispositivo. Não recolhe dados pessoais.</small>
-        </div>
+      <div class="container footer__compact">
+        <p><strong>${escapeHtml(config.seller.displayName || config.siteName)}</strong></p>
+        <p><a href="https://wa.me/${escapeHtml(config.support.whatsappNumber)}">${escapeHtml(config.support.whatsappLabel)}</a></p>
+        <p><a href="${escapeHtml(config.support.telegramUrl)}" target="_blank" rel="noopener">${escapeHtml(config.support.telegramLabel)}</a></p>
       </div>
     </footer>
   `;
@@ -220,7 +212,7 @@ function drawerMarkup() {
       <div class="order-drawer__head">
         <div style="display:flex; align-items:center; justify-content:space-between; gap:12px;">
           <div>
-            <h2 class="drawer-title" id="order-title">Pedido</h2>
+            <h2 class="drawer-title" id="order-title">Carrinho</h2>
             <p class="helper-text">Stock, preço final e envio são confirmados no WhatsApp.</p>
           </div>
           <button class="icon-button" type="button" data-close-order aria-label="Fechar pedido">×</button>
@@ -240,9 +232,9 @@ function drawerMarkup() {
       <div class="order-drawer__footer">
         <p class="helper-text">Artigos: <strong data-order-count>0</strong> · Total estimado: <strong data-order-total>0€</strong></p>
         <div style="display:grid; gap:10px;">
-          <button class="button button--primary" id="order-send" type="button">Enviar por WhatsApp</button>
+          <button class="button button--primary" id="order-send" type="button">Finalizar compra</button>
           <button class="button" id="order-copy" type="button">Copiar pedido</button>
-          <button class="button" id="order-clear" type="button">Limpar pedido</button>
+          <button class="button" id="order-clear" type="button">Limpar carrinho</button>
         </div>
       </div>
     </aside>
@@ -259,12 +251,13 @@ function drawerMarkup() {
     <section class="quick-modal" id="quick-modal" hidden aria-modal="true" role="dialog" aria-labelledby="quick-modal-title">
       <div class="quick-modal__content">
         <div style="display:flex; align-items:center; justify-content:space-between; gap:12px;">
-          <h2 class="drawer-title" id="quick-modal-title">Adicionar ao pedido</h2>
+          <h2 class="drawer-title" id="quick-modal-title">Adicionar ao carrinho</h2>
           <button class="icon-button" type="button" data-close-modal aria-label="Fechar modal">×</button>
         </div>
         <div id="quick-modal-body"></div>
       </div>
     </section>
+    <div class="toast" id="st-toast" hidden role="status" aria-live="polite"></div>
     <div class="sr-only" id="st-live-region" aria-live="polite"></div>
   `;
 }
@@ -320,7 +313,7 @@ function renderCard(product, options = {}) {
   const singleAction = options.quickAdd === false;
   const quickAction = singleAction
     ? `<a class="catalog-card__button catalog-card__button--primary" href="${product.url}">Ver artigo</a>`
-    : `<button class="catalog-card__button catalog-card__button--primary" type="button" data-quick-add="${escapeHtml(product.slug)}">Adicionar</button>`;
+    : `<button class="catalog-card__button catalog-card__button--primary" type="button" data-quick-add="${escapeHtml(product.slug)}">Adicionar ao carrinho</button>`;
   return `
     <article class="catalog-card">
       <a class="catalog-card__link" href="${product.url}">
@@ -339,6 +332,7 @@ function renderCard(product, options = {}) {
             <span class="catalog-card__price">${escapeHtml(product.priceLabel)}</span>
           </div>
           <h3 class="catalog-card__name">${escapeHtml(product.name)}</h3>
+          <p class="catalog-card__ref">Ref. ${escapeHtml(product.refCode)}</p>
         </div>
       </a>
       <div class="catalog-card__foot${singleAction ? " catalog-card__foot--single" : ""}">
@@ -357,53 +351,12 @@ function buildHomePage(featuredProducts) {
 
   const main = `
     <main>
-      <section class="hero">
-        <div class="container">
-          <div class="hero__card">
-            <p class="hero__eyebrow">Catálogo estático · Pedido por WhatsApp</p>
-            <h1 class="hero__title">${escapeHtml(config.catalog.heroTitle)}</h1>
-            <p class="hero__lead">${escapeHtml(config.catalog.heroIntro)}</p>
-            <p class="hero__support">${escapeHtml(config.catalog.shippingNotice)}</p>
-            <div class="hero__actions">
-              <a class="button button--primary" href="#catalogo">${escapeHtml(config.catalog.heroCtaLabel)}</a>
-              <button class="button button--secondary" type="button" data-open-order>${escapeHtml(config.catalog.orderCtaLabel)}</button>
-            </div>
-            <div class="steps">
-              ${config.catalog.steps
-                .map(
-                  (step, index) => `
-                    <article class="step">
-                      <span class="step__num">${index + 1}</span>
-                      <h2 class="step__title">${escapeHtml(step)}</h2>
-                      <p class="step__text">${index === 0 ? "Escolhe o artigo e o tamanho." : index === 1 ? "Guarda tudo num pedido organizado." : "Envia para o WhatsApp e confirma stock, envio e preço final."}</p>
-                    </article>
-                  `
-                )
-                .join("")}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="info-strip">
-        <div class="container" style="display:grid; gap:8px;">
-          <article class="notice-card">
-            <h2 class="notice-card__title">Antes de adicionares ao pedido</h2>
-            <p class="notice-card__text">${escapeHtml(config.catalog.shippingNotice)}</p>
-          </article>
-          <article class="notice-card">
-            <h2 class="notice-card__title">Fotos reais e acompanhamento</h2>
-            <p class="notice-card__text">Quando precisares de mais contexto visual, usa o canal de Telegram com fotos e vídeos reais antes de fechar o pedido.</p>
-          </article>
-        </div>
-      </section>
-
       <section class="catalog-section" id="catalogo">
         <div class="container">
           <div class="section-head">
             <div>
-              <h2>Catálogo</h2>
-              <p>Pesquisa por texto, filtra por marca, categoria, género, tamanho e tipo de preço. O estado dos filtros fica no URL.</p>
+              <h1>Catálogo</h1>
+              <p>Escolhe os artigos, define o tamanho e envia o pedido por WhatsApp. O stock, o preço final e o envio são confirmados depois.</p>
             </div>
             <p id="catalog-count">A carregar catálogo...</p>
           </div>
@@ -413,28 +366,39 @@ function buildHomePage(featuredProducts) {
               <span aria-hidden="true">⌕</span>
               <input id="filter-search" type="search" placeholder="Pesquisar por marca, modelo ou categoria">
             </label>
-            <div class="filter-grid">
-              <label class="select-field"><span class="sr-only">Marca</span><select id="filter-brand"></select></label>
-              <label class="select-field"><span class="sr-only">Categoria</span><select id="filter-category"></select></label>
-              <label class="select-field"><span class="sr-only">Género</span><select id="filter-gender"></select></label>
-              <label class="select-field"><span class="sr-only">Tamanho</span><select id="filter-size"></select></label>
-              <label class="select-field">
-                <span class="sr-only">Tipo de preço</span>
-                <select id="filter-price">
-                  <option value="">Preço</option>
-                  <option value="fixed">40€</option>
-                  <option value="consult">Só consulta</option>
-                </select>
-              </label>
-              <label class="select-field">
-                <span class="sr-only">Ordenar</span>
-                <select id="filter-sort">
-                  <option value="relevancia">Relevância</option>
-                  <option value="recentes">Mais recentes</option>
-                  <option value="az">A → Z</option>
-                </select>
-              </label>
-            </div>
+            <details class="filter-dropdown" id="filters-disclosure">
+              <summary class="filters-toggle" id="filters-toggle">
+                <span>Filtros</span>
+                <strong id="filters-summary" hidden>0</strong>
+              </summary>
+              <section class="filters-panel" id="filters-panel" aria-label="Opções de filtro">
+                <div class="filters-panel__head">
+                  <h2>Filtros</h2>
+                </div>
+                <div class="filters-panel__grid">
+                  <label class="select-field"><span class="sr-only">Marca</span><select id="filter-brand"></select></label>
+                  <label class="select-field"><span class="sr-only">Categoria</span><select id="filter-category"></select></label>
+                  <label class="select-field"><span class="sr-only">Género</span><select id="filter-gender"></select></label>
+                  <label class="select-field"><span class="sr-only">Tamanho</span><select id="filter-size"></select></label>
+                  <label class="select-field">
+                    <span class="sr-only">Tipo de preço</span>
+                    <select id="filter-price">
+                      <option value="">Preço</option>
+                      <option value="fixed">40€</option>
+                      <option value="consult">Só consulta</option>
+                    </select>
+                  </label>
+                  <label class="select-field">
+                    <span class="sr-only">Ordenar</span>
+                    <select id="filter-sort">
+                      <option value="relevancia">Relevância</option>
+                      <option value="recentes">Mais recentes</option>
+                      <option value="az">A → Z</option>
+                    </select>
+                  </label>
+                </div>
+              </section>
+            </details>
           </div>
 
           <div class="catalog-grid" id="catalog-grid">${featuredHtml}</div>
@@ -448,22 +412,6 @@ function buildHomePage(featuredProducts) {
         </div>
       </section>
 
-      <section class="catalog-section">
-        <div class="container">
-          <div class="section-head">
-            <div>
-              <h2>Perguntas frequentes</h2>
-              <p>Sem promessas vagas: o pedido é confirmado no WhatsApp e o pagamento por MB Way só acontece depois dessa confirmação.</p>
-            </div>
-          </div>
-          <div class="faq-list">
-            <details><summary>O pedido no site já fecha a compra?</summary><p>Não. O site só organiza os artigos e tamanhos. O stock, o preço final e o envio são confirmados no WhatsApp.</p></details>
-            <details><summary>Como é feito o pagamento?</summary><p>${escapeHtml(config.seller.paymentPolicy)}</p></details>
-            <details><summary>Quanto tempo demora?</summary><p>${escapeHtml(config.seller.shippingPolicy)}</p></details>
-            <details><summary>Onde vejo mais fotos reais?</summary><p>Podes usar o botão de Telegram para ver o canal com fotos e vídeos reais quando existirem.</p></details>
-          </div>
-        </div>
-      </section>
     </main>
   `;
 
@@ -545,6 +493,7 @@ function buildProductPage(product) {
       <section class="product-panel">
         <p class="catalog-card__brand">${escapeHtml(product.brandLabel)} · ${escapeHtml(product.categoryLabel)}</p>
         <h1 class="product-title">${escapeHtml(product.name)}</h1>
+        <p class="product-ref">Ref. ${escapeHtml(product.refCode)}</p>
         <p class="product-meta">${escapeHtml(product.description)}</p>
         <div class="chip-row">
           ${product.badges.map((badge) => `<span class="badge badge--${badge.tone}">${escapeHtml(badge.label)}</span>`).join("")}
@@ -568,8 +517,8 @@ function buildProductPage(product) {
           <p class="inline-note">${escapeHtml(config.catalog.shippingNotice)}</p>
         </div>
         <div class="hero__actions">
-          <button class="button button--primary" id="product-add" type="button">Adicionar ao pedido</button>
-          <a class="button" href="${escapeHtml(config.support.telegramUrl)}" target="_blank" rel="noopener">Ver fotos e vídeos reais no Telegram</a>
+          <button class="button button--primary" id="product-add" type="button">Adicionar ao carrinho</button>
+          <button class="button" id="product-buy-now" type="button">Comprar agora</button>
         </div>
       </section>
       <section class="container" style="grid-column:1 / -1; padding-bottom:56px;">
@@ -676,6 +625,7 @@ async function build() {
     const url = buildProductLink(getBasePath(), product.slug);
     const absoluteProductUrl = new URL(url, config.baseUrl).toString();
     const description = `${brandLabel} · ${categoryLabel}. ${config.catalog.shippingNotice}`;
+    const refCode = buildProductRef(product.slug);
     const images = [];
 
     for (const originalImagePath of product.images || []) {
@@ -694,6 +644,7 @@ async function build() {
 
     normalizedProducts.push({
       slug: product.slug,
+      refCode,
       name: product.name,
       brandLabel,
       brandSlug: normalizeText(product.brandSlug || brandLabel).replace(/\s+/g, "-"),
@@ -727,6 +678,7 @@ async function build() {
 
   const summaryProducts = normalizedProducts.map((product) => ({
     slug: product.slug,
+    refCode: product.refCode,
     name: product.name,
     brandLabel: product.brandLabel,
     brandSlug: product.brandSlug,

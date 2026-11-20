@@ -3,6 +3,7 @@
   "products": [
     {
       "slug": "zadig_voltaire_grande",
+      "refCode": "ST-B8701D",
       "name": "Zadig Voltaire Grande",
       "brandLabel": "Sem marca",
       "brandSlug": "sem-marca",
@@ -26,6 +27,7 @@
     },
     {
       "slug": "hummel_malaga_2026",
+      "refCode": "ST-37DD3A",
       "name": "Hummel Malaga 2026",
       "brandLabel": "Sem marca",
       "brandSlug": "sem-marca",
@@ -49,6 +51,7 @@
     },
     {
       "slug": "new_balance_509",
+      "refCode": "ST-075C84",
       "name": "New Balance 509",
       "brandLabel": "New Balance",
       "brandSlug": "newbalance",
@@ -82,6 +85,7 @@
     },
     {
       "slug": "on_cloud_flow_5",
+      "refCode": "ST-DCAFB2",
       "name": "On Cloud Flow 5",
       "brandLabel": "Sem marca",
       "brandSlug": "sem-marca",
@@ -105,6 +109,7 @@
     },
     {
       "slug": "proyector_android_4k_wifi",
+      "refCode": "ST-5C9E09",
       "name": "Proyector Android 4k Wifi",
       "brandLabel": "Sem marca",
       "brandSlug": "sem-marca",
@@ -128,6 +133,7 @@
     },
     {
       "slug": "essentials_x_fear_of_god_banador",
+      "refCode": "ST-8D4E61",
       "name": "Essentials X Fear Of God Banador",
       "brandLabel": "Sem marca",
       "brandSlug": "sem-marca",
@@ -156,6 +162,7 @@
     },
     {
       "slug": "adidas_paris_x_anfu",
+      "refCode": "ST-735E36",
       "name": "Adidas Paris X Anfu",
       "brandLabel": "Adidas",
       "brandSlug": "adidas",
@@ -189,6 +196,7 @@
     },
     {
       "slug": "on_cloud_x_fka",
+      "refCode": "ST-BCC3CB",
       "name": "On Cloud X Fka",
       "brandLabel": "Sem marca",
       "brandSlug": "sem-marca",
@@ -212,6 +220,7 @@
     },
     {
       "slug": "mertra",
+      "refCode": "ST-F992B5",
       "name": "Mertra",
       "brandLabel": "Sem marca",
       "brandSlug": "sem-marca",
@@ -235,6 +244,7 @@
     },
     {
       "slug": "adidas_sl72_x_bad_bunny",
+      "refCode": "ST-C253CD",
       "name": "Adidas Sl72 X Bad Bunny",
       "brandLabel": "Adidas",
       "brandSlug": "adidas",
@@ -268,6 +278,7 @@
     },
     {
       "slug": "alo_unisex",
+      "refCode": "ST-B4EFA4",
       "name": "Alo Unisex",
       "brandLabel": "Sem marca",
       "brandSlug": "sem-marca",
@@ -291,6 +302,7 @@
     },
     {
       "slug": "stussy_bordado",
+      "refCode": "ST-B12D15",
       "name": "Stussy Bordado",
       "brandLabel": "Sem marca",
       "brandSlug": "sem-marca",
@@ -319,6 +331,7 @@
     },
     {
       "slug": "adidas_terrex_freehiker_sl_x_gore_tex",
+      "refCode": "ST-F425DB",
       "name": "Adidas Terrex Freehiker Sl X Gore Tex",
       "brandLabel": "Adidas",
       "brandSlug": "adidas",
@@ -352,6 +365,7 @@
     },
     {
       "slug": "asics_gel_nyc_20",
+      "refCode": "ST-0B53E9",
       "name": "Asics Gel Nyc 20",
       "brandLabel": "ASICS",
       "brandSlug": "asics",
@@ -385,6 +399,7 @@
     },
     {
       "slug": "the_north_face_summit_vectiv_pro_3",
+      "refCode": "ST-AEF461",
       "name": "The North Face Summit Vectiv Pro 3",
       "brandLabel": "Sem marca",
       "brandSlug": "sem-marca",
@@ -413,6 +428,7 @@
     },
     {
       "slug": "patagonia_banadorpantalon",
+      "refCode": "ST-626181",
       "name": "Patagonia Banadorpantalon",
       "brandLabel": "Sem marca",
       "brandSlug": "sem-marca",
@@ -441,6 +457,7 @@
     },
     {
       "slug": "prada",
+      "refCode": "ST-46709F",
       "name": "Prada",
       "brandLabel": "Sem marca",
       "brandSlug": "sem-marca",
@@ -464,6 +481,7 @@
     },
     {
       "slug": "adidas_adizero_adios_pro_4",
+      "refCode": "ST-73340C",
       "name": "Adidas Adizero Adios Pro 4",
       "brandLabel": "Adidas",
       "brandSlug": "adidas",
@@ -497,6 +515,7 @@
     },
     {
       "slug": "adidas_chandal_clmpleto",
+      "refCode": "ST-F206EF",
       "name": "Adidas Chandal Clmpleto",
       "brandLabel": "Sem marca",
       "brandSlug": "sem-marca",
@@ -530,6 +549,7 @@
     },
     {
       "slug": "dr_martens_unisex",
+      "refCode": "ST-16E442",
       "name": "Dr Martens Unisex",
       "brandLabel": "Sem marca",
       "brandSlug": "sem-marca",

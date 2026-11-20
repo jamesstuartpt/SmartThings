@@ -38,9 +38,9 @@
         <nav class="topbar__nav"><a href="/SmartThings/">Catálogo</a><a href="/SmartThings/como-funciona/">Como funciona</a><a href="/SmartThings/trocas-devolucoes/">Trocas</a><a href="/SmartThings/privacidade/">Privacidade</a></nav>
         <div class="topbar__actions">
           <button class="theme-toggle" type="button" data-theme-toggle aria-label="Alternar tema">◐</button>
-          <button class="icon-button" type="button" data-open-order aria-label="Abrir pedido">
-            <span aria-hidden="true">🧾</span>
-            <span class="sr-only">Abrir pedido</span>
+          <button class="icon-button" type="button" data-open-order aria-label="Ir para o carrinho">
+            <span aria-hidden="true">🛒</span>
+            <span class="sr-only">Ir para o carrinho</span>
           </button>
         </div>
       </div>
@@ -66,6 +66,7 @@
       <section class="product-panel">
         <p class="catalog-card__brand">STUSSY · Roupa</p>
         <h1 class="product-title">STUSSY x Nike</h1>
+        <p class="product-ref">Ref. ST-D2DE73</p>
         <p class="product-meta">STUSSY · Roupa. Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido.</p>
         <div class="chip-row">
           <span class="badge badge--accent">Novo</span>
@@ -87,8 +88,8 @@
           <p class="inline-note">Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido.</p>
         </div>
         <div class="hero__actions">
-          <button class="button button--primary" id="product-add" type="button">Adicionar ao pedido</button>
-          <a class="button" href="https://t.me/smartthingspt" target="_blank" rel="noopener">Ver fotos e vídeos reais no Telegram</a>
+          <button class="button button--primary" id="product-add" type="button">Adicionar ao carrinho</button>
+          <button class="button" id="product-buy-now" type="button">Comprar agora</button>
         </div>
       </section>
       <section class="container" style="grid-column:1 / -1; padding-bottom:56px;">
@@ -114,6 +115,7 @@
             <span class="catalog-card__price">40€</span>
           </div>
           <h3 class="catalog-card__name">STUSSY / 3 Colores</h3>
+          <p class="catalog-card__ref">Ref. ST-09F3F7</p>
         </div>
       </a>
       <div class="catalog-card__foot catalog-card__foot--single">
@@ -137,6 +139,7 @@
             <span class="catalog-card__price">40€</span>
           </div>
           <h3 class="catalog-card__name">STUSSY / 12 Colores</h3>
+          <p class="catalog-card__ref">Ref. ST-4674EB</p>
         </div>
       </a>
       <div class="catalog-card__foot catalog-card__foot--single">
@@ -160,6 +163,7 @@
             <span class="catalog-card__price">40€</span>
           </div>
           <h3 class="catalog-card__name">CARHARTT / 4 Colores</h3>
+          <p class="catalog-card__ref">Ref. ST-68758E</p>
         </div>
       </a>
       <div class="catalog-card__foot catalog-card__foot--single">
@@ -183,6 +187,7 @@
             <span class="catalog-card__price">40€</span>
           </div>
           <h3 class="catalog-card__name">POLO RALPH LAUREN / 22 Colores</h3>
+          <p class="catalog-card__ref">Ref. ST-06551D</p>
         </div>
       </a>
       <div class="catalog-card__foot catalog-card__foot--single">
@@ -216,25 +221,10 @@
     </div>
     
     <footer class="footer">
-      <div class="container footer__grid">
-        <div>
-          <h2 class="drawer-title">Smart Things PT</h2>
-          <p>Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido.</p>
-          <p>Envio normalmente confirmado no WhatsApp. Prazo médio previsto: 10 a 15 dias.</p>
-        </div>
-        <div>
-          <h3>Contacto</h3>
-          <p><a href="https://wa.me/351927515217">+351 927 515 217</a></p>
-          <p><a href="https://t.me/smartthingspt" target="_blank" rel="noopener">@smartthingspt</a></p>
-          <p><strong>NIF:</strong> TODO: confirmar NIF do vendedor</p>
-        </div>
-        <div>
-          <h3>Informação</h3>
-          <p><a href="/SmartThings/como-funciona/">Como funciona</a></p>
-          <p><a href="/SmartThings/trocas-devolucoes/">Trocas e devoluções</a></p>
-          <p><a href="/SmartThings/privacidade/">Privacidade</a></p>
-          <small>O site guarda o pedido apenas neste dispositivo. Não recolhe dados pessoais.</small>
-        </div>
+      <div class="container footer__compact">
+        <p><strong>Smart Things PT</strong></p>
+        <p><a href="https://wa.me/351927515217">+351 927 515 217</a></p>
+        <p><a href="https://t.me/smartthingspt" target="_blank" rel="noopener">@smartthingspt</a></p>
       </div>
     </footer>
   
@@ -244,7 +234,7 @@
       <div class="order-drawer__head">
         <div style="display:flex; align-items:center; justify-content:space-between; gap:12px;">
           <div>
-            <h2 class="drawer-title" id="order-title">Pedido</h2>
+            <h2 class="drawer-title" id="order-title">Carrinho</h2>
             <p class="helper-text">Stock, preço final e envio são confirmados no WhatsApp.</p>
           </div>
           <button class="icon-button" type="button" data-close-order aria-label="Fechar pedido">×</button>
@@ -264,9 +254,9 @@
       <div class="order-drawer__footer">
         <p class="helper-text">Artigos: <strong data-order-count>0</strong> · Total estimado: <strong data-order-total>0€</strong></p>
         <div style="display:grid; gap:10px;">
-          <button class="button button--primary" id="order-send" type="button">Enviar por WhatsApp</button>
+          <button class="button button--primary" id="order-send" type="button">Finalizar compra</button>
           <button class="button" id="order-copy" type="button">Copiar pedido</button>
-          <button class="button" id="order-clear" type="button">Limpar pedido</button>
+          <button class="button" id="order-clear" type="button">Limpar carrinho</button>
         </div>
       </div>
     </aside>
@@ -276,22 +266,23 @@
           <strong><span data-order-count>0</span> artigos no pedido</strong>
           <span>Total estimado <span data-order-total>0€</span></span>
         </div>
-        <button class="button button--primary" type="button" data-open-order>Abrir pedido</button>
+        <button class="button button--primary" type="button" data-open-order>Ir para o carrinho</button>
       </div>
     </div>
     <div class="modal-backdrop" id="modal-backdrop" hidden></div>
     <section class="quick-modal" id="quick-modal" hidden aria-modal="true" role="dialog" aria-labelledby="quick-modal-title">
       <div class="quick-modal__content">
         <div style="display:flex; align-items:center; justify-content:space-between; gap:12px;">
-          <h2 class="drawer-title" id="quick-modal-title">Adicionar ao pedido</h2>
+          <h2 class="drawer-title" id="quick-modal-title">Adicionar ao carrinho</h2>
           <button class="icon-button" type="button" data-close-modal aria-label="Fechar modal">×</button>
         </div>
         <div id="quick-modal-body"></div>
       </div>
     </section>
+    <div class="toast" id="st-toast" hidden role="status" aria-live="polite"></div>
     <div class="sr-only" id="st-live-region" aria-live="polite"></div>
   
-    <script id="st-product-data" type="application/json">{"product":{"slug":"stussy_stussy_x_nike","name":"STUSSY x Nike","brandLabel":"STUSSY","brandSlug":"stussy","category":"roupas","categoryLabel":"Roupa","modelLabel":"","latestTs":1794223966,"gender":"Unissexo","genderSlug":"unissexo","sizeType":"shoes","sizeLabel":"Tamanho","sizes":["36","37","38","39","40","41","42","43","44","45","46"],"availability":"disponivel","isNew":true,"priceLabel":"40€","priceValue":40,"priceType":"fixed","badges":[{"label":"Novo","tone":"accent"}],"coverPath":"imagens/telegram/stussy_stussy_x_nike/1.jpg","coverImage":"/SmartThings/imagens/telegram/stussy_stussy_x_nike/1.jpg","coverWidth":1280,"coverHeight":1211,"url":"/SmartThings/produto/stussy_stussy_x_nike/","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/produto/stussy_stussy_x_nike/","images":[{"path":"imagens/telegram/stussy_stussy_x_nike/1.jpg","url":"/SmartThings/imagens/telegram/stussy_stussy_x_nike/1.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/stussy_stussy_x_nike/1.jpg","width":1280,"height":1211,"alt":"STUSSY x Nike · imagem 1"}],"description":"STUSSY · Roupa. Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido.","related":[{"slug":"stussy_stussy_3_colores","name":"STUSSY / 3 Colores","brandLabel":"STUSSY","brandSlug":"stussy","category":"roupas","categoryLabel":"Roupa","modelLabel":"","latestTs":1793965309,"gender":"Unissexo","genderSlug":"unissexo","sizeType":"clothing","sizeLabel":"Tamanho","sizes":["XS","S","M","L","XL","XXL"],"availability":"disponivel","isNew":true,"priceLabel":"40€","priceValue":40,"priceType":"fixed","badges":[{"label":"Novo","tone":"accent"}],"coverPath":"imagens/telegram/stussy_stussy_3_colores/1.jpg","coverImage":"/SmartThings/imagens/telegram/stussy_stussy_3_colores/1.jpg","coverWidth":1170,"coverHeight":1241,"url":"/SmartThings/produto/stussy_stussy_3_colores/","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/produto/stussy_stussy_3_colores/","images":[{"path":"imagens/telegram/stussy_stussy_3_colores/1.jpg","url":"/SmartThings/imagens/telegram/stussy_stussy_3_colores/1.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/stussy_stussy_3_colores/1.jpg","width":1170,"height":1241,"alt":"STUSSY / 3 Colores · imagem 1"}],"description":"STUSSY · Roupa. Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido."},{"slug":"stussy_stussy_12_colores","name":"STUSSY / 12 Colores","brandLabel":"STUSSY","brandSlug":"stussy","category":"roupas","categoryLabel":"Roupa","modelLabel":"","latestTs":1792840539,"gender":"Unissexo","genderSlug":"unissexo","sizeType":"clothing","sizeLabel":"Tamanho","sizes":["XS","S","M","L","XL","XXL"],"availability":"disponivel","isNew":true,"priceLabel":"40€","priceValue":40,"priceType":"fixed","badges":[{"label":"Novo","tone":"accent"}],"coverPath":"imagens/telegram/stussy_stussy_12_colores/1.jpg","coverImage":"/SmartThings/imagens/telegram/stussy_stussy_12_colores/1.jpg","coverWidth":1170,"coverHeight":874,"url":"/SmartThings/produto/stussy_stussy_12_colores/","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/produto/stussy_stussy_12_colores/","images":[{"path":"imagens/telegram/stussy_stussy_12_colores/1.jpg","url":"/SmartThings/imagens/telegram/stussy_stussy_12_colores/1.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/stussy_stussy_12_colores/1.jpg","width":1170,"height":874,"alt":"STUSSY / 12 Colores · imagem 1"}],"description":"STUSSY · Roupa. Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido."},{"slug":"carhartt_carhartt_4_colores_8","name":"CARHARTT / 4 Colores","brandLabel":"CARHARTT","brandSlug":"carhartt","category":"roupas","categoryLabel":"Roupa","modelLabel":"","latestTs":1795035008,"gender":"Unissexo","genderSlug":"unissexo","sizeType":"clothing","sizeLabel":"Tamanho","sizes":["XS","S","M","L","XL","XXL"],"availability":"disponivel","isNew":true,"priceLabel":"40€","priceValue":40,"priceType":"fixed","badges":[{"label":"Novo","tone":"accent"}],"coverPath":"imagens/telegram/carhartt_carhartt_4_colores_8/1.jpg","coverImage":"/SmartThings/imagens/telegram/carhartt_carhartt_4_colores_8/1.jpg","coverWidth":1170,"coverHeight":1074,"url":"/SmartThings/produto/carhartt_carhartt_4_colores_8/","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/produto/carhartt_carhartt_4_colores_8/","images":[{"path":"imagens/telegram/carhartt_carhartt_4_colores_8/1.jpg","url":"/SmartThings/imagens/telegram/carhartt_carhartt_4_colores_8/1.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/carhartt_carhartt_4_colores_8/1.jpg","width":1170,"height":1074,"alt":"CARHARTT / 4 Colores · imagem 1"}],"description":"CARHARTT · Roupa. Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido."},{"slug":"ralph_lauren_polo_ralph_lauren_22_colores","name":"POLO RALPH LAUREN / 22 Colores","brandLabel":"Polo Ralph Lauren","brandSlug":"ralph-lauren","category":"roupas","categoryLabel":"Roupa","modelLabel":"","latestTs":1794954088,"gender":"Unissexo","genderSlug":"unissexo","sizeType":"clothing","sizeLabel":"Tamanho","sizes":["XS","S","M","L","XL","XXL"],"availability":"disponivel","isNew":true,"priceLabel":"40€","priceValue":40,"priceType":"fixed","badges":[{"label":"Novo","tone":"accent"}],"coverPath":"imagens/telegram/ralph_lauren_polo_ralph_lauren_22_colores/1.jpg","coverImage":"/SmartThings/imagens/telegram/ralph_lauren_polo_ralph_lauren_22_colores/1.jpg","coverWidth":886,"coverHeight":1280,"url":"/SmartThings/produto/ralph_lauren_polo_ralph_lauren_22_colores/","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/produto/ralph_lauren_polo_ralph_lauren_22_colores/","images":[{"path":"imagens/telegram/ralph_lauren_polo_ralph_lauren_22_colores/1.jpg","url":"/SmartThings/imagens/telegram/ralph_lauren_polo_ralph_lauren_22_colores/1.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/ralph_lauren_polo_ralph_lauren_22_colores/1.jpg","width":886,"height":1280,"alt":"POLO RALPH LAUREN / 22 Colores · imagem 1"}],"description":"Polo Ralph Lauren · Roupa. Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido."}]}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"STUSSY x Nike","image":["https://jamesstuartpt.github.io/SmartThings/imagens/telegram/stussy_stussy_x_nike/1.jpg"],"description":"STUSSY · Roupa. Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido.","brand":{"@type":"Brand","name":"STUSSY"},"sku":"stussy_stussy_x_nike","category":"Roupa","url":"https://jamesstuartpt.github.io/SmartThings/produto/stussy_stussy_x_nike/","offers":{"@type":"Offer","priceCurrency":"EUR","price":40,"availability":"https://schema.org/InStock","url":"https://jamesstuartpt.github.io/SmartThings/produto/stussy_stussy_x_nike/"}}</script>
+    <script id="st-product-data" type="application/json">{"product":{"slug":"stussy_stussy_x_nike","refCode":"ST-D2DE73","name":"STUSSY x Nike","brandLabel":"STUSSY","brandSlug":"stussy","category":"roupas","categoryLabel":"Roupa","modelLabel":"","latestTs":1794223966,"gender":"Unissexo","genderSlug":"unissexo","sizeType":"shoes","sizeLabel":"Tamanho","sizes":["36","37","38","39","40","41","42","43","44","45","46"],"availability":"disponivel","isNew":true,"priceLabel":"40€","priceValue":40,"priceType":"fixed","badges":[{"label":"Novo","tone":"accent"}],"coverPath":"imagens/telegram/stussy_stussy_x_nike/1.jpg","coverImage":"/SmartThings/imagens/telegram/stussy_stussy_x_nike/1.jpg","coverWidth":1280,"coverHeight":1211,"url":"/SmartThings/produto/stussy_stussy_x_nike/","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/produto/stussy_stussy_x_nike/","images":[{"path":"imagens/telegram/stussy_stussy_x_nike/1.jpg","url":"/SmartThings/imagens/telegram/stussy_stussy_x_nike/1.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/stussy_stussy_x_nike/1.jpg","width":1280,"height":1211,"alt":"STUSSY x Nike · imagem 1"}],"description":"STUSSY · Roupa. Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido.","related":[{"slug":"stussy_stussy_3_colores","refCode":"ST-09F3F7","name":"STUSSY / 3 Colores","brandLabel":"STUSSY","brandSlug":"stussy","category":"roupas","categoryLabel":"Roupa","modelLabel":"","latestTs":1793965309,"gender":"Unissexo","genderSlug":"unissexo","sizeType":"clothing","sizeLabel":"Tamanho","sizes":["XS","S","M","L","XL","XXL"],"availability":"disponivel","isNew":true,"priceLabel":"40€","priceValue":40,"priceType":"fixed","badges":[{"label":"Novo","tone":"accent"}],"coverPath":"imagens/telegram/stussy_stussy_3_colores/1.jpg","coverImage":"/SmartThings/imagens/telegram/stussy_stussy_3_colores/1.jpg","coverWidth":1170,"coverHeight":1241,"url":"/SmartThings/produto/stussy_stussy_3_colores/","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/produto/stussy_stussy_3_colores/","images":[{"path":"imagens/telegram/stussy_stussy_3_colores/1.jpg","url":"/SmartThings/imagens/telegram/stussy_stussy_3_colores/1.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/stussy_stussy_3_colores/1.jpg","width":1170,"height":1241,"alt":"STUSSY / 3 Colores · imagem 1"}],"description":"STUSSY · Roupa. Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido."},{"slug":"stussy_stussy_12_colores","refCode":"ST-4674EB","name":"STUSSY / 12 Colores","brandLabel":"STUSSY","brandSlug":"stussy","category":"roupas","categoryLabel":"Roupa","modelLabel":"","latestTs":1792840539,"gender":"Unissexo","genderSlug":"unissexo","sizeType":"clothing","sizeLabel":"Tamanho","sizes":["XS","S","M","L","XL","XXL"],"availability":"disponivel","isNew":true,"priceLabel":"40€","priceValue":40,"priceType":"fixed","badges":[{"label":"Novo","tone":"accent"}],"coverPath":"imagens/telegram/stussy_stussy_12_colores/1.jpg","coverImage":"/SmartThings/imagens/telegram/stussy_stussy_12_colores/1.jpg","coverWidth":1170,"coverHeight":874,"url":"/SmartThings/produto/stussy_stussy_12_colores/","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/produto/stussy_stussy_12_colores/","images":[{"path":"imagens/telegram/stussy_stussy_12_colores/1.jpg","url":"/SmartThings/imagens/telegram/stussy_stussy_12_colores/1.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/stussy_stussy_12_colores/1.jpg","width":1170,"height":874,"alt":"STUSSY / 12 Colores · imagem 1"}],"description":"STUSSY · Roupa. Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido."},{"slug":"carhartt_carhartt_4_colores_8","refCode":"ST-68758E","name":"CARHARTT / 4 Colores","brandLabel":"CARHARTT","brandSlug":"carhartt","category":"roupas","categoryLabel":"Roupa","modelLabel":"","latestTs":1795035008,"gender":"Unissexo","genderSlug":"unissexo","sizeType":"clothing","sizeLabel":"Tamanho","sizes":["XS","S","M","L","XL","XXL"],"availability":"disponivel","isNew":true,"priceLabel":"40€","priceValue":40,"priceType":"fixed","badges":[{"label":"Novo","tone":"accent"}],"coverPath":"imagens/telegram/carhartt_carhartt_4_colores_8/1.jpg","coverImage":"/SmartThings/imagens/telegram/carhartt_carhartt_4_colores_8/1.jpg","coverWidth":1170,"coverHeight":1074,"url":"/SmartThings/produto/carhartt_carhartt_4_colores_8/","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/produto/carhartt_carhartt_4_colores_8/","images":[{"path":"imagens/telegram/carhartt_carhartt_4_colores_8/1.jpg","url":"/SmartThings/imagens/telegram/carhartt_carhartt_4_colores_8/1.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/carhartt_carhartt_4_colores_8/1.jpg","width":1170,"height":1074,"alt":"CARHARTT / 4 Colores · imagem 1"}],"description":"CARHARTT · Roupa. Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido."},{"slug":"ralph_lauren_polo_ralph_lauren_22_colores","refCode":"ST-06551D","name":"POLO RALPH LAUREN / 22 Colores","brandLabel":"Polo Ralph Lauren","brandSlug":"ralph-lauren","category":"roupas","categoryLabel":"Roupa","modelLabel":"","latestTs":1794954088,"gender":"Unissexo","genderSlug":"unissexo","sizeType":"clothing","sizeLabel":"Tamanho","sizes":["XS","S","M","L","XL","XXL"],"availability":"disponivel","isNew":true,"priceLabel":"40€","priceValue":40,"priceType":"fixed","badges":[{"label":"Novo","tone":"accent"}],"coverPath":"imagens/telegram/ralph_lauren_polo_ralph_lauren_22_colores/1.jpg","coverImage":"/SmartThings/imagens/telegram/ralph_lauren_polo_ralph_lauren_22_colores/1.jpg","coverWidth":886,"coverHeight":1280,"url":"/SmartThings/produto/ralph_lauren_polo_ralph_lauren_22_colores/","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/produto/ralph_lauren_polo_ralph_lauren_22_colores/","images":[{"path":"imagens/telegram/ralph_lauren_polo_ralph_lauren_22_colores/1.jpg","url":"/SmartThings/imagens/telegram/ralph_lauren_polo_ralph_lauren_22_colores/1.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/ralph_lauren_polo_ralph_lauren_22_colores/1.jpg","width":886,"height":1280,"alt":"POLO RALPH LAUREN / 22 Colores · imagem 1"}],"description":"Polo Ralph Lauren · Roupa. Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido."}]}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"STUSSY x Nike","image":["https://jamesstuartpt.github.io/SmartThings/imagens/telegram/stussy_stussy_x_nike/1.jpg"],"description":"STUSSY · Roupa. Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido.","brand":{"@type":"Brand","name":"STUSSY"},"sku":"stussy_stussy_x_nike","category":"Roupa","url":"https://jamesstuartpt.github.io/SmartThings/produto/stussy_stussy_x_nike/","offers":{"@type":"Offer","priceCurrency":"EUR","price":40,"availability":"https://schema.org/InStock","url":"https://jamesstuartpt.github.io/SmartThings/produto/stussy_stussy_x_nike/"}}</script>
     <script type="module" src="/SmartThings/site_config.js"></script>
     <script type="module" src="/SmartThings/js/product-page.js"></script>
   </body>

@@ -38,9 +38,9 @@
         <nav class="topbar__nav"><a href="/SmartThings/">Catálogo</a><a href="/SmartThings/como-funciona/">Como funciona</a><a href="/SmartThings/trocas-devolucoes/">Trocas</a><a href="/SmartThings/privacidade/">Privacidade</a></nav>
         <div class="topbar__actions">
           <button class="theme-toggle" type="button" data-theme-toggle aria-label="Alternar tema">◐</button>
-          <button class="icon-button" type="button" data-open-order aria-label="Abrir pedido">
-            <span aria-hidden="true">🧾</span>
-            <span class="sr-only">Abrir pedido</span>
+          <button class="icon-button" type="button" data-open-order aria-label="Ir para o carrinho">
+            <span aria-hidden="true">🛒</span>
+            <span class="sr-only">Ir para o carrinho</span>
           </button>
         </div>
       </div>
@@ -66,6 +66,7 @@
       <section class="product-panel">
         <p class="catalog-card__brand">GOYARD · Outros</p>
         <h1 class="product-title">GOYARD / Muchos Colores</h1>
+        <p class="product-ref">Ref. ST-2E9767</p>
         <p class="product-meta">GOYARD · Outros. Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido.</p>
         <div class="chip-row">
           
@@ -87,8 +88,8 @@
           <p class="inline-note">Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido.</p>
         </div>
         <div class="hero__actions">
-          <button class="button button--primary" id="product-add" type="button">Adicionar ao pedido</button>
-          <a class="button" href="https://t.me/smartthingspt" target="_blank" rel="noopener">Ver fotos e vídeos reais no Telegram</a>
+          <button class="button button--primary" id="product-add" type="button">Adicionar ao carrinho</button>
+          <button class="button" id="product-buy-now" type="button">Comprar agora</button>
         </div>
       </section>
       <section class="container" style="grid-column:1 / -1; padding-bottom:56px;">
@@ -114,6 +115,7 @@
             <span class="catalog-card__price">40€</span>
           </div>
           <h3 class="catalog-card__name">GOYARD / 6 Colores</h3>
+          <p class="catalog-card__ref">Ref. ST-5016C5</p>
         </div>
       </a>
       <div class="catalog-card__foot catalog-card__foot--single">
@@ -137,6 +139,7 @@
             <span class="catalog-card__price">40€</span>
           </div>
           <h3 class="catalog-card__name">GOYARD / 15 Colores</h3>
+          <p class="catalog-card__ref">Ref. ST-0F598D</p>
         </div>
       </a>
       <div class="catalog-card__foot catalog-card__foot--single">
@@ -160,6 +163,7 @@
             <span class="catalog-card__price">40€</span>
           </div>
           <h3 class="catalog-card__name">GOYARD / 6 Colores</h3>
+          <p class="catalog-card__ref">Ref. ST-2418D3</p>
         </div>
       </a>
       <div class="catalog-card__foot catalog-card__foot--single">
@@ -183,6 +187,7 @@
             <span class="catalog-card__price">40€</span>
           </div>
           <h3 class="catalog-card__name">GOYARD / 5 Colores</h3>
+          <p class="catalog-card__ref">Ref. ST-B6E14C</p>
         </div>
       </a>
       <div class="catalog-card__foot catalog-card__foot--single">
@@ -216,25 +221,10 @@
     </div>
     
     <footer class="footer">
-      <div class="container footer__grid">
-        <div>
-          <h2 class="drawer-title">Smart Things PT</h2>
-          <p>Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido.</p>
-          <p>Envio normalmente confirmado no WhatsApp. Prazo médio previsto: 10 a 15 dias.</p>
-        </div>
-        <div>
-          <h3>Contacto</h3>
-          <p><a href="https://wa.me/351927515217">+351 927 515 217</a></p>
-          <p><a href="https://t.me/smartthingspt" target="_blank" rel="noopener">@smartthingspt</a></p>
-          <p><strong>NIF:</strong> TODO: confirmar NIF do vendedor</p>
-        </div>
-        <div>
-          <h3>Informação</h3>
-          <p><a href="/SmartThings/como-funciona/">Como funciona</a></p>
-          <p><a href="/SmartThings/trocas-devolucoes/">Trocas e devoluções</a></p>
-          <p><a href="/SmartThings/privacidade/">Privacidade</a></p>
-          <small>O site guarda o pedido apenas neste dispositivo. Não recolhe dados pessoais.</small>
-        </div>
+      <div class="container footer__compact">
+        <p><strong>Smart Things PT</strong></p>
+        <p><a href="https://wa.me/351927515217">+351 927 515 217</a></p>
+        <p><a href="https://t.me/smartthingspt" target="_blank" rel="noopener">@smartthingspt</a></p>
       </div>
     </footer>
   
@@ -244,7 +234,7 @@
       <div class="order-drawer__head">
         <div style="display:flex; align-items:center; justify-content:space-between; gap:12px;">
           <div>
-            <h2 class="drawer-title" id="order-title">Pedido</h2>
+            <h2 class="drawer-title" id="order-title">Carrinho</h2>
             <p class="helper-text">Stock, preço final e envio são confirmados no WhatsApp.</p>
           </div>
           <button class="icon-button" type="button" data-close-order aria-label="Fechar pedido">×</button>
@@ -264,9 +254,9 @@
       <div class="order-drawer__footer">
         <p class="helper-text">Artigos: <strong data-order-count>0</strong> · Total estimado: <strong data-order-total>0€</strong></p>
         <div style="display:grid; gap:10px;">
-          <button class="button button--primary" id="order-send" type="button">Enviar por WhatsApp</button>
+          <button class="button button--primary" id="order-send" type="button">Finalizar compra</button>
           <button class="button" id="order-copy" type="button">Copiar pedido</button>
-          <button class="button" id="order-clear" type="button">Limpar pedido</button>
+          <button class="button" id="order-clear" type="button">Limpar carrinho</button>
         </div>
       </div>
     </aside>
@@ -276,22 +266,23 @@
           <strong><span data-order-count>0</span> artigos no pedido</strong>
           <span>Total estimado <span data-order-total>0€</span></span>
         </div>
-        <button class="button button--primary" type="button" data-open-order>Abrir pedido</button>
+        <button class="button button--primary" type="button" data-open-order>Ir para o carrinho</button>
       </div>
     </div>
     <div class="modal-backdrop" id="modal-backdrop" hidden></div>
     <section class="quick-modal" id="quick-modal" hidden aria-modal="true" role="dialog" aria-labelledby="quick-modal-title">
       <div class="quick-modal__content">
         <div style="display:flex; align-items:center; justify-content:space-between; gap:12px;">
-          <h2 class="drawer-title" id="quick-modal-title">Adicionar ao pedido</h2>
+          <h2 class="drawer-title" id="quick-modal-title">Adicionar ao carrinho</h2>
           <button class="icon-button" type="button" data-close-modal aria-label="Fechar modal">×</button>
         </div>
         <div id="quick-modal-body"></div>
       </div>
     </section>
+    <div class="toast" id="st-toast" hidden role="status" aria-live="polite"></div>
     <div class="sr-only" id="st-live-region" aria-live="polite"></div>
   
-    <script id="st-product-data" type="application/json">{"product":{"slug":"goyard_goyard_muchos_colores","name":"GOYARD / Muchos Colores","brandLabel":"GOYARD","brandSlug":"goyard","category":"outros","categoryLabel":"Outros","modelLabel":"","latestTs":1788629917,"gender":"Unissexo","genderSlug":"unissexo","sizeType":"unique","sizeLabel":"Tamanho","sizes":["Único"],"availability":"disponivel","isNew":false,"priceLabel":"40€","priceValue":40,"priceType":"fixed","badges":[],"coverPath":"imagens/telegram/goyard_goyard_muchos_colores/1.jpg","coverImage":"/SmartThings/imagens/telegram/goyard_goyard_muchos_colores/1.jpg","coverWidth":1254,"coverHeight":1254,"url":"/SmartThings/produto/goyard_goyard_muchos_colores/","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/produto/goyard_goyard_muchos_colores/","images":[{"path":"imagens/telegram/goyard_goyard_muchos_colores/1.jpg","url":"/SmartThings/imagens/telegram/goyard_goyard_muchos_colores/1.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/goyard_goyard_muchos_colores/1.jpg","width":1254,"height":1254,"alt":"GOYARD / Muchos Colores · imagem 1"}],"description":"GOYARD · Outros. Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido.","related":[{"slug":"goyard_goyard_6_colores_3","name":"GOYARD / 6 Colores","brandLabel":"GOYARD","brandSlug":"goyard","category":"outros","categoryLabel":"Outros","modelLabel":"","latestTs":1794436201,"gender":"Unissexo","genderSlug":"unissexo","sizeType":"unique","sizeLabel":"Tamanho","sizes":["Único"],"availability":"disponivel","isNew":true,"priceLabel":"40€","priceValue":40,"priceType":"fixed","badges":[{"label":"Novo","tone":"accent"}],"coverPath":"imagens/telegram/goyard_goyard_6_colores_3/1.jpg","coverImage":"/SmartThings/imagens/telegram/goyard_goyard_6_colores_3/1.jpg","coverWidth":1254,"coverHeight":1254,"url":"/SmartThings/produto/goyard_goyard_6_colores_3/","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/produto/goyard_goyard_6_colores_3/","images":[{"path":"imagens/telegram/goyard_goyard_6_colores_3/1.jpg","url":"/SmartThings/imagens/telegram/goyard_goyard_6_colores_3/1.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/goyard_goyard_6_colores_3/1.jpg","width":1254,"height":1254,"alt":"GOYARD / 6 Colores · imagem 1"}],"description":"GOYARD · Outros. Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido."},{"slug":"goyard_goyard_15_colores","name":"GOYARD / 15 Colores","brandLabel":"GOYARD","brandSlug":"goyard","category":"outros","categoryLabel":"Outros","modelLabel":"","latestTs":1794315912,"gender":"Unissexo","genderSlug":"unissexo","sizeType":"unique","sizeLabel":"Tamanho","sizes":["Único"],"availability":"disponivel","isNew":true,"priceLabel":"40€","priceValue":40,"priceType":"fixed","badges":[{"label":"Novo","tone":"accent"}],"coverPath":"imagens/telegram/goyard_goyard_15_colores/1.jpg","coverImage":"/SmartThings/imagens/telegram/goyard_goyard_15_colores/1.jpg","coverWidth":1170,"coverHeight":1122,"url":"/SmartThings/produto/goyard_goyard_15_colores/","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/produto/goyard_goyard_15_colores/","images":[{"path":"imagens/telegram/goyard_goyard_15_colores/1.jpg","url":"/SmartThings/imagens/telegram/goyard_goyard_15_colores/1.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/goyard_goyard_15_colores/1.jpg","width":1170,"height":1122,"alt":"GOYARD / 15 Colores · imagem 1"},{"path":"imagens/telegram/goyard_goyard_15_colores/2.jpg","url":"/SmartThings/imagens/telegram/goyard_goyard_15_colores/2.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/goyard_goyard_15_colores/2.jpg","width":1170,"height":1131,"alt":"GOYARD / 15 Colores · imagem 2"},{"path":"imagens/telegram/goyard_goyard_15_colores/3.jpg","url":"/SmartThings/imagens/telegram/goyard_goyard_15_colores/3.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/goyard_goyard_15_colores/3.jpg","width":1170,"height":1148,"alt":"GOYARD / 15 Colores · imagem 3"},{"path":"imagens/telegram/goyard_goyard_15_colores/4.jpg","url":"/SmartThings/imagens/telegram/goyard_goyard_15_colores/4.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/goyard_goyard_15_colores/4.jpg","width":1004,"height":1158,"alt":"GOYARD / 15 Colores · imagem 4"}],"description":"GOYARD · Outros. Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido."},{"slug":"goyard_goyard_6_colores_2","name":"GOYARD / 6 Colores","brandLabel":"GOYARD","brandSlug":"goyard","category":"outros","categoryLabel":"Outros","modelLabel":"","latestTs":1792170567,"gender":"Unissexo","genderSlug":"unissexo","sizeType":"unique","sizeLabel":"Tamanho","sizes":["Único"],"availability":"disponivel","isNew":true,"priceLabel":"40€","priceValue":40,"priceType":"fixed","badges":[{"label":"Novo","tone":"accent"}],"coverPath":"imagens/telegram/goyard_goyard_6_colores_2/1.jpg","coverImage":"/SmartThings/imagens/telegram/goyard_goyard_6_colores_2/1.jpg","coverWidth":800,"coverHeight":800,"url":"/SmartThings/produto/goyard_goyard_6_colores_2/","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/produto/goyard_goyard_6_colores_2/","images":[{"path":"imagens/telegram/goyard_goyard_6_colores_2/1.jpg","url":"/SmartThings/imagens/telegram/goyard_goyard_6_colores_2/1.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/goyard_goyard_6_colores_2/1.jpg","width":800,"height":800,"alt":"GOYARD / 6 Colores · imagem 1"},{"path":"imagens/telegram/goyard_goyard_6_colores_2/2.jpg","url":"/SmartThings/imagens/telegram/goyard_goyard_6_colores_2/2.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/goyard_goyard_6_colores_2/2.jpg","width":800,"height":800,"alt":"GOYARD / 6 Colores · imagem 2"},{"path":"imagens/telegram/goyard_goyard_6_colores_2/3.jpg","url":"/SmartThings/imagens/telegram/goyard_goyard_6_colores_2/3.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/goyard_goyard_6_colores_2/3.jpg","width":800,"height":800,"alt":"GOYARD / 6 Colores · imagem 3"}],"description":"GOYARD · Outros. Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido."},{"slug":"goyard_goyard_5_colores_3","name":"GOYARD / 5 Colores","brandLabel":"GOYARD","brandSlug":"goyard","category":"outros","categoryLabel":"Outros","modelLabel":"","latestTs":1792137264,"gender":"Unissexo","genderSlug":"unissexo","sizeType":"unique","sizeLabel":"Tamanho","sizes":["Único"],"availability":"disponivel","isNew":true,"priceLabel":"40€","priceValue":40,"priceType":"fixed","badges":[{"label":"Novo","tone":"accent"}],"coverPath":"imagens/telegram/goyard_goyard_5_colores_3/1.jpg","coverImage":"/SmartThings/imagens/telegram/goyard_goyard_5_colores_3/1.jpg","coverWidth":1080,"coverHeight":1080,"url":"/SmartThings/produto/goyard_goyard_5_colores_3/","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/produto/goyard_goyard_5_colores_3/","images":[{"path":"imagens/telegram/goyard_goyard_5_colores_3/1.jpg","url":"/SmartThings/imagens/telegram/goyard_goyard_5_colores_3/1.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/goyard_goyard_5_colores_3/1.jpg","width":1080,"height":1080,"alt":"GOYARD / 5 Colores · imagem 1"}],"description":"GOYARD · Outros. Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido."}]}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"GOYARD / Muchos Colores","image":["https://jamesstuartpt.github.io/SmartThings/imagens/telegram/goyard_goyard_muchos_colores/1.jpg"],"description":"GOYARD · Outros. Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido.","brand":{"@type":"Brand","name":"GOYARD"},"sku":"goyard_goyard_muchos_colores","category":"Outros","url":"https://jamesstuartpt.github.io/SmartThings/produto/goyard_goyard_muchos_colores/","offers":{"@type":"Offer","priceCurrency":"EUR","price":40,"availability":"https://schema.org/InStock","url":"https://jamesstuartpt.github.io/SmartThings/produto/goyard_goyard_muchos_colores/"}}</script>
+    <script id="st-product-data" type="application/json">{"product":{"slug":"goyard_goyard_muchos_colores","refCode":"ST-2E9767","name":"GOYARD / Muchos Colores","brandLabel":"GOYARD","brandSlug":"goyard","category":"outros","categoryLabel":"Outros","modelLabel":"","latestTs":1788629917,"gender":"Unissexo","genderSlug":"unissexo","sizeType":"unique","sizeLabel":"Tamanho","sizes":["Único"],"availability":"disponivel","isNew":false,"priceLabel":"40€","priceValue":40,"priceType":"fixed","badges":[],"coverPath":"imagens/telegram/goyard_goyard_muchos_colores/1.jpg","coverImage":"/SmartThings/imagens/telegram/goyard_goyard_muchos_colores/1.jpg","coverWidth":1254,"coverHeight":1254,"url":"/SmartThings/produto/goyard_goyard_muchos_colores/","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/produto/goyard_goyard_muchos_colores/","images":[{"path":"imagens/telegram/goyard_goyard_muchos_colores/1.jpg","url":"/SmartThings/imagens/telegram/goyard_goyard_muchos_colores/1.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/goyard_goyard_muchos_colores/1.jpg","width":1254,"height":1254,"alt":"GOYARD / Muchos Colores · imagem 1"}],"description":"GOYARD · Outros. Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido.","related":[{"slug":"goyard_goyard_6_colores_3","refCode":"ST-5016C5","name":"GOYARD / 6 Colores","brandLabel":"GOYARD","brandSlug":"goyard","category":"outros","categoryLabel":"Outros","modelLabel":"","latestTs":1794436201,"gender":"Unissexo","genderSlug":"unissexo","sizeType":"unique","sizeLabel":"Tamanho","sizes":["Único"],"availability":"disponivel","isNew":true,"priceLabel":"40€","priceValue":40,"priceType":"fixed","badges":[{"label":"Novo","tone":"accent"}],"coverPath":"imagens/telegram/goyard_goyard_6_colores_3/1.jpg","coverImage":"/SmartThings/imagens/telegram/goyard_goyard_6_colores_3/1.jpg","coverWidth":1254,"coverHeight":1254,"url":"/SmartThings/produto/goyard_goyard_6_colores_3/","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/produto/goyard_goyard_6_colores_3/","images":[{"path":"imagens/telegram/goyard_goyard_6_colores_3/1.jpg","url":"/SmartThings/imagens/telegram/goyard_goyard_6_colores_3/1.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/goyard_goyard_6_colores_3/1.jpg","width":1254,"height":1254,"alt":"GOYARD / 6 Colores · imagem 1"}],"description":"GOYARD · Outros. Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido."},{"slug":"goyard_goyard_15_colores","refCode":"ST-0F598D","name":"GOYARD / 15 Colores","brandLabel":"GOYARD","brandSlug":"goyard","category":"outros","categoryLabel":"Outros","modelLabel":"","latestTs":1794315912,"gender":"Unissexo","genderSlug":"unissexo","sizeType":"unique","sizeLabel":"Tamanho","sizes":["Único"],"availability":"disponivel","isNew":true,"priceLabel":"40€","priceValue":40,"priceType":"fixed","badges":[{"label":"Novo","tone":"accent"}],"coverPath":"imagens/telegram/goyard_goyard_15_colores/1.jpg","coverImage":"/SmartThings/imagens/telegram/goyard_goyard_15_colores/1.jpg","coverWidth":1170,"coverHeight":1122,"url":"/SmartThings/produto/goyard_goyard_15_colores/","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/produto/goyard_goyard_15_colores/","images":[{"path":"imagens/telegram/goyard_goyard_15_colores/1.jpg","url":"/SmartThings/imagens/telegram/goyard_goyard_15_colores/1.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/goyard_goyard_15_colores/1.jpg","width":1170,"height":1122,"alt":"GOYARD / 15 Colores · imagem 1"},{"path":"imagens/telegram/goyard_goyard_15_colores/2.jpg","url":"/SmartThings/imagens/telegram/goyard_goyard_15_colores/2.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/goyard_goyard_15_colores/2.jpg","width":1170,"height":1131,"alt":"GOYARD / 15 Colores · imagem 2"},{"path":"imagens/telegram/goyard_goyard_15_colores/3.jpg","url":"/SmartThings/imagens/telegram/goyard_goyard_15_colores/3.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/goyard_goyard_15_colores/3.jpg","width":1170,"height":1148,"alt":"GOYARD / 15 Colores · imagem 3"},{"path":"imagens/telegram/goyard_goyard_15_colores/4.jpg","url":"/SmartThings/imagens/telegram/goyard_goyard_15_colores/4.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/goyard_goyard_15_colores/4.jpg","width":1004,"height":1158,"alt":"GOYARD / 15 Colores · imagem 4"}],"description":"GOYARD · Outros. Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido."},{"slug":"goyard_goyard_6_colores_2","refCode":"ST-2418D3","name":"GOYARD / 6 Colores","brandLabel":"GOYARD","brandSlug":"goyard","category":"outros","categoryLabel":"Outros","modelLabel":"","latestTs":1792170567,"gender":"Unissexo","genderSlug":"unissexo","sizeType":"unique","sizeLabel":"Tamanho","sizes":["Único"],"availability":"disponivel","isNew":true,"priceLabel":"40€","priceValue":40,"priceType":"fixed","badges":[{"label":"Novo","tone":"accent"}],"coverPath":"imagens/telegram/goyard_goyard_6_colores_2/1.jpg","coverImage":"/SmartThings/imagens/telegram/goyard_goyard_6_colores_2/1.jpg","coverWidth":800,"coverHeight":800,"url":"/SmartThings/produto/goyard_goyard_6_colores_2/","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/produto/goyard_goyard_6_colores_2/","images":[{"path":"imagens/telegram/goyard_goyard_6_colores_2/1.jpg","url":"/SmartThings/imagens/telegram/goyard_goyard_6_colores_2/1.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/goyard_goyard_6_colores_2/1.jpg","width":800,"height":800,"alt":"GOYARD / 6 Colores · imagem 1"},{"path":"imagens/telegram/goyard_goyard_6_colores_2/2.jpg","url":"/SmartThings/imagens/telegram/goyard_goyard_6_colores_2/2.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/goyard_goyard_6_colores_2/2.jpg","width":800,"height":800,"alt":"GOYARD / 6 Colores · imagem 2"},{"path":"imagens/telegram/goyard_goyard_6_colores_2/3.jpg","url":"/SmartThings/imagens/telegram/goyard_goyard_6_colores_2/3.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/goyard_goyard_6_colores_2/3.jpg","width":800,"height":800,"alt":"GOYARD / 6 Colores · imagem 3"}],"description":"GOYARD · Outros. Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido."},{"slug":"goyard_goyard_5_colores_3","refCode":"ST-B6E14C","name":"GOYARD / 5 Colores","brandLabel":"GOYARD","brandSlug":"goyard","category":"outros","categoryLabel":"Outros","modelLabel":"","latestTs":1792137264,"gender":"Unissexo","genderSlug":"unissexo","sizeType":"unique","sizeLabel":"Tamanho","sizes":["Único"],"availability":"disponivel","isNew":true,"priceLabel":"40€","priceValue":40,"priceType":"fixed","badges":[{"label":"Novo","tone":"accent"}],"coverPath":"imagens/telegram/goyard_goyard_5_colores_3/1.jpg","coverImage":"/SmartThings/imagens/telegram/goyard_goyard_5_colores_3/1.jpg","coverWidth":1080,"coverHeight":1080,"url":"/SmartThings/produto/goyard_goyard_5_colores_3/","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/produto/goyard_goyard_5_colores_3/","images":[{"path":"imagens/telegram/goyard_goyard_5_colores_3/1.jpg","url":"/SmartThings/imagens/telegram/goyard_goyard_5_colores_3/1.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/goyard_goyard_5_colores_3/1.jpg","width":1080,"height":1080,"alt":"GOYARD / 5 Colores · imagem 1"}],"description":"GOYARD · Outros. Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido."}]}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"GOYARD / Muchos Colores","image":["https://jamesstuartpt.github.io/SmartThings/imagens/telegram/goyard_goyard_muchos_colores/1.jpg"],"description":"GOYARD · Outros. Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido.","brand":{"@type":"Brand","name":"GOYARD"},"sku":"goyard_goyard_muchos_colores","category":"Outros","url":"https://jamesstuartpt.github.io/SmartThings/produto/goyard_goyard_muchos_colores/","offers":{"@type":"Offer","priceCurrency":"EUR","price":40,"availability":"https://schema.org/InStock","url":"https://jamesstuartpt.github.io/SmartThings/produto/goyard_goyard_muchos_colores/"}}</script>
     <script type="module" src="/SmartThings/site_config.js"></script>
     <script type="module" src="/SmartThings/js/product-page.js"></script>
   </body>

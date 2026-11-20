@@ -105,6 +105,26 @@ export function updateLiveRegion(message) {
   }
 }
 
+let toastTimer = 0;
+
+export function showToast(message) {
+  const toast = document.getElementById("st-toast");
+  if (!toast) {
+    updateLiveRegion(message);
+    return;
+  }
+  toast.textContent = message;
+  toast.hidden = false;
+  toast.classList.add("is-visible");
+  window.clearTimeout(toastTimer);
+  toastTimer = window.setTimeout(() => {
+    toast.classList.remove("is-visible");
+    window.setTimeout(() => {
+      toast.hidden = true;
+    }, 180);
+  }, 1800);
+}
+
 export function randomCode(length = 4) {
   const alphabet = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
   let output = "";

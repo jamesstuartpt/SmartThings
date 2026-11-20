@@ -38,9 +38,9 @@
         <nav class="topbar__nav"><a href="/SmartThings/">Catálogo</a><a href="/SmartThings/como-funciona/">Como funciona</a><a href="/SmartThings/trocas-devolucoes/">Trocas</a><a href="/SmartThings/privacidade/">Privacidade</a></nav>
         <div class="topbar__actions">
           <button class="theme-toggle" type="button" data-theme-toggle aria-label="Alternar tema">◐</button>
-          <button class="icon-button" type="button" data-open-order aria-label="Abrir pedido">
-            <span aria-hidden="true">🧾</span>
-            <span class="sr-only">Abrir pedido</span>
+          <button class="icon-button" type="button" data-open-order aria-label="Ir para o carrinho">
+            <span aria-hidden="true">🛒</span>
+            <span class="sr-only">Ir para o carrinho</span>
           </button>
         </div>
       </div>
@@ -66,6 +66,7 @@
       <section class="product-panel">
         <p class="catalog-card__brand">UNDER · Outros</p>
         <h1 class="product-title">UNDER ARMOUR / 5 Colores</h1>
+        <p class="product-ref">Ref. ST-2F0427</p>
         <p class="product-meta">UNDER · Outros. Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido.</p>
         <div class="chip-row">
           <span class="badge badge--accent">Novo</span>
@@ -87,8 +88,8 @@
           <p class="inline-note">Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido.</p>
         </div>
         <div class="hero__actions">
-          <button class="button button--primary" id="product-add" type="button">Adicionar ao pedido</button>
-          <a class="button" href="https://t.me/smartthingspt" target="_blank" rel="noopener">Ver fotos e vídeos reais no Telegram</a>
+          <button class="button button--primary" id="product-add" type="button">Adicionar ao carrinho</button>
+          <button class="button" id="product-buy-now" type="button">Comprar agora</button>
         </div>
       </section>
       <section class="container" style="grid-column:1 / -1; padding-bottom:56px;">
@@ -114,6 +115,7 @@
             <span class="catalog-card__price">40€</span>
           </div>
           <h3 class="catalog-card__name">UNDER AMOUR</h3>
+          <p class="catalog-card__ref">Ref. ST-BC39F2</p>
         </div>
       </a>
       <div class="catalog-card__foot catalog-card__foot--single">
@@ -137,6 +139,7 @@
             <span class="catalog-card__price">40€</span>
           </div>
           <h3 class="catalog-card__name">UNDER ARMOUR / 4 Colores</h3>
+          <p class="catalog-card__ref">Ref. ST-661F59</p>
         </div>
       </a>
       <div class="catalog-card__foot catalog-card__foot--single">
@@ -160,6 +163,7 @@
             <span class="catalog-card__price">40€</span>
           </div>
           <h3 class="catalog-card__name">UNDER ARMOUR / 3 Colores</h3>
+          <p class="catalog-card__ref">Ref. ST-52AE69</p>
         </div>
       </a>
       <div class="catalog-card__foot catalog-card__foot--single">
@@ -183,6 +187,7 @@
             <span class="catalog-card__price">40€</span>
           </div>
           <h3 class="catalog-card__name">UNDER ARMOUR / 4 Colores</h3>
+          <p class="catalog-card__ref">Ref. ST-546B2E</p>
         </div>
       </a>
       <div class="catalog-card__foot catalog-card__foot--single">
@@ -216,25 +221,10 @@
     </div>
     
     <footer class="footer">
-      <div class="container footer__grid">
-        <div>
-          <h2 class="drawer-title">Smart Things PT</h2>
-          <p>Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido.</p>
-          <p>Envio normalmente confirmado no WhatsApp. Prazo médio previsto: 10 a 15 dias.</p>
-        </div>
-        <div>
-          <h3>Contacto</h3>
-          <p><a href="https://wa.me/351927515217">+351 927 515 217</a></p>
-          <p><a href="https://t.me/smartthingspt" target="_blank" rel="noopener">@smartthingspt</a></p>
-          <p><strong>NIF:</strong> TODO: confirmar NIF do vendedor</p>
-        </div>
-        <div>
-          <h3>Informação</h3>
-          <p><a href="/SmartThings/como-funciona/">Como funciona</a></p>
-          <p><a href="/SmartThings/trocas-devolucoes/">Trocas e devoluções</a></p>
-          <p><a href="/SmartThings/privacidade/">Privacidade</a></p>
-          <small>O site guarda o pedido apenas neste dispositivo. Não recolhe dados pessoais.</small>
-        </div>
+      <div class="container footer__compact">
+        <p><strong>Smart Things PT</strong></p>
+        <p><a href="https://wa.me/351927515217">+351 927 515 217</a></p>
+        <p><a href="https://t.me/smartthingspt" target="_blank" rel="noopener">@smartthingspt</a></p>
       </div>
     </footer>
   
@@ -244,7 +234,7 @@
       <div class="order-drawer__head">
         <div style="display:flex; align-items:center; justify-content:space-between; gap:12px;">
           <div>
-            <h2 class="drawer-title" id="order-title">Pedido</h2>
+            <h2 class="drawer-title" id="order-title">Carrinho</h2>
             <p class="helper-text">Stock, preço final e envio são confirmados no WhatsApp.</p>
           </div>
           <button class="icon-button" type="button" data-close-order aria-label="Fechar pedido">×</button>
@@ -264,9 +254,9 @@
       <div class="order-drawer__footer">
         <p class="helper-text">Artigos: <strong data-order-count>0</strong> · Total estimado: <strong data-order-total>0€</strong></p>
         <div style="display:grid; gap:10px;">
-          <button class="button button--primary" id="order-send" type="button">Enviar por WhatsApp</button>
+          <button class="button button--primary" id="order-send" type="button">Finalizar compra</button>
           <button class="button" id="order-copy" type="button">Copiar pedido</button>
-          <button class="button" id="order-clear" type="button">Limpar pedido</button>
+          <button class="button" id="order-clear" type="button">Limpar carrinho</button>
         </div>
       </div>
     </aside>
@@ -276,22 +266,23 @@
           <strong><span data-order-count>0</span> artigos no pedido</strong>
           <span>Total estimado <span data-order-total>0€</span></span>
         </div>
-        <button class="button button--primary" type="button" data-open-order>Abrir pedido</button>
+        <button class="button button--primary" type="button" data-open-order>Ir para o carrinho</button>
       </div>
     </div>
     <div class="modal-backdrop" id="modal-backdrop" hidden></div>
     <section class="quick-modal" id="quick-modal" hidden aria-modal="true" role="dialog" aria-labelledby="quick-modal-title">
       <div class="quick-modal__content">
         <div style="display:flex; align-items:center; justify-content:space-between; gap:12px;">
-          <h2 class="drawer-title" id="quick-modal-title">Adicionar ao pedido</h2>
+          <h2 class="drawer-title" id="quick-modal-title">Adicionar ao carrinho</h2>
           <button class="icon-button" type="button" data-close-modal aria-label="Fechar modal">×</button>
         </div>
         <div id="quick-modal-body"></div>
       </div>
     </section>
+    <div class="toast" id="st-toast" hidden role="status" aria-live="polite"></div>
     <div class="sr-only" id="st-live-region" aria-live="polite"></div>
   
-    <script id="st-product-data" type="application/json">{"product":{"slug":"under_under_armour_5_colores_2","name":"UNDER ARMOUR / 5 Colores","brandLabel":"UNDER","brandSlug":"under","category":"outros","categoryLabel":"Outros","modelLabel":"","latestTs":1793452675,"gender":"Unissexo","genderSlug":"unissexo","sizeType":"unique","sizeLabel":"Tamanho","sizes":["Único"],"availability":"disponivel","isNew":true,"priceLabel":"40€","priceValue":40,"priceType":"fixed","badges":[{"label":"Novo","tone":"accent"}],"coverPath":"imagens/telegram/under_under_armour_5_colores_2/1.jpg","coverImage":"/SmartThings/imagens/telegram/under_under_armour_5_colores_2/1.jpg","coverWidth":986,"coverHeight":1280,"url":"/SmartThings/produto/under_under_armour_5_colores_2/","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/produto/under_under_armour_5_colores_2/","images":[{"path":"imagens/telegram/under_under_armour_5_colores_2/1.jpg","url":"/SmartThings/imagens/telegram/under_under_armour_5_colores_2/1.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/under_under_armour_5_colores_2/1.jpg","width":986,"height":1280,"alt":"UNDER ARMOUR / 5 Colores · imagem 1"}],"description":"UNDER · Outros. Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido.","related":[{"slug":"under_under_amour","name":"UNDER AMOUR","brandLabel":"UNDER","brandSlug":"under","category":"outros","categoryLabel":"Outros","modelLabel":"","latestTs":1794938927,"gender":"Unissexo","genderSlug":"unissexo","sizeType":"unique","sizeLabel":"Tamanho","sizes":["Único"],"availability":"disponivel","isNew":true,"priceLabel":"40€","priceValue":40,"priceType":"fixed","badges":[{"label":"Novo","tone":"accent"}],"coverPath":"imagens/telegram/under_under_amour/1.jpg","coverImage":"/SmartThings/imagens/telegram/under_under_amour/1.jpg","coverWidth":1254,"coverHeight":1254,"url":"/SmartThings/produto/under_under_amour/","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/produto/under_under_amour/","images":[{"path":"imagens/telegram/under_under_amour/1.jpg","url":"/SmartThings/imagens/telegram/under_under_amour/1.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/under_under_amour/1.jpg","width":1254,"height":1254,"alt":"UNDER AMOUR · imagem 1"}],"description":"UNDER · Outros. Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido."},{"slug":"under_under_armour_4_colores_2","name":"UNDER ARMOUR / 4 Colores","brandLabel":"UNDER","brandSlug":"under","category":"outros","categoryLabel":"Outros","modelLabel":"","latestTs":1794430683,"gender":"Unissexo","genderSlug":"unissexo","sizeType":"unique","sizeLabel":"Tamanho","sizes":["Único"],"availability":"disponivel","isNew":true,"priceLabel":"40€","priceValue":40,"priceType":"fixed","badges":[{"label":"Novo","tone":"accent"}],"coverPath":"imagens/telegram/under_under_armour_4_colores_2/1.jpg","coverImage":"/SmartThings/imagens/telegram/under_under_armour_4_colores_2/1.jpg","coverWidth":1254,"coverHeight":1254,"url":"/SmartThings/produto/under_under_armour_4_colores_2/","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/produto/under_under_armour_4_colores_2/","images":[{"path":"imagens/telegram/under_under_armour_4_colores_2/1.jpg","url":"/SmartThings/imagens/telegram/under_under_armour_4_colores_2/1.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/under_under_armour_4_colores_2/1.jpg","width":1254,"height":1254,"alt":"UNDER ARMOUR / 4 Colores · imagem 1"}],"description":"UNDER · Outros. Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido."},{"slug":"under_under_armour_3_colores_3","name":"UNDER ARMOUR / 3 Colores","brandLabel":"UNDER","brandSlug":"under","category":"outros","categoryLabel":"Outros","modelLabel":"","latestTs":1794334693,"gender":"Unissexo","genderSlug":"unissexo","sizeType":"unique","sizeLabel":"Tamanho","sizes":["Único"],"availability":"disponivel","isNew":true,"priceLabel":"40€","priceValue":40,"priceType":"fixed","badges":[{"label":"Novo","tone":"accent"}],"coverPath":"imagens/telegram/under_under_armour_3_colores_3/1.jpg","coverImage":"/SmartThings/imagens/telegram/under_under_armour_3_colores_3/1.jpg","coverWidth":825,"coverHeight":1024,"url":"/SmartThings/produto/under_under_armour_3_colores_3/","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/produto/under_under_armour_3_colores_3/","images":[{"path":"imagens/telegram/under_under_armour_3_colores_3/1.jpg","url":"/SmartThings/imagens/telegram/under_under_armour_3_colores_3/1.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/under_under_armour_3_colores_3/1.jpg","width":825,"height":1024,"alt":"UNDER ARMOUR / 3 Colores · imagem 1"}],"description":"UNDER · Outros. Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido."},{"slug":"under_under_armour_4_colores","name":"UNDER ARMOUR / 4 Colores","brandLabel":"UNDER","brandSlug":"under","category":"outros","categoryLabel":"Outros","modelLabel":"","latestTs":1793117339,"gender":"Unissexo","genderSlug":"unissexo","sizeType":"unique","sizeLabel":"Tamanho","sizes":["Único"],"availability":"disponivel","isNew":true,"priceLabel":"40€","priceValue":40,"priceType":"fixed","badges":[{"label":"Novo","tone":"accent"}],"coverPath":"imagens/telegram/under_under_armour_4_colores/1.jpg","coverImage":"/SmartThings/imagens/telegram/under_under_armour_4_colores/1.jpg","coverWidth":960,"coverHeight":1280,"url":"/SmartThings/produto/under_under_armour_4_colores/","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/produto/under_under_armour_4_colores/","images":[{"path":"imagens/telegram/under_under_armour_4_colores/1.jpg","url":"/SmartThings/imagens/telegram/under_under_armour_4_colores/1.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/under_under_armour_4_colores/1.jpg","width":960,"height":1280,"alt":"UNDER ARMOUR / 4 Colores · imagem 1"}],"description":"UNDER · Outros. Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido."}]}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"UNDER ARMOUR / 5 Colores","image":["https://jamesstuartpt.github.io/SmartThings/imagens/telegram/under_under_armour_5_colores_2/1.jpg"],"description":"UNDER · Outros. Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido.","brand":{"@type":"Brand","name":"UNDER"},"sku":"under_under_armour_5_colores_2","category":"Outros","url":"https://jamesstuartpt.github.io/SmartThings/produto/under_under_armour_5_colores_2/","offers":{"@type":"Offer","priceCurrency":"EUR","price":40,"availability":"https://schema.org/InStock","url":"https://jamesstuartpt.github.io/SmartThings/produto/under_under_armour_5_colores_2/"}}</script>
+    <script id="st-product-data" type="application/json">{"product":{"slug":"under_under_armour_5_colores_2","refCode":"ST-2F0427","name":"UNDER ARMOUR / 5 Colores","brandLabel":"UNDER","brandSlug":"under","category":"outros","categoryLabel":"Outros","modelLabel":"","latestTs":1793452675,"gender":"Unissexo","genderSlug":"unissexo","sizeType":"unique","sizeLabel":"Tamanho","sizes":["Único"],"availability":"disponivel","isNew":true,"priceLabel":"40€","priceValue":40,"priceType":"fixed","badges":[{"label":"Novo","tone":"accent"}],"coverPath":"imagens/telegram/under_under_armour_5_colores_2/1.jpg","coverImage":"/SmartThings/imagens/telegram/under_under_armour_5_colores_2/1.jpg","coverWidth":986,"coverHeight":1280,"url":"/SmartThings/produto/under_under_armour_5_colores_2/","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/produto/under_under_armour_5_colores_2/","images":[{"path":"imagens/telegram/under_under_armour_5_colores_2/1.jpg","url":"/SmartThings/imagens/telegram/under_under_armour_5_colores_2/1.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/under_under_armour_5_colores_2/1.jpg","width":986,"height":1280,"alt":"UNDER ARMOUR / 5 Colores · imagem 1"}],"description":"UNDER · Outros. Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido.","related":[{"slug":"under_under_amour","refCode":"ST-BC39F2","name":"UNDER AMOUR","brandLabel":"UNDER","brandSlug":"under","category":"outros","categoryLabel":"Outros","modelLabel":"","latestTs":1794938927,"gender":"Unissexo","genderSlug":"unissexo","sizeType":"unique","sizeLabel":"Tamanho","sizes":["Único"],"availability":"disponivel","isNew":true,"priceLabel":"40€","priceValue":40,"priceType":"fixed","badges":[{"label":"Novo","tone":"accent"}],"coverPath":"imagens/telegram/under_under_amour/1.jpg","coverImage":"/SmartThings/imagens/telegram/under_under_amour/1.jpg","coverWidth":1254,"coverHeight":1254,"url":"/SmartThings/produto/under_under_amour/","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/produto/under_under_amour/","images":[{"path":"imagens/telegram/under_under_amour/1.jpg","url":"/SmartThings/imagens/telegram/under_under_amour/1.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/under_under_amour/1.jpg","width":1254,"height":1254,"alt":"UNDER AMOUR · imagem 1"}],"description":"UNDER · Outros. Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido."},{"slug":"under_under_armour_4_colores_2","refCode":"ST-661F59","name":"UNDER ARMOUR / 4 Colores","brandLabel":"UNDER","brandSlug":"under","category":"outros","categoryLabel":"Outros","modelLabel":"","latestTs":1794430683,"gender":"Unissexo","genderSlug":"unissexo","sizeType":"unique","sizeLabel":"Tamanho","sizes":["Único"],"availability":"disponivel","isNew":true,"priceLabel":"40€","priceValue":40,"priceType":"fixed","badges":[{"label":"Novo","tone":"accent"}],"coverPath":"imagens/telegram/under_under_armour_4_colores_2/1.jpg","coverImage":"/SmartThings/imagens/telegram/under_under_armour_4_colores_2/1.jpg","coverWidth":1254,"coverHeight":1254,"url":"/SmartThings/produto/under_under_armour_4_colores_2/","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/produto/under_under_armour_4_colores_2/","images":[{"path":"imagens/telegram/under_under_armour_4_colores_2/1.jpg","url":"/SmartThings/imagens/telegram/under_under_armour_4_colores_2/1.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/under_under_armour_4_colores_2/1.jpg","width":1254,"height":1254,"alt":"UNDER ARMOUR / 4 Colores · imagem 1"}],"description":"UNDER · Outros. Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido."},{"slug":"under_under_armour_3_colores_3","refCode":"ST-52AE69","name":"UNDER ARMOUR / 3 Colores","brandLabel":"UNDER","brandSlug":"under","category":"outros","categoryLabel":"Outros","modelLabel":"","latestTs":1794334693,"gender":"Unissexo","genderSlug":"unissexo","sizeType":"unique","sizeLabel":"Tamanho","sizes":["Único"],"availability":"disponivel","isNew":true,"priceLabel":"40€","priceValue":40,"priceType":"fixed","badges":[{"label":"Novo","tone":"accent"}],"coverPath":"imagens/telegram/under_under_armour_3_colores_3/1.jpg","coverImage":"/SmartThings/imagens/telegram/under_under_armour_3_colores_3/1.jpg","coverWidth":825,"coverHeight":1024,"url":"/SmartThings/produto/under_under_armour_3_colores_3/","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/produto/under_under_armour_3_colores_3/","images":[{"path":"imagens/telegram/under_under_armour_3_colores_3/1.jpg","url":"/SmartThings/imagens/telegram/under_under_armour_3_colores_3/1.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/under_under_armour_3_colores_3/1.jpg","width":825,"height":1024,"alt":"UNDER ARMOUR / 3 Colores · imagem 1"}],"description":"UNDER · Outros. Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido."},{"slug":"under_under_armour_4_colores","refCode":"ST-546B2E","name":"UNDER ARMOUR / 4 Colores","brandLabel":"UNDER","brandSlug":"under","category":"outros","categoryLabel":"Outros","modelLabel":"","latestTs":1793117339,"gender":"Unissexo","genderSlug":"unissexo","sizeType":"unique","sizeLabel":"Tamanho","sizes":["Único"],"availability":"disponivel","isNew":true,"priceLabel":"40€","priceValue":40,"priceType":"fixed","badges":[{"label":"Novo","tone":"accent"}],"coverPath":"imagens/telegram/under_under_armour_4_colores/1.jpg","coverImage":"/SmartThings/imagens/telegram/under_under_armour_4_colores/1.jpg","coverWidth":960,"coverHeight":1280,"url":"/SmartThings/produto/under_under_armour_4_colores/","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/produto/under_under_armour_4_colores/","images":[{"path":"imagens/telegram/under_under_armour_4_colores/1.jpg","url":"/SmartThings/imagens/telegram/under_under_armour_4_colores/1.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/under_under_armour_4_colores/1.jpg","width":960,"height":1280,"alt":"UNDER ARMOUR / 4 Colores · imagem 1"}],"description":"UNDER · Outros. Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido."}]}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"UNDER ARMOUR / 5 Colores","image":["https://jamesstuartpt.github.io/SmartThings/imagens/telegram/under_under_armour_5_colores_2/1.jpg"],"description":"UNDER · Outros. Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido.","brand":{"@type":"Brand","name":"UNDER"},"sku":"under_under_armour_5_colores_2","category":"Outros","url":"https://jamesstuartpt.github.io/SmartThings/produto/under_under_armour_5_colores_2/","offers":{"@type":"Offer","priceCurrency":"EUR","price":40,"availability":"https://schema.org/InStock","url":"https://jamesstuartpt.github.io/SmartThings/produto/under_under_armour_5_colores_2/"}}</script>
     <script type="module" src="/SmartThings/site_config.js"></script>
     <script type="module" src="/SmartThings/js/product-page.js"></script>
   </body>

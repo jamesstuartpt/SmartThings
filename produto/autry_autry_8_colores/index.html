@@ -38,9 +38,9 @@
         <nav class="topbar__nav"><a href="/SmartThings/">Catálogo</a><a href="/SmartThings/como-funciona/">Como funciona</a><a href="/SmartThings/trocas-devolucoes/">Trocas</a><a href="/SmartThings/privacidade/">Privacidade</a></nav>
         <div class="topbar__actions">
           <button class="theme-toggle" type="button" data-theme-toggle aria-label="Alternar tema">◐</button>
-          <button class="icon-button" type="button" data-open-order aria-label="Abrir pedido">
-            <span aria-hidden="true">🧾</span>
-            <span class="sr-only">Abrir pedido</span>
+          <button class="icon-button" type="button" data-open-order aria-label="Ir para o carrinho">
+            <span aria-hidden="true">🛒</span>
+            <span class="sr-only">Ir para o carrinho</span>
           </button>
         </div>
       </div>
@@ -66,9 +66,10 @@
       <section class="product-panel">
         <p class="catalog-card__brand">AUTRY · Outros</p>
         <h1 class="product-title">AUTRY / 8 Colores</h1>
+        <p class="product-ref">Ref. ST-55D16E</p>
         <p class="product-meta">AUTRY · Outros. Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido.</p>
         <div class="chip-row">
-          <span class="badge badge--accent">Novo</span>
+          
         </div>
         <div class="price-line">
           <span class="price-line__value">40€</span>
@@ -87,8 +88,8 @@
           <p class="inline-note">Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido.</p>
         </div>
         <div class="hero__actions">
-          <button class="button button--primary" id="product-add" type="button">Adicionar ao pedido</button>
-          <a class="button" href="https://t.me/smartthingspt" target="_blank" rel="noopener">Ver fotos e vídeos reais no Telegram</a>
+          <button class="button button--primary" id="product-add" type="button">Adicionar ao carrinho</button>
+          <button class="button" id="product-buy-now" type="button">Comprar agora</button>
         </div>
       </section>
       <section class="container" style="grid-column:1 / -1; padding-bottom:56px;">
@@ -114,6 +115,7 @@
             <span class="catalog-card__price">40€</span>
           </div>
           <h3 class="catalog-card__name">AUTRY &quot;Medalist&quot; / 7 Colores / Calidad muy TOP</h3>
+          <p class="catalog-card__ref">Ref. ST-9E5CD9</p>
         </div>
       </a>
       <div class="catalog-card__foot catalog-card__foot--single">
@@ -137,6 +139,7 @@
             <span class="catalog-card__price">40€</span>
           </div>
           <h3 class="catalog-card__name">AUTRY / 5 Colores</h3>
+          <p class="catalog-card__ref">Ref. ST-76DA7D</p>
         </div>
       </a>
       <div class="catalog-card__foot catalog-card__foot--single">
@@ -160,6 +163,7 @@
             <span class="catalog-card__price">40€</span>
           </div>
           <h3 class="catalog-card__name">AUTRY / 8 Colores</h3>
+          <p class="catalog-card__ref">Ref. ST-7124BD</p>
         </div>
       </a>
       <div class="catalog-card__foot catalog-card__foot--single">
@@ -183,6 +187,7 @@
             <span class="catalog-card__price">40€</span>
           </div>
           <h3 class="catalog-card__name">AUTRY / 7 colores</h3>
+          <p class="catalog-card__ref">Ref. ST-B415E0</p>
         </div>
       </a>
       <div class="catalog-card__foot catalog-card__foot--single">
@@ -216,25 +221,10 @@
     </div>
     
     <footer class="footer">
-      <div class="container footer__grid">
-        <div>
-          <h2 class="drawer-title">Smart Things PT</h2>
-          <p>Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido.</p>
-          <p>Envio normalmente confirmado no WhatsApp. Prazo médio previsto: 10 a 15 dias.</p>
-        </div>
-        <div>
-          <h3>Contacto</h3>
-          <p><a href="https://wa.me/351927515217">+351 927 515 217</a></p>
-          <p><a href="https://t.me/smartthingspt" target="_blank" rel="noopener">@smartthingspt</a></p>
-          <p><strong>NIF:</strong> TODO: confirmar NIF do vendedor</p>
-        </div>
-        <div>
-          <h3>Informação</h3>
-          <p><a href="/SmartThings/como-funciona/">Como funciona</a></p>
-          <p><a href="/SmartThings/trocas-devolucoes/">Trocas e devoluções</a></p>
-          <p><a href="/SmartThings/privacidade/">Privacidade</a></p>
-          <small>O site guarda o pedido apenas neste dispositivo. Não recolhe dados pessoais.</small>
-        </div>
+      <div class="container footer__compact">
+        <p><strong>Smart Things PT</strong></p>
+        <p><a href="https://wa.me/351927515217">+351 927 515 217</a></p>
+        <p><a href="https://t.me/smartthingspt" target="_blank" rel="noopener">@smartthingspt</a></p>
       </div>
     </footer>
   
@@ -244,7 +234,7 @@
       <div class="order-drawer__head">
         <div style="display:flex; align-items:center; justify-content:space-between; gap:12px;">
           <div>
-            <h2 class="drawer-title" id="order-title">Pedido</h2>
+            <h2 class="drawer-title" id="order-title">Carrinho</h2>
             <p class="helper-text">Stock, preço final e envio são confirmados no WhatsApp.</p>
           </div>
           <button class="icon-button" type="button" data-close-order aria-label="Fechar pedido">×</button>
@@ -264,9 +254,9 @@
       <div class="order-drawer__footer">
         <p class="helper-text">Artigos: <strong data-order-count>0</strong> · Total estimado: <strong data-order-total>0€</strong></p>
         <div style="display:grid; gap:10px;">
-          <button class="button button--primary" id="order-send" type="button">Enviar por WhatsApp</button>
+          <button class="button button--primary" id="order-send" type="button">Finalizar compra</button>
           <button class="button" id="order-copy" type="button">Copiar pedido</button>
-          <button class="button" id="order-clear" type="button">Limpar pedido</button>
+          <button class="button" id="order-clear" type="button">Limpar carrinho</button>
         </div>
       </div>
     </aside>
@@ -276,22 +266,23 @@
           <strong><span data-order-count>0</span> artigos no pedido</strong>
           <span>Total estimado <span data-order-total>0€</span></span>
         </div>
-        <button class="button button--primary" type="button" data-open-order>Abrir pedido</button>
+        <button class="button button--primary" type="button" data-open-order>Ir para o carrinho</button>
       </div>
     </div>
     <div class="modal-backdrop" id="modal-backdrop" hidden></div>
     <section class="quick-modal" id="quick-modal" hidden aria-modal="true" role="dialog" aria-labelledby="quick-modal-title">
       <div class="quick-modal__content">
         <div style="display:flex; align-items:center; justify-content:space-between; gap:12px;">
-          <h2 class="drawer-title" id="quick-modal-title">Adicionar ao pedido</h2>
+          <h2 class="drawer-title" id="quick-modal-title">Adicionar ao carrinho</h2>
           <button class="icon-button" type="button" data-close-modal aria-label="Fechar modal">×</button>
         </div>
         <div id="quick-modal-body"></div>
       </div>
     </section>
+    <div class="toast" id="st-toast" hidden role="status" aria-live="polite"></div>
     <div class="sr-only" id="st-live-region" aria-live="polite"></div>
   
-    <script id="st-product-data" type="application/json">{"product":{"slug":"autry_autry_8_colores","name":"AUTRY / 8 Colores","brandLabel":"AUTRY","brandSlug":"autry","category":"outros","categoryLabel":"Outros","modelLabel":"","latestTs":1791317987,"gender":"Unissexo","genderSlug":"unissexo","sizeType":"unique","sizeLabel":"Tamanho","sizes":["Único"],"availability":"disponivel","isNew":true,"priceLabel":"40€","priceValue":40,"priceType":"fixed","badges":[{"label":"Novo","tone":"accent"}],"coverPath":"imagens/telegram/autry_autry_8_colores/1.jpg","coverImage":"/SmartThings/imagens/telegram/autry_autry_8_colores/1.jpg","coverWidth":1206,"coverHeight":989,"url":"/SmartThings/produto/autry_autry_8_colores/","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/produto/autry_autry_8_colores/","images":[{"path":"imagens/telegram/autry_autry_8_colores/1.jpg","url":"/SmartThings/imagens/telegram/autry_autry_8_colores/1.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/autry_autry_8_colores/1.jpg","width":1206,"height":989,"alt":"AUTRY / 8 Colores · imagem 1"}],"description":"AUTRY · Outros. Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido.","related":[{"slug":"autry_autry_medalist_7_colores_calidad_muy_top","name":"AUTRY \"Medalist\" / 7 Colores / Calidad muy TOP","brandLabel":"AUTRY","brandSlug":"autry","category":"outros","categoryLabel":"Outros","modelLabel":"","latestTs":1794244947,"gender":"Unissexo","genderSlug":"unissexo","sizeType":"clothing","sizeLabel":"Tamanho","sizes":["XS","S","M","L","XL","XXL"],"availability":"disponivel","isNew":true,"priceLabel":"40€","priceValue":40,"priceType":"fixed","badges":[{"label":"Novo","tone":"accent"}],"coverPath":"imagens/telegram/autry_autry_medalist_7_colores_calidad_muy_top/1.jpg","coverImage":"/SmartThings/imagens/telegram/autry_autry_medalist_7_colores_calidad_muy_top/1.jpg","coverWidth":1280,"coverHeight":960,"url":"/SmartThings/produto/autry_autry_medalist_7_colores_calidad_muy_top/","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/produto/autry_autry_medalist_7_colores_calidad_muy_top/","images":[{"path":"imagens/telegram/autry_autry_medalist_7_colores_calidad_muy_top/1.jpg","url":"/SmartThings/imagens/telegram/autry_autry_medalist_7_colores_calidad_muy_top/1.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/autry_autry_medalist_7_colores_calidad_muy_top/1.jpg","width":1280,"height":960,"alt":"AUTRY \"Medalist\" / 7 Colores / Calidad muy TOP · imagem 1"}],"description":"AUTRY · Outros. Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido."},{"slug":"autry_autry_5_colores","name":"AUTRY / 5 Colores","brandLabel":"AUTRY","brandSlug":"autry","category":"outros","categoryLabel":"Outros","modelLabel":"","latestTs":1792676834,"gender":"Unissexo","genderSlug":"unissexo","sizeType":"unique","sizeLabel":"Tamanho","sizes":["Único"],"availability":"disponivel","isNew":true,"priceLabel":"40€","priceValue":40,"priceType":"fixed","badges":[{"label":"Novo","tone":"accent"}],"coverPath":"imagens/telegram/autry_autry_5_colores/1.jpg","coverImage":"/SmartThings/imagens/telegram/autry_autry_5_colores/1.jpg","coverWidth":994,"coverHeight":878,"url":"/SmartThings/produto/autry_autry_5_colores/","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/produto/autry_autry_5_colores/","images":[{"path":"imagens/telegram/autry_autry_5_colores/1.jpg","url":"/SmartThings/imagens/telegram/autry_autry_5_colores/1.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/autry_autry_5_colores/1.jpg","width":994,"height":878,"alt":"AUTRY / 5 Colores · imagem 1"}],"description":"AUTRY · Outros. Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido."},{"slug":"autry_autry_8_colores_2","name":"AUTRY / 8 Colores","brandLabel":"AUTRY","brandSlug":"autry","category":"outros","categoryLabel":"Outros","modelLabel":"","latestTs":1792081453,"gender":"Unissexo","genderSlug":"unissexo","sizeType":"unique","sizeLabel":"Tamanho","sizes":["Único"],"availability":"disponivel","isNew":true,"priceLabel":"40€","priceValue":40,"priceType":"fixed","badges":[{"label":"Novo","tone":"accent"}],"coverPath":"imagens/telegram/autry_autry_8_colores_2/1.jpg","coverImage":"/SmartThings/imagens/telegram/autry_autry_8_colores_2/1.jpg","coverWidth":1024,"coverHeight":1280,"url":"/SmartThings/produto/autry_autry_8_colores_2/","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/produto/autry_autry_8_colores_2/","images":[{"path":"imagens/telegram/autry_autry_8_colores_2/1.jpg","url":"/SmartThings/imagens/telegram/autry_autry_8_colores_2/1.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/autry_autry_8_colores_2/1.jpg","width":1024,"height":1280,"alt":"AUTRY / 8 Colores · imagem 1"}],"description":"AUTRY · Outros. Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido."},{"slug":"autry_autry_7_colores","name":"AUTRY / 7 colores","brandLabel":"AUTRY","brandSlug":"autry","category":"outros","categoryLabel":"Outros","modelLabel":"","latestTs":1787223588,"gender":"Unissexo","genderSlug":"unissexo","sizeType":"unique","sizeLabel":"Tamanho","sizes":["Único"],"availability":"disponivel","isNew":false,"priceLabel":"40€","priceValue":40,"priceType":"fixed","badges":[],"coverPath":"imagens/telegram/autry_autry_7_colores/1.jpg","coverImage":"/SmartThings/imagens/telegram/autry_autry_7_colores/1.jpg","coverWidth":1000,"coverHeight":1011,"url":"/SmartThings/produto/autry_autry_7_colores/","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/produto/autry_autry_7_colores/","images":[{"path":"imagens/telegram/autry_autry_7_colores/1.jpg","url":"/SmartThings/imagens/telegram/autry_autry_7_colores/1.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/autry_autry_7_colores/1.jpg","width":1000,"height":1011,"alt":"AUTRY / 7 colores · imagem 1"}],"description":"AUTRY · Outros. Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido."}]}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"AUTRY / 8 Colores","image":["https://jamesstuartpt.github.io/SmartThings/imagens/telegram/autry_autry_8_colores/1.jpg"],"description":"AUTRY · Outros. Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido.","brand":{"@type":"Brand","name":"AUTRY"},"sku":"autry_autry_8_colores","category":"Outros","url":"https://jamesstuartpt.github.io/SmartThings/produto/autry_autry_8_colores/","offers":{"@type":"Offer","priceCurrency":"EUR","price":40,"availability":"https://schema.org/InStock","url":"https://jamesstuartpt.github.io/SmartThings/produto/autry_autry_8_colores/"}}</script>
+    <script id="st-product-data" type="application/json">{"product":{"slug":"autry_autry_8_colores","refCode":"ST-55D16E","name":"AUTRY / 8 Colores","brandLabel":"AUTRY","brandSlug":"autry","category":"outros","categoryLabel":"Outros","modelLabel":"","latestTs":1791317987,"gender":"Unissexo","genderSlug":"unissexo","sizeType":"unique","sizeLabel":"Tamanho","sizes":["Único"],"availability":"disponivel","isNew":false,"priceLabel":"40€","priceValue":40,"priceType":"fixed","badges":[],"coverPath":"imagens/telegram/autry_autry_8_colores/1.jpg","coverImage":"/SmartThings/imagens/telegram/autry_autry_8_colores/1.jpg","coverWidth":1206,"coverHeight":989,"url":"/SmartThings/produto/autry_autry_8_colores/","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/produto/autry_autry_8_colores/","images":[{"path":"imagens/telegram/autry_autry_8_colores/1.jpg","url":"/SmartThings/imagens/telegram/autry_autry_8_colores/1.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/autry_autry_8_colores/1.jpg","width":1206,"height":989,"alt":"AUTRY / 8 Colores · imagem 1"}],"description":"AUTRY · Outros. Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido.","related":[{"slug":"autry_autry_medalist_7_colores_calidad_muy_top","refCode":"ST-9E5CD9","name":"AUTRY \"Medalist\" / 7 Colores / Calidad muy TOP","brandLabel":"AUTRY","brandSlug":"autry","category":"outros","categoryLabel":"Outros","modelLabel":"","latestTs":1794244947,"gender":"Unissexo","genderSlug":"unissexo","sizeType":"clothing","sizeLabel":"Tamanho","sizes":["XS","S","M","L","XL","XXL"],"availability":"disponivel","isNew":true,"priceLabel":"40€","priceValue":40,"priceType":"fixed","badges":[{"label":"Novo","tone":"accent"}],"coverPath":"imagens/telegram/autry_autry_medalist_7_colores_calidad_muy_top/1.jpg","coverImage":"/SmartThings/imagens/telegram/autry_autry_medalist_7_colores_calidad_muy_top/1.jpg","coverWidth":1280,"coverHeight":960,"url":"/SmartThings/produto/autry_autry_medalist_7_colores_calidad_muy_top/","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/produto/autry_autry_medalist_7_colores_calidad_muy_top/","images":[{"path":"imagens/telegram/autry_autry_medalist_7_colores_calidad_muy_top/1.jpg","url":"/SmartThings/imagens/telegram/autry_autry_medalist_7_colores_calidad_muy_top/1.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/autry_autry_medalist_7_colores_calidad_muy_top/1.jpg","width":1280,"height":960,"alt":"AUTRY \"Medalist\" / 7 Colores / Calidad muy TOP · imagem 1"}],"description":"AUTRY · Outros. Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido."},{"slug":"autry_autry_5_colores","refCode":"ST-76DA7D","name":"AUTRY / 5 Colores","brandLabel":"AUTRY","brandSlug":"autry","category":"outros","categoryLabel":"Outros","modelLabel":"","latestTs":1792676834,"gender":"Unissexo","genderSlug":"unissexo","sizeType":"unique","sizeLabel":"Tamanho","sizes":["Único"],"availability":"disponivel","isNew":true,"priceLabel":"40€","priceValue":40,"priceType":"fixed","badges":[{"label":"Novo","tone":"accent"}],"coverPath":"imagens/telegram/autry_autry_5_colores/1.jpg","coverImage":"/SmartThings/imagens/telegram/autry_autry_5_colores/1.jpg","coverWidth":994,"coverHeight":878,"url":"/SmartThings/produto/autry_autry_5_colores/","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/produto/autry_autry_5_colores/","images":[{"path":"imagens/telegram/autry_autry_5_colores/1.jpg","url":"/SmartThings/imagens/telegram/autry_autry_5_colores/1.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/autry_autry_5_colores/1.jpg","width":994,"height":878,"alt":"AUTRY / 5 Colores · imagem 1"}],"description":"AUTRY · Outros. Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido."},{"slug":"autry_autry_8_colores_2","refCode":"ST-7124BD","name":"AUTRY / 8 Colores","brandLabel":"AUTRY","brandSlug":"autry","category":"outros","categoryLabel":"Outros","modelLabel":"","latestTs":1792081453,"gender":"Unissexo","genderSlug":"unissexo","sizeType":"unique","sizeLabel":"Tamanho","sizes":["Único"],"availability":"disponivel","isNew":true,"priceLabel":"40€","priceValue":40,"priceType":"fixed","badges":[{"label":"Novo","tone":"accent"}],"coverPath":"imagens/telegram/autry_autry_8_colores_2/1.jpg","coverImage":"/SmartThings/imagens/telegram/autry_autry_8_colores_2/1.jpg","coverWidth":1024,"coverHeight":1280,"url":"/SmartThings/produto/autry_autry_8_colores_2/","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/produto/autry_autry_8_colores_2/","images":[{"path":"imagens/telegram/autry_autry_8_colores_2/1.jpg","url":"/SmartThings/imagens/telegram/autry_autry_8_colores_2/1.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/autry_autry_8_colores_2/1.jpg","width":1024,"height":1280,"alt":"AUTRY / 8 Colores · imagem 1"}],"description":"AUTRY · Outros. Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido."},{"slug":"autry_autry_7_colores","refCode":"ST-B415E0","name":"AUTRY / 7 colores","brandLabel":"AUTRY","brandSlug":"autry","category":"outros","categoryLabel":"Outros","modelLabel":"","latestTs":1787223588,"gender":"Unissexo","genderSlug":"unissexo","sizeType":"unique","sizeLabel":"Tamanho","sizes":["Único"],"availability":"disponivel","isNew":false,"priceLabel":"40€","priceValue":40,"priceType":"fixed","badges":[],"coverPath":"imagens/telegram/autry_autry_7_colores/1.jpg","coverImage":"/SmartThings/imagens/telegram/autry_autry_7_colores/1.jpg","coverWidth":1000,"coverHeight":1011,"url":"/SmartThings/produto/autry_autry_7_colores/","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/produto/autry_autry_7_colores/","images":[{"path":"imagens/telegram/autry_autry_7_colores/1.jpg","url":"/SmartThings/imagens/telegram/autry_autry_7_colores/1.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/autry_autry_7_colores/1.jpg","width":1000,"height":1011,"alt":"AUTRY / 7 colores · imagem 1"}],"description":"AUTRY · Outros. Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido."}]}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"AUTRY / 8 Colores","image":["https://jamesstuartpt.github.io/SmartThings/imagens/telegram/autry_autry_8_colores/1.jpg"],"description":"AUTRY · Outros. Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido.","brand":{"@type":"Brand","name":"AUTRY"},"sku":"autry_autry_8_colores","category":"Outros","url":"https://jamesstuartpt.github.io/SmartThings/produto/autry_autry_8_colores/","offers":{"@type":"Offer","priceCurrency":"EUR","price":40,"availability":"https://schema.org/InStock","url":"https://jamesstuartpt.github.io/SmartThings/produto/autry_autry_8_colores/"}}</script>
     <script type="module" src="/SmartThings/site_config.js"></script>
     <script type="module" src="/SmartThings/js/product-page.js"></script>
   </body>

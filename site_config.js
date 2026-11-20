@@ -37,10 +37,10 @@ const SMARTTHINGS_CONFIG = {
     heroIntro:
       "Escolhe os artigos, define os tamanhos e envia tudo num pedido organizado pelo WhatsApp.",
     heroCtaLabel: "Ver catálogo",
-    orderCtaLabel: "Abrir pedido",
+    orderCtaLabel: "Ir para o carrinho",
     steps: [
       "Escolher os artigos",
-      "Adicionar ao pedido",
+      "Adicionar ao carrinho",
       "Enviar no WhatsApp"
     ]
   },

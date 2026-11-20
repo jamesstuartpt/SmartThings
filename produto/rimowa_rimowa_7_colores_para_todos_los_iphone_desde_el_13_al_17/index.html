@@ -38,9 +38,9 @@
         <nav class="topbar__nav"><a href="/SmartThings/">Catálogo</a><a href="/SmartThings/como-funciona/">Como funciona</a><a href="/SmartThings/trocas-devolucoes/">Trocas</a><a href="/SmartThings/privacidade/">Privacidade</a></nav>
         <div class="topbar__actions">
           <button class="theme-toggle" type="button" data-theme-toggle aria-label="Alternar tema">◐</button>
-          <button class="icon-button" type="button" data-open-order aria-label="Abrir pedido">
-            <span aria-hidden="true">🧾</span>
-            <span class="sr-only">Abrir pedido</span>
+          <button class="icon-button" type="button" data-open-order aria-label="Ir para o carrinho">
+            <span aria-hidden="true">🛒</span>
+            <span class="sr-only">Ir para o carrinho</span>
           </button>
         </div>
       </div>
@@ -66,6 +66,7 @@
       <section class="product-panel">
         <p class="catalog-card__brand">RIMOWA · Outros</p>
         <h1 class="product-title">RIMOWA / 7 Colores / Para todos los IPhone desde el 13 al 17</h1>
+        <p class="product-ref">Ref. ST-3B71FE</p>
         <p class="product-meta">RIMOWA · Outros. Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido.</p>
         <div class="chip-row">
           
@@ -87,8 +88,8 @@
           <p class="inline-note">Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido.</p>
         </div>
         <div class="hero__actions">
-          <button class="button button--primary" id="product-add" type="button">Adicionar ao pedido</button>
-          <a class="button" href="https://t.me/smartthingspt" target="_blank" rel="noopener">Ver fotos e vídeos reais no Telegram</a>
+          <button class="button button--primary" id="product-add" type="button">Adicionar ao carrinho</button>
+          <button class="button" id="product-buy-now" type="button">Comprar agora</button>
         </div>
       </section>
       <section class="container" style="grid-column:1 / -1; padding-bottom:56px;">
@@ -114,6 +115,7 @@
             <span class="catalog-card__price">40€</span>
           </div>
           <h3 class="catalog-card__name">RIMOWA / 7 Colores / Para todos los IPhone desde el 13 al 18</h3>
+          <p class="catalog-card__ref">Ref. ST-657AA0</p>
         </div>
       </a>
       <div class="catalog-card__foot catalog-card__foot--single">
@@ -137,6 +139,7 @@
             <span class="catalog-card__price">40€</span>
           </div>
           <h3 class="catalog-card__name">RIMOWA x DIOR / 12 Colores / Para IPhone 17 y 18</h3>
+          <p class="catalog-card__ref">Ref. ST-AD0771</p>
         </div>
       </a>
       <div class="catalog-card__foot catalog-card__foot--single">
@@ -160,6 +163,7 @@
             <span class="catalog-card__price">40€</span>
           </div>
           <h3 class="catalog-card__name">RIMOWA / 6 Colores / Para todos los IPhone desde el 13 al 17 / Super Precio</h3>
+          <p class="catalog-card__ref">Ref. ST-E82DA1</p>
         </div>
       </a>
       <div class="catalog-card__foot catalog-card__foot--single">
@@ -183,6 +187,7 @@
             <span class="catalog-card__price">40€</span>
           </div>
           <h3 class="catalog-card__name">RIMOWA / Muchos Colores</h3>
+          <p class="catalog-card__ref">Ref. ST-33F4CD</p>
         </div>
       </a>
       <div class="catalog-card__foot catalog-card__foot--single">
@@ -216,25 +221,10 @@
     </div>
     
     <footer class="footer">
-      <div class="container footer__grid">
-        <div>
-          <h2 class="drawer-title">Smart Things PT</h2>
-          <p>Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido.</p>
-          <p>Envio normalmente confirmado no WhatsApp. Prazo médio previsto: 10 a 15 dias.</p>
-        </div>
-        <div>
-          <h3>Contacto</h3>
-          <p><a href="https://wa.me/351927515217">+351 927 515 217</a></p>
-          <p><a href="https://t.me/smartthingspt" target="_blank" rel="noopener">@smartthingspt</a></p>
-          <p><strong>NIF:</strong> TODO: confirmar NIF do vendedor</p>
-        </div>
-        <div>
-          <h3>Informação</h3>
-          <p><a href="/SmartThings/como-funciona/">Como funciona</a></p>
-          <p><a href="/SmartThings/trocas-devolucoes/">Trocas e devoluções</a></p>
-          <p><a href="/SmartThings/privacidade/">Privacidade</a></p>
-          <small>O site guarda o pedido apenas neste dispositivo. Não recolhe dados pessoais.</small>
-        </div>
+      <div class="container footer__compact">
+        <p><strong>Smart Things PT</strong></p>
+        <p><a href="https://wa.me/351927515217">+351 927 515 217</a></p>
+        <p><a href="https://t.me/smartthingspt" target="_blank" rel="noopener">@smartthingspt</a></p>
       </div>
     </footer>
   
@@ -244,7 +234,7 @@
       <div class="order-drawer__head">
         <div style="display:flex; align-items:center; justify-content:space-between; gap:12px;">
           <div>
-            <h2 class="drawer-title" id="order-title">Pedido</h2>
+            <h2 class="drawer-title" id="order-title">Carrinho</h2>
             <p class="helper-text">Stock, preço final e envio são confirmados no WhatsApp.</p>
           </div>
           <button class="icon-button" type="button" data-close-order aria-label="Fechar pedido">×</button>
@@ -264,9 +254,9 @@
       <div class="order-drawer__footer">
         <p class="helper-text">Artigos: <strong data-order-count>0</strong> · Total estimado: <strong data-order-total>0€</strong></p>
         <div style="display:grid; gap:10px;">
-          <button class="button button--primary" id="order-send" type="button">Enviar por WhatsApp</button>
+          <button class="button button--primary" id="order-send" type="button">Finalizar compra</button>
           <button class="button" id="order-copy" type="button">Copiar pedido</button>
-          <button class="button" id="order-clear" type="button">Limpar pedido</button>
+          <button class="button" id="order-clear" type="button">Limpar carrinho</button>
         </div>
       </div>
     </aside>
@@ -276,22 +266,23 @@
           <strong><span data-order-count>0</span> artigos no pedido</strong>
           <span>Total estimado <span data-order-total>0€</span></span>
         </div>
-        <button class="button button--primary" type="button" data-open-order>Abrir pedido</button>
+        <button class="button button--primary" type="button" data-open-order>Ir para o carrinho</button>
       </div>
     </div>
     <div class="modal-backdrop" id="modal-backdrop" hidden></div>
     <section class="quick-modal" id="quick-modal" hidden aria-modal="true" role="dialog" aria-labelledby="quick-modal-title">
       <div class="quick-modal__content">
         <div style="display:flex; align-items:center; justify-content:space-between; gap:12px;">
-          <h2 class="drawer-title" id="quick-modal-title">Adicionar ao pedido</h2>
+          <h2 class="drawer-title" id="quick-modal-title">Adicionar ao carrinho</h2>
           <button class="icon-button" type="button" data-close-modal aria-label="Fechar modal">×</button>
         </div>
         <div id="quick-modal-body"></div>
       </div>
     </section>
+    <div class="toast" id="st-toast" hidden role="status" aria-live="polite"></div>
     <div class="sr-only" id="st-live-region" aria-live="polite"></div>
   
-    <script id="st-product-data" type="application/json">{"product":{"slug":"rimowa_rimowa_7_colores_para_todos_los_iphone_desde_el_13_al_17","name":"RIMOWA / 7 Colores / Para todos los IPhone desde el 13 al 17","brandLabel":"RIMOWA","brandSlug":"rimowa","category":"outros","categoryLabel":"Outros","modelLabel":"","latestTs":1788439981,"gender":"Unissexo","genderSlug":"unissexo","sizeType":"unique","sizeLabel":"Tamanho","sizes":["Único"],"availability":"disponivel","isNew":false,"priceLabel":"40€","priceValue":40,"priceType":"fixed","badges":[],"coverPath":"imagens/telegram/rimowa_rimowa_7_colores_para_todos_los_iphone_desde_el_13_al_17/1.jpg","coverImage":"/SmartThings/imagens/telegram/rimowa_rimowa_7_colores_para_todos_los_iphone_desde_el_13_al_17/1.jpg","coverWidth":1125,"coverHeight":1280,"url":"/SmartThings/produto/rimowa_rimowa_7_colores_para_todos_los_iphone_desde_el_13_al_17/","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/produto/rimowa_rimowa_7_colores_para_todos_los_iphone_desde_el_13_al_17/","images":[{"path":"imagens/telegram/rimowa_rimowa_7_colores_para_todos_los_iphone_desde_el_13_al_17/1.jpg","url":"/SmartThings/imagens/telegram/rimowa_rimowa_7_colores_para_todos_los_iphone_desde_el_13_al_17/1.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/rimowa_rimowa_7_colores_para_todos_los_iphone_desde_el_13_al_17/1.jpg","width":1125,"height":1280,"alt":"RIMOWA / 7 Colores / Para todos los IPhone desde el 13 al 17 · imagem 1"}],"description":"RIMOWA · Outros. Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido.","related":[{"slug":"rimowa_rimowa_7_colores_para_todos_los_iphone_desde_el_13_al_18","name":"RIMOWA / 7 Colores / Para todos los IPhone desde el 13 al 18","brandLabel":"RIMOWA","brandSlug":"rimowa","category":"outros","categoryLabel":"Outros","modelLabel":"","latestTs":1793043894,"gender":"Unissexo","genderSlug":"unissexo","sizeType":"unique","sizeLabel":"Tamanho","sizes":["Único"],"availability":"disponivel","isNew":true,"priceLabel":"40€","priceValue":40,"priceType":"fixed","badges":[{"label":"Novo","tone":"accent"}],"coverPath":"imagens/telegram/rimowa_rimowa_7_colores_para_todos_los_iphone_desde_el_13_al_18/1.jpg","coverImage":"/SmartThings/imagens/telegram/rimowa_rimowa_7_colores_para_todos_los_iphone_desde_el_13_al_18/1.jpg","coverWidth":1125,"coverHeight":1280,"url":"/SmartThings/produto/rimowa_rimowa_7_colores_para_todos_los_iphone_desde_el_13_al_18/","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/produto/rimowa_rimowa_7_colores_para_todos_los_iphone_desde_el_13_al_18/","images":[{"path":"imagens/telegram/rimowa_rimowa_7_colores_para_todos_los_iphone_desde_el_13_al_18/1.jpg","url":"/SmartThings/imagens/telegram/rimowa_rimowa_7_colores_para_todos_los_iphone_desde_el_13_al_18/1.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/rimowa_rimowa_7_colores_para_todos_los_iphone_desde_el_13_al_18/1.jpg","width":1125,"height":1280,"alt":"RIMOWA / 7 Colores / Para todos los IPhone desde el 13 al 18 · imagem 1"}],"description":"RIMOWA · Outros. Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido."},{"slug":"rimowa_rimowa_x_dior_12_colores_para_iphone_17_y_18","name":"RIMOWA x DIOR / 12 Colores / Para IPhone 17 y 18","brandLabel":"RIMOWA","brandSlug":"rimowa","category":"outros","categoryLabel":"Outros","modelLabel":"","latestTs":1791747179,"gender":"Unissexo","genderSlug":"unissexo","sizeType":"unique","sizeLabel":"Tamanho","sizes":["Único"],"availability":"disponivel","isNew":true,"priceLabel":"40€","priceValue":40,"priceType":"fixed","badges":[{"label":"Novo","tone":"accent"}],"coverPath":"imagens/telegram/rimowa_rimowa_x_dior_12_colores_para_iphone_17_y_18/1.jpg","coverImage":"/SmartThings/imagens/telegram/rimowa_rimowa_x_dior_12_colores_para_iphone_17_y_18/1.jpg","coverWidth":1280,"coverHeight":1280,"url":"/SmartThings/produto/rimowa_rimowa_x_dior_12_colores_para_iphone_17_y_18/","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/produto/rimowa_rimowa_x_dior_12_colores_para_iphone_17_y_18/","images":[{"path":"imagens/telegram/rimowa_rimowa_x_dior_12_colores_para_iphone_17_y_18/1.jpg","url":"/SmartThings/imagens/telegram/rimowa_rimowa_x_dior_12_colores_para_iphone_17_y_18/1.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/rimowa_rimowa_x_dior_12_colores_para_iphone_17_y_18/1.jpg","width":1280,"height":1280,"alt":"RIMOWA x DIOR / 12 Colores / Para IPhone 17 y 18 · imagem 1"}],"description":"RIMOWA · Outros. Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido."},{"slug":"rimowa_rimowa_6_colores_para_todos_los_iphone_desde_el_13_al_17_super_precio","name":"RIMOWA / 6 Colores / Para todos los IPhone desde el 13 al 17 / Super Precio","brandLabel":"RIMOWA","brandSlug":"rimowa","category":"outros","categoryLabel":"Outros","modelLabel":"","latestTs":1788900969,"gender":"Unissexo","genderSlug":"unissexo","sizeType":"unique","sizeLabel":"Tamanho","sizes":["Único"],"availability":"disponivel","isNew":false,"priceLabel":"40€","priceValue":40,"priceType":"fixed","badges":[],"coverPath":"imagens/telegram/rimowa_rimowa_6_colores_para_todos_los_iphone_desde_el_13_al_17_super_precio/1.jpg","coverImage":"/SmartThings/imagens/telegram/rimowa_rimowa_6_colores_para_todos_los_iphone_desde_el_13_al_17_super_precio/1.jpg","coverWidth":1125,"coverHeight":1280,"url":"/SmartThings/produto/rimowa_rimowa_6_colores_para_todos_los_iphone_desde_el_13_al_17_super_precio/","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/produto/rimowa_rimowa_6_colores_para_todos_los_iphone_desde_el_13_al_17_super_precio/","images":[{"path":"imagens/telegram/rimowa_rimowa_6_colores_para_todos_los_iphone_desde_el_13_al_17_super_precio/1.jpg","url":"/SmartThings/imagens/telegram/rimowa_rimowa_6_colores_para_todos_los_iphone_desde_el_13_al_17_super_precio/1.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/rimowa_rimowa_6_colores_para_todos_los_iphone_desde_el_13_al_17_super_precio/1.jpg","width":1125,"height":1280,"alt":"RIMOWA / 6 Colores / Para todos los IPhone desde el 13 al 17 / Super Precio · imagem 1"}],"description":"RIMOWA · Outros. Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido."},{"slug":"rimowa_rimowa_muchos_colores","name":"RIMOWA / Muchos Colores","brandLabel":"RIMOWA","brandSlug":"rimowa","category":"outros","categoryLabel":"Outros","modelLabel":"","latestTs":1788628443,"gender":"Unissexo","genderSlug":"unissexo","sizeType":"unique","sizeLabel":"Tamanho","sizes":["Único"],"availability":"disponivel","isNew":false,"priceLabel":"40€","priceValue":40,"priceType":"fixed","badges":[],"coverPath":"imagens/telegram/rimowa_rimowa_muchos_colores/1.jpg","coverImage":"/SmartThings/imagens/telegram/rimowa_rimowa_muchos_colores/1.jpg","coverWidth":1280,"coverHeight":1280,"url":"/SmartThings/produto/rimowa_rimowa_muchos_colores/","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/produto/rimowa_rimowa_muchos_colores/","images":[{"path":"imagens/telegram/rimowa_rimowa_muchos_colores/1.jpg","url":"/SmartThings/imagens/telegram/rimowa_rimowa_muchos_colores/1.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/rimowa_rimowa_muchos_colores/1.jpg","width":1280,"height":1280,"alt":"RIMOWA / Muchos Colores · imagem 1"}],"description":"RIMOWA · Outros. Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido."}]}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"RIMOWA / 7 Colores / Para todos los IPhone desde el 13 al 17","image":["https://jamesstuartpt.github.io/SmartThings/imagens/telegram/rimowa_rimowa_7_colores_para_todos_los_iphone_desde_el_13_al_17/1.jpg"],"description":"RIMOWA · Outros. Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido.","brand":{"@type":"Brand","name":"RIMOWA"},"sku":"rimowa_rimowa_7_colores_para_todos_los_iphone_desde_el_13_al_17","category":"Outros","url":"https://jamesstuartpt.github.io/SmartThings/produto/rimowa_rimowa_7_colores_para_todos_los_iphone_desde_el_13_al_17/","offers":{"@type":"Offer","priceCurrency":"EUR","price":40,"availability":"https://schema.org/InStock","url":"https://jamesstuartpt.github.io/SmartThings/produto/rimowa_rimowa_7_colores_para_todos_los_iphone_desde_el_13_al_17/"}}</script>
+    <script id="st-product-data" type="application/json">{"product":{"slug":"rimowa_rimowa_7_colores_para_todos_los_iphone_desde_el_13_al_17","refCode":"ST-3B71FE","name":"RIMOWA / 7 Colores / Para todos los IPhone desde el 13 al 17","brandLabel":"RIMOWA","brandSlug":"rimowa","category":"outros","categoryLabel":"Outros","modelLabel":"","latestTs":1788439981,"gender":"Unissexo","genderSlug":"unissexo","sizeType":"unique","sizeLabel":"Tamanho","sizes":["Único"],"availability":"disponivel","isNew":false,"priceLabel":"40€","priceValue":40,"priceType":"fixed","badges":[],"coverPath":"imagens/telegram/rimowa_rimowa_7_colores_para_todos_los_iphone_desde_el_13_al_17/1.jpg","coverImage":"/SmartThings/imagens/telegram/rimowa_rimowa_7_colores_para_todos_los_iphone_desde_el_13_al_17/1.jpg","coverWidth":1125,"coverHeight":1280,"url":"/SmartThings/produto/rimowa_rimowa_7_colores_para_todos_los_iphone_desde_el_13_al_17/","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/produto/rimowa_rimowa_7_colores_para_todos_los_iphone_desde_el_13_al_17/","images":[{"path":"imagens/telegram/rimowa_rimowa_7_colores_para_todos_los_iphone_desde_el_13_al_17/1.jpg","url":"/SmartThings/imagens/telegram/rimowa_rimowa_7_colores_para_todos_los_iphone_desde_el_13_al_17/1.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/rimowa_rimowa_7_colores_para_todos_los_iphone_desde_el_13_al_17/1.jpg","width":1125,"height":1280,"alt":"RIMOWA / 7 Colores / Para todos los IPhone desde el 13 al 17 · imagem 1"}],"description":"RIMOWA · Outros. Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido.","related":[{"slug":"rimowa_rimowa_7_colores_para_todos_los_iphone_desde_el_13_al_18","refCode":"ST-657AA0","name":"RIMOWA / 7 Colores / Para todos los IPhone desde el 13 al 18","brandLabel":"RIMOWA","brandSlug":"rimowa","category":"outros","categoryLabel":"Outros","modelLabel":"","latestTs":1793043894,"gender":"Unissexo","genderSlug":"unissexo","sizeType":"unique","sizeLabel":"Tamanho","sizes":["Único"],"availability":"disponivel","isNew":true,"priceLabel":"40€","priceValue":40,"priceType":"fixed","badges":[{"label":"Novo","tone":"accent"}],"coverPath":"imagens/telegram/rimowa_rimowa_7_colores_para_todos_los_iphone_desde_el_13_al_18/1.jpg","coverImage":"/SmartThings/imagens/telegram/rimowa_rimowa_7_colores_para_todos_los_iphone_desde_el_13_al_18/1.jpg","coverWidth":1125,"coverHeight":1280,"url":"/SmartThings/produto/rimowa_rimowa_7_colores_para_todos_los_iphone_desde_el_13_al_18/","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/produto/rimowa_rimowa_7_colores_para_todos_los_iphone_desde_el_13_al_18/","images":[{"path":"imagens/telegram/rimowa_rimowa_7_colores_para_todos_los_iphone_desde_el_13_al_18/1.jpg","url":"/SmartThings/imagens/telegram/rimowa_rimowa_7_colores_para_todos_los_iphone_desde_el_13_al_18/1.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/rimowa_rimowa_7_colores_para_todos_los_iphone_desde_el_13_al_18/1.jpg","width":1125,"height":1280,"alt":"RIMOWA / 7 Colores / Para todos los IPhone desde el 13 al 18 · imagem 1"}],"description":"RIMOWA · Outros. Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido."},{"slug":"rimowa_rimowa_x_dior_12_colores_para_iphone_17_y_18","refCode":"ST-AD0771","name":"RIMOWA x DIOR / 12 Colores / Para IPhone 17 y 18","brandLabel":"RIMOWA","brandSlug":"rimowa","category":"outros","categoryLabel":"Outros","modelLabel":"","latestTs":1791747179,"gender":"Unissexo","genderSlug":"unissexo","sizeType":"unique","sizeLabel":"Tamanho","sizes":["Único"],"availability":"disponivel","isNew":true,"priceLabel":"40€","priceValue":40,"priceType":"fixed","badges":[{"label":"Novo","tone":"accent"}],"coverPath":"imagens/telegram/rimowa_rimowa_x_dior_12_colores_para_iphone_17_y_18/1.jpg","coverImage":"/SmartThings/imagens/telegram/rimowa_rimowa_x_dior_12_colores_para_iphone_17_y_18/1.jpg","coverWidth":1280,"coverHeight":1280,"url":"/SmartThings/produto/rimowa_rimowa_x_dior_12_colores_para_iphone_17_y_18/","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/produto/rimowa_rimowa_x_dior_12_colores_para_iphone_17_y_18/","images":[{"path":"imagens/telegram/rimowa_rimowa_x_dior_12_colores_para_iphone_17_y_18/1.jpg","url":"/SmartThings/imagens/telegram/rimowa_rimowa_x_dior_12_colores_para_iphone_17_y_18/1.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/rimowa_rimowa_x_dior_12_colores_para_iphone_17_y_18/1.jpg","width":1280,"height":1280,"alt":"RIMOWA x DIOR / 12 Colores / Para IPhone 17 y 18 · imagem 1"}],"description":"RIMOWA · Outros. Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido."},{"slug":"rimowa_rimowa_6_colores_para_todos_los_iphone_desde_el_13_al_17_super_precio","refCode":"ST-E82DA1","name":"RIMOWA / 6 Colores / Para todos los IPhone desde el 13 al 17 / Super Precio","brandLabel":"RIMOWA","brandSlug":"rimowa","category":"outros","categoryLabel":"Outros","modelLabel":"","latestTs":1788900969,"gender":"Unissexo","genderSlug":"unissexo","sizeType":"unique","sizeLabel":"Tamanho","sizes":["Único"],"availability":"disponivel","isNew":false,"priceLabel":"40€","priceValue":40,"priceType":"fixed","badges":[],"coverPath":"imagens/telegram/rimowa_rimowa_6_colores_para_todos_los_iphone_desde_el_13_al_17_super_precio/1.jpg","coverImage":"/SmartThings/imagens/telegram/rimowa_rimowa_6_colores_para_todos_los_iphone_desde_el_13_al_17_super_precio/1.jpg","coverWidth":1125,"coverHeight":1280,"url":"/SmartThings/produto/rimowa_rimowa_6_colores_para_todos_los_iphone_desde_el_13_al_17_super_precio/","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/produto/rimowa_rimowa_6_colores_para_todos_los_iphone_desde_el_13_al_17_super_precio/","images":[{"path":"imagens/telegram/rimowa_rimowa_6_colores_para_todos_los_iphone_desde_el_13_al_17_super_precio/1.jpg","url":"/SmartThings/imagens/telegram/rimowa_rimowa_6_colores_para_todos_los_iphone_desde_el_13_al_17_super_precio/1.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/rimowa_rimowa_6_colores_para_todos_los_iphone_desde_el_13_al_17_super_precio/1.jpg","width":1125,"height":1280,"alt":"RIMOWA / 6 Colores / Para todos los IPhone desde el 13 al 17 / Super Precio · imagem 1"}],"description":"RIMOWA · Outros. Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido."},{"slug":"rimowa_rimowa_muchos_colores","refCode":"ST-33F4CD","name":"RIMOWA / Muchos Colores","brandLabel":"RIMOWA","brandSlug":"rimowa","category":"outros","categoryLabel":"Outros","modelLabel":"","latestTs":1788628443,"gender":"Unissexo","genderSlug":"unissexo","sizeType":"unique","sizeLabel":"Tamanho","sizes":["Único"],"availability":"disponivel","isNew":false,"priceLabel":"40€","priceValue":40,"priceType":"fixed","badges":[],"coverPath":"imagens/telegram/rimowa_rimowa_muchos_colores/1.jpg","coverImage":"/SmartThings/imagens/telegram/rimowa_rimowa_muchos_colores/1.jpg","coverWidth":1280,"coverHeight":1280,"url":"/SmartThings/produto/rimowa_rimowa_muchos_colores/","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/produto/rimowa_rimowa_muchos_colores/","images":[{"path":"imagens/telegram/rimowa_rimowa_muchos_colores/1.jpg","url":"/SmartThings/imagens/telegram/rimowa_rimowa_muchos_colores/1.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/rimowa_rimowa_muchos_colores/1.jpg","width":1280,"height":1280,"alt":"RIMOWA / Muchos Colores · imagem 1"}],"description":"RIMOWA · Outros. Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido."}]}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"RIMOWA / 7 Colores / Para todos los IPhone desde el 13 al 17","image":["https://jamesstuartpt.github.io/SmartThings/imagens/telegram/rimowa_rimowa_7_colores_para_todos_los_iphone_desde_el_13_al_17/1.jpg"],"description":"RIMOWA · Outros. Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido.","brand":{"@type":"Brand","name":"RIMOWA"},"sku":"rimowa_rimowa_7_colores_para_todos_los_iphone_desde_el_13_al_17","category":"Outros","url":"https://jamesstuartpt.github.io/SmartThings/produto/rimowa_rimowa_7_colores_para_todos_los_iphone_desde_el_13_al_17/","offers":{"@type":"Offer","priceCurrency":"EUR","price":40,"availability":"https://schema.org/InStock","url":"https://jamesstuartpt.github.io/SmartThings/produto/rimowa_rimowa_7_colores_para_todos_los_iphone_desde_el_13_al_17/"}}</script>
     <script type="module" src="/SmartThings/site_config.js"></script>
     <script type="module" src="/SmartThings/js/product-page.js"></script>
   </body>

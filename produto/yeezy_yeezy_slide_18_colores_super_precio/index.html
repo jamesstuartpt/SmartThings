@@ -38,9 +38,9 @@
         <nav class="topbar__nav"><a href="/SmartThings/">Catálogo</a><a href="/SmartThings/como-funciona/">Como funciona</a><a href="/SmartThings/trocas-devolucoes/">Trocas</a><a href="/SmartThings/privacidade/">Privacidade</a></nav>
         <div class="topbar__actions">
           <button class="theme-toggle" type="button" data-theme-toggle aria-label="Alternar tema">◐</button>
-          <button class="icon-button" type="button" data-open-order aria-label="Abrir pedido">
-            <span aria-hidden="true">🧾</span>
-            <span class="sr-only">Abrir pedido</span>
+          <button class="icon-button" type="button" data-open-order aria-label="Ir para o carrinho">
+            <span aria-hidden="true">🛒</span>
+            <span class="sr-only">Ir para o carrinho</span>
           </button>
         </div>
       </div>
@@ -66,6 +66,7 @@
       <section class="product-panel">
         <p class="catalog-card__brand">YEEZY · Sneakers</p>
         <h1 class="product-title">YEEZY &quot;Slide&quot; / 18 Colores / Super Precio</h1>
+        <p class="product-ref">Ref. ST-15447E</p>
         <p class="product-meta">YEEZY · Sneakers. Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido.</p>
         <div class="chip-row">
           <span class="badge badge--accent">Novo</span>
@@ -87,8 +88,8 @@
           <p class="inline-note">Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido.</p>
         </div>
         <div class="hero__actions">
-          <button class="button button--primary" id="product-add" type="button">Adicionar ao pedido</button>
-          <a class="button" href="https://t.me/smartthingspt" target="_blank" rel="noopener">Ver fotos e vídeos reais no Telegram</a>
+          <button class="button button--primary" id="product-add" type="button">Adicionar ao carrinho</button>
+          <button class="button" id="product-buy-now" type="button">Comprar agora</button>
         </div>
       </section>
       <section class="container" style="grid-column:1 / -1; padding-bottom:56px;">
@@ -114,6 +115,7 @@
             <span class="catalog-card__price">40€</span>
           </div>
           <h3 class="catalog-card__name">YEEZY 700 / 8 Colores</h3>
+          <p class="catalog-card__ref">Ref. ST-79E2A5</p>
         </div>
       </a>
       <div class="catalog-card__foot catalog-card__foot--single">
@@ -137,6 +139,7 @@
             <span class="catalog-card__price">40€</span>
           </div>
           <h3 class="catalog-card__name">YEEZY Boost 350 / 20 Colores</h3>
+          <p class="catalog-card__ref">Ref. ST-46F6FA</p>
         </div>
       </a>
       <div class="catalog-card__foot catalog-card__foot--single">
@@ -160,6 +163,7 @@
             <span class="catalog-card__price">40€</span>
           </div>
           <h3 class="catalog-card__name">YEEZY &quot;Slide&quot; / 18 Colores / Super Precio / Tallas hasta la 48</h3>
+          <p class="catalog-card__ref">Ref. ST-F068F8</p>
         </div>
       </a>
       <div class="catalog-card__foot catalog-card__foot--single">
@@ -183,6 +187,7 @@
             <span class="catalog-card__price">40€</span>
           </div>
           <h3 class="catalog-card__name">YEEZY 350v2 / 21 Colores</h3>
+          <p class="catalog-card__ref">Ref. ST-D59854</p>
         </div>
       </a>
       <div class="catalog-card__foot catalog-card__foot--single">
@@ -216,25 +221,10 @@
     </div>
     
     <footer class="footer">
-      <div class="container footer__grid">
-        <div>
-          <h2 class="drawer-title">Smart Things PT</h2>
-          <p>Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido.</p>
-          <p>Envio normalmente confirmado no WhatsApp. Prazo médio previsto: 10 a 15 dias.</p>
-        </div>
-        <div>
-          <h3>Contacto</h3>
-          <p><a href="https://wa.me/351927515217">+351 927 515 217</a></p>
-          <p><a href="https://t.me/smartthingspt" target="_blank" rel="noopener">@smartthingspt</a></p>
-          <p><strong>NIF:</strong> TODO: confirmar NIF do vendedor</p>
-        </div>
-        <div>
-          <h3>Informação</h3>
-          <p><a href="/SmartThings/como-funciona/">Como funciona</a></p>
-          <p><a href="/SmartThings/trocas-devolucoes/">Trocas e devoluções</a></p>
-          <p><a href="/SmartThings/privacidade/">Privacidade</a></p>
-          <small>O site guarda o pedido apenas neste dispositivo. Não recolhe dados pessoais.</small>
-        </div>
+      <div class="container footer__compact">
+        <p><strong>Smart Things PT</strong></p>
+        <p><a href="https://wa.me/351927515217">+351 927 515 217</a></p>
+        <p><a href="https://t.me/smartthingspt" target="_blank" rel="noopener">@smartthingspt</a></p>
       </div>
     </footer>
   
@@ -244,7 +234,7 @@
       <div class="order-drawer__head">
         <div style="display:flex; align-items:center; justify-content:space-between; gap:12px;">
           <div>
-            <h2 class="drawer-title" id="order-title">Pedido</h2>
+            <h2 class="drawer-title" id="order-title">Carrinho</h2>
             <p class="helper-text">Stock, preço final e envio são confirmados no WhatsApp.</p>
           </div>
           <button class="icon-button" type="button" data-close-order aria-label="Fechar pedido">×</button>
@@ -264,9 +254,9 @@
       <div class="order-drawer__footer">
         <p class="helper-text">Artigos: <strong data-order-count>0</strong> · Total estimado: <strong data-order-total>0€</strong></p>
         <div style="display:grid; gap:10px;">
-          <button class="button button--primary" id="order-send" type="button">Enviar por WhatsApp</button>
+          <button class="button button--primary" id="order-send" type="button">Finalizar compra</button>
           <button class="button" id="order-copy" type="button">Copiar pedido</button>
-          <button class="button" id="order-clear" type="button">Limpar pedido</button>
+          <button class="button" id="order-clear" type="button">Limpar carrinho</button>
         </div>
       </div>
     </aside>
@@ -276,22 +266,23 @@
           <strong><span data-order-count>0</span> artigos no pedido</strong>
           <span>Total estimado <span data-order-total>0€</span></span>
         </div>
-        <button class="button button--primary" type="button" data-open-order>Abrir pedido</button>
+        <button class="button button--primary" type="button" data-open-order>Ir para o carrinho</button>
       </div>
     </div>
     <div class="modal-backdrop" id="modal-backdrop" hidden></div>
     <section class="quick-modal" id="quick-modal" hidden aria-modal="true" role="dialog" aria-labelledby="quick-modal-title">
       <div class="quick-modal__content">
         <div style="display:flex; align-items:center; justify-content:space-between; gap:12px;">
-          <h2 class="drawer-title" id="quick-modal-title">Adicionar ao pedido</h2>
+          <h2 class="drawer-title" id="quick-modal-title">Adicionar ao carrinho</h2>
           <button class="icon-button" type="button" data-close-modal aria-label="Fechar modal">×</button>
         </div>
         <div id="quick-modal-body"></div>
       </div>
     </section>
+    <div class="toast" id="st-toast" hidden role="status" aria-live="polite"></div>
     <div class="sr-only" id="st-live-region" aria-live="polite"></div>
   
-    <script id="st-product-data" type="application/json">{"product":{"slug":"yeezy_yeezy_slide_18_colores_super_precio","name":"YEEZY \"Slide\" / 18 Colores / Super Precio","brandLabel":"YEEZY","brandSlug":"yeezy","category":"sneakers","categoryLabel":"Sneakers","modelLabel":"","latestTs":1791927482,"gender":"Unissexo","genderSlug":"unissexo","sizeType":"shoes","sizeLabel":"Tamanho","sizes":["36","37","38","39","40","41","42","43","44","45","46"],"availability":"disponivel","isNew":true,"priceLabel":"40€","priceValue":40,"priceType":"fixed","badges":[{"label":"Novo","tone":"accent"}],"coverPath":"imagens/telegram/yeezy_yeezy_slide_18_colores_super_precio/1.jpg","coverImage":"/SmartThings/imagens/telegram/yeezy_yeezy_slide_18_colores_super_precio/1.jpg","coverWidth":1200,"coverHeight":1200,"url":"/SmartThings/produto/yeezy_yeezy_slide_18_colores_super_precio/","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/produto/yeezy_yeezy_slide_18_colores_super_precio/","images":[{"path":"imagens/telegram/yeezy_yeezy_slide_18_colores_super_precio/1.jpg","url":"/SmartThings/imagens/telegram/yeezy_yeezy_slide_18_colores_super_precio/1.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/yeezy_yeezy_slide_18_colores_super_precio/1.jpg","width":1200,"height":1200,"alt":"YEEZY \"Slide\" / 18 Colores / Super Precio · imagem 1"}],"description":"YEEZY · Sneakers. Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido.","related":[{"slug":"yeezy_yeezy_700_8_colores","name":"YEEZY 700 / 8 Colores","brandLabel":"YEEZY","brandSlug":"yeezy","category":"sneakers","categoryLabel":"Sneakers","modelLabel":"","latestTs":1791122621,"gender":"Unissexo","genderSlug":"unissexo","sizeType":"shoes","sizeLabel":"Tamanho","sizes":["36","37","38","39","40","41","42","43","44","45","46"],"availability":"disponivel","isNew":false,"priceLabel":"40€","priceValue":40,"priceType":"fixed","badges":[],"coverPath":"imagens/telegram/yeezy_yeezy_700_8_colores/1.jpg","coverImage":"/SmartThings/imagens/telegram/yeezy_yeezy_700_8_colores/1.jpg","coverWidth":1206,"coverHeight":1050,"url":"/SmartThings/produto/yeezy_yeezy_700_8_colores/","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/produto/yeezy_yeezy_700_8_colores/","images":[{"path":"imagens/telegram/yeezy_yeezy_700_8_colores/1.jpg","url":"/SmartThings/imagens/telegram/yeezy_yeezy_700_8_colores/1.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/yeezy_yeezy_700_8_colores/1.jpg","width":1206,"height":1050,"alt":"YEEZY 700 / 8 Colores · imagem 1"}],"description":"YEEZY · Sneakers. Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido."},{"slug":"yeezy_yeezy_boost_350_20_colores","name":"YEEZY Boost 350 / 20 Colores","brandLabel":"YEEZY","brandSlug":"yeezy","category":"sneakers","categoryLabel":"Sneakers","modelLabel":"","latestTs":1789460832,"gender":"Unissexo","genderSlug":"unissexo","sizeType":"shoes","sizeLabel":"Tamanho","sizes":["36","37","38","39","40","41","42","43","44","45","46"],"availability":"disponivel","isNew":false,"priceLabel":"40€","priceValue":40,"priceType":"fixed","badges":[],"coverPath":"imagens/telegram/yeezy_yeezy_boost_350_20_colores/1.jpg","coverImage":"/SmartThings/imagens/telegram/yeezy_yeezy_boost_350_20_colores/1.jpg","coverWidth":1024,"coverHeight":1024,"url":"/SmartThings/produto/yeezy_yeezy_boost_350_20_colores/","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/produto/yeezy_yeezy_boost_350_20_colores/","images":[{"path":"imagens/telegram/yeezy_yeezy_boost_350_20_colores/1.jpg","url":"/SmartThings/imagens/telegram/yeezy_yeezy_boost_350_20_colores/1.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/yeezy_yeezy_boost_350_20_colores/1.jpg","width":1024,"height":1024,"alt":"YEEZY Boost 350 / 20 Colores · imagem 1"}],"description":"YEEZY · Sneakers. Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido."},{"slug":"yeezy_yeezy_slide_18_colores_super_precio_tallas_hasta_la_48","name":"YEEZY \"Slide\" / 18 Colores / Super Precio / Tallas hasta la 48","brandLabel":"YEEZY","brandSlug":"yeezy","category":"sneakers","categoryLabel":"Sneakers","modelLabel":"","latestTs":1789409469,"gender":"Unissexo","genderSlug":"unissexo","sizeType":"shoes","sizeLabel":"Tamanho","sizes":["36","37","38","39","40","41","42","43","44","45","46"],"availability":"disponivel","isNew":false,"priceLabel":"40€","priceValue":40,"priceType":"fixed","badges":[],"coverPath":"imagens/telegram/yeezy_yeezy_slide_18_colores_super_precio_tallas_hasta_la_48/1.jpg","coverImage":"/SmartThings/imagens/telegram/yeezy_yeezy_slide_18_colores_super_precio_tallas_hasta_la_48/1.jpg","coverWidth":1206,"coverHeight":769,"url":"/SmartThings/produto/yeezy_yeezy_slide_18_colores_super_precio_tallas_hasta_la_48/","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/produto/yeezy_yeezy_slide_18_colores_super_precio_tallas_hasta_la_48/","images":[{"path":"imagens/telegram/yeezy_yeezy_slide_18_colores_super_precio_tallas_hasta_la_48/1.jpg","url":"/SmartThings/imagens/telegram/yeezy_yeezy_slide_18_colores_super_precio_tallas_hasta_la_48/1.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/yeezy_yeezy_slide_18_colores_super_precio_tallas_hasta_la_48/1.jpg","width":1206,"height":769,"alt":"YEEZY \"Slide\" / 18 Colores / Super Precio / Tallas hasta la 48 · imagem 1"},{"path":"imagens/telegram/yeezy_yeezy_slide_18_colores_super_precio_tallas_hasta_la_48/2.jpg","url":"/SmartThings/imagens/telegram/yeezy_yeezy_slide_18_colores_super_precio_tallas_hasta_la_48/2.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/yeezy_yeezy_slide_18_colores_super_precio_tallas_hasta_la_48/2.jpg","width":1206,"height":998,"alt":"YEEZY \"Slide\" / 18 Colores / Super Precio / Tallas hasta la 48 · imagem 2"},{"path":"imagens/telegram/yeezy_yeezy_slide_18_colores_super_precio_tallas_hasta_la_48/3.jpg","url":"/SmartThings/imagens/telegram/yeezy_yeezy_slide_18_colores_super_precio_tallas_hasta_la_48/3.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/yeezy_yeezy_slide_18_colores_super_precio_tallas_hasta_la_48/3.jpg","width":1206,"height":928,"alt":"YEEZY \"Slide\" / 18 Colores / Super Precio / Tallas hasta la 48 · imagem 3"},{"path":"imagens/telegram/yeezy_yeezy_slide_18_colores_super_precio_tallas_hasta_la_48/4.jpg","url":"/SmartThings/imagens/telegram/yeezy_yeezy_slide_18_colores_super_precio_tallas_hasta_la_48/4.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/yeezy_yeezy_slide_18_colores_super_precio_tallas_hasta_la_48/4.jpg","width":1206,"height":844,"alt":"YEEZY \"Slide\" / 18 Colores / Super Precio / Tallas hasta la 48 · imagem 4"},{"path":"imagens/telegram/yeezy_yeezy_slide_18_colores_super_precio_tallas_hasta_la_48/5.jpg","url":"/SmartThings/imagens/telegram/yeezy_yeezy_slide_18_colores_super_precio_tallas_hasta_la_48/5.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/yeezy_yeezy_slide_18_colores_super_precio_tallas_hasta_la_48/5.jpg","width":700,"height":402,"alt":"YEEZY \"Slide\" / 18 Colores / Super Precio / Tallas hasta la 48 · imagem 5"}],"description":"YEEZY · Sneakers. Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido."},{"slug":"yeezy_yeezy_350v2_21_colores","name":"YEEZY 350v2 / 21 Colores","brandLabel":"YEEZY","brandSlug":"yeezy","category":"sneakers","categoryLabel":"Sneakers","modelLabel":"","latestTs":1787600957,"gender":"Unissexo","genderSlug":"unissexo","sizeType":"shoes","sizeLabel":"Tamanho","sizes":["36","37","38","39","40","41","42","43","44","45","46"],"availability":"disponivel","isNew":false,"priceLabel":"40€","priceValue":40,"priceType":"fixed","badges":[],"coverPath":"imagens/telegram/yeezy_yeezy_350v2_21_colores/1.jpg","coverImage":"/SmartThings/imagens/telegram/yeezy_yeezy_350v2_21_colores/1.jpg","coverWidth":1024,"coverHeight":1024,"url":"/SmartThings/produto/yeezy_yeezy_350v2_21_colores/","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/produto/yeezy_yeezy_350v2_21_colores/","images":[{"path":"imagens/telegram/yeezy_yeezy_350v2_21_colores/1.jpg","url":"/SmartThings/imagens/telegram/yeezy_yeezy_350v2_21_colores/1.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/yeezy_yeezy_350v2_21_colores/1.jpg","width":1024,"height":1024,"alt":"YEEZY 350v2 / 21 Colores · imagem 1"}],"description":"YEEZY · Sneakers. Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido."}]}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"YEEZY \"Slide\" / 18 Colores / Super Precio","image":["https://jamesstuartpt.github.io/SmartThings/imagens/telegram/yeezy_yeezy_slide_18_colores_super_precio/1.jpg"],"description":"YEEZY · Sneakers. Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido.","brand":{"@type":"Brand","name":"YEEZY"},"sku":"yeezy_yeezy_slide_18_colores_super_precio","category":"Sneakers","url":"https://jamesstuartpt.github.io/SmartThings/produto/yeezy_yeezy_slide_18_colores_super_precio/","offers":{"@type":"Offer","priceCurrency":"EUR","price":40,"availability":"https://schema.org/InStock","url":"https://jamesstuartpt.github.io/SmartThings/produto/yeezy_yeezy_slide_18_colores_super_precio/"}}</script>
+    <script id="st-product-data" type="application/json">{"product":{"slug":"yeezy_yeezy_slide_18_colores_super_precio","refCode":"ST-15447E","name":"YEEZY \"Slide\" / 18 Colores / Super Precio","brandLabel":"YEEZY","brandSlug":"yeezy","category":"sneakers","categoryLabel":"Sneakers","modelLabel":"","latestTs":1791927482,"gender":"Unissexo","genderSlug":"unissexo","sizeType":"shoes","sizeLabel":"Tamanho","sizes":["36","37","38","39","40","41","42","43","44","45","46"],"availability":"disponivel","isNew":true,"priceLabel":"40€","priceValue":40,"priceType":"fixed","badges":[{"label":"Novo","tone":"accent"}],"coverPath":"imagens/telegram/yeezy_yeezy_slide_18_colores_super_precio/1.jpg","coverImage":"/SmartThings/imagens/telegram/yeezy_yeezy_slide_18_colores_super_precio/1.jpg","coverWidth":1200,"coverHeight":1200,"url":"/SmartThings/produto/yeezy_yeezy_slide_18_colores_super_precio/","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/produto/yeezy_yeezy_slide_18_colores_super_precio/","images":[{"path":"imagens/telegram/yeezy_yeezy_slide_18_colores_super_precio/1.jpg","url":"/SmartThings/imagens/telegram/yeezy_yeezy_slide_18_colores_super_precio/1.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/yeezy_yeezy_slide_18_colores_super_precio/1.jpg","width":1200,"height":1200,"alt":"YEEZY \"Slide\" / 18 Colores / Super Precio · imagem 1"}],"description":"YEEZY · Sneakers. Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido.","related":[{"slug":"yeezy_yeezy_700_8_colores","refCode":"ST-79E2A5","name":"YEEZY 700 / 8 Colores","brandLabel":"YEEZY","brandSlug":"yeezy","category":"sneakers","categoryLabel":"Sneakers","modelLabel":"","latestTs":1791122621,"gender":"Unissexo","genderSlug":"unissexo","sizeType":"shoes","sizeLabel":"Tamanho","sizes":["36","37","38","39","40","41","42","43","44","45","46"],"availability":"disponivel","isNew":false,"priceLabel":"40€","priceValue":40,"priceType":"fixed","badges":[],"coverPath":"imagens/telegram/yeezy_yeezy_700_8_colores/1.jpg","coverImage":"/SmartThings/imagens/telegram/yeezy_yeezy_700_8_colores/1.jpg","coverWidth":1206,"coverHeight":1050,"url":"/SmartThings/produto/yeezy_yeezy_700_8_colores/","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/produto/yeezy_yeezy_700_8_colores/","images":[{"path":"imagens/telegram/yeezy_yeezy_700_8_colores/1.jpg","url":"/SmartThings/imagens/telegram/yeezy_yeezy_700_8_colores/1.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/yeezy_yeezy_700_8_colores/1.jpg","width":1206,"height":1050,"alt":"YEEZY 700 / 8 Colores · imagem 1"}],"description":"YEEZY · Sneakers. Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido."},{"slug":"yeezy_yeezy_boost_350_20_colores","refCode":"ST-46F6FA","name":"YEEZY Boost 350 / 20 Colores","brandLabel":"YEEZY","brandSlug":"yeezy","category":"sneakers","categoryLabel":"Sneakers","modelLabel":"","latestTs":1789460832,"gender":"Unissexo","genderSlug":"unissexo","sizeType":"shoes","sizeLabel":"Tamanho","sizes":["36","37","38","39","40","41","42","43","44","45","46"],"availability":"disponivel","isNew":false,"priceLabel":"40€","priceValue":40,"priceType":"fixed","badges":[],"coverPath":"imagens/telegram/yeezy_yeezy_boost_350_20_colores/1.jpg","coverImage":"/SmartThings/imagens/telegram/yeezy_yeezy_boost_350_20_colores/1.jpg","coverWidth":1024,"coverHeight":1024,"url":"/SmartThings/produto/yeezy_yeezy_boost_350_20_colores/","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/produto/yeezy_yeezy_boost_350_20_colores/","images":[{"path":"imagens/telegram/yeezy_yeezy_boost_350_20_colores/1.jpg","url":"/SmartThings/imagens/telegram/yeezy_yeezy_boost_350_20_colores/1.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/yeezy_yeezy_boost_350_20_colores/1.jpg","width":1024,"height":1024,"alt":"YEEZY Boost 350 / 20 Colores · imagem 1"}],"description":"YEEZY · Sneakers. Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido."},{"slug":"yeezy_yeezy_slide_18_colores_super_precio_tallas_hasta_la_48","refCode":"ST-F068F8","name":"YEEZY \"Slide\" / 18 Colores / Super Precio / Tallas hasta la 48","brandLabel":"YEEZY","brandSlug":"yeezy","category":"sneakers","categoryLabel":"Sneakers","modelLabel":"","latestTs":1789409469,"gender":"Unissexo","genderSlug":"unissexo","sizeType":"shoes","sizeLabel":"Tamanho","sizes":["36","37","38","39","40","41","42","43","44","45","46"],"availability":"disponivel","isNew":false,"priceLabel":"40€","priceValue":40,"priceType":"fixed","badges":[],"coverPath":"imagens/telegram/yeezy_yeezy_slide_18_colores_super_precio_tallas_hasta_la_48/1.jpg","coverImage":"/SmartThings/imagens/telegram/yeezy_yeezy_slide_18_colores_super_precio_tallas_hasta_la_48/1.jpg","coverWidth":1206,"coverHeight":769,"url":"/SmartThings/produto/yeezy_yeezy_slide_18_colores_super_precio_tallas_hasta_la_48/","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/produto/yeezy_yeezy_slide_18_colores_super_precio_tallas_hasta_la_48/","images":[{"path":"imagens/telegram/yeezy_yeezy_slide_18_colores_super_precio_tallas_hasta_la_48/1.jpg","url":"/SmartThings/imagens/telegram/yeezy_yeezy_slide_18_colores_super_precio_tallas_hasta_la_48/1.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/yeezy_yeezy_slide_18_colores_super_precio_tallas_hasta_la_48/1.jpg","width":1206,"height":769,"alt":"YEEZY \"Slide\" / 18 Colores / Super Precio / Tallas hasta la 48 · imagem 1"},{"path":"imagens/telegram/yeezy_yeezy_slide_18_colores_super_precio_tallas_hasta_la_48/2.jpg","url":"/SmartThings/imagens/telegram/yeezy_yeezy_slide_18_colores_super_precio_tallas_hasta_la_48/2.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/yeezy_yeezy_slide_18_colores_super_precio_tallas_hasta_la_48/2.jpg","width":1206,"height":998,"alt":"YEEZY \"Slide\" / 18 Colores / Super Precio / Tallas hasta la 48 · imagem 2"},{"path":"imagens/telegram/yeezy_yeezy_slide_18_colores_super_precio_tallas_hasta_la_48/3.jpg","url":"/SmartThings/imagens/telegram/yeezy_yeezy_slide_18_colores_super_precio_tallas_hasta_la_48/3.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/yeezy_yeezy_slide_18_colores_super_precio_tallas_hasta_la_48/3.jpg","width":1206,"height":928,"alt":"YEEZY \"Slide\" / 18 Colores / Super Precio / Tallas hasta la 48 · imagem 3"},{"path":"imagens/telegram/yeezy_yeezy_slide_18_colores_super_precio_tallas_hasta_la_48/4.jpg","url":"/SmartThings/imagens/telegram/yeezy_yeezy_slide_18_colores_super_precio_tallas_hasta_la_48/4.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/yeezy_yeezy_slide_18_colores_super_precio_tallas_hasta_la_48/4.jpg","width":1206,"height":844,"alt":"YEEZY \"Slide\" / 18 Colores / Super Precio / Tallas hasta la 48 · imagem 4"},{"path":"imagens/telegram/yeezy_yeezy_slide_18_colores_super_precio_tallas_hasta_la_48/5.jpg","url":"/SmartThings/imagens/telegram/yeezy_yeezy_slide_18_colores_super_precio_tallas_hasta_la_48/5.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/yeezy_yeezy_slide_18_colores_super_precio_tallas_hasta_la_48/5.jpg","width":700,"height":402,"alt":"YEEZY \"Slide\" / 18 Colores / Super Precio / Tallas hasta la 48 · imagem 5"}],"description":"YEEZY · Sneakers. Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido."},{"slug":"yeezy_yeezy_350v2_21_colores","refCode":"ST-D59854","name":"YEEZY 350v2 / 21 Colores","brandLabel":"YEEZY","brandSlug":"yeezy","category":"sneakers","categoryLabel":"Sneakers","modelLabel":"","latestTs":1787600957,"gender":"Unissexo","genderSlug":"unissexo","sizeType":"shoes","sizeLabel":"Tamanho","sizes":["36","37","38","39","40","41","42","43","44","45","46"],"availability":"disponivel","isNew":false,"priceLabel":"40€","priceValue":40,"priceType":"fixed","badges":[],"coverPath":"imagens/telegram/yeezy_yeezy_350v2_21_colores/1.jpg","coverImage":"/SmartThings/imagens/telegram/yeezy_yeezy_350v2_21_colores/1.jpg","coverWidth":1024,"coverHeight":1024,"url":"/SmartThings/produto/yeezy_yeezy_350v2_21_colores/","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/produto/yeezy_yeezy_350v2_21_colores/","images":[{"path":"imagens/telegram/yeezy_yeezy_350v2_21_colores/1.jpg","url":"/SmartThings/imagens/telegram/yeezy_yeezy_350v2_21_colores/1.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/yeezy_yeezy_350v2_21_colores/1.jpg","width":1024,"height":1024,"alt":"YEEZY 350v2 / 21 Colores · imagem 1"}],"description":"YEEZY · Sneakers. Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido."}]}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"YEEZY \"Slide\" / 18 Colores / Super Precio","image":["https://jamesstuartpt.github.io/SmartThings/imagens/telegram/yeezy_yeezy_slide_18_colores_super_precio/1.jpg"],"description":"YEEZY · Sneakers. Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido.","brand":{"@type":"Brand","name":"YEEZY"},"sku":"yeezy_yeezy_slide_18_colores_super_precio","category":"Sneakers","url":"https://jamesstuartpt.github.io/SmartThings/produto/yeezy_yeezy_slide_18_colores_super_precio/","offers":{"@type":"Offer","priceCurrency":"EUR","price":40,"availability":"https://schema.org/InStock","url":"https://jamesstuartpt.github.io/SmartThings/produto/yeezy_yeezy_slide_18_colores_super_precio/"}}</script>
     <script type="module" src="/SmartThings/site_config.js"></script>
     <script type="module" src="/SmartThings/js/product-page.js"></script>
   </body>

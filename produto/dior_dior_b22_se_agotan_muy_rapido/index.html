@@ -38,9 +38,9 @@
         <nav class="topbar__nav"><a href="/SmartThings/">Catálogo</a><a href="/SmartThings/como-funciona/">Como funciona</a><a href="/SmartThings/trocas-devolucoes/">Trocas</a><a href="/SmartThings/privacidade/">Privacidade</a></nav>
         <div class="topbar__actions">
           <button class="theme-toggle" type="button" data-theme-toggle aria-label="Alternar tema">◐</button>
-          <button class="icon-button" type="button" data-open-order aria-label="Abrir pedido">
-            <span aria-hidden="true">🧾</span>
-            <span class="sr-only">Abrir pedido</span>
+          <button class="icon-button" type="button" data-open-order aria-label="Ir para o carrinho">
+            <span aria-hidden="true">🛒</span>
+            <span class="sr-only">Ir para o carrinho</span>
           </button>
         </div>
       </div>
@@ -66,6 +66,7 @@
       <section class="product-panel">
         <p class="catalog-card__brand">DIOR · Outros</p>
         <h1 class="product-title">DIOR B22 / Se agotan MUY rapido</h1>
+        <p class="product-ref">Ref. ST-0055ED</p>
         <p class="product-meta">DIOR · Outros. Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido.</p>
         <div class="chip-row">
           
@@ -87,8 +88,8 @@
           <p class="inline-note">Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido.</p>
         </div>
         <div class="hero__actions">
-          <button class="button button--primary" id="product-add" type="button">Adicionar ao pedido</button>
-          <a class="button" href="https://t.me/smartthingspt" target="_blank" rel="noopener">Ver fotos e vídeos reais no Telegram</a>
+          <button class="button button--primary" id="product-add" type="button">Adicionar ao carrinho</button>
+          <button class="button" id="product-buy-now" type="button">Comprar agora</button>
         </div>
       </section>
       <section class="container" style="grid-column:1 / -1; padding-bottom:56px;">
@@ -114,6 +115,7 @@
             <span class="catalog-card__price">40€</span>
           </div>
           <h3 class="catalog-card__name">CAROLINA HERRERA / 3 Colores</h3>
+          <p class="catalog-card__ref">Ref. ST-829C5A</p>
         </div>
       </a>
       <div class="catalog-card__foot catalog-card__foot--single">
@@ -137,6 +139,7 @@
             <span class="catalog-card__price">40€</span>
           </div>
           <h3 class="catalog-card__name">JW PEI / 5 Colores</h3>
+          <p class="catalog-card__ref">Ref. ST-4FAE9B</p>
         </div>
       </a>
       <div class="catalog-card__foot catalog-card__foot--single">
@@ -160,6 +163,7 @@
             <span class="catalog-card__price">40€</span>
           </div>
           <h3 class="catalog-card__name">THE NORTH FACE &quot;Glenclyffe&quot; / 7 Colores</h3>
+          <p class="catalog-card__ref">Ref. ST-22FDD5</p>
         </div>
       </a>
       <div class="catalog-card__foot catalog-card__foot--single">
@@ -183,6 +187,7 @@
             <span class="catalog-card__price">40€</span>
           </div>
           <h3 class="catalog-card__name">SAUCONY / 9 Colores</h3>
+          <p class="catalog-card__ref">Ref. ST-3C8A7D</p>
         </div>
       </a>
       <div class="catalog-card__foot catalog-card__foot--single">
@@ -216,25 +221,10 @@
     </div>
     
     <footer class="footer">
-      <div class="container footer__grid">
-        <div>
-          <h2 class="drawer-title">Smart Things PT</h2>
-          <p>Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido.</p>
-          <p>Envio normalmente confirmado no WhatsApp. Prazo médio previsto: 10 a 15 dias.</p>
-        </div>
-        <div>
-          <h3>Contacto</h3>
-          <p><a href="https://wa.me/351927515217">+351 927 515 217</a></p>
-          <p><a href="https://t.me/smartthingspt" target="_blank" rel="noopener">@smartthingspt</a></p>
-          <p><strong>NIF:</strong> TODO: confirmar NIF do vendedor</p>
-        </div>
-        <div>
-          <h3>Informação</h3>
-          <p><a href="/SmartThings/como-funciona/">Como funciona</a></p>
-          <p><a href="/SmartThings/trocas-devolucoes/">Trocas e devoluções</a></p>
-          <p><a href="/SmartThings/privacidade/">Privacidade</a></p>
-          <small>O site guarda o pedido apenas neste dispositivo. Não recolhe dados pessoais.</small>
-        </div>
+      <div class="container footer__compact">
+        <p><strong>Smart Things PT</strong></p>
+        <p><a href="https://wa.me/351927515217">+351 927 515 217</a></p>
+        <p><a href="https://t.me/smartthingspt" target="_blank" rel="noopener">@smartthingspt</a></p>
       </div>
     </footer>
   
@@ -244,7 +234,7 @@
       <div class="order-drawer__head">
         <div style="display:flex; align-items:center; justify-content:space-between; gap:12px;">
           <div>
-            <h2 class="drawer-title" id="order-title">Pedido</h2>
+            <h2 class="drawer-title" id="order-title">Carrinho</h2>
             <p class="helper-text">Stock, preço final e envio são confirmados no WhatsApp.</p>
           </div>
           <button class="icon-button" type="button" data-close-order aria-label="Fechar pedido">×</button>
@@ -264,9 +254,9 @@
       <div class="order-drawer__footer">
         <p class="helper-text">Artigos: <strong data-order-count>0</strong> · Total estimado: <strong data-order-total>0€</strong></p>
         <div style="display:grid; gap:10px;">
-          <button class="button button--primary" id="order-send" type="button">Enviar por WhatsApp</button>
+          <button class="button button--primary" id="order-send" type="button">Finalizar compra</button>
           <button class="button" id="order-copy" type="button">Copiar pedido</button>
-          <button class="button" id="order-clear" type="button">Limpar pedido</button>
+          <button class="button" id="order-clear" type="button">Limpar carrinho</button>
         </div>
       </div>
     </aside>
@@ -276,22 +266,23 @@
           <strong><span data-order-count>0</span> artigos no pedido</strong>
           <span>Total estimado <span data-order-total>0€</span></span>
         </div>
-        <button class="button button--primary" type="button" data-open-order>Abrir pedido</button>
+        <button class="button button--primary" type="button" data-open-order>Ir para o carrinho</button>
       </div>
     </div>
     <div class="modal-backdrop" id="modal-backdrop" hidden></div>
     <section class="quick-modal" id="quick-modal" hidden aria-modal="true" role="dialog" aria-labelledby="quick-modal-title">
       <div class="quick-modal__content">
         <div style="display:flex; align-items:center; justify-content:space-between; gap:12px;">
-          <h2 class="drawer-title" id="quick-modal-title">Adicionar ao pedido</h2>
+          <h2 class="drawer-title" id="quick-modal-title">Adicionar ao carrinho</h2>
           <button class="icon-button" type="button" data-close-modal aria-label="Fechar modal">×</button>
         </div>
         <div id="quick-modal-body"></div>
       </div>
     </section>
+    <div class="toast" id="st-toast" hidden role="status" aria-live="polite"></div>
     <div class="sr-only" id="st-live-region" aria-live="polite"></div>
   
-    <script id="st-product-data" type="application/json">{"product":{"slug":"dior_dior_b22_se_agotan_muy_rapido","name":"DIOR B22 / Se agotan MUY rapido","brandLabel":"DIOR","brandSlug":"dior","category":"outros","categoryLabel":"Outros","modelLabel":"","latestTs":1789247587,"gender":"Unissexo","genderSlug":"unissexo","sizeType":"unique","sizeLabel":"Tamanho","sizes":["Único"],"availability":"disponivel","isNew":false,"priceLabel":"40€","priceValue":40,"priceType":"fixed","badges":[],"coverPath":"imagens/telegram/dior_dior_b22_se_agotan_muy_rapido/1.jpg","coverImage":"/SmartThings/imagens/telegram/dior_dior_b22_se_agotan_muy_rapido/1.jpg","coverWidth":736,"coverHeight":736,"url":"/SmartThings/produto/dior_dior_b22_se_agotan_muy_rapido/","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/produto/dior_dior_b22_se_agotan_muy_rapido/","images":[{"path":"imagens/telegram/dior_dior_b22_se_agotan_muy_rapido/1.jpg","url":"/SmartThings/imagens/telegram/dior_dior_b22_se_agotan_muy_rapido/1.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/dior_dior_b22_se_agotan_muy_rapido/1.jpg","width":736,"height":736,"alt":"DIOR B22 / Se agotan MUY rapido · imagem 1"}],"description":"DIOR · Outros. Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido.","related":[{"slug":"carolina_carolina_herrera_3_colores_2","name":"CAROLINA HERRERA / 3 Colores","brandLabel":"CAROLINA","brandSlug":"carolina","category":"outros","categoryLabel":"Outros","modelLabel":"","latestTs":1795114108,"gender":"Unissexo","genderSlug":"unissexo","sizeType":"unique","sizeLabel":"Tamanho","sizes":["Único"],"availability":"disponivel","isNew":true,"priceLabel":"40€","priceValue":40,"priceType":"fixed","badges":[{"label":"Novo","tone":"accent"}],"coverPath":"imagens/telegram/carolina_carolina_herrera_3_colores_2/1.jpg","coverImage":"/SmartThings/imagens/telegram/carolina_carolina_herrera_3_colores_2/1.jpg","coverWidth":1280,"coverHeight":1280,"url":"/SmartThings/produto/carolina_carolina_herrera_3_colores_2/","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/produto/carolina_carolina_herrera_3_colores_2/","images":[{"path":"imagens/telegram/carolina_carolina_herrera_3_colores_2/1.jpg","url":"/SmartThings/imagens/telegram/carolina_carolina_herrera_3_colores_2/1.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/carolina_carolina_herrera_3_colores_2/1.jpg","width":1280,"height":1280,"alt":"CAROLINA HERRERA / 3 Colores · imagem 1"},{"path":"imagens/telegram/carolina_carolina_herrera_3_colores_2/2.jpg","url":"/SmartThings/imagens/telegram/carolina_carolina_herrera_3_colores_2/2.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/carolina_carolina_herrera_3_colores_2/2.jpg","width":1280,"height":1280,"alt":"CAROLINA HERRERA / 3 Colores · imagem 2"},{"path":"imagens/telegram/carolina_carolina_herrera_3_colores_2/3.jpg","url":"/SmartThings/imagens/telegram/carolina_carolina_herrera_3_colores_2/3.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/carolina_carolina_herrera_3_colores_2/3.jpg","width":1280,"height":1280,"alt":"CAROLINA HERRERA / 3 Colores · imagem 3"}],"description":"CAROLINA · Outros. Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido."},{"slug":"jw_jw_pei_5_colores","name":"JW PEI / 5 Colores","brandLabel":"JW","brandSlug":"jw","category":"outros","categoryLabel":"Outros","modelLabel":"","latestTs":1795113838,"gender":"Unissexo","genderSlug":"unissexo","sizeType":"unique","sizeLabel":"Tamanho","sizes":["Único"],"availability":"disponivel","isNew":true,"priceLabel":"40€","priceValue":40,"priceType":"fixed","badges":[{"label":"Novo","tone":"accent"}],"coverPath":"imagens/telegram/jw_jw_pei_5_colores/1.jpg","coverImage":"/SmartThings/imagens/telegram/jw_jw_pei_5_colores/1.jpg","coverWidth":1280,"coverHeight":1280,"url":"/SmartThings/produto/jw_jw_pei_5_colores/","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/produto/jw_jw_pei_5_colores/","images":[{"path":"imagens/telegram/jw_jw_pei_5_colores/1.jpg","url":"/SmartThings/imagens/telegram/jw_jw_pei_5_colores/1.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/jw_jw_pei_5_colores/1.jpg","width":1280,"height":1280,"alt":"JW PEI / 5 Colores · imagem 1"}],"description":"JW · Outros. Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido."},{"slug":"the_north_face_the_north_face_glenclyffe_7_colores_2","name":"THE NORTH FACE \"Glenclyffe\" / 7 Colores","brandLabel":"The North Face","brandSlug":"the-north-face","category":"outros","categoryLabel":"Outros","modelLabel":"","latestTs":1795094476,"gender":"Unissexo","genderSlug":"unissexo","sizeType":"unique","sizeLabel":"Tamanho","sizes":["Único"],"availability":"disponivel","isNew":true,"priceLabel":"40€","priceValue":40,"priceType":"fixed","badges":[{"label":"Novo","tone":"accent"}],"coverPath":"imagens/telegram/the_north_face_the_north_face_glenclyffe_7_colores_2/1.jpg","coverImage":"/SmartThings/imagens/telegram/the_north_face_the_north_face_glenclyffe_7_colores_2/1.jpg","coverWidth":1206,"coverHeight":838,"url":"/SmartThings/produto/the_north_face_the_north_face_glenclyffe_7_colores_2/","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/produto/the_north_face_the_north_face_glenclyffe_7_colores_2/","images":[{"path":"imagens/telegram/the_north_face_the_north_face_glenclyffe_7_colores_2/1.jpg","url":"/SmartThings/imagens/telegram/the_north_face_the_north_face_glenclyffe_7_colores_2/1.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/the_north_face_the_north_face_glenclyffe_7_colores_2/1.jpg","width":1206,"height":838,"alt":"THE NORTH FACE \"Glenclyffe\" / 7 Colores · imagem 1"},{"path":"imagens/telegram/the_north_face_the_north_face_glenclyffe_7_colores_2/2.jpg","url":"/SmartThings/imagens/telegram/the_north_face_the_north_face_glenclyffe_7_colores_2/2.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/the_north_face_the_north_face_glenclyffe_7_colores_2/2.jpg","width":1170,"height":731,"alt":"THE NORTH FACE \"Glenclyffe\" / 7 Colores · imagem 2"},{"path":"imagens/telegram/the_north_face_the_north_face_glenclyffe_7_colores_2/3.jpg","url":"/SmartThings/imagens/telegram/the_north_face_the_north_face_glenclyffe_7_colores_2/3.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/the_north_face_the_north_face_glenclyffe_7_colores_2/3.jpg","width":1170,"height":814,"alt":"THE NORTH FACE \"Glenclyffe\" / 7 Colores · imagem 3"},{"path":"imagens/telegram/the_north_face_the_north_face_glenclyffe_7_colores_2/4.jpg","url":"/SmartThings/imagens/telegram/the_north_face_the_north_face_glenclyffe_7_colores_2/4.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/the_north_face_the_north_face_glenclyffe_7_colores_2/4.jpg","width":1206,"height":902,"alt":"THE NORTH FACE \"Glenclyffe\" / 7 Colores · imagem 4"},{"path":"imagens/telegram/the_north_face_the_north_face_glenclyffe_7_colores_2/5.jpg","url":"/SmartThings/imagens/telegram/the_north_face_the_north_face_glenclyffe_7_colores_2/5.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/the_north_face_the_north_face_glenclyffe_7_colores_2/5.jpg","width":1206,"height":930,"alt":"THE NORTH FACE \"Glenclyffe\" / 7 Colores · imagem 5"},{"path":"imagens/telegram/the_north_face_the_north_face_glenclyffe_7_colores_2/6.jpg","url":"/SmartThings/imagens/telegram/the_north_face_the_north_face_glenclyffe_7_colores_2/6.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/the_north_face_the_north_face_glenclyffe_7_colores_2/6.jpg","width":1206,"height":1018,"alt":"THE NORTH FACE \"Glenclyffe\" / 7 Colores · imagem 6"},{"path":"imagens/telegram/the_north_face_the_north_face_glenclyffe_7_colores_2/7.jpg","url":"/SmartThings/imagens/telegram/the_north_face_the_north_face_glenclyffe_7_colores_2/7.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/the_north_face_the_north_face_glenclyffe_7_colores_2/7.jpg","width":1170,"height":753,"alt":"THE NORTH FACE \"Glenclyffe\" / 7 Colores · imagem 7"}],"description":"The North Face · Outros. Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido."},{"slug":"saucony_saucony_9_colores","name":"SAUCONY / 9 Colores","brandLabel":"SAUCONY","brandSlug":"saucony","category":"outros","categoryLabel":"Outros","modelLabel":"","latestTs":1795039389,"gender":"Unissexo","genderSlug":"unissexo","sizeType":"unique","sizeLabel":"Tamanho","sizes":["Único"],"availability":"disponivel","isNew":true,"priceLabel":"40€","priceValue":40,"priceType":"fixed","badges":[{"label":"Novo","tone":"accent"}],"coverPath":"imagens/telegram/saucony_saucony_9_colores/1.jpg","coverImage":"/SmartThings/imagens/telegram/saucony_saucony_9_colores/1.jpg","coverWidth":1170,"coverHeight":1138,"url":"/SmartThings/produto/saucony_saucony_9_colores/","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/produto/saucony_saucony_9_colores/","images":[{"path":"imagens/telegram/saucony_saucony_9_colores/1.jpg","url":"/SmartThings/imagens/telegram/saucony_saucony_9_colores/1.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/saucony_saucony_9_colores/1.jpg","width":1170,"height":1138,"alt":"SAUCONY / 9 Colores · imagem 1"}],"description":"SAUCONY · Outros. Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido."}]}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"DIOR B22 / Se agotan MUY rapido","image":["https://jamesstuartpt.github.io/SmartThings/imagens/telegram/dior_dior_b22_se_agotan_muy_rapido/1.jpg"],"description":"DIOR · Outros. Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido.","brand":{"@type":"Brand","name":"DIOR"},"sku":"dior_dior_b22_se_agotan_muy_rapido","category":"Outros","url":"https://jamesstuartpt.github.io/SmartThings/produto/dior_dior_b22_se_agotan_muy_rapido/","offers":{"@type":"Offer","priceCurrency":"EUR","price":40,"availability":"https://schema.org/InStock","url":"https://jamesstuartpt.github.io/SmartThings/produto/dior_dior_b22_se_agotan_muy_rapido/"}}</script>
+    <script id="st-product-data" type="application/json">{"product":{"slug":"dior_dior_b22_se_agotan_muy_rapido","refCode":"ST-0055ED","name":"DIOR B22 / Se agotan MUY rapido","brandLabel":"DIOR","brandSlug":"dior","category":"outros","categoryLabel":"Outros","modelLabel":"","latestTs":1789247587,"gender":"Unissexo","genderSlug":"unissexo","sizeType":"unique","sizeLabel":"Tamanho","sizes":["Único"],"availability":"disponivel","isNew":false,"priceLabel":"40€","priceValue":40,"priceType":"fixed","badges":[],"coverPath":"imagens/telegram/dior_dior_b22_se_agotan_muy_rapido/1.jpg","coverImage":"/SmartThings/imagens/telegram/dior_dior_b22_se_agotan_muy_rapido/1.jpg","coverWidth":736,"coverHeight":736,"url":"/SmartThings/produto/dior_dior_b22_se_agotan_muy_rapido/","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/produto/dior_dior_b22_se_agotan_muy_rapido/","images":[{"path":"imagens/telegram/dior_dior_b22_se_agotan_muy_rapido/1.jpg","url":"/SmartThings/imagens/telegram/dior_dior_b22_se_agotan_muy_rapido/1.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/dior_dior_b22_se_agotan_muy_rapido/1.jpg","width":736,"height":736,"alt":"DIOR B22 / Se agotan MUY rapido · imagem 1"}],"description":"DIOR · Outros. Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido.","related":[{"slug":"carolina_carolina_herrera_3_colores_2","refCode":"ST-829C5A","name":"CAROLINA HERRERA / 3 Colores","brandLabel":"CAROLINA","brandSlug":"carolina","category":"outros","categoryLabel":"Outros","modelLabel":"","latestTs":1795114108,"gender":"Unissexo","genderSlug":"unissexo","sizeType":"unique","sizeLabel":"Tamanho","sizes":["Único"],"availability":"disponivel","isNew":true,"priceLabel":"40€","priceValue":40,"priceType":"fixed","badges":[{"label":"Novo","tone":"accent"}],"coverPath":"imagens/telegram/carolina_carolina_herrera_3_colores_2/1.jpg","coverImage":"/SmartThings/imagens/telegram/carolina_carolina_herrera_3_colores_2/1.jpg","coverWidth":1280,"coverHeight":1280,"url":"/SmartThings/produto/carolina_carolina_herrera_3_colores_2/","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/produto/carolina_carolina_herrera_3_colores_2/","images":[{"path":"imagens/telegram/carolina_carolina_herrera_3_colores_2/1.jpg","url":"/SmartThings/imagens/telegram/carolina_carolina_herrera_3_colores_2/1.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/carolina_carolina_herrera_3_colores_2/1.jpg","width":1280,"height":1280,"alt":"CAROLINA HERRERA / 3 Colores · imagem 1"},{"path":"imagens/telegram/carolina_carolina_herrera_3_colores_2/2.jpg","url":"/SmartThings/imagens/telegram/carolina_carolina_herrera_3_colores_2/2.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/carolina_carolina_herrera_3_colores_2/2.jpg","width":1280,"height":1280,"alt":"CAROLINA HERRERA / 3 Colores · imagem 2"},{"path":"imagens/telegram/carolina_carolina_herrera_3_colores_2/3.jpg","url":"/SmartThings/imagens/telegram/carolina_carolina_herrera_3_colores_2/3.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/carolina_carolina_herrera_3_colores_2/3.jpg","width":1280,"height":1280,"alt":"CAROLINA HERRERA / 3 Colores · imagem 3"}],"description":"CAROLINA · Outros. Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido."},{"slug":"jw_jw_pei_5_colores","refCode":"ST-4FAE9B","name":"JW PEI / 5 Colores","brandLabel":"JW","brandSlug":"jw","category":"outros","categoryLabel":"Outros","modelLabel":"","latestTs":1795113838,"gender":"Unissexo","genderSlug":"unissexo","sizeType":"unique","sizeLabel":"Tamanho","sizes":["Único"],"availability":"disponivel","isNew":true,"priceLabel":"40€","priceValue":40,"priceType":"fixed","badges":[{"label":"Novo","tone":"accent"}],"coverPath":"imagens/telegram/jw_jw_pei_5_colores/1.jpg","coverImage":"/SmartThings/imagens/telegram/jw_jw_pei_5_colores/1.jpg","coverWidth":1280,"coverHeight":1280,"url":"/SmartThings/produto/jw_jw_pei_5_colores/","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/produto/jw_jw_pei_5_colores/","images":[{"path":"imagens/telegram/jw_jw_pei_5_colores/1.jpg","url":"/SmartThings/imagens/telegram/jw_jw_pei_5_colores/1.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/jw_jw_pei_5_colores/1.jpg","width":1280,"height":1280,"alt":"JW PEI / 5 Colores · imagem 1"}],"description":"JW · Outros. Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido."},{"slug":"the_north_face_the_north_face_glenclyffe_7_colores_2","refCode":"ST-22FDD5","name":"THE NORTH FACE \"Glenclyffe\" / 7 Colores","brandLabel":"The North Face","brandSlug":"the-north-face","category":"outros","categoryLabel":"Outros","modelLabel":"","latestTs":1795094476,"gender":"Unissexo","genderSlug":"unissexo","sizeType":"unique","sizeLabel":"Tamanho","sizes":["Único"],"availability":"disponivel","isNew":true,"priceLabel":"40€","priceValue":40,"priceType":"fixed","badges":[{"label":"Novo","tone":"accent"}],"coverPath":"imagens/telegram/the_north_face_the_north_face_glenclyffe_7_colores_2/1.jpg","coverImage":"/SmartThings/imagens/telegram/the_north_face_the_north_face_glenclyffe_7_colores_2/1.jpg","coverWidth":1206,"coverHeight":838,"url":"/SmartThings/produto/the_north_face_the_north_face_glenclyffe_7_colores_2/","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/produto/the_north_face_the_north_face_glenclyffe_7_colores_2/","images":[{"path":"imagens/telegram/the_north_face_the_north_face_glenclyffe_7_colores_2/1.jpg","url":"/SmartThings/imagens/telegram/the_north_face_the_north_face_glenclyffe_7_colores_2/1.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/the_north_face_the_north_face_glenclyffe_7_colores_2/1.jpg","width":1206,"height":838,"alt":"THE NORTH FACE \"Glenclyffe\" / 7 Colores · imagem 1"},{"path":"imagens/telegram/the_north_face_the_north_face_glenclyffe_7_colores_2/2.jpg","url":"/SmartThings/imagens/telegram/the_north_face_the_north_face_glenclyffe_7_colores_2/2.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/the_north_face_the_north_face_glenclyffe_7_colores_2/2.jpg","width":1170,"height":731,"alt":"THE NORTH FACE \"Glenclyffe\" / 7 Colores · imagem 2"},{"path":"imagens/telegram/the_north_face_the_north_face_glenclyffe_7_colores_2/3.jpg","url":"/SmartThings/imagens/telegram/the_north_face_the_north_face_glenclyffe_7_colores_2/3.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/the_north_face_the_north_face_glenclyffe_7_colores_2/3.jpg","width":1170,"height":814,"alt":"THE NORTH FACE \"Glenclyffe\" / 7 Colores · imagem 3"},{"path":"imagens/telegram/the_north_face_the_north_face_glenclyffe_7_colores_2/4.jpg","url":"/SmartThings/imagens/telegram/the_north_face_the_north_face_glenclyffe_7_colores_2/4.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/the_north_face_the_north_face_glenclyffe_7_colores_2/4.jpg","width":1206,"height":902,"alt":"THE NORTH FACE \"Glenclyffe\" / 7 Colores · imagem 4"},{"path":"imagens/telegram/the_north_face_the_north_face_glenclyffe_7_colores_2/5.jpg","url":"/SmartThings/imagens/telegram/the_north_face_the_north_face_glenclyffe_7_colores_2/5.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/the_north_face_the_north_face_glenclyffe_7_colores_2/5.jpg","width":1206,"height":930,"alt":"THE NORTH FACE \"Glenclyffe\" / 7 Colores · imagem 5"},{"path":"imagens/telegram/the_north_face_the_north_face_glenclyffe_7_colores_2/6.jpg","url":"/SmartThings/imagens/telegram/the_north_face_the_north_face_glenclyffe_7_colores_2/6.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/the_north_face_the_north_face_glenclyffe_7_colores_2/6.jpg","width":1206,"height":1018,"alt":"THE NORTH FACE \"Glenclyffe\" / 7 Colores · imagem 6"},{"path":"imagens/telegram/the_north_face_the_north_face_glenclyffe_7_colores_2/7.jpg","url":"/SmartThings/imagens/telegram/the_north_face_the_north_face_glenclyffe_7_colores_2/7.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/the_north_face_the_north_face_glenclyffe_7_colores_2/7.jpg","width":1170,"height":753,"alt":"THE NORTH FACE \"Glenclyffe\" / 7 Colores · imagem 7"}],"description":"The North Face · Outros. Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido."},{"slug":"saucony_saucony_9_colores","refCode":"ST-3C8A7D","name":"SAUCONY / 9 Colores","brandLabel":"SAUCONY","brandSlug":"saucony","category":"outros","categoryLabel":"Outros","modelLabel":"","latestTs":1795039389,"gender":"Unissexo","genderSlug":"unissexo","sizeType":"unique","sizeLabel":"Tamanho","sizes":["Único"],"availability":"disponivel","isNew":true,"priceLabel":"40€","priceValue":40,"priceType":"fixed","badges":[{"label":"Novo","tone":"accent"}],"coverPath":"imagens/telegram/saucony_saucony_9_colores/1.jpg","coverImage":"/SmartThings/imagens/telegram/saucony_saucony_9_colores/1.jpg","coverWidth":1170,"coverHeight":1138,"url":"/SmartThings/produto/saucony_saucony_9_colores/","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/produto/saucony_saucony_9_colores/","images":[{"path":"imagens/telegram/saucony_saucony_9_colores/1.jpg","url":"/SmartThings/imagens/telegram/saucony_saucony_9_colores/1.jpg","absoluteUrl":"https://jamesstuartpt.github.io/SmartThings/imagens/telegram/saucony_saucony_9_colores/1.jpg","width":1170,"height":1138,"alt":"SAUCONY / 9 Colores · imagem 1"}],"description":"SAUCONY · Outros. Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido."}]}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"DIOR B22 / Se agotan MUY rapido","image":["https://jamesstuartpt.github.io/SmartThings/imagens/telegram/dior_dior_b22_se_agotan_muy_rapido/1.jpg"],"description":"DIOR · Outros. Preço final e custo de envio confirmados no WhatsApp antes de fechar o pedido.","brand":{"@type":"Brand","name":"DIOR"},"sku":"dior_dior_b22_se_agotan_muy_rapido","category":"Outros","url":"https://jamesstuartpt.github.io/SmartThings/produto/dior_dior_b22_se_agotan_muy_rapido/","offers":{"@type":"Offer","priceCurrency":"EUR","price":40,"availability":"https://schema.org/InStock","url":"https://jamesstuartpt.github.io/SmartThings/produto/dior_dior_b22_se_agotan_muy_rapido/"}}</script>
     <script type="module" src="/SmartThings/site_config.js"></script>
     <script type="module" src="/SmartThings/js/product-page.js"></script>
   </body>

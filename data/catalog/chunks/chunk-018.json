@@ -3,6 +3,7 @@
   "products": [
     {
       "slug": "cargador_carga_rapida",
+      "refCode": "ST-E61BBC",
       "name": "Cargador (carga rapida)",
       "brandLabel": "Sem marca",
       "brandSlug": "sem-marca",
@@ -26,6 +27,7 @@
     },
     {
       "slug": "stussy_bordada",
+      "refCode": "ST-EA397D",
       "name": "STUSSY (bordada)",
       "brandLabel": "Sem marca",
       "brandSlug": "sem-marca",
@@ -54,6 +56,7 @@
     },
     {
       "slug": "corteiz_balaclava",
+      "refCode": "ST-AF5583",
       "name": "CORTEIZ \"balaclava\"",
       "brandLabel": "Sem marca",
       "brandSlug": "sem-marca",
@@ -82,6 +85,7 @@
     },
     {
       "slug": "goyard",
+      "refCode": "ST-D5451A",
       "name": "GOYARD",
       "brandLabel": "Sem marca",
       "brandSlug": "sem-marca",
@@ -105,6 +109,7 @@
     },
     {
       "slug": "bape",
+      "refCode": "ST-B4F021",
       "name": "BAPE",
       "brandLabel": "Sem marca",
       "brandSlug": "sem-marca",
@@ -128,6 +133,7 @@
     },
     {
       "slug": "nike_moon_x_jacquemus",
+      "refCode": "ST-CD6C6D",
       "name": "NIKE Moon x JACQUEMUS",
       "brandLabel": "Nike",
       "brandSlug": "nike",
@@ -161,6 +167,7 @@
     },
     {
       "slug": "ugg_tazz_ii",
+      "refCode": "ST-0B5D74",
       "name": "UGG \"Tazz II\"",
       "brandLabel": "Sem marca",
       "brandSlug": "sem-marca",
@@ -184,6 +191,7 @@
     },
     {
       "slug": "birkenstock_arizona",
+      "refCode": "ST-FF7199",
       "name": "BIRKENSTOCK \"Arizona\"",
       "brandLabel": "Sem marca",
       "brandSlug": "sem-marca",
@@ -207,6 +215,7 @@
     },
     {
       "slug": "adidas_conjunto",
+      "refCode": "ST-2B1604",
       "name": "ADIDAS (conjunto)",
       "brandLabel": "Sem marca",
       "brandSlug": "sem-marca",
@@ -240,6 +249,7 @@
     },
     {
       "slug": "converse",
+      "refCode": "ST-6A97CA",
       "name": "CONVERSE",
       "brandLabel": "Sem marca",
       "brandSlug": "sem-marca",
@@ -273,6 +283,7 @@
     },
     {
       "slug": "rayban_wayfarer",
+      "refCode": "ST-4F8CD5",
       "name": "RAYBAN Wayfarer",
       "brandLabel": "Sem marca",
       "brandSlug": "sem-marca",
@@ -296,6 +307,7 @@
     },
     {
       "slug": "yshi",
+      "refCode": "ST-025BF8",
       "name": "YSHI",
       "brandLabel": "Sem marca",
       "brandSlug": "sem-marca",
@@ -319,6 +331,7 @@
     },
     {
       "slug": "nuke_santos_estilo_cartier",
+      "refCode": "ST-52D61D",
       "name": "NUKE Santos (estilo Cartier)",
       "brandLabel": "Sem marca",
       "brandSlug": "sem-marca",
@@ -342,6 +355,7 @@
     },
     {
       "slug": "adidas_f50_freestyle_x_messi",
+      "refCode": "ST-564CCE",
       "name": "ADIDAS F50 Freestyle x MESSI",
       "brandLabel": "Adidas",
       "brandSlug": "adidas",
@@ -375,6 +389,7 @@
     },
     {
       "slug": "nike_jordan_1_x_travis_scott",
+      "refCode": "ST-D5302B",
       "name": "NIKE Jordan 1 x TRAVIS SCOTT",
       "brandLabel": "Nike",
       "brandSlug": "nike",
@@ -408,6 +423,7 @@
     },
     {
       "slug": "napapijri",
+      "refCode": "ST-C6DAEF",
       "name": "NAPAPIJRI",
       "brandLabel": "Sem marca",
       "brandSlug": "sem-marca",
@@ -431,6 +447,7 @@
     },
     {
       "slug": "adidas_espana_2_estrellas",
+      "refCode": "ST-E6EDB1",
       "name": "ADIDAS Espana (2 Estrellas ️ ️)",
       "brandLabel": "Adidas",
       "brandSlug": "adidas",
@@ -464,6 +481,7 @@
     },
     {
       "slug": "the_north_face_pack_3",
+      "refCode": "ST-8EC93F",
       "name": "THE NORTH FACE (pack 3)",
       "brandLabel": "Sem marca",
       "brandSlug": "sem-marca",
@@ -492,6 +510,7 @@
     },
     {
       "slug": "golden_goose",
+      "refCode": "ST-6F9900",
       "name": "GOLDEN GOOSE",
       "brandLabel": "Sem marca",
       "brandSlug": "sem-marca",
@@ -515,6 +534,7 @@
     },
     {
       "slug": "gisou_labiales_pack_6",
+      "refCode": "ST-7CAE5B",
       "name": "GISOU (labiales pack 6)",
       "brandLabel": "Sem marca",
       "brandSlug": "sem-marca",
@@ -538,6 +558,7 @@
     },
     {
       "slug": "nike_barcelona_x_stussy",
+      "refCode": "ST-1729E4",
       "name": "NIKE Barcelona x STUSSY",
       "brandLabel": "Nike",
       "brandSlug": "nike",
@@ -571,6 +592,7 @@
     },
     {
       "slug": "nike_total_90",
+      "refCode": "ST-571323",
       "name": "NIKE Total 90",
       "brandLabel": "Nike",
       "brandSlug": "nike",
@@ -604,6 +626,7 @@
     },
     {
       "slug": "adidas_x_oasis",
+      "refCode": "ST-E0A210",
       "name": "ADIDAS x OASIS",
       "brandLabel": "Adidas",
       "brandSlug": "adidas",
@@ -637,6 +660,7 @@
     },
     {
       "slug": "hoka_bondi_8",
+      "refCode": "ST-8B4844",
       "name": "HOKA Bondi 8",
       "brandLabel": "Sem marca",
       "brandSlug": "sem-marca",
@@ -660,6 +684,7 @@
     },
     {
       "slug": "nude_project",
+      "refCode": "ST-992745",
       "name": "NUDE PROJECT",
       "brandLabel": "Sem marca",
       "brandSlug": "sem-marca",
@@ -683,6 +708,7 @@
     },
     {
       "slug": "polo_ralph_lauren_pack_3",
+      "refCode": "ST-180142",
       "name": "POLO RALPH LAUREN (pack 3)",
       "brandLabel": "Sem marca",
       "brandSlug": "sem-marca",
@@ -711,6 +737,7 @@
     },
     {
       "slug": "on_cloud_conjunto",
+      "refCode": "ST-7A88F5",
       "name": "ON CLOUD (conjunto)",
       "brandLabel": "Sem marca",
       "brandSlug": "sem-marca",
@@ -739,6 +766,7 @@
     },
     {
       "slug": "emporio_armani",
+      "refCode": "ST-6F7C05",
       "name": "EMPORIO ARMANI",
       "brandLabel": "Sem marca",
       "brandSlug": "sem-marca",
@@ -762,6 +790,7 @@
     },
     {
       "slug": "apple_airpods_max",
+      "refCode": "ST-90E20A",
       "name": "APPLE AirPods Max",
       "brandLabel": "Sem marca",
       "brandSlug": "sem-marca",
@@ -785,6 +814,7 @@
     },
     {
       "slug": "apple_magsafe_cargador_inalambrico",
+      "refCode": "ST-CB5BB3",
       "name": "APPLE MagSafe (cargador inalambrico)",
       "brandLabel": "Sem marca",
       "brandSlug": "sem-marca",
@@ -808,6 +838,7 @@
     },
     {
       "slug": "adidas_hand_ii",
+      "refCode": "ST-D90AEB",
       "name": "ADIDAS Hand II",
       "brandLabel": "Adidas",
       "brandSlug": "adidas",
@@ -841,6 +872,7 @@
     },
     {
       "slug": "rhode_pack_6",
+      "refCode": "ST-176E17",
       "name": "RHODE (pack 6)",
       "brandLabel": "Sem marca",
       "brandSlug": "sem-marca",
@@ -864,6 +896,7 @@
     },
     {
       "slug": "rhode",
+      "refCode": "ST-0FB394",
       "name": "RHODE",
       "brandLabel": "Sem marca",
       "brandSlug": "sem-marca",
@@ -887,6 +920,7 @@
     },
     {
       "slug": "nike_psg_2627",
+      "refCode": "ST-27CBF1",
       "name": "NIKE PSG 26/27",
       "brandLabel": "Nike",
       "brandSlug": "nike",
@@ -920,6 +954,7 @@
     },
     {
       "slug": "louis_vuitton_trainer",
+      "refCode": "ST-61BA17",
       "name": "LOUIS VUITTON Trainer",
       "brandLabel": "Sem marca",
       "brandSlug": "sem-marca",
@@ -943,6 +978,7 @@
     },
     {
       "slug": "birkenstock",
+      "refCode": "ST-0BD08B",
       "name": "BIRKENSTOCK",
       "brandLabel": "Sem marca",
       "brandSlug": "sem-marca",
@@ -966,6 +1002,7 @@
     },
     {
       "slug": "adidas_samba_og_burdeos",
+      "refCode": "ST-2D8D48",
       "name": "ADIDAS Samba OG \"Burdeos\"",
       "brandLabel": "Adidas",
       "brandSlug": "adidas",
@@ -999,6 +1036,7 @@
     },
     {
       "slug": "gymshark_conjunto",
+      "refCode": "ST-581009",
       "name": "GYMSHARK (conjunto)",
       "brandLabel": "Sem marca",
       "brandSlug": "sem-marca",
@@ -1027,6 +1065,7 @@
     },
     {
       "slug": "moschino",
+      "refCode": "ST-529007",
       "name": "MOSCHINO",
       "brandLabel": "Sem marca",
       "brandSlug": "sem-marca",
@@ -1050,6 +1089,7 @@
     },
     {
       "slug": "corteiz_conjunto",
+      "refCode": "ST-B75D79",
       "name": "CORTEIZ (conjunto)",
       "brandLabel": "Sem marca",
       "brandSlug": "sem-marca",
@@ -1078,6 +1118,7 @@
     },
     {
       "slug": "patagonia_conjunto",
+      "refCode": "ST-8C3EE9",
       "name": "PATAGONIA (conjunto)",
       "brandLabel": "Sem marca",
       "brandSlug": "sem-marca",
@@ -1106,6 +1147,7 @@
     },
     {
       "slug": "palm_angels",
+      "refCode": "ST-38488F",
       "name": "PALM ANGELS",
       "brandLabel": "Sem marca",
       "brandSlug": "sem-marca",
@@ -1129,6 +1171,7 @@
     },
     {
       "slug": "gafas_con_ia_audio_y_camara_estilo_rayban_meta",
+      "refCode": "ST-4A654D",
       "name": "Gafas con IA, Audio y Camara (estilo RayBan Meta)",
       "brandLabel": "Sem marca",
       "brandSlug": "sem-marca",
@@ -1152,6 +1195,7 @@
     },
     {
       "slug": "stone_island_conjunto",
+      "refCode": "ST-3934B4",
       "name": "STONE ISLAND (conjunto)",
       "brandLabel": "Sem marca",
       "brandSlug": "sem-marca",
@@ -1180,6 +1224,7 @@
     },
     {
       "slug": "adidas_gazelle_x_gucci",
+      "refCode": "ST-D5489B",
       "name": "ADIDAS Gazelle x GUCCI",
       "brandLabel": "Adidas",
       "brandSlug": "adidas",
@@ -1213,6 +1258,7 @@
     },
     {
       "slug": "adidas_r_madrid_platinium_2627",
+      "refCode": "ST-1DCB8F",
       "name": "ADIDAS R. Madrid \"Platinium\" 26/27",
       "brandLabel": "Adidas",
       "brandSlug": "adidas",
@@ -1246,6 +1292,7 @@
     },
     {
       "slug": "adidas_sevilla_2627",
+      "refCode": "ST-7303EA",
       "name": "ADIDAS Sevilla 26/27",
       "brandLabel": "Adidas",
       "brandSlug": "adidas",
@@ -1279,6 +1326,7 @@
     },
     {
       "slug": "under_armour_chandal_completo",
+      "refCode": "ST-2331F8",
       "name": "UNDER ARMOUR (chandal completo)",
       "brandLabel": "Sem marca",
       "brandSlug": "sem-marca",
@@ -1307,6 +1355,7 @@
     },
     {
       "slug": "nike_shox_z",
+      "refCode": "ST-8ABC18",
       "name": "NIKE Shox Z",
       "brandLabel": "Nike",
       "brandSlug": "nike",
@@ -1340,6 +1389,7 @@
     },
     {
       "slug": "apple_watch_ultra_2",
+      "refCode": "ST-7F70FE",
       "name": "APPLE Watch Ultra 2",
       "brandLabel": "Sem marca",
       "brandSlug": "sem-marca",
@@ -1363,6 +1413,7 @@
     },
     {
       "slug": "scuffers",
+      "refCode": "ST-E64BF9",
       "name": "SCUFFERS",
       "brandLabel": "Sem marca",
       "brandSlug": "sem-marca",
@@ -1386,6 +1437,7 @@
     },
     {
       "slug": "adidas_stone_slides_x_bad_bunny",
+      "refCode": "ST-16B8CB",
       "name": "ADIDAS Stone Slides x BAD BUNNY",
       "brandLabel": "Adidas",
       "brandSlug": "adidas",
@@ -1419,6 +1471,7 @@
     },
     {
       "slug": "adidas_argentina_edicion_especial",
+      "refCode": "ST-7118CB",
       "name": "ADIDAS Argentina \"Edicion Especial\"",
       "brandLabel": "Adidas",
       "brandSlug": "adidas",
@@ -1452,6 +1505,7 @@
     },
     {
       "slug": "adidas_gazelle_x_bud_bunny",
+      "refCode": "ST-DB3B9D",
       "name": "ADIDAS Gazelle x Bud Bunny",
       "brandLabel": "Adidas",
       "brandSlug": "adidas",
@@ -1485,6 +1539,7 @@
     },
     {
       "slug": "polo_ralph_lauren_conjunto",
+      "refCode": "ST-6B63AB",
       "name": "POLO RALPH LAUREN (conjunto)",
       "brandLabel": "Sem marca",
       "brandSlug": "sem-marca",
@@ -1513,6 +1568,7 @@
     },
     {
       "slug": "vans_retro",
+      "refCode": "ST-EB58F4",
       "name": "Vans Retro",
       "brandLabel": "Vans",
       "brandSlug": "vans",
@@ -1546,6 +1602,7 @@
     },
     {
       "slug": "the_north_face_x_gore_tex",
+      "refCode": "ST-AF0F1E",
       "name": "THE NORTH FACE x GORE TEX",
       "brandLabel": "Sem marca",
       "brandSlug": "sem-marca",
@@ -1574,6 +1631,7 @@
     },
     {
       "slug": "balenciaga",
+      "refCode": "ST-304E45",
       "name": "BALENCIAGA",
       "brandLabel": "Sem marca",
       "brandSlug": "sem-marca",
@@ -1597,6 +1655,7 @@
     },
     {
       "slug": "nike_5_pares",
+      "refCode": "ST-E30BBC",
       "name": "NIKE (5 pares)",
       "brandLabel": "Nike",
       "brandSlug": "nike",
@@ -1630,6 +1689,7 @@
     },
     {
       "slug": "apple_airpods_pro2",
+      "refCode": "ST-25FC6E",
       "name": "APPLE AirPods Pro2",
       "brandLabel": "Sem marca",
       "brandSlug": "sem-marca",
@@ -1653,6 +1713,7 @@
     },
     {
       "slug": "vans",
+      "refCode": "ST-C8D7BF",
       "name": "VANS",
       "brandLabel": "Sem marca",
       "brandSlug": "sem-marca",
@@ -1686,6 +1747,7 @@
     },
     {
       "slug": "adidas_argentina_2026_chandal_completo",
+      "refCode": "ST-9C27D3",
       "name": "ADIDAS Argentina 2026 (chandal completo)",
       "brandLabel": "Sem marca",
       "brandSlug": "sem-marca",
@@ -1719,6 +1781,7 @@
     },
     {
       "slug": "nike_fc_barcelona_x_echo_2627",
+      "refCode": "ST-9E0514",
       "name": "NIKE FC Barcelona x ECHO 26/27",
       "brandLabel": "Nike",
       "brandSlug": "nike",
@@ -1752,6 +1815,7 @@
     },
     {
       "slug": "adidas_gazelle_bold",
+      "refCode": "ST-CEAF78",
       "name": "ADIDAS Gazelle Bold",
       "brandLabel": "Adidas",
       "brandSlug": "adidas",

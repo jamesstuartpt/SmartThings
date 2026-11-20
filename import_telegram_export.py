@@ -161,6 +161,11 @@ def _sanitize_slug_strong(text: str, max_len: int = 120) -> str:
     return s
 
 
+def build_product_ref(slug: str) -> str:
+    digest = hashlib.md5(str(slug or "").strip().lower().encode("utf-8")).hexdigest()[:6].upper()
+    return f"ST-{digest}"
+
+
 def _clean_display_name(text: str) -> str:
     s = text or ""
     for old, new in EXPORT_MOJI_FIXES:
@@ -421,6 +426,7 @@ def export_private_links_csv(products_list: list[dict], out_path: Path) -> int:
         if not buy_link:
             continue
         rows.append({
+            "refCode": build_product_ref(str(product.get("slug") or "").strip()),
             "slug": str(product.get("slug") or "").strip(),
             "name": str(product.get("name") or "").strip(),
             "buyLink": buy_link,
@@ -436,7 +442,7 @@ def export_private_links_csv(products_list: list[dict], out_path: Path) -> int:
     with open(out_path, "w", newline="", encoding="utf-8-sig") as handle:
         writer = csv.DictWriter(
             handle,
-            fieldnames=["slug", "name", "buyLink", "active", "platform", "category", "brand", "updatedAt", "notes"],
+            fieldnames=["refCode", "slug", "name", "buyLink", "active", "platform", "category", "brand", "updatedAt", "notes"],
         )
         writer.writeheader()
         writer.writerows(rows)

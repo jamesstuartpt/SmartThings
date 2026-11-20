@@ -3,6 +3,7 @@
   "products": [
     {
       "slug": "adidas_adidas_r_madrid_4",
+      "refCode": "ST-8D5B97",
       "name": "ADIDAS R Madrid",
       "brandLabel": "ADIDAS",
       "brandSlug": "adidas",
@@ -41,6 +42,7 @@
     },
     {
       "slug": "adidas_adidas_samba_29_colores",
+      "refCode": "ST-150175",
       "name": "ADIDAS \"Samba\" / 29 Colores",
       "brandLabel": "ADIDAS",
       "brandSlug": "adidas",
@@ -79,6 +81,7 @@
     },
     {
       "slug": "asics_asics_gel_ub12_novedad",
+      "refCode": "ST-CD5E4F",
       "name": "ASICS \"Gel UB12\" / Novedad !",
       "brandLabel": "ASICS",
       "brandSlug": "asics",
@@ -117,6 +120,7 @@
     },
     {
       "slug": "ralph_lauren_polo_ralph_lauren_4_colores_tallas_hasta_la_5xl",
+      "refCode": "ST-B7A706",
       "name": "POLO RALPH LAUREN / 4 Colores / Tallas hasta la 5XL",
       "brandLabel": "Polo Ralph Lauren",
       "brandSlug": "ralph-lauren",
@@ -150,6 +154,7 @@
     },
     {
       "slug": "carolina_carolina_herrera_3_colores",
+      "refCode": "ST-5B40DA",
       "name": "CAROLINA HERRERA / 3 Colores",
       "brandLabel": "CAROLINA",
       "brandSlug": "carolina",
@@ -178,6 +183,7 @@
     },
     {
       "slug": "carolina_carolina_herrera_4_colores",
+      "refCode": "ST-8CB8E3",
       "name": "CAROLINA HERRERA / 4 Colores",
       "brandLabel": "CAROLINA",
       "brandSlug": "carolina",
@@ -206,6 +212,7 @@
     },
     {
       "slug": "carolina_carolina_herrera_7_modelos",
+      "refCode": "ST-8B8EC5",
       "name": "CAROLINA HERRERA / 7 Modelos",
       "brandLabel": "CAROLINA",
       "brandSlug": "carolina",
@@ -234,6 +241,7 @@
     },
     {
       "slug": "ralph_lauren_polo_ralph_lauren_10_colores_2",
+      "refCode": "ST-C82326",
       "name": "POLO RALPH LAUREN / 10 Colores",
       "brandLabel": "Polo Ralph Lauren",
       "brandSlug": "ralph-lauren",
@@ -267,6 +275,7 @@
     },
     {
       "slug": "fred_fred_perry_3_colores_2",
+      "refCode": "ST-3FEE21",
       "name": "FRED PERRY / 3 Colores",
       "brandLabel": "FRED",
       "brandSlug": "fred",
@@ -295,6 +304,7 @@
     },
     {
       "slug": "fred_fred_perry_3_colores",
+      "refCode": "ST-B22008",
       "name": "FRED PERRY / 3 Colores",
       "brandLabel": "FRED",
       "brandSlug": "fred",
@@ -323,6 +333,7 @@
     },
     {
       "slug": "the_north_face_the_north_face_x_kaws_2",
+      "refCode": "ST-15724A",
       "name": "THE NORTH FACE x KAWS",
       "brandLabel": "The North Face",
       "brandSlug": "the-north-face",
@@ -351,6 +362,7 @@
     },
     {
       "slug": "ralph_lauren_polo_ralph_lauren_10_colores",
+      "refCode": "ST-1722DD",
       "name": "POLO RALPH LAUREN / 10 Colores",
       "brandLabel": "Polo Ralph Lauren",
       "brandSlug": "ralph-lauren",
@@ -384,6 +396,7 @@
     },
     {
       "slug": "numeris_numeris_eclipse_10_colores_estan_de_vuelta",
+      "refCode": "ST-559BB0",
       "name": "NUMERIS \"Eclipse\" / 10 Colores / Estan de vuelta !",
       "brandLabel": "NUMERIS",
       "brandSlug": "numeris",
@@ -412,6 +425,7 @@
     },
     {
       "slug": "adidas_sambarose",
+      "refCode": "ST-858493",
       "name": "ADIDAS SambaRose",
       "brandLabel": "Adidas",
       "brandSlug": "adidas",
@@ -450,6 +464,7 @@
     },
     {
       "slug": "emporio_emporio_armani_10_colores",
+      "refCode": "ST-DFA70B",
       "name": "EMPORIO ARMANI / 10 colores",
       "brandLabel": "EMPORIO",
       "brandSlug": "emporio",
@@ -478,6 +493,7 @@
     },
     {
       "slug": "hidden_hidden_hills",
+      "refCode": "ST-F53CB9",
       "name": "HIDDEN HILLS",
       "brandLabel": "HIDDEN",
       "brandSlug": "hidden",
@@ -506,6 +522,7 @@
     },
     {
       "slug": "the_north_face_the_north_face_700",
+      "refCode": "ST-C9363C",
       "name": "THE NORTH FACE 700",
       "brandLabel": "The North Face",
       "brandSlug": "the-north-face",
@@ -534,6 +551,7 @@
     },
     {
       "slug": "fred_fred_perry_4_colores",
+      "refCode": "ST-67CC9D",
       "name": "FRED PERRY / 4 Colores",
       "brandLabel": "FRED",
       "brandSlug": "fred",
@@ -562,6 +580,7 @@
     },
     {
       "slug": "adidas_samba_x_liberty_london",
+      "refCode": "ST-9E44B6",
       "name": "ADIDAS Samba x LIBERTY LONDON",
       "brandLabel": "Adidas",
       "brandSlug": "adidas",
@@ -600,6 +619,7 @@
     },
     {
       "slug": "brooks_brooks_glycerin_23_10_colores",
+      "refCode": "ST-8BDCB0",
       "name": "BROOKS \"Glycerin 23\" / 10 Colores",
       "brandLabel": "BROOKS",
       "brandSlug": "brooks",
@@ -628,6 +648,7 @@
     },
     {
       "slug": "adidas_adidas_drop_step",
+      "refCode": "ST-37CA00",
       "name": "ADIDAS \"Drop Step\"",
       "brandLabel": "ADIDAS",
       "brandSlug": "adidas",
@@ -666,6 +687,7 @@
     },
     {
       "slug": "adidas_adidas_espana_4_colores",
+      "refCode": "ST-4B5FCE",
       "name": "ADIDAS Espana / 4 Colores",
       "brandLabel": "ADIDAS",
       "brandSlug": "adidas",
@@ -704,6 +726,7 @@
     },
     {
       "slug": "nike_nike_shox_ride_2_10_colores",
+      "refCode": "ST-1C23FE",
       "name": "NIKE \"Shox Ride 2\" / 10 Colores",
       "brandLabel": "NIKE",
       "brandSlug": "nike",
@@ -742,6 +765,7 @@
     },
     {
       "slug": "adidas_adidas_adizero_evo_sl_30_nuevos_colores",
+      "refCode": "ST-F54D45",
       "name": "ADIDAS \"Adizero EVO SL\" / 30 Nuevos Colores",
       "brandLabel": "ADIDAS",
       "brandSlug": "adidas",
@@ -780,6 +804,7 @@
     },
     {
       "slug": "adidas_adidas_campus_winter_estan_de_vuelta_2",
+      "refCode": "ST-B9E3BC",
       "name": "ADIDAS \"Campus Winter\" / Estan de Vuelta",
       "brandLabel": "ADIDAS",
       "brandSlug": "adidas",
@@ -818,6 +843,7 @@
     },
     {
       "slug": "yeezy_yeezy_slide_18_colores_super_precio",
+      "refCode": "ST-15447E",
       "name": "YEEZY \"Slide\" / 18 Colores / Super Precio",
       "brandLabel": "YEEZY",
       "brandSlug": "yeezy",
@@ -856,6 +882,7 @@
     },
     {
       "slug": "adidas_adidas_sls_12_colores",
+      "refCode": "ST-B26CAA",
       "name": "ADIDAS \"SLS\" / 12 Colores",
       "brandLabel": "ADIDAS",
       "brandSlug": "adidas",
@@ -894,6 +921,7 @@
     },
     {
       "slug": "adidas_adidas_superstar_12_colores_2",
+      "refCode": "ST-A85A53",
       "name": "ADIDAS \"Superstar\" / 12 Colores",
       "brandLabel": "ADIDAS",
       "brandSlug": "adidas",
@@ -932,6 +960,7 @@
     },
     {
       "slug": "asics_asics_superblast_3_5_colores",
+      "refCode": "ST-B43769",
       "name": "ASICS \"SuperBlast 3\" / 5 Colores",
       "brandLabel": "ASICS",
       "brandSlug": "asics",
@@ -970,6 +999,7 @@
     },
     {
       "slug": "hoka_hoka_speedgoat_7_18_colores",
+      "refCode": "ST-854763",
       "name": "HOKA \"SpeedGoat 7\" / 18 Colores",
       "brandLabel": "HOKA",
       "brandSlug": "hoka",
@@ -998,6 +1028,7 @@
     },
     {
       "slug": "the_north_face_the_north_face_tallas_de_ninos",
+      "refCode": "ST-6F3FFF",
       "name": "THE NORTH FACE / Tallas de ninos",
       "brandLabel": "The North Face",
       "brandSlug": "the-north-face",
@@ -1026,6 +1057,7 @@
     },
     {
       "slug": "carhartt_carhartt_tallas_de_ninos",
+      "refCode": "ST-B58312",
       "name": "CARHARTT / Tallas de ninos",
       "brandLabel": "CARHARTT",
       "brandSlug": "carhartt",
@@ -1059,6 +1091,7 @@
     },
     {
       "slug": "nike_nike_tech_4_colores_con_nuestra_promo_del_90_os_queda_en_menos_de_7",
+      "refCode": "ST-89CFF4",
       "name": "NIKE \"Tech\" / 4 Colores / Con nuestra promo del 90% os queda en menos de 7€",
       "brandLabel": "NIKE",
       "brandSlug": "nike",
@@ -1097,6 +1130,7 @@
     },
     {
       "slug": "new_balance_new_balance_abzorb_1890_15_colores",
+      "refCode": "ST-C3687F",
       "name": "NEW BALANCE Abzorb 1890 / 15 Colores",
       "brandLabel": "New Balance",
       "brandSlug": "new-balance",
@@ -1135,6 +1169,7 @@
     },
     {
       "slug": "apple_apple_airpods_max_8_colores_super_precio",
+      "refCode": "ST-2C3283",
       "name": "APPLE AirPods Max / 8 Colores / Super Precio",
       "brandLabel": "APPLE",
       "brandSlug": "apple",
@@ -1163,6 +1198,7 @@
     },
     {
       "slug": "ps5_ps5_mando_5_colores_super_precio",
+      "refCode": "ST-8D560D",
       "name": "PS5 Mando / 5 Colores / Super Precio",
       "brandLabel": "PS5",
       "brandSlug": "ps5",
@@ -1191,6 +1227,7 @@
     },
     {
       "slug": "adidas_adidas_spezial_25_nuevos_colores",
+      "refCode": "ST-42BC31",
       "name": "ADIDAS Spezial / 25 Nuevos Colores",
       "brandLabel": "ADIDAS",
       "brandSlug": "adidas",
@@ -1229,6 +1266,7 @@
     },
     {
       "slug": "adidas_adidas_campus_16_colores",
+      "refCode": "ST-9752EC",
       "name": "ADIDAS \"Campus\" / 16 Colores",
       "brandLabel": "ADIDAS",
       "brandSlug": "adidas",
@@ -1267,6 +1305,7 @@
     },
     {
       "slug": "ugg_ugg_estan_de_vuelta",
+      "refCode": "ST-AB3712",
       "name": "UGG / Estan de Vuelta",
       "brandLabel": "UGG",
       "brandSlug": "ugg",
@@ -1295,6 +1334,7 @@
     },
     {
       "slug": "ugg_ugg_lowmel_2_colores",
+      "refCode": "ST-EA31B5",
       "name": "UGG \"Lowmel\" / 2 Colores",
       "brandLabel": "UGG",
       "brandSlug": "ugg",
@@ -1323,6 +1363,7 @@
     },
     {
       "slug": "asics_asics_gel_nimbus_16_13_colores",
+      "refCode": "ST-303C45",
       "name": "ASICS Gel Nimbus 16 / 13 Colores",
       "brandLabel": "ASICS",
       "brandSlug": "asics",
@@ -1361,6 +1402,7 @@
     },
     {
       "slug": "adidas_adidas_samba_17_colores_super_precio",
+      "refCode": "ST-9B6740",
       "name": "ADIDAS \"Samba\" / 17 Colores / Super Precio",
       "brandLabel": "ADIDAS",
       "brandSlug": "adidas",
@@ -1399,6 +1441,7 @@
     },
     {
       "slug": "vans_old_skool_lx",
+      "refCode": "ST-4A6F10",
       "name": "VANS \"Old Skool LX\"",
       "brandLabel": "Vans",
       "brandSlug": "vans",
@@ -1437,6 +1480,7 @@
     },
     {
       "slug": "carhartt_carhartt_7_colores_2",
+      "refCode": "ST-D4F5C1",
       "name": "CARHARTT / 7 Colores",
       "brandLabel": "CARHARTT",
       "brandSlug": "carhartt",
@@ -1470,6 +1514,7 @@
     },
     {
       "slug": "veja_veja_7_colores",
+      "refCode": "ST-98B6ED",
       "name": "VEJA / 7 Colores",
       "brandLabel": "VEJA",
       "brandSlug": "veja",
@@ -1498,6 +1543,7 @@
     },
     {
       "slug": "rimowa_rimowa_x_dior_12_colores_para_iphone_17_y_18",
+      "refCode": "ST-AD0771",
       "name": "RIMOWA x DIOR / 12 Colores / Para IPhone 17 y 18",
       "brandLabel": "RIMOWA",
       "brandSlug": "rimowa",
@@ -1526,6 +1572,7 @@
     },
     {
       "slug": "hummel_hummel_betis_26_27_tambien_teneis_con_dorsales",
+      "refCode": "ST-C5CD7C",
       "name": "HUMMEL Betis 26/27 / Tambien teneis con Dorsales",
       "brandLabel": "HUMMEL",
       "brandSlug": "hummel",
@@ -1554,6 +1601,7 @@
     },
     {
       "slug": "new_balance_new_balance_rebel_v4_muchos_colores",
+      "refCode": "ST-843F54",
       "name": "NEW BALANCE \"REBEL V4\" / Muchos Colores",
       "brandLabel": "New Balance",
       "brandSlug": "new-balance",
@@ -1592,6 +1640,7 @@
     },
     {
       "slug": "birkenstock_birkenstock_14_colores",
+      "refCode": "ST-549384",
       "name": "BIRKENSTOCK / 14 Colores",
       "brandLabel": "BIRKENSTOCK",
       "brandSlug": "birkenstock",
@@ -1620,6 +1669,7 @@
     },
     {
       "slug": "adidas_adidas_gazelle_14_colores",
+      "refCode": "ST-A9B40F",
       "name": "ADIDAS Gazelle / 14 Colores",
       "brandLabel": "ADIDAS",
       "brandSlug": "adidas",
@@ -1658,6 +1708,7 @@
     },
     {
       "slug": "polene_polene_5_colores",
+      "refCode": "ST-30D078",
       "name": "POLENE / 5 Colores",
       "brandLabel": "POLENE",
       "brandSlug": "polene",
@@ -1686,6 +1737,7 @@
     },
     {
       "slug": "zadig_zadig_x_voltaire",
+      "refCode": "ST-C8DBF8",
       "name": "ZADIG x VOLTAIRE",
       "brandLabel": "ZADIG",
       "brandSlug": "zadig",
@@ -1714,6 +1766,7 @@
     },
     {
       "slug": "paragonia_paragonia",
+      "refCode": "ST-EDE721",
       "name": "PARAGONIA",
       "brandLabel": "PARAGONIA",
       "brandSlug": "paragonia",
@@ -1742,6 +1795,7 @@
     },
     {
       "slug": "tom_tom_ford_muchos_colores_2",
+      "refCode": "ST-9E006C",
       "name": "TOM FORD / Muchos Colores",
       "brandLabel": "TOM",
       "brandSlug": "tom",
@@ -1770,6 +1824,7 @@
     },
     {
       "slug": "adidas_samba_mule",
+      "refCode": "ST-D86008",
       "name": "Adidas Samba Mule",
       "brandLabel": "Adidas",
       "brandSlug": "adidas",
@@ -1808,6 +1863,7 @@
     },
     {
       "slug": "off_off_white_12_colores",
+      "refCode": "ST-6174FC",
       "name": "OFF WHITE / 12 Colores",
       "brandLabel": "OFF",
       "brandSlug": "off",
@@ -1836,6 +1892,7 @@
     },
     {
       "slug": "goyard_goyard_5_colores_2",
+      "refCode": "ST-DE9021",
       "name": "GOYARD / 5 Colores",
       "brandLabel": "GOYARD",
       "brandSlug": "goyard",
@@ -1864,6 +1921,7 @@
     },
     {
       "slug": "ralph_lauren_polo_ralph_lauren_varios_packs_de_diferentes_colores_2",
+      "refCode": "ST-4ACC0C",
       "name": "POLO RALPH LAUREN / Varios Packs de diferentes Colores",
       "brandLabel": "Polo Ralph Lauren",
       "brandSlug": "ralph-lauren",
@@ -1897,6 +1955,7 @@
     },
     {
       "slug": "funda_funda_the_north_face_desde_el_iphone_13_al_18",
+      "refCode": "ST-2933E2",
       "name": "Funda THE NORTH FACE / Desde el iPhone 13 al 18",
       "brandLabel": "Funda",
       "brandSlug": "funda",
@@ -1925,6 +1984,7 @@
     },
     {
       "slug": "asics_asics_gel_kayano_14_14_colores",
+      "refCode": "ST-D831C8",
       "name": "ASICS \"Gel Kayano 14\" / 14 Colores",
       "brandLabel": "ASICS",
       "brandSlug": "asics",
@@ -1963,6 +2023,7 @@
     },
     {
       "slug": "adidas_adidas_sl72_pro_9_colores",
+      "refCode": "ST-9C654E",
       "name": "ADIDAS \"SL72 Pro\" / 9 Colores",
       "brandLabel": "ADIDAS",
       "brandSlug": "adidas",
@@ -2001,6 +2062,7 @@
     },
     {
       "slug": "cp_cp_company_5_colores",
+      "refCode": "ST-21CDD3",
       "name": "CP COMPANY / 5 Colores",
       "brandLabel": "CP",
       "brandSlug": "cp",
@@ -2029,6 +2091,7 @@
     },
     {
       "slug": "adidas_adidas_country_11_colores",
+      "refCode": "ST-C1E3AC",
       "name": "ADIDAS Country / 11 Colores",
       "brandLabel": "ADIDAS",
       "brandSlug": "adidas",
@@ -2067,6 +2130,7 @@
     },
     {
       "slug": "asics_asics_gel_kayano_20_14_colores",
+      "refCode": "ST-51B406",
       "name": "ASICS Gel Kayano 20 / 14 Colores",
       "brandLabel": "ASICS",
       "brandSlug": "asics",
