@@ -1117,13 +1117,13 @@ details p {
   }
 
   .page-layout {
-    grid-template-columns: minmax(0, 0.95fr) minmax(320px, 0.85fr);
+    grid-template-columns: minmax(0, 1.08fr) minmax(360px, 0.92fr);
     align-items: start;
   }
 
   .gallery__main {
     aspect-ratio: 4 / 5;
-    max-height: min(68vh, 560px);
+    max-height: min(76vh, 720px);
   }
 
   .related-grid {
