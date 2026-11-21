@@ -19,6 +19,9 @@
     <meta name="twitter:description" content="Catálogo estático com pedido por WhatsApp. Escolhe artigos e tamanhos, envia o pedido e confirma stock, preço final e envio no WhatsApp.">
     <meta name="twitter:image" content="https://jamesstuartpt.github.io/SmartThings/imagens/og-default.svg">
     <meta name="twitter:site" content="@smartthingspt">
+    <link rel="icon" href="/SmartThings/favicon.svg" type="image/svg+xml">
+    <link rel="shortcut icon" href="/SmartThings/favicon.svg" type="image/svg+xml">
+    <meta name="theme-color" content="#111111">
     <link rel="stylesheet" href="/SmartThings/css/tokens.css">
     <link rel="stylesheet" href="/SmartThings/css/app.css">
     
@@ -43,6 +46,19 @@
             <span class="sr-only">Ir para o carrinho</span>
           </button>
         </div>
+      </div>
+      <div class="container topbar__search-row">
+        <form class="topbar-search searchbox" data-global-search-form role="search" action="/SmartThings/">
+          <span aria-hidden="true">⌕</span>
+          <input
+            data-global-search-input
+            type="search"
+            name="q"
+            placeholder="Pesquisar no catálogo a partir de qualquer página"
+            autocomplete="off"
+          >
+          <button class="topbar-search__submit" type="submit">Pesquisar</button>
+        </form>
       </div>
     </header>
   
@@ -89,6 +105,7 @@
                   <label class="select-field">
                     <span class="sr-only">Ordenar</span>
                     <select id="filter-sort">
+                      <option value="mais-vendidos">Mais vendidos</option>
                       <option value="relevancia">Relevância</option>
                       <option value="recentes">Mais recentes</option>
                       <option value="az">A → Z</option>
@@ -101,98 +118,122 @@
 
           <div class="catalog-grid" id="catalog-grid">
     <article class="catalog-card">
-      <a class="catalog-card__link" href="/SmartThings/produto/carolina_carolina_herrera_3_colores_2/">
+      <a class="catalog-card__link" href="/SmartThings/produto/asics_asics_gel_nyc_2_0_8_colores/">
         <div class="catalog-card__media">
           <span class="skeleton" aria-hidden="true"></span>
-          <img src="/SmartThings/imagens/telegram/carolina_carolina_herrera_3_colores_2/1.jpg" alt="CAROLINA HERRERA / 3 Colores" loading="lazy" width="1280" height="1280">
+          <img src="/SmartThings/imagens/telegram/asics_asics_gel_nyc_2_0_8_colores/1.jpg" alt="ASICS Gel NYC 2.0 / 8 Colores" loading="lazy" width="1280" height="1280">
           <div class="catalog-card__badges">
             <span class="badge badge--accent">Novo</span>
           </div>
         </div>
         <div class="catalog-card__body">
           <div class="catalog-card__meta">
-            <span class="catalog-card__brand">CAROLINA</span>
+            <span class="catalog-card__brand">ASICS</span>
             <span class="catalog-card__price">40€</span>
           </div>
-          <h3 class="catalog-card__name">CAROLINA HERRERA / 3 Colores</h3>
-          <p class="catalog-card__ref">Ref. ST-829C5A</p>
+          <h3 class="catalog-card__name">ASICS Gel NYC 2.0 / 8 Colores</h3>
+          <p class="catalog-card__ref">Ref. ST-614FCD</p>
         </div>
       </a>
       <div class="catalog-card__foot">
-        <a class="catalog-card__button" href="/SmartThings/produto/carolina_carolina_herrera_3_colores_2/">Ver artigo</a>
-        <button class="catalog-card__button catalog-card__button--primary" type="button" data-quick-add="carolina_carolina_herrera_3_colores_2">Adicionar ao carrinho</button>
+        <a class="catalog-card__button" href="/SmartThings/produto/asics_asics_gel_nyc_2_0_8_colores/">Ver artigo</a>
+        <button class="catalog-card__button catalog-card__button--primary" type="button" data-quick-add="asics_asics_gel_nyc_2_0_8_colores">Adicionar ao carrinho</button>
       </div>
     </article>
   
     <article class="catalog-card">
-      <a class="catalog-card__link" href="/SmartThings/produto/jw_jw_pei_5_colores/">
+      <a class="catalog-card__link" href="/SmartThings/produto/nike_nike_air_force_1_super_precio_3/">
         <div class="catalog-card__media">
           <span class="skeleton" aria-hidden="true"></span>
-          <img src="/SmartThings/imagens/telegram/jw_jw_pei_5_colores/1.jpg" alt="JW PEI / 5 Colores" loading="lazy" width="1280" height="1280">
+          <img src="/SmartThings/imagens/telegram/nike_nike_air_force_1_super_precio_3/1.jpg" alt="NIKE Air Force 1 / Super Precio" loading="lazy" width="1254" height="1254">
           <div class="catalog-card__badges">
             <span class="badge badge--accent">Novo</span>
           </div>
         </div>
         <div class="catalog-card__body">
           <div class="catalog-card__meta">
-            <span class="catalog-card__brand">JW</span>
+            <span class="catalog-card__brand">NIKE</span>
             <span class="catalog-card__price">40€</span>
           </div>
-          <h3 class="catalog-card__name">JW PEI / 5 Colores</h3>
-          <p class="catalog-card__ref">Ref. ST-4FAE9B</p>
+          <h3 class="catalog-card__name">NIKE Air Force 1 / Super Precio</h3>
+          <p class="catalog-card__ref">Ref. ST-26D06A</p>
         </div>
       </a>
       <div class="catalog-card__foot">
-        <a class="catalog-card__button" href="/SmartThings/produto/jw_jw_pei_5_colores/">Ver artigo</a>
-        <button class="catalog-card__button catalog-card__button--primary" type="button" data-quick-add="jw_jw_pei_5_colores">Adicionar ao carrinho</button>
+        <a class="catalog-card__button" href="/SmartThings/produto/nike_nike_air_force_1_super_precio_3/">Ver artigo</a>
+        <button class="catalog-card__button catalog-card__button--primary" type="button" data-quick-add="nike_nike_air_force_1_super_precio_3">Adicionar ao carrinho</button>
       </div>
     </article>
   
     <article class="catalog-card">
-      <a class="catalog-card__link" href="/SmartThings/produto/the_north_face_the_north_face_glenclyffe_7_colores_2/">
+      <a class="catalog-card__link" href="/SmartThings/produto/asics_gel_1130/">
         <div class="catalog-card__media">
           <span class="skeleton" aria-hidden="true"></span>
-          <img src="/SmartThings/imagens/telegram/the_north_face_the_north_face_glenclyffe_7_colores_2/1.jpg" alt="THE NORTH FACE &quot;Glenclyffe&quot; / 7 Colores" loading="lazy" width="1206" height="838">
+          <img src="/SmartThings/imagens/telegram/asics_gel_1130/10.jpg" alt="ASICS Gel 1130" loading="lazy" width="1186" height="1280">
           <div class="catalog-card__badges">
             <span class="badge badge--accent">Novo</span>
           </div>
         </div>
         <div class="catalog-card__body">
           <div class="catalog-card__meta">
-            <span class="catalog-card__brand">The North Face</span>
+            <span class="catalog-card__brand">ASICS</span>
             <span class="catalog-card__price">40€</span>
           </div>
-          <h3 class="catalog-card__name">THE NORTH FACE &quot;Glenclyffe&quot; / 7 Colores</h3>
-          <p class="catalog-card__ref">Ref. ST-22FDD5</p>
+          <h3 class="catalog-card__name">ASICS Gel 1130</h3>
+          <p class="catalog-card__ref">Ref. ST-C42C29</p>
         </div>
       </a>
       <div class="catalog-card__foot">
-        <a class="catalog-card__button" href="/SmartThings/produto/the_north_face_the_north_face_glenclyffe_7_colores_2/">Ver artigo</a>
-        <button class="catalog-card__button catalog-card__button--primary" type="button" data-quick-add="the_north_face_the_north_face_glenclyffe_7_colores_2">Adicionar ao carrinho</button>
+        <a class="catalog-card__button" href="/SmartThings/produto/asics_gel_1130/">Ver artigo</a>
+        <button class="catalog-card__button catalog-card__button--primary" type="button" data-quick-add="asics_gel_1130">Adicionar ao carrinho</button>
       </div>
     </article>
   
     <article class="catalog-card">
-      <a class="catalog-card__link" href="/SmartThings/produto/saucony_saucony_9_colores/">
+      <a class="catalog-card__link" href="/SmartThings/produto/nike_nike_p6000_23_colores/">
         <div class="catalog-card__media">
           <span class="skeleton" aria-hidden="true"></span>
-          <img src="/SmartThings/imagens/telegram/saucony_saucony_9_colores/1.jpg" alt="SAUCONY / 9 Colores" loading="lazy" width="1170" height="1138">
+          <img src="/SmartThings/imagens/telegram/nike_nike_p6000_23_colores/1.jpg" alt="NIKE &quot;P6000&quot; / 23 Colores" loading="lazy" width="1280" height="853">
+          <div class="catalog-card__badges">
+            
+          </div>
+        </div>
+        <div class="catalog-card__body">
+          <div class="catalog-card__meta">
+            <span class="catalog-card__brand">NIKE</span>
+            <span class="catalog-card__price">40€</span>
+          </div>
+          <h3 class="catalog-card__name">NIKE &quot;P6000&quot; / 23 Colores</h3>
+          <p class="catalog-card__ref">Ref. ST-55DF2D</p>
+        </div>
+      </a>
+      <div class="catalog-card__foot">
+        <a class="catalog-card__button" href="/SmartThings/produto/nike_nike_p6000_23_colores/">Ver artigo</a>
+        <button class="catalog-card__button catalog-card__button--primary" type="button" data-quick-add="nike_nike_p6000_23_colores">Adicionar ao carrinho</button>
+      </div>
+    </article>
+  
+    <article class="catalog-card">
+      <a class="catalog-card__link" href="/SmartThings/produto/golden_golden_goose_9_colores_3/">
+        <div class="catalog-card__media">
+          <span class="skeleton" aria-hidden="true"></span>
+          <img src="/SmartThings/imagens/telegram/golden_golden_goose_9_colores_3/1.jpg" alt="GOLDEN GOOSE / 9 Colores" loading="lazy" width="1206" height="1217">
           <div class="catalog-card__badges">
             <span class="badge badge--accent">Novo</span>
           </div>
         </div>
         <div class="catalog-card__body">
           <div class="catalog-card__meta">
-            <span class="catalog-card__brand">SAUCONY</span>
+            <span class="catalog-card__brand">GOLDEN</span>
             <span class="catalog-card__price">40€</span>
           </div>
-          <h3 class="catalog-card__name">SAUCONY / 9 Colores</h3>
-          <p class="catalog-card__ref">Ref. ST-3C8A7D</p>
+          <h3 class="catalog-card__name">GOLDEN GOOSE / 9 Colores</h3>
+          <p class="catalog-card__ref">Ref. ST-B7E67A</p>
         </div>
       </a>
       <div class="catalog-card__foot">
-        <a class="catalog-card__button" href="/SmartThings/produto/saucony_saucony_9_colores/">Ver artigo</a>
-        <button class="catalog-card__button catalog-card__button--primary" type="button" data-quick-add="saucony_saucony_9_colores">Adicionar ao carrinho</button>
+        <a class="catalog-card__button" href="/SmartThings/produto/golden_golden_goose_9_colores_3/">Ver artigo</a>
+        <button class="catalog-card__button catalog-card__button--primary" type="button" data-quick-add="golden_golden_goose_9_colores_3">Adicionar ao carrinho</button>
       </div>
     </article>
   
@@ -221,58 +262,58 @@
     </article>
   
     <article class="catalog-card">
-      <a class="catalog-card__link" href="/SmartThings/produto/converse_x_comme_des_garcons/">
+      <a class="catalog-card__link" href="/SmartThings/produto/new_balance_530/">
         <div class="catalog-card__media">
           <span class="skeleton" aria-hidden="true"></span>
-          <img src="/SmartThings/imagens/telegram/converse_x_comme_des_garcons/4.jpg" alt="CONVERSE x Comme des Garcons" loading="lazy" width="1206" height="1159">
+          <img src="/SmartThings/imagens/telegram/new_balance_530/new_balance_530_01.jpg" alt="New Balance 530" loading="lazy" width="1080" height="968">
           <div class="catalog-card__badges">
-            <span class="badge badge--accent">Novo</span>
+            
           </div>
         </div>
         <div class="catalog-card__body">
           <div class="catalog-card__meta">
-            <span class="catalog-card__brand">Converse</span>
+            <span class="catalog-card__brand">New Balance</span>
             <span class="catalog-card__price">40€</span>
           </div>
-          <h3 class="catalog-card__name">CONVERSE x Comme des Garcons</h3>
-          <p class="catalog-card__ref">Ref. ST-07BD2A</p>
+          <h3 class="catalog-card__name">New Balance 530</h3>
+          <p class="catalog-card__ref">Ref. ST-D1A8AA</p>
         </div>
       </a>
       <div class="catalog-card__foot">
-        <a class="catalog-card__button" href="/SmartThings/produto/converse_x_comme_des_garcons/">Ver artigo</a>
-        <button class="catalog-card__button catalog-card__button--primary" type="button" data-quick-add="converse_x_comme_des_garcons">Adicionar ao carrinho</button>
+        <a class="catalog-card__button" href="/SmartThings/produto/new_balance_530/">Ver artigo</a>
+        <button class="catalog-card__button catalog-card__button--primary" type="button" data-quick-add="new_balance_530">Adicionar ao carrinho</button>
       </div>
     </article>
   
     <article class="catalog-card">
-      <a class="catalog-card__link" href="/SmartThings/produto/adidas_anfu/">
+      <a class="catalog-card__link" href="/SmartThings/produto/nike_air_max_95_x_central_cee/">
         <div class="catalog-card__media">
           <span class="skeleton" aria-hidden="true"></span>
-          <img src="/SmartThings/imagens/telegram/adidas_anfu/10.jpg" alt="ADIDAS &quot;Anfu&quot;" loading="lazy" width="1206" height="805">
+          <img src="/SmartThings/imagens/telegram/nike_air_max_95_x_central_cee/nike_air_max_95_x_central_cee_01.jpg" alt="Nike Air Max 95 X Central Cee" loading="lazy" width="1206" height="1036">
           <div class="catalog-card__badges">
-            <span class="badge badge--accent">Novo</span>
+            
           </div>
         </div>
         <div class="catalog-card__body">
           <div class="catalog-card__meta">
-            <span class="catalog-card__brand">Adidas</span>
+            <span class="catalog-card__brand">Nike</span>
             <span class="catalog-card__price">40€</span>
           </div>
-          <h3 class="catalog-card__name">ADIDAS &quot;Anfu&quot;</h3>
-          <p class="catalog-card__ref">Ref. ST-B9C337</p>
+          <h3 class="catalog-card__name">Nike Air Max 95 X Central Cee</h3>
+          <p class="catalog-card__ref">Ref. ST-510B41</p>
         </div>
       </a>
       <div class="catalog-card__foot">
-        <a class="catalog-card__button" href="/SmartThings/produto/adidas_anfu/">Ver artigo</a>
-        <button class="catalog-card__button catalog-card__button--primary" type="button" data-quick-add="adidas_anfu">Adicionar ao carrinho</button>
+        <a class="catalog-card__button" href="/SmartThings/produto/nike_air_max_95_x_central_cee/">Ver artigo</a>
+        <button class="catalog-card__button catalog-card__button--primary" type="button" data-quick-add="nike_air_max_95_x_central_cee">Adicionar ao carrinho</button>
       </div>
     </article>
   
     <article class="catalog-card">
-      <a class="catalog-card__link" href="/SmartThings/produto/asics_asics_gel_phai_z/">
+      <a class="catalog-card__link" href="/SmartThings/produto/asics_asics_gel_kahana_8_29_colores/">
         <div class="catalog-card__media">
           <span class="skeleton" aria-hidden="true"></span>
-          <img src="/SmartThings/imagens/telegram/asics_asics_gel_phai_z/1.jpg" alt="ASICS Gel Phai Z" loading="lazy" width="963" height="1280">
+          <img src="/SmartThings/imagens/telegram/asics_asics_gel_kahana_8_29_colores/1.jpg" alt="ASICS Gel Kahana 8 / 29 Colores" loading="lazy" width="1206" height="854">
           <div class="catalog-card__badges">
             <span class="badge badge--accent">Novo</span>
           </div>
@@ -282,109 +323,85 @@
             <span class="catalog-card__brand">ASICS</span>
             <span class="catalog-card__price">40€</span>
           </div>
-          <h3 class="catalog-card__name">ASICS Gel Phai Z</h3>
-          <p class="catalog-card__ref">Ref. ST-024DFC</p>
+          <h3 class="catalog-card__name">ASICS Gel Kahana 8 / 29 Colores</h3>
+          <p class="catalog-card__ref">Ref. ST-FD1BE8</p>
         </div>
       </a>
       <div class="catalog-card__foot">
-        <a class="catalog-card__button" href="/SmartThings/produto/asics_asics_gel_phai_z/">Ver artigo</a>
-        <button class="catalog-card__button catalog-card__button--primary" type="button" data-quick-add="asics_asics_gel_phai_z">Adicionar ao carrinho</button>
+        <a class="catalog-card__button" href="/SmartThings/produto/asics_asics_gel_kahana_8_29_colores/">Ver artigo</a>
+        <button class="catalog-card__button catalog-card__button--primary" type="button" data-quick-add="asics_asics_gel_kahana_8_29_colores">Adicionar ao carrinho</button>
       </div>
     </article>
   
     <article class="catalog-card">
-      <a class="catalog-card__link" href="/SmartThings/produto/coach_coach_4_colores_3/">
+      <a class="catalog-card__link" href="/SmartThings/produto/converse_converse_tambien_las_bajas_2/">
         <div class="catalog-card__media">
           <span class="skeleton" aria-hidden="true"></span>
-          <img src="/SmartThings/imagens/telegram/coach_coach_4_colores_3/1.jpg" alt="COACH / 4 Colores" loading="lazy" width="915" height="1224">
+          <img src="/SmartThings/imagens/telegram/converse_converse_tambien_las_bajas_2/1.jpg" alt="CONVERSE / Tambien las bajas" loading="lazy" width="1206" height="869">
           <div class="catalog-card__badges">
             <span class="badge badge--accent">Novo</span>
           </div>
         </div>
         <div class="catalog-card__body">
           <div class="catalog-card__meta">
-            <span class="catalog-card__brand">COACH</span>
+            <span class="catalog-card__brand">CONVERSE</span>
             <span class="catalog-card__price">40€</span>
           </div>
-          <h3 class="catalog-card__name">COACH / 4 Colores</h3>
-          <p class="catalog-card__ref">Ref. ST-385C17</p>
+          <h3 class="catalog-card__name">CONVERSE / Tambien las bajas</h3>
+          <p class="catalog-card__ref">Ref. ST-E87D39</p>
         </div>
       </a>
       <div class="catalog-card__foot">
-        <a class="catalog-card__button" href="/SmartThings/produto/coach_coach_4_colores_3/">Ver artigo</a>
-        <button class="catalog-card__button catalog-card__button--primary" type="button" data-quick-add="coach_coach_4_colores_3">Adicionar ao carrinho</button>
+        <a class="catalog-card__button" href="/SmartThings/produto/converse_converse_tambien_las_bajas_2/">Ver artigo</a>
+        <button class="catalog-card__button catalog-card__button--primary" type="button" data-quick-add="converse_converse_tambien_las_bajas_2">Adicionar ao carrinho</button>
       </div>
     </article>
   
     <article class="catalog-card">
-      <a class="catalog-card__link" href="/SmartThings/produto/rizador_rizador_3_colores/">
+      <a class="catalog-card__link" href="/SmartThings/produto/corteiz_conjunto_denim/">
         <div class="catalog-card__media">
           <span class="skeleton" aria-hidden="true"></span>
-          <img src="/SmartThings/imagens/telegram/rizador_rizador_3_colores/1.jpg" alt="Rizador / 3 Colores" loading="lazy" width="1170" height="1153">
+          <img src="/SmartThings/imagens/telegram/corteiz_conjunto_denim/corteiz_conjunto_denim_01.jpg" alt="Corteiz Conjunto Denim" loading="lazy" width="1170" height="1159">
+          <div class="catalog-card__badges">
+            
+          </div>
+        </div>
+        <div class="catalog-card__body">
+          <div class="catalog-card__meta">
+            <span class="catalog-card__brand">Sem marca</span>
+            <span class="catalog-card__price">40€</span>
+          </div>
+          <h3 class="catalog-card__name">Corteiz Conjunto Denim</h3>
+          <p class="catalog-card__ref">Ref. ST-49A734</p>
+        </div>
+      </a>
+      <div class="catalog-card__foot">
+        <a class="catalog-card__button" href="/SmartThings/produto/corteiz_conjunto_denim/">Ver artigo</a>
+        <button class="catalog-card__button catalog-card__button--primary" type="button" data-quick-add="corteiz_conjunto_denim">Adicionar ao carrinho</button>
+      </div>
+    </article>
+  
+    <article class="catalog-card">
+      <a class="catalog-card__link" href="/SmartThings/produto/adidas_adidas_stan_smith_8_colores_2/">
+        <div class="catalog-card__media">
+          <span class="skeleton" aria-hidden="true"></span>
+          <img src="/SmartThings/imagens/telegram/adidas_adidas_stan_smith_8_colores_2/1.jpg" alt="ADIDAS &quot;Stan Smith&quot; / 8 Colores" loading="lazy" width="1177" height="1280">
           <div class="catalog-card__badges">
             <span class="badge badge--accent">Novo</span>
           </div>
         </div>
         <div class="catalog-card__body">
           <div class="catalog-card__meta">
-            <span class="catalog-card__brand">Rizador</span>
+            <span class="catalog-card__brand">ADIDAS</span>
             <span class="catalog-card__price">40€</span>
           </div>
-          <h3 class="catalog-card__name">Rizador / 3 Colores</h3>
-          <p class="catalog-card__ref">Ref. ST-8C6257</p>
+          <h3 class="catalog-card__name">ADIDAS &quot;Stan Smith&quot; / 8 Colores</h3>
+          <p class="catalog-card__ref">Ref. ST-957EAA</p>
         </div>
       </a>
       <div class="catalog-card__foot">
-        <a class="catalog-card__button" href="/SmartThings/produto/rizador_rizador_3_colores/">Ver artigo</a>
-        <button class="catalog-card__button catalog-card__button--primary" type="button" data-quick-add="rizador_rizador_3_colores">Adicionar ao carrinho</button>
-      </div>
-    </article>
-  
-    <article class="catalog-card">
-      <a class="catalog-card__link" href="/SmartThings/produto/carhartt_carhartt_4_colores_8/">
-        <div class="catalog-card__media">
-          <span class="skeleton" aria-hidden="true"></span>
-          <img src="/SmartThings/imagens/telegram/carhartt_carhartt_4_colores_8/1.jpg" alt="CARHARTT / 4 Colores" loading="lazy" width="1170" height="1074">
-          <div class="catalog-card__badges">
-            <span class="badge badge--accent">Novo</span>
-          </div>
-        </div>
-        <div class="catalog-card__body">
-          <div class="catalog-card__meta">
-            <span class="catalog-card__brand">CARHARTT</span>
-            <span class="catalog-card__price">40€</span>
-          </div>
-          <h3 class="catalog-card__name">CARHARTT / 4 Colores</h3>
-          <p class="catalog-card__ref">Ref. ST-68758E</p>
-        </div>
-      </a>
-      <div class="catalog-card__foot">
-        <a class="catalog-card__button" href="/SmartThings/produto/carhartt_carhartt_4_colores_8/">Ver artigo</a>
-        <button class="catalog-card__button catalog-card__button--primary" type="button" data-quick-add="carhartt_carhartt_4_colores_8">Adicionar ao carrinho</button>
-      </div>
-    </article>
-  
-    <article class="catalog-card">
-      <a class="catalog-card__link" href="/SmartThings/produto/nike_dunk/">
-        <div class="catalog-card__media">
-          <span class="skeleton" aria-hidden="true"></span>
-          <img src="/SmartThings/imagens/telegram/nike_dunk/10.jpg" alt="NIKE Dunk" loading="lazy" width="1280" height="836">
-          <div class="catalog-card__badges">
-            <span class="badge badge--accent">Novo</span>
-          </div>
-        </div>
-        <div class="catalog-card__body">
-          <div class="catalog-card__meta">
-            <span class="catalog-card__brand">Nike</span>
-            <span class="catalog-card__price">40€</span>
-          </div>
-          <h3 class="catalog-card__name">NIKE Dunk</h3>
-          <p class="catalog-card__ref">Ref. ST-6563FC</p>
-        </div>
-      </a>
-      <div class="catalog-card__foot">
-        <a class="catalog-card__button" href="/SmartThings/produto/nike_dunk/">Ver artigo</a>
-        <button class="catalog-card__button catalog-card__button--primary" type="button" data-quick-add="nike_dunk">Adicionar ao carrinho</button>
+        <a class="catalog-card__button" href="/SmartThings/produto/adidas_adidas_stan_smith_8_colores_2/">Ver artigo</a>
+        <button class="catalog-card__button catalog-card__button--primary" type="button" data-quick-add="adidas_adidas_stan_smith_8_colores_2">Adicionar ao carrinho</button>
       </div>
     </article>
   </div>

@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Smart Things PT">
+  <circle cx="34" cy="34" r="27" fill="#111111"/>
+  <circle cx="30" cy="30" r="26" fill="#C7FF3D"/>
+  <text x="30" y="37" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="800" fill="#111111">ST</text>
+</svg>

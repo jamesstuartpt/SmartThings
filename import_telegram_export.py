@@ -19,7 +19,7 @@ CLASSIFICAÇÕES FINAIS por mensagem:
   🟢 EXATO_JA_TEM_LINK    → match slug exato + produto já tem buyLink igual → skip
   🟡 PROVAVEL             → match nome > 75% → validação manual
   🔴 NOVO                 → sem match nenhum → adicionar
-  ⚪ IGNORADO             → sem foto OU sem buy-link na primeira linha
+  ⚪ IGNORADO             → sem foto OU sem buy-link detetado na mensagem
 """
 
 import json
@@ -241,6 +241,21 @@ def _tokenize(text: str) -> set[str]:
     return tokens
 
 
+def _looks_like_roundup(text: str) -> bool:
+    cleaned = _clean_display_name(_strip_accents(text or "")).lower()
+    if not cleaned:
+        return False
+    parts = [part.strip() for part in re.split(r"\s*/\s*", cleaned) if part.strip()]
+    if cleaned.startswith("top ") or "mejores links" in cleaned:
+        return True
+    if len(parts) >= 4 and len(cleaned) >= 70:
+        return True
+    numbered_blocks = re.findall(r"(?:^|[\s/])(?:\d+[.)]|[0-9]+️⃣)", cleaned)
+    if len(numbered_blocks) >= 3:
+        return True
+    return False
+
+
 # ============================================================
 # PARSE TELEGRAM
 # ============================================================
@@ -289,9 +304,9 @@ def parse_telegram_message(msg: dict) -> dict:
     name_lines: list[str] = []
     price_raw: Optional[str] = None
 
-    for idx, ln in enumerate(lines):
+    for ln in lines:
         urls = URL_RE.findall(ln)
-        if urls and not buy_link and idx == 0:
+        if urls and not buy_link:
             buy_link = urls[0]
             rest = ln.replace(buy_link, "").strip(" -—:|·•")
             if rest:
@@ -645,7 +660,14 @@ def classify_and_report(msgs_parsed: list[dict], manifest: list[dict], manifest_
             # Tentar fallback antigo (caso ALL_KNOWN não apanhe)
             non_brand_here = all_msg_toks - brand_toks_here - _GENERIC_STOPWORDS
         non_brand_here = {t for t in non_brand_here if len(t) >= 2}
+        is_nike = (pm.get("brand_token") or "").lower() in {"nike"}
         # BLOQUEAR CLARAMENTE:
+        if _looks_like_roundup(pm.get("cleaned_name") or ""):
+            pm["_roundup_skipped"] = True
+            stats["ignorado_sem_foto_ou_link"].append(pm)
+            if is_nike:
+                stats["nike"]["ignorado"].append(pm)
+            continue
         if all_msg_toks and not non_brand_here:
             pm["_brand_only_skipped"] = True
             stats["ignorado_sem_foto_ou_link"].append(pm)
@@ -653,7 +675,6 @@ def classify_and_report(msgs_parsed: list[dict], manifest: list[dict], manifest_
                 stats["nike"]["ignorado"].append(pm)
             continue
         # ---------------------------------------------------------------------
-        is_nike = (pm.get("brand_token") or "").lower() in {"nike"}
         if not pm["photos"] or not pm["buy_link"]:
             stats["ignorado_sem_foto_ou_link"].append(pm)
             if is_nike: stats["nike"]["ignorado"].append(pm)
@@ -712,12 +733,12 @@ def _copy_photos_for_msg(msg_photos: list[Path], dest_dir: Path) -> list[str]:
     dest_dir.mkdir(parents=True, exist_ok=True)
     imgs = sorted(dest_dir.glob("*.jpg")) + sorted(dest_dir.glob("*.jpeg")) + sorted(dest_dir.glob("*.png"))
     next_idx = len(imgs) + 1
-    result_images = [p.name for p in imgs]
+    result_images = [str(p.relative_to(PROJECT_ROOT)).replace("\\", "/") for p in imgs]
     for src in msg_photos:
         ext = src.suffix.lower() or ".jpg"
         dest = dest_dir / f"{next_idx}{ext}"
         shutil.copy2(src, dest)
-        result_images.append(dest.name)
+        result_images.append(str(dest.relative_to(PROJECT_ROOT)).replace("\\", "/"))
         next_idx += 1
     return result_images
 

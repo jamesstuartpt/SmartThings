@@ -14,6 +14,15 @@ function normalizeText(value) {
 
 function bySort(sort, products) {
   const list = [...products];
+  if (sort === "mais-vendidos") {
+    return list.sort((a, b) => {
+      const scoreDiff = Number(b.popularityScore || 0) - Number(a.popularityScore || 0);
+      if (scoreDiff !== 0) {
+        return scoreDiff;
+      }
+      return Number(b.latestTs || 0) - Number(a.latestTs || 0);
+    });
+  }
   if (sort === "recentes") {
     return list.sort((a, b) => Number(b.latestTs || 0) - Number(a.latestTs || 0));
   }
@@ -74,6 +83,7 @@ function applyFilters(products, state) {
 
 function getStateFromUrl() {
   const params = new URLSearchParams(window.location.search);
+  const config = getConfig();
   return {
     q: params.get("q") || "",
     brand: params.get("brand") || "",
@@ -81,7 +91,7 @@ function getStateFromUrl() {
     gender: params.get("gender") || "",
     size: params.get("size") || "",
     price: params.get("price") || "",
-    sort: params.get("sort") || "relevancia"
+    sort: params.get("sort") || config.catalog?.defaultSort || "relevancia"
   };
 }
 

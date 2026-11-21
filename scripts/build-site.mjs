@@ -59,6 +59,52 @@ function absoluteUrl(relativePath) {
   return `${base}/${clean}`;
 }
 
+const FEATURED_REF_CODES = Array.isArray(config.catalog?.featuredRefCodes)
+  ? config.catalog.featuredRefCodes.map((value) => String(value || "").trim()).filter(Boolean)
+  : [];
+
+const POPULAR_TERMS = Array.isArray(config.catalog?.popularSearchTerms)
+  ? config.catalog.popularSearchTerms.map((value) => normalizeText(value)).filter(Boolean)
+  : [];
+
+const POPULAR_BRAND_TOKENS = new Set(["adidas", "nike", "asics", "new balance", "newbalance"]);
+
+function buildPopularityScore(product) {
+  const haystack = normalizeText([
+    product?.name,
+    product?.brandLabel,
+    product?.category,
+    product?.modelLabel
+  ].filter(Boolean).join(" "));
+  let score = 0;
+
+  const refIndex = FEATURED_REF_CODES.indexOf(String(product?.refCode || "").trim());
+  if (refIndex >= 0) {
+    score += 100000 - refIndex * 1000;
+  }
+
+  POPULAR_TERMS.forEach((term, index) => {
+    if (term && haystack.includes(term)) {
+      score += 6000 - index * 50;
+    }
+  });
+
+  if (normalizeText(product?.category) === "sneakers") {
+    score += 250;
+  }
+
+  if (POPULAR_BRAND_TOKENS.has(normalizeText(product?.brandLabel))) {
+    score += 120;
+  }
+
+  if (isNewProduct(product)) {
+    score += 40;
+  }
+
+  score += Number(product?.latestTs || 0) / 1e10;
+  return Number(score.toFixed(4));
+}
+
 async function readJson(filePath, fallback) {
   try {
     const raw = await fs.readFile(filePath, "utf8");
@@ -189,6 +235,19 @@ function topbarMarkup(currentPath) {
           </button>
         </div>
       </div>
+      <div class="container topbar__search-row">
+        <form class="topbar-search searchbox" data-global-search-form role="search" action="${assetUrl("")}">
+          <span aria-hidden="true">⌕</span>
+          <input
+            data-global-search-input
+            type="search"
+            name="q"
+            placeholder="Pesquisar no catálogo a partir de qualquer página"
+            autocomplete="off"
+          >
+          <button class="topbar-search__submit" type="submit">Pesquisar</button>
+        </form>
+      </div>
     </header>
   `;
 }
@@ -283,6 +342,9 @@ function headMarkup({ title, description, canonicalPath, imagePath, extraMeta = 
     <meta name="twitter:description" content="${escapeHtml(description)}">
     <meta name="twitter:image" content="${image}">
     <meta name="twitter:site" content="${escapeHtml(config.seo.twitterHandle || "")}">
+    <link rel="icon" href="${assetUrl("favicon.svg")}" type="image/svg+xml">
+    <link rel="shortcut icon" href="${assetUrl("favicon.svg")}" type="image/svg+xml">
+    <meta name="theme-color" content="#111111">
     <link rel="stylesheet" href="${assetUrl("css/tokens.css")}">
     <link rel="stylesheet" href="${assetUrl("css/app.css")}">
     ${extraMeta}
@@ -391,6 +453,7 @@ function buildHomePage(featuredProducts) {
                   <label class="select-field">
                     <span class="sr-only">Ordenar</span>
                     <select id="filter-sort">
+                      <option value="mais-vendidos">Mais vendidos</option>
                       <option value="relevancia">Relevância</option>
                       <option value="recentes">Mais recentes</option>
                       <option value="az">A → Z</option>
@@ -691,6 +754,7 @@ async function build() {
     priceLabel: product.priceLabel,
     priceValue: product.priceValue,
     priceType: product.priceType,
+    popularityScore: buildPopularityScore(product),
     badges: product.badges,
     coverImage: product.coverImage,
     coverWidth: product.coverWidth,
@@ -715,6 +779,14 @@ async function build() {
       summaryProducts.flatMap((product) => product.sizes.map((size) => ({ value: size, label: size })))
     )
   };
+
+  const featuredProducts = [...normalizedProducts].sort((a, b) => {
+    const scoreDiff = Number(buildPopularityScore(b)) - Number(buildPopularityScore(a));
+    if (scoreDiff !== 0) {
+      return scoreDiff;
+    }
+    return Number(b.latestTs || 0) - Number(a.latestTs || 0);
+  });
 
   await removePath(path.join(ROOT, "produto"));
   await removePath(path.join(ROOT, "como-funciona"));
@@ -741,7 +813,7 @@ async function build() {
     );
   }
 
-  await writeText(path.join(ROOT, "index.html"), buildHomePage(normalizedProducts.slice(0, 12)));
+  await writeText(path.join(ROOT, "index.html"), buildHomePage(featuredProducts.slice(0, 12)));
 
   for (const product of normalizedProducts) {
     const fullProduct = {

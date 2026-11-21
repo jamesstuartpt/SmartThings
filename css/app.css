@@ -84,6 +84,25 @@ button {
   min-height: 72px;
 }
 
+.topbar__search-row {
+  padding: 0 0 14px;
+}
+
+.topbar-search {
+  width: 100%;
+}
+
+.topbar-search__submit {
+  min-height: 38px;
+  padding: 0 14px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
 .brand {
   display: flex;
   align-items: center;
@@ -1062,13 +1081,18 @@ details p {
     padding-top: 34px;
   }
 
-  .topbar__nav {
+.topbar__nav {
     display: flex;
   }
 
   .topbar__actions {
     margin-left: 0;
   }
+
+  .topbar__search-row {
+    padding-top: 0;
+  }
+}
 
   .hero__card {
     padding: 38px 34px;

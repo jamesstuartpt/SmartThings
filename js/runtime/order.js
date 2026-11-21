@@ -302,38 +302,51 @@ export class OrderStore {
 
   buildMessage() {
     const code = this.generateOrderCode();
-    const nameLine = this.customerName ? this.customerName : "";
-    const lines = [
-      `Pedido ${code}`,
-      `Nome: ${nameLine}`
-    ];
-
-    this.items.forEach((item, index) => {
+    const nameLine = String(this.customerName || "").trim();
+    const snapshot = this.snapshot();
+    const hasMultipleItems = this.items.length > 1;
+    const itemBlocks = this.items.map((item) => {
       const refCode = getItemRefCode(item);
-      const line = [
-        `${index + 1}) Ref. ${refCode || item.slug.toUpperCase()}`,
-        item.name,
-        `Tam. ${item.size}`,
-        `${item.quantity}x`,
-        item.priceLabel,
-        item.url
+      const lines = [
+        `🛒 *${item.quantity}x* ${item.name}`,
+        `🏷️ *Ref:* ${refCode || item.slug.toUpperCase()}`,
+        `📏 *Tamanho:* ${item.size}`
       ];
-      lines.push(line.join(" | "));
+
+      if (hasMultipleItems) {
+        const subtotal = item.priceValue != null
+          ? `${Number(item.priceValue) * Number(item.quantity || 1)}€`
+          : item.priceLabel;
+        lines.push(`💵 *Preço:* ${subtotal}`);
+      }
+
+      return lines.join("\n");
     });
 
-    const totalLine = this.snapshot().hasConsult
-      ? `Total estimado: ${this.snapshot().total}€ + artigos sob consulta (preço final e envio confirmados no WhatsApp)`
-      : `Total estimado: ${this.snapshot().total}€ (preço final e envio confirmados no WhatsApp)`;
-    const footerLine = String(this.config.order?.textBase || "").trim();
+    const headerLines = [`📦 *Pedido #${code}*`];
 
-    lines.push(totalLine);
-    if (footerLine && !normalizeText(totalLine).includes(normalizeText(footerLine))) {
-      lines.push(footerLine);
+    if (nameLine) {
+      headerLines.push(`👤 *Cliente:* ${nameLine}`);
+    }
+
+    const sections = [headerLines.join("\n")];
+
+    if (itemBlocks.length) {
+      sections.push(itemBlocks.join("\n\n"));
+    }
+
+    sections.push([
+      `💰 *Total estimado:* ${snapshot.total}€`,
+      "💬 _Valor final e método de envio a confirmar por aqui. Obrigado!_"
+    ].join("\n"));
+
+    if (this.items.length === 1 && this.items[0]?.url) {
+      sections.push(`🔗 ${this.items[0].url}`);
     }
 
     return {
       code,
-      text: lines.filter(Boolean).join("\n")
+      text: sections.filter(Boolean).join("\n\n")
     };
   }
 
