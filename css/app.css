@@ -658,7 +658,8 @@ button {
   overflow: hidden;
   background: var(--bg-elevated);
   border: 1px solid var(--border);
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 1 / 1;
+  max-height: min(72vh, 620px);
 }
 
 .gallery__main img {
@@ -681,6 +682,7 @@ button {
   background: var(--bg-elevated);
   aspect-ratio: 1;
   padding: 0;
+  min-width: 64px;
 }
 
 .gallery__thumb.is-active {
@@ -1081,7 +1083,7 @@ details p {
     padding-top: 34px;
   }
 
-.topbar__nav {
+  .topbar__nav {
     display: flex;
   }
 
@@ -1092,7 +1094,6 @@ details p {
   .topbar__search-row {
     padding-top: 0;
   }
-}
 
   .hero__card {
     padding: 38px 34px;
@@ -1116,8 +1117,13 @@ details p {
   }
 
   .page-layout {
-    grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
+    grid-template-columns: minmax(0, 0.95fr) minmax(320px, 0.85fr);
     align-items: start;
+  }
+
+  .gallery__main {
+    aspect-ratio: 4 / 5;
+    max-height: min(68vh, 560px);
   }
 
   .related-grid {
