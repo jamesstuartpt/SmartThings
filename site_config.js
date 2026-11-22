@@ -71,12 +71,30 @@ const SMARTTHINGS_CONFIG = {
     heroTitle: "Catálogo streetwear e sneakers, sem complicar o pedido.",
     heroIntro:
       "Escolhe os artigos, define os tamanhos e envia tudo num pedido organizado pelo WhatsApp.",
+    heroEyebrow: "Drop contínuo · Envio para todo Portugal",
+    heroTitleLines: ["O teu fit.", "Sem complicações."],
     heroCtaLabel: "Ver catálogo",
+    heroSecondaryCtaLabel: "Falar no WhatsApp",
     orderCtaLabel: "Ir para o carrinho",
+    marqueeItems: [
+      "Envio para todo Portugal",
+      "Stock confirmado no WhatsApp",
+      "Prazo médio 10 a 15 dias",
+      "Pagamento por MB Way"
+    ],
     steps: [
-      "Escolher os artigos",
-      "Adicionar ao carrinho",
-      "Enviar no WhatsApp"
+      {
+        title: "Escolhe o artigo",
+        text: "Filtra o catálogo, vê os detalhes e escolhe o tamanho certo."
+      },
+      {
+        title: "Adiciona ao carrinho",
+        text: "O carrinho organiza os artigos, os tamanhos e o total estimado."
+      },
+      {
+        title: "Confirma no WhatsApp",
+        text: "Envias o pedido e confirmamos stock, preço final e envio."
+      }
     ]
   },
   ui: {

@@ -345,6 +345,9 @@ function headMarkup({ title, description, canonicalPath, imagePath, extraMeta = 
     <link rel="icon" href="${assetUrl("favicon.svg")}" type="image/svg+xml">
     <link rel="shortcut icon" href="${assetUrl("favicon.svg")}" type="image/svg+xml">
     <meta name="theme-color" content="#111111">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&display=swap">
     <link rel="stylesheet" href="${assetUrl("css/tokens.css")}">
     <link rel="stylesheet" href="${assetUrl("css/app.css")}">
     ${extraMeta}
@@ -405,6 +408,90 @@ function renderCard(product, options = {}) {
   `;
 }
 
+function heroMarkup() {
+  const lines =
+    Array.isArray(config.catalog?.heroTitleLines) && config.catalog.heroTitleLines.length
+      ? config.catalog.heroTitleLines
+      : [config.catalog.heroTitle];
+  const titleHtml = lines
+    .filter(Boolean)
+    .map((line, index) =>
+      index === 0
+        ? escapeHtml(line)
+        : `<span class="hero__title-outline">${escapeHtml(line)}</span>`
+    )
+    .join("<br>");
+  const whatsappLink = `https://wa.me/${encodeURIComponent(config.support.whatsappNumber)}`;
+
+  return `
+    <section class="hero hero--home">
+      <div class="container hero--home__inner">
+        <p class="hero__eyebrow">${escapeHtml(config.catalog.heroEyebrow || "")}</p>
+        <h1 class="hero__title">${titleHtml}</h1>
+        <p class="hero__lead">${escapeHtml(config.catalog.heroIntro || "")}</p>
+        <div class="hero__actions">
+          <a class="button button--primary" href="#catalogo">${escapeHtml(config.catalog.heroCtaLabel)}</a>
+          <a class="button button--ghost" href="${whatsappLink}" target="_blank" rel="noopener">${escapeHtml(config.catalog.heroSecondaryCtaLabel)}</a>
+        </div>
+      </div>
+    </section>
+  `;
+}
+
+function marqueeMarkup() {
+  const items = Array.isArray(config.catalog?.marqueeItems)
+    ? config.catalog.marqueeItems.map((item) => String(item || "").trim()).filter(Boolean)
+    : [];
+  if (!items.length) {
+    return "";
+  }
+  const track = items
+    .map(
+      (item) =>
+        `<span class="marquee__item">${escapeHtml(item)}<span class="marquee__dot" aria-hidden="true">✦</span></span>`
+    )
+    .join("");
+  return `
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span class="marquee__group">${track}</span>
+        <span class="marquee__group">${track}</span>
+      </div>
+    </div>
+  `;
+}
+
+function stepsMarkup() {
+  const steps = Array.isArray(config.catalog?.steps) ? config.catalog.steps : [];
+  if (!steps.length) {
+    return "";
+  }
+  const cards = steps
+    .map(
+      (step, index) => `
+        <article class="step-card">
+          <p class="step-card__num">${String(index + 1).padStart(2, "0")}</p>
+          <h3 class="step-card__title">${escapeHtml(step.title)}</h3>
+          <p class="step-card__text">${escapeHtml(step.text)}</p>
+        </article>
+      `
+    )
+    .join("");
+  return `
+    <section class="steps-section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Como funciona o pedido</h2>
+            <p>${escapeHtml(config.catalog.shippingNotice)}</p>
+          </div>
+        </div>
+        <div class="steps-grid">${cards}</div>
+      </div>
+    </section>
+  `;
+}
+
 function buildHomePage(featuredProducts) {
   const featuredHtml = featuredProducts.map(renderCard).join("");
   const bootstrapJson = `<script id="st-catalog-bootstrap" type="application/json">${JSON.stringify({
@@ -413,7 +500,9 @@ function buildHomePage(featuredProducts) {
 
   const main = `
     <main>
-      <section class="catalog-section" id="catalogo">
+      ${heroMarkup()}
+      ${marqueeMarkup()}
+      <section class="catalog-section catalog-section--home" id="catalogo">
         <div class="container">
           <div class="section-head">
             <div>
@@ -474,7 +563,7 @@ function buildHomePage(featuredProducts) {
           </div>
         </div>
       </section>
-
+      ${stepsMarkup()}
     </main>
   `;
 
